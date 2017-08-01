@@ -66,8 +66,7 @@ like that:
 });
 ```
 
-more detail you can see the S3.html
-[S3.html](https://github.com/helinyu/YDOpenHardwarePod/blob/master/ydOpenHardware/YDOpenHardwareSimple/YDOpenHardwareSimple/WebView/S3.html)
+more detail you can see the [S3.html](https://github.com/helinyu/YDOpenHardwarePod/blob/master/ydOpenHardware/YDOpenHardwareSimple/YDOpenHardwareSimple/WebView/S3.html)
 
 
 
