@@ -1,0 +1,164 @@
+<!doctype html>
+<html><head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <style type='text/css'>
+            html { font-family:Helvetica; color:#222; }
+            h1 { color:steelblue; font-size:24px; margin-top:24px; }
+            button { margin:0 3px 10px; font-size:12px; }
+            .logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
+            </style>
+</head><body>
+    <h1>WebViewJavascriptBridge Demo</h1>
+    <script>
+        window.onerror = function(err) {
+            log('window.onerror: ' + err)
+        }
+    
+// 固定的模块
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'https://__bridge_loaded__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+
+// 这里调用
+    setupWebViewJavascriptBridge(function(bridge) {
+        var uniqueId = 1
+        function log(message, data) {
+        var log = document.getElementById('log')
+        var el = document.createElement('div')
+        el.className = 'logLine'
+        el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+        if (log.children.length) { log.insertBefore(el, log.children[0]) }
+        else { log.appendChild(el) }
+        }
+        
+        var choiceItem ;                
+        
+                 
+         // 注册方法名给调用
+        bridge.registerHandler('onPeripheral', function(data, responseCallback) {
+            log('ObjC called testJavascriptHandler with', data)
+            var responseData = { 'name':'revue '+data }
+            log('JS responding with', responseData)
+            choiceItem = data;
+            log('choiceitem '+choiceItem);
+            responseCallback(responseData)
+        });
+
+         // 这里是自定义逻辑，也就是html的页面展示
+         document.body.appendChild(document.createElement('br'))
+             var callbackButton = document.getElementById('buttons').appendChild(document.createElement('button'))
+             callbackButton.innerHTML = 'Fire testObjcCallback'
+             callbackButton.onclick = function(e) {
+             e.preventDefault()
+             log('JS calling handler "deliverFromjs"')
+             bridge.callHandler('deliverFromjs', {'foo': 'bar'}, function(response) {
+                            log('JS got response', response)
+                            })
+         };
+
+        document.body.appendChild(document.createElement('br'))
+             var callbackButton = document.getElementById('buttons').appendChild(document.createElement('scanBtn'))
+             callbackButton.innerHTML = 'scanBtn'
+             callbackButton.onclick = function(e) {
+             e.preventDefault();
+             log('JS calling handler "scan peripheral"')
+             bridge.callHandler('onScan', 'S3', function(response) {
+                                log('JS got response', response)
+                                });
+         };
+
+        var connectBtn = document.getElementById('connectBtn')
+            connectBtn.innerHTML = 'connect';
+            connectBtn.onclick = function(e) {
+            e.preventDefault();
+            log('js call oc to connect this peripheral');
+            bridge.callHandler('onConnect',choiceItem,function(response) {
+                                log('js got resposne ',response);
+                                });
+        };
+
+        var runLabel = document.getElementById('characteristic');
+        bridge.registerHandler('deliverCharacteristic', function(data, responseCallback) {
+            var responseData = { 'characteristic':JSON.parse(data) }
+            log('JS responding with'+data +"resposne json"+JSON.parse(data));
+
+            runLabel.innerHTML = data;
+
+            var json = JSON.parse(data);
+            log('uuid :'+json.uuid + ' value ' + json.value.value0 + json.value.value1 + json.value.value2 + json.value.value3);
+
+            if (json.uuid == 'FFF3') {
+               //卡路里
+               var calorieValue = (json.value.value2 * 0.5 / 14)
+               log('calorievalue : '+calorieValue);
+               var caloriLabel = document.getElementById('calorieLabel');
+               caloriLabel.innerHTML = calorieValue;
+
+                                
+                //距离
+               var disMValue = (json.value.value2 * 0.5 / 1000);
+               log('disMValue : '+disMValue);
+               var disMLabel = document.getElementById('disMValueLabel');
+               disMLabel.innerHTML = disMValue;
+
+            }
+            else if (json.uuid == 'FFF2') {
+               log('heartNum : '+parseInt(json.value.value2));
+               var heartLabel = document.getElementById('heartNumLabel');
+               heartLabel.innerHTML = parseInt(json.value.value2);
+            }else{}
+                     
+            responseCallback(responseData);
+        });
+        
+        var quitConnectBtn = document.getElementById('quitConnectBtn');
+        quitConnectBtn.innerHTML = 'quit connect';
+        quitConnectBtn.onclick = function(e) {
+            e.preventDefault();
+            log('js call oc to quit connect this peripheral');
+            bridge.callHandler('onQuitConnect',choiceItem,function(response) {
+                                log('js got resposne ',response);
+                        });
+         };
+                                 
+    })
+    
+    </script>
+    <div>
+        <a href="./source.html">跳转链接</a>
+    </div>
+    <div id='buttons'></div>
+    <div id='btns'></div>
+    <div>
+        <UIButton id ='connectBtn'>连接</UIButton>
+    </div>
+    <br/>
+    <div>
+        <label>卡路里:</label>
+        <label id='calorieLabel'></label>
+        <br/>
+        <label>距离:</label>
+        <label id='disMValueLabel'></label>
+        <br/>
+        <label>心率:</label>
+        <label id='heartNumLabel'></label>
+    </div>
+    <div>
+        <label>传入数据显示</label>
+        <label id='characteristic'></label>
+    </div>
+    <div>
+        <UIButton id ='quitConnectBtn'>断开连接</UIButton>
+    </div>    
+    <div id='log'></div>
+
+
+</body></html>
+
