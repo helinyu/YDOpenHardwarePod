@@ -1,0 +1,1 @@
+../../../JavaScriptBridge/Classes/iOS/FrameworkSupport/UIKit/JSBUIVideoEditorController.h

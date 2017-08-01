@@ -1,0 +1,1 @@
+../../../JavaScriptBridge/Classes/Private/UIBarButtonItem+JavaScriptCore.h
