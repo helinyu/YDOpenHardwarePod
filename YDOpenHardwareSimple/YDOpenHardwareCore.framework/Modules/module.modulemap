@@ -1,6 +1,0 @@
-framework module YDOpenHardwareCore {
-  umbrella header "YDOpenHardwareCore.h"
-
-  export *
-  module * { export * }
-}
