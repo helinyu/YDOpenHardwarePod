@@ -10,7 +10,7 @@
 
 @class WebViewJavascriptBridge;
 
-@interface YDBluetoothWebViewMgr :NSObject
+@interface YDS3WebViewMgr :NSObject
 
 @property (nonatomic, strong) WebViewJavascriptBridge *webViewBridge;
 

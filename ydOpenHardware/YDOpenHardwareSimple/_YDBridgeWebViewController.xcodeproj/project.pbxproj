@@ -24,7 +24,7 @@
 		415C6AC91F305DF6007BE9DA /* peripheralList.html in Resources */ = {isa = PBXBuildFile; fileRef = 415C6AC11F305DF6007BE9DA /* peripheralList.html */; };
 		415C6ACA1F305DF6007BE9DA /* S3.html in Resources */ = {isa = PBXBuildFile; fileRef = 415C6AC21F305DF6007BE9DA /* S3.html */; };
 		415C6ACB1F305DF6007BE9DA /* source.html in Resources */ = {isa = PBXBuildFile; fileRef = 415C6AC31F305DF6007BE9DA /* source.html */; };
-		415C6ACC1F305DF6007BE9DA /* YDBluetoothWebViewMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AC51F305DF6007BE9DA /* YDBluetoothWebViewMgr.m */; };
+		415C6ACC1F305DF6007BE9DA /* YDS3WebViewMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AC51F305DF6007BE9DA /* YDS3WebViewMgr.m */; };
 		415C6AD31F3060C5007BE9DA /* YDMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD21F3060C5007BE9DA /* YDMBaseViewController.m */; };
 		415C6AD61F306137007BE9DA /* UIViewController+YDNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD51F306137007BE9DA /* UIViewController+YDNavigation.m */; };
 		415C6ADA1F30669D007BE9DA /* UIViewController+YDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD91F30669D007BE9DA /* UIViewController+YDViewController.m */; };
@@ -85,8 +85,8 @@
 		415C6AC11F305DF6007BE9DA /* peripheralList.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = peripheralList.html; sourceTree = "<group>"; };
 		415C6AC21F305DF6007BE9DA /* S3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = S3.html; sourceTree = "<group>"; };
 		415C6AC31F305DF6007BE9DA /* source.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = source.html; sourceTree = "<group>"; };
-		415C6AC41F305DF6007BE9DA /* YDBluetoothWebViewMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBluetoothWebViewMgr.h; sourceTree = "<group>"; };
-		415C6AC51F305DF6007BE9DA /* YDBluetoothWebViewMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBluetoothWebViewMgr.m; sourceTree = "<group>"; };
+		415C6AC41F305DF6007BE9DA /* YDS3WebViewMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDS3WebViewMgr.h; sourceTree = "<group>"; };
+		415C6AC51F305DF6007BE9DA /* YDS3WebViewMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDS3WebViewMgr.m; sourceTree = "<group>"; };
 		415C6AD11F3060C5007BE9DA /* YDMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMBaseViewController.h; sourceTree = "<group>"; };
 		415C6AD21F3060C5007BE9DA /* YDMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMBaseViewController.m; sourceTree = "<group>"; };
 		415C6AD51F306137007BE9DA /* UIViewController+YDNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YDNavigation.m"; sourceTree = "<group>"; };
@@ -208,8 +208,8 @@
 				415C6AC11F305DF6007BE9DA /* peripheralList.html */,
 				415C6AC21F305DF6007BE9DA /* S3.html */,
 				415C6AC31F305DF6007BE9DA /* source.html */,
-				415C6AC41F305DF6007BE9DA /* YDBluetoothWebViewMgr.h */,
-				415C6AC51F305DF6007BE9DA /* YDBluetoothWebViewMgr.m */,
+				415C6AC41F305DF6007BE9DA /* YDS3WebViewMgr.h */,
+				415C6AC51F305DF6007BE9DA /* YDS3WebViewMgr.m */,
 				411ED0CC1F308AE50041909A /* YDBridgeWebMgr.h */,
 				411ED0CE1F308AE50041909A /* YDBridgeWebMgr.m */,
 				411ED0CF1F308AE50041909A /* YDBridgeWebView.h */,
@@ -658,7 +658,7 @@
 				415C6ADA1F30669D007BE9DA /* UIViewController+YDViewController.m in Sources */,
 				4D4A645F1D23D4F200915104 /* YDThirdPardModel.m in Sources */,
 				4D4A646D1D23F10000915104 /* MSJsonKit.mm in Sources */,
-				415C6ACC1F305DF6007BE9DA /* YDBluetoothWebViewMgr.m in Sources */,
+				415C6ACC1F305DF6007BE9DA /* YDS3WebViewMgr.m in Sources */,
 				411ED0BE1F30838F0041909A /* CWStatusBarNotification.m in Sources */,
 				4D6D8FCC1C60E35800003AA0 /* main.m in Sources */,
 			);

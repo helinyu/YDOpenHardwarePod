@@ -37,6 +37,7 @@
     
 //    push or present
     YDBridgeWebViewController *vc = [YDBridgeWebViewController new];
+    vc.urlString = @"S3.html";
      [self.navigationController pushViewController:vc animated:YES];
 
 }
