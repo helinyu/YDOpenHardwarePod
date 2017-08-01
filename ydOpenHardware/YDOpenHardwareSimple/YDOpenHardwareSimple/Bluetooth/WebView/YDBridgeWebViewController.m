@@ -172,6 +172,7 @@
 //    yd.readload.html
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRealHtmlNotify:) name:@"yd.readload.html" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBecomActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onGoBackNotify) name:@"ydNtfGoBack" object:nil];
 }
 
 /**
@@ -366,6 +367,10 @@
 #pragma mark - notification
 - (void)appBecomActive:(NSNotification *)notification {
     
+}
+
+- (void)onGoBackNotify {
+    [self yd_popUp];
 }
 
 - (void)onRealHtmlNotify:(NSNotification *)notification {

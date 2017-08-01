@@ -91,10 +91,18 @@
 }
 
 - (void)registerBridgeHandler {
+//    js invoke oc common methods
+    
     [self.bridge registerHandler:@"yd.log" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"%@", data);
     }];
     
+    [_bridge registerHandler:@"onGoBackClick" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"返回上一个页面");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ydNtfGoBack" object:nil];
+    }];
+    
+//    specify js invoke oc methods
     switch (self.viewType) {
         case YDWebViewTypeInner:
             

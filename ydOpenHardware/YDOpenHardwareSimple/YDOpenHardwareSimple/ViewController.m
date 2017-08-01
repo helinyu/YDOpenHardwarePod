@@ -9,36 +9,34 @@
 #import "ViewController.h"
 #import "YDThirdPartLoader.h"
 
-//#import <YDOpenHardwareCore/YDOpenHardwareMgr.h>
+#import <YDOpenHardwareCore/YDOpenHardwareMgr.h>
 
 #import "YDBridgeWebViewController.h"
 
 
 @interface ViewController ()
 
-
 - (IBAction)toThirdPartVC:(id)sender;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)toThirdPartVC:(id)sender {
 //    [[YDThirdPartLoader shared] toThirdPartVC];
     
-//    push or present
     YDBridgeWebViewController *vc = [YDBridgeWebViewController new];
     vc.urlString = @"S3.html";
-     [self.navigationController pushViewController:vc animated:YES];
+    vc.type = YDWebViewTypeS3;
+    [self.navigationController pushViewController:vc animated:YES];
 
 }
 @end

@@ -30,6 +30,7 @@
 
 
 - (void)setCurrentViewController:(UIViewController *)viewController;
+
 - (void)solveBridgeWithWebView:(YDBridgeWebView *)webView;
 - (void)solveBridgeDelegate:(YDBridgeWebView *)webView;
 
