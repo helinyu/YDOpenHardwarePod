@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 	s.name         = 'YDOpenHardware'
-	s.version      = '0.0.9'
+	s.version      = '0.1.0'
 	s.summary      = '蓝牙硬件开发平台，数据存储'
 	s.ios.deployment_target = '7.0'
 	s.homepage     = 'https://github.com/helinyu/YDOpenHardwarePod'
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 	                YDOpenHardware is for easier to use
 	               DESC
     s.dependency 'Masonry', '~> 1.0.2'
-    s.vendored_frameworks = 'YDOpenHardwareCore.framework'
-    s.vendored_frameworks = 'YDOpenHardwareSDK.framework'
+    s.vendored_frameworks = 'framework/YDOpenHardwareCore.framework'
+    s.vendored_frameworks = 'framework/YDOpenHardwareSDK.framework'
 
 end
