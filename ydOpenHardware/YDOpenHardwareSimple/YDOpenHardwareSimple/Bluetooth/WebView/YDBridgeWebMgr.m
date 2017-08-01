@@ -92,7 +92,7 @@
 
 - (void)registerBridgeHandler {
     [self.bridge registerHandler:@"yd.log" handler:^(id data, WVJBResponseCallback responseCallback) {
-        MSLogI(@"%@", data);
+        NSLog(@"%@", data);
     }];
     
     switch (self.viewType) {

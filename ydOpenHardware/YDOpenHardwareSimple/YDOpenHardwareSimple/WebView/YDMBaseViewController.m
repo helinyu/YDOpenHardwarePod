@@ -44,14 +44,14 @@
 }
 
 - (void)dealloc {
-    MSLogI(@"\n-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
+    NSLog(@"\n-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
 }
 
 #pragma mark lifeCircle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    MSLogI(@"\n0-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
+    NSLog(@"\n0-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
     [self msInit];
 }
 
@@ -61,7 +61,7 @@
 //        [self.statusBarNotification dismissNotification];
 //    }
 //    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:NO];
-//    MSLogI(@"\n1-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
+//    NSLog(@"\n1-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
 //    //[TalkingData trackPageBegin: NSStringFromClass([self class])];
 //    [MobClick beginLogPageView: self.title.length ? self.title : NSStringFromClass([self class])];
 }
@@ -87,17 +87,17 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear: animated];
     _isViewAppear = YES;
-    MSLogI(@"\n4-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
+    NSLog(@"\n4-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
     [self yd_viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear: (BOOL)animated {
     [super viewWillDisappear: animated];
-    if (self.statusBarNotification) {
-        [self.statusBarNotification dismissNotification];
-    }
+//    if (self.statusBarNotification) {
+//        [self.statusBarNotification dismissNotification];
+//    }
     _isViewAppear = NO;
-    MSLogI(@"\n5-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
+    NSLog(@"\n5-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
 //    [self yd_dismissContinuousMsg];
     //[TalkingData trackPageEnd: NSStringFromClass([self class])];
 //    [MobClick endLogPageView: self.title.length ? self.title : NSStringFromClass([self class])];
@@ -106,16 +106,16 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear: animated];
-    MSLogI(@"\n6-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
+    NSLog(@"\n6-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    MSLogI(@"\n-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
-    if (self.isViewLoaded && !self.view.window && ![self isKindOfClass:[EaseRefreshTableViewController class]] && ![self isKindOfClass:[EaseViewController class]] && ![self isKindOfClass:[YDLiveViewController class]] && !self.isViewAppear) {
-        self.view = nil;
-    }
+    NSLog(@"\n-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
+//    if (self.isViewLoaded && !self.view.window && ![self isKindOfClass:[EaseRefreshTableViewController class]] && ![self isKindOfClass:[EaseViewController class]] && ![self isKindOfClass:[YDLiveViewController class]] && !self.isViewAppear) {
+//        self.view = nil;
+//    }
 }
 
 #pragma mark orientation
@@ -230,9 +230,9 @@
     if (_showMode == YDVCShowModeTabBar || _showMode == YDVCShowModeBoth) {
         self.hidesBottomBarWhenPushed = NO;
     } else {
-        if (![self.class isSubclassOfClass:[YDIndexViewController class]] && ![self.class isSubclassOfClass:[YDNewChallengeViewController class]] && ![self.class isSubclassOfClass:[YDMDiscoverViewController class]] && ![self.class isSubclassOfClass:[YDCircleDynamicRootViewController class]] && ![self.class isSubclassOfClass:[YDMineViewController class]]) {
-            self.hidesBottomBarWhenPushed = YES;
-        }
+//        if (![self.class isSubclassOfClass:[YDIndexViewController class]] && ![self.class isSubclassOfClass:[YDNewChallengeViewController class]] && ![self.class isSubclassOfClass:[YDMDiscoverViewController class]] && ![self.class isSubclassOfClass:[YDCircleDynamicRootViewController class]] && ![self.class isSubclassOfClass:[YDMineViewController class]]) {
+//            self.hidesBottomBarWhenPushed = YES;
+//        }
     }
     self.navigationController.navigationBar.hidden = YES;
 }

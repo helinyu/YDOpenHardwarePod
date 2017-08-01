@@ -1,0 +1,952 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11B82CCA432A7146826C13A1 /* libPods-YDOpenHardwareSimpleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C8C5E839CF20EF2B5AE7FF /* libPods-YDOpenHardwareSimpleTests.a */; };
+		2D2143ECDF59385822D67DEA /* libPods-YDOpenHardwareSimpleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A01A50428189855CC78A48 /* libPods-YDOpenHardwareSimpleUITests.a */; };
+		411ED0B81F3081E20041909A /* NSString+YDContainsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0B61F3081E20041909A /* NSString+YDContainsString.m */; };
+		411ED0BE1F30838F0041909A /* CWStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0BC1F30838E0041909A /* CWStatusBarNotification.m */; };
+		411ED0C41F3086510041909A /* YDWebNoNetworkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0C21F3086510041909A /* YDWebNoNetworkView.m */; };
+		411ED0D51F308B7C0041909A /* ViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FD01C60E35800003AA0 /* ViewController.h */; };
+		411ED0D71F308BE60041909A /* YDBridgeWebMgr.h in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0CC1F308AE50041909A /* YDBridgeWebMgr.h */; };
+		411ED0D81F308BE60041909A /* YDBridgeWebMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0CE1F308AE50041909A /* YDBridgeWebMgr.m */; };
+		411ED0D91F308BE60041909A /* YDBridgeWebView.h in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0CF1F308AE50041909A /* YDBridgeWebView.h */; };
+		411ED0DA1F308BE60041909A /* YDBridgeWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0D11F308AE50041909A /* YDBridgeWebView.m */; };
+		411ED0DB1F308BE60041909A /* YDBridgeWebViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0CD1F308AE50041909A /* YDBridgeWebViewController.h */; };
+		411ED0DC1F308BE60041909A /* YDBridgeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0D01F308AE50041909A /* YDBridgeWebViewController.m */; };
+		415C6AB21F305D7E007BE9DA /* YDBlueToothMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AB11F305D7E007BE9DA /* YDBlueToothMgr.m */; };
+		415C6AC81F305DF6007BE9DA /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 415C6AC01F305DF6007BE9DA /* index.html */; };
+		415C6AC91F305DF6007BE9DA /* peripheralList.html in Resources */ = {isa = PBXBuildFile; fileRef = 415C6AC11F305DF6007BE9DA /* peripheralList.html */; };
+		415C6ACA1F305DF6007BE9DA /* S3.html in Resources */ = {isa = PBXBuildFile; fileRef = 415C6AC21F305DF6007BE9DA /* S3.html */; };
+		415C6ACB1F305DF6007BE9DA /* source.html in Resources */ = {isa = PBXBuildFile; fileRef = 415C6AC31F305DF6007BE9DA /* source.html */; };
+		415C6ACC1F305DF6007BE9DA /* YDBluetoothWebViewMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AC51F305DF6007BE9DA /* YDBluetoothWebViewMgr.m */; };
+		415C6AD31F3060C5007BE9DA /* YDMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD21F3060C5007BE9DA /* YDMBaseViewController.m */; };
+		415C6AD61F306137007BE9DA /* UIViewController+YDNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD51F306137007BE9DA /* UIViewController+YDNavigation.m */; };
+		415C6ADA1F30669D007BE9DA /* UIViewController+YDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD91F30669D007BE9DA /* UIViewController+YDViewController.m */; };
+		4D4A64591D23C78200915104 /* ThirdParts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A64571D23C78200915104 /* ThirdParts.plist */; };
+		4D4A645C1D23C80A00915104 /* YDThirdPartLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A645B1D23C80A00915104 /* YDThirdPartLoader.m */; };
+		4D4A645F1D23D4F200915104 /* YDThirdPardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A645E1D23D4F200915104 /* YDThirdPardModel.m */; };
+		4D4A646D1D23F10000915104 /* MSJsonKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A646C1D23F10000915104 /* MSJsonKit.mm */; };
+		4D4A64751D260EEB00915104 /* MSVCRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A64741D260EEB00915104 /* MSVCRouter.m */; };
+		4D6D8FCC1C60E35800003AA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCB1C60E35800003AA0 /* main.m */; };
+		4D6D8FCF1C60E35800003AA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCE1C60E35800003AA0 /* AppDelegate.m */; };
+		4D6D8FD21C60E35800003AA0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FD11C60E35800003AA0 /* ViewController.m */; };
+		4D6D8FD51C60E35800003AA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D6D8FD31C60E35800003AA0 /* Main.storyboard */; };
+		4D6D8FD71C60E35900003AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D6D8FD61C60E35900003AA0 /* Assets.xcassets */; };
+		4D6D8FDA1C60E35900003AA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D6D8FD81C60E35900003AA0 /* LaunchScreen.storyboard */; };
+		4D6D8FE51C60E35900003AA0 /* YDOpenHardwareSimpleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FE41C60E35900003AA0 /* YDOpenHardwareSimpleTests.m */; };
+		4D6D8FF01C60E35900003AA0 /* YDOpenHardwareSimpleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FEF1C60E35900003AA0 /* YDOpenHardwareSimpleUITests.m */; };
+		4DB5ACEA1C732A7D00763E61 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB5ACE91C732A7D00763E61 /* libsqlite3.tbd */; };
+		9F5F0D99290CF496AF216787 /* libPods-YDOpenHardwareSimple.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CB78CCC48F1E0E3A7C8984 /* libPods-YDOpenHardwareSimple.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4D6D8FE11C60E35900003AA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D6D8FBF1C60E35800003AA0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D6D8FC61C60E35800003AA0;
+			remoteInfo = YDOpenHardwareSimple;
+		};
+		4D6D8FEC1C60E35900003AA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D6D8FBF1C60E35800003AA0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D6D8FC61C60E35800003AA0;
+			remoteInfo = YDOpenHardwareSimple;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		203E60A830441E97B860412C /* Pods-YDOpenHardwareSimple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDOpenHardwareSimple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YDOpenHardwareSimple/Pods-YDOpenHardwareSimple.debug.xcconfig"; sourceTree = "<group>"; };
+		2F1AFCFF58DC1882D940A5DC /* Pods-YDOpenHardwareSimpleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDOpenHardwareSimpleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YDOpenHardwareSimpleTests/Pods-YDOpenHardwareSimpleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		411ED0B01F3080DB0041909A /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YDOpenHardwareSDK.framework; path = ../../../../Desktop/thirdpath/YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
+		411ED0B11F3080DB0041909A /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
+		411ED0B61F3081E20041909A /* NSString+YDContainsString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+YDContainsString.m"; sourceTree = "<group>"; };
+		411ED0B71F3081E20041909A /* NSString+YDContainsString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+YDContainsString.h"; sourceTree = "<group>"; };
+		411ED0BC1F30838E0041909A /* CWStatusBarNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CWStatusBarNotification.m; sourceTree = "<group>"; };
+		411ED0BD1F30838F0041909A /* CWStatusBarNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CWStatusBarNotification.h; sourceTree = "<group>"; };
+		411ED0C21F3086510041909A /* YDWebNoNetworkView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDWebNoNetworkView.m; sourceTree = "<group>"; };
+		411ED0C31F3086510041909A /* YDWebNoNetworkView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDWebNoNetworkView.h; sourceTree = "<group>"; };
+		411ED0CC1F308AE50041909A /* YDBridgeWebMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDBridgeWebMgr.h; sourceTree = "<group>"; };
+		411ED0CD1F308AE50041909A /* YDBridgeWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDBridgeWebViewController.h; sourceTree = "<group>"; };
+		411ED0CE1F308AE50041909A /* YDBridgeWebMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDBridgeWebMgr.m; sourceTree = "<group>"; };
+		411ED0CF1F308AE50041909A /* YDBridgeWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDBridgeWebView.h; sourceTree = "<group>"; };
+		411ED0D01F308AE50041909A /* YDBridgeWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDBridgeWebViewController.m; sourceTree = "<group>"; };
+		411ED0D11F308AE50041909A /* YDBridgeWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDBridgeWebView.m; sourceTree = "<group>"; };
+		415C6AB01F305D7E007BE9DA /* YDBlueToothMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBlueToothMgr.h; sourceTree = "<group>"; };
+		415C6AB11F305D7E007BE9DA /* YDBlueToothMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBlueToothMgr.m; sourceTree = "<group>"; };
+		415C6AC01F305DF6007BE9DA /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		415C6AC11F305DF6007BE9DA /* peripheralList.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = peripheralList.html; sourceTree = "<group>"; };
+		415C6AC21F305DF6007BE9DA /* S3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = S3.html; sourceTree = "<group>"; };
+		415C6AC31F305DF6007BE9DA /* source.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = source.html; sourceTree = "<group>"; };
+		415C6AC41F305DF6007BE9DA /* YDBluetoothWebViewMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBluetoothWebViewMgr.h; sourceTree = "<group>"; };
+		415C6AC51F305DF6007BE9DA /* YDBluetoothWebViewMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBluetoothWebViewMgr.m; sourceTree = "<group>"; };
+		415C6AD11F3060C5007BE9DA /* YDMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMBaseViewController.h; sourceTree = "<group>"; };
+		415C6AD21F3060C5007BE9DA /* YDMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMBaseViewController.m; sourceTree = "<group>"; };
+		415C6AD51F306137007BE9DA /* UIViewController+YDNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YDNavigation.m"; sourceTree = "<group>"; };
+		415C6AD71F30615A007BE9DA /* UIViewController+YDNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YDNavigation.h"; sourceTree = "<group>"; };
+		415C6AD81F30669D007BE9DA /* UIViewController+YDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YDViewController.h"; sourceTree = "<group>"; };
+		415C6AD91F30669D007BE9DA /* UIViewController+YDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YDViewController.m"; sourceTree = "<group>"; };
+		415C6ADE1F306A42007BE9DA /* YDDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDefine.h; sourceTree = "<group>"; };
+		4D4A64571D23C78200915104 /* ThirdParts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ThirdParts.plist; sourceTree = "<group>"; };
+		4D4A645A1D23C80A00915104 /* YDThirdPartLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDThirdPartLoader.h; sourceTree = "<group>"; };
+		4D4A645B1D23C80A00915104 /* YDThirdPartLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDThirdPartLoader.m; sourceTree = "<group>"; };
+		4D4A645D1D23D4F200915104 /* YDThirdPardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDThirdPardModel.h; sourceTree = "<group>"; };
+		4D4A645E1D23D4F200915104 /* YDThirdPardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDThirdPardModel.m; sourceTree = "<group>"; };
+		4D4A646B1D23F10000915104 /* MSJsonKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSJsonKit.h; sourceTree = "<group>"; };
+		4D4A646C1D23F10000915104 /* MSJsonKit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MSJsonKit.mm; sourceTree = "<group>"; };
+		4D4A64731D260EEB00915104 /* MSVCRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVCRouter.h; sourceTree = "<group>"; };
+		4D4A64741D260EEB00915104 /* MSVCRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVCRouter.m; sourceTree = "<group>"; };
+		4D6D8FC71C60E35800003AA0 /* YDOpenHardwareSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YDOpenHardwareSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6D8FCB1C60E35800003AA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4D6D8FCD1C60E35800003AA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4D6D8FCE1C60E35800003AA0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4D6D8FD01C60E35800003AA0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4D6D8FD11C60E35800003AA0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4D6D8FD41C60E35800003AA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4D6D8FD61C60E35900003AA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4D6D8FD91C60E35900003AA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4D6D8FDB1C60E35900003AA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D6D8FE01C60E35900003AA0 /* YDOpenHardwareSimpleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YDOpenHardwareSimpleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6D8FE41C60E35900003AA0 /* YDOpenHardwareSimpleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDOpenHardwareSimpleTests.m; sourceTree = "<group>"; };
+		4D6D8FE61C60E35900003AA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D6D8FEB1C60E35900003AA0 /* YDOpenHardwareSimpleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YDOpenHardwareSimpleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6D8FEF1C60E35900003AA0 /* YDOpenHardwareSimpleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDOpenHardwareSimpleUITests.m; sourceTree = "<group>"; };
+		4D6D8FF11C60E35900003AA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DB5ACE91C732A7D00763E61 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		5356DB0B1890D9BD48637937 /* Pods-YDOpenHardwareSimple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDOpenHardwareSimple.release.xcconfig"; path = "Pods/Target Support Files/Pods-YDOpenHardwareSimple/Pods-YDOpenHardwareSimple.release.xcconfig"; sourceTree = "<group>"; };
+		76CB78CCC48F1E0E3A7C8984 /* libPods-YDOpenHardwareSimple.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YDOpenHardwareSimple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		80DC7CEA71F6A7E0D11A7DC2 /* Pods-YDOpenHardwareSimpleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDOpenHardwareSimpleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YDOpenHardwareSimpleUITests/Pods-YDOpenHardwareSimpleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9CEF731D04C61A03A37784B8 /* Pods-YDOpenHardwareSimpleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDOpenHardwareSimpleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YDOpenHardwareSimpleUITests/Pods-YDOpenHardwareSimpleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E5A01A50428189855CC78A48 /* libPods-YDOpenHardwareSimpleUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YDOpenHardwareSimpleUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6CA65630BF32A71DE9F9185 /* Pods-YDOpenHardwareSimpleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDOpenHardwareSimpleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YDOpenHardwareSimpleTests/Pods-YDOpenHardwareSimpleTests.release.xcconfig"; sourceTree = "<group>"; };
+		F2C8C5E839CF20EF2B5AE7FF /* libPods-YDOpenHardwareSimpleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YDOpenHardwareSimpleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4D6D8FC41C60E35800003AA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DB5ACEA1C732A7D00763E61 /* libsqlite3.tbd in Frameworks */,
+				9F5F0D99290CF496AF216787 /* libPods-YDOpenHardwareSimple.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D6D8FDD1C60E35900003AA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11B82CCA432A7146826C13A1 /* libPods-YDOpenHardwareSimpleTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D6D8FE81C60E35900003AA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D2143ECDF59385822D67DEA /* libPods-YDOpenHardwareSimpleUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F29F4D5F8F952C171B68864 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				203E60A830441E97B860412C /* Pods-YDOpenHardwareSimple.debug.xcconfig */,
+				5356DB0B1890D9BD48637937 /* Pods-YDOpenHardwareSimple.release.xcconfig */,
+				2F1AFCFF58DC1882D940A5DC /* Pods-YDOpenHardwareSimpleTests.debug.xcconfig */,
+				E6CA65630BF32A71DE9F9185 /* Pods-YDOpenHardwareSimpleTests.release.xcconfig */,
+				9CEF731D04C61A03A37784B8 /* Pods-YDOpenHardwareSimpleUITests.debug.xcconfig */,
+				80DC7CEA71F6A7E0D11A7DC2 /* Pods-YDOpenHardwareSimpleUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		415C6AAB1F305C97007BE9DA /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				411ED0C31F3086510041909A /* YDWebNoNetworkView.h */,
+				411ED0C21F3086510041909A /* YDWebNoNetworkView.m */,
+				415C6AD71F30615A007BE9DA /* UIViewController+YDNavigation.h */,
+				415C6AD51F306137007BE9DA /* UIViewController+YDNavigation.m */,
+				415C6AD11F3060C5007BE9DA /* YDMBaseViewController.h */,
+				415C6AD21F3060C5007BE9DA /* YDMBaseViewController.m */,
+				415C6AD81F30669D007BE9DA /* UIViewController+YDViewController.h */,
+				415C6AD91F30669D007BE9DA /* UIViewController+YDViewController.m */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		415C6AAF1F305D7E007BE9DA /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				415C6ABF1F305DF6007BE9DA /* WebView */,
+				415C6AB01F305D7E007BE9DA /* YDBlueToothMgr.h */,
+				415C6AB11F305D7E007BE9DA /* YDBlueToothMgr.m */,
+				411ED0B71F3081E20041909A /* NSString+YDContainsString.h */,
+				411ED0B61F3081E20041909A /* NSString+YDContainsString.m */,
+				411ED0BD1F30838F0041909A /* CWStatusBarNotification.h */,
+				411ED0BC1F30838E0041909A /* CWStatusBarNotification.m */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		415C6ABF1F305DF6007BE9DA /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				415C6ADE1F306A42007BE9DA /* YDDefine.h */,
+				415C6AC01F305DF6007BE9DA /* index.html */,
+				415C6AC11F305DF6007BE9DA /* peripheralList.html */,
+				415C6AC21F305DF6007BE9DA /* S3.html */,
+				415C6AC31F305DF6007BE9DA /* source.html */,
+				415C6AC41F305DF6007BE9DA /* YDBluetoothWebViewMgr.h */,
+				415C6AC51F305DF6007BE9DA /* YDBluetoothWebViewMgr.m */,
+				411ED0CC1F308AE50041909A /* YDBridgeWebMgr.h */,
+				411ED0CE1F308AE50041909A /* YDBridgeWebMgr.m */,
+				411ED0CF1F308AE50041909A /* YDBridgeWebView.h */,
+				411ED0D11F308AE50041909A /* YDBridgeWebView.m */,
+				411ED0CD1F308AE50041909A /* YDBridgeWebViewController.h */,
+				411ED0D01F308AE50041909A /* YDBridgeWebViewController.m */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		4D4A64551D23C78200915104 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				4D4A64561D23C78200915104 /* Plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		4D4A64561D23C78200915104 /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				4D4A64571D23C78200915104 /* ThirdParts.plist */,
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
+		4D4A64581D23C78200915104 /* ThirdPartLoader */ = {
+			isa = PBXGroup;
+			children = (
+				4D4A645A1D23C80A00915104 /* YDThirdPartLoader.h */,
+				4D4A645B1D23C80A00915104 /* YDThirdPartLoader.m */,
+				4D4A645D1D23D4F200915104 /* YDThirdPardModel.h */,
+				4D4A645E1D23D4F200915104 /* YDThirdPardModel.m */,
+			);
+			path = ThirdPartLoader;
+			sourceTree = "<group>";
+		};
+		4D4A646A1D23F10000915104 /* MSJsonKit */ = {
+			isa = PBXGroup;
+			children = (
+				4D4A646B1D23F10000915104 /* MSJsonKit.h */,
+				4D4A646C1D23F10000915104 /* MSJsonKit.mm */,
+			);
+			path = MSJsonKit;
+			sourceTree = "<group>";
+		};
+		4D4A64721D260EEB00915104 /* MSVCRouter */ = {
+			isa = PBXGroup;
+			children = (
+				4D4A64731D260EEB00915104 /* MSVCRouter.h */,
+				4D4A64741D260EEB00915104 /* MSVCRouter.m */,
+			);
+			path = MSVCRouter;
+			sourceTree = "<group>";
+		};
+		4D6D8FBE1C60E35800003AA0 = {
+			isa = PBXGroup;
+			children = (
+				4DB5ACE91C732A7D00763E61 /* libsqlite3.tbd */,
+				4DAB80341C7065BD00BED5D0 /* Framework */,
+				4D6D8FC91C60E35800003AA0 /* YDOpenHardwareSimple */,
+				4D6D8FE31C60E35900003AA0 /* YDOpenHardwareSimpleTests */,
+				4D6D8FEE1C60E35900003AA0 /* YDOpenHardwareSimpleUITests */,
+				4D6D8FC81C60E35800003AA0 /* Products */,
+				F8F9B82F1929C46A8859D4BE /* Frameworks */,
+				0F29F4D5F8F952C171B68864 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		4D6D8FC81C60E35800003AA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D6D8FC71C60E35800003AA0 /* YDOpenHardwareSimple.app */,
+				4D6D8FE01C60E35900003AA0 /* YDOpenHardwareSimpleTests.xctest */,
+				4D6D8FEB1C60E35900003AA0 /* YDOpenHardwareSimpleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4D6D8FC91C60E35800003AA0 /* YDOpenHardwareSimple */ = {
+			isa = PBXGroup;
+			children = (
+				4D4A64721D260EEB00915104 /* MSVCRouter */,
+				4D4A646A1D23F10000915104 /* MSJsonKit */,
+				4D4A64551D23C78200915104 /* Resource */,
+				4D4A64581D23C78200915104 /* ThirdPartLoader */,
+				4D6D8FCD1C60E35800003AA0 /* AppDelegate.h */,
+				4D6D8FCE1C60E35800003AA0 /* AppDelegate.m */,
+				4D6D8FD01C60E35800003AA0 /* ViewController.h */,
+				4D6D8FD11C60E35800003AA0 /* ViewController.m */,
+				4D6D8FD31C60E35800003AA0 /* Main.storyboard */,
+				415C6AAF1F305D7E007BE9DA /* Bluetooth */,
+				415C6AAB1F305C97007BE9DA /* WebView */,
+				4D6D8FD61C60E35900003AA0 /* Assets.xcassets */,
+				4D6D8FD81C60E35900003AA0 /* LaunchScreen.storyboard */,
+				4D6D8FDB1C60E35900003AA0 /* Info.plist */,
+				4D6D8FCA1C60E35800003AA0 /* Supporting Files */,
+			);
+			path = YDOpenHardwareSimple;
+			sourceTree = "<group>";
+		};
+		4D6D8FCA1C60E35800003AA0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				411ED0B11F3080DB0041909A /* YDOpenHardwareCore.framework */,
+				411ED0B01F3080DB0041909A /* YDOpenHardwareSDK.framework */,
+				4D6D8FCB1C60E35800003AA0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D6D8FE31C60E35900003AA0 /* YDOpenHardwareSimpleTests */ = {
+			isa = PBXGroup;
+			children = (
+				4D6D8FE41C60E35900003AA0 /* YDOpenHardwareSimpleTests.m */,
+				4D6D8FE61C60E35900003AA0 /* Info.plist */,
+			);
+			path = YDOpenHardwareSimpleTests;
+			sourceTree = "<group>";
+		};
+		4D6D8FEE1C60E35900003AA0 /* YDOpenHardwareSimpleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4D6D8FEF1C60E35900003AA0 /* YDOpenHardwareSimpleUITests.m */,
+				4D6D8FF11C60E35900003AA0 /* Info.plist */,
+			);
+			path = YDOpenHardwareSimpleUITests;
+			sourceTree = "<group>";
+		};
+		4DAB80341C7065BD00BED5D0 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		F8F9B82F1929C46A8859D4BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76CB78CCC48F1E0E3A7C8984 /* libPods-YDOpenHardwareSimple.a */,
+				F2C8C5E839CF20EF2B5AE7FF /* libPods-YDOpenHardwareSimpleTests.a */,
+				E5A01A50428189855CC78A48 /* libPods-YDOpenHardwareSimpleUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4D6D8FC61C60E35800003AA0 /* YDOpenHardwareSimple */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D6D8FF41C60E35900003AA0 /* Build configuration list for PBXNativeTarget "YDOpenHardwareSimple" */;
+			buildPhases = (
+				F22F182B39CE0FE056694D4A /* [CP] Check Pods Manifest.lock */,
+				4D6D8FC31C60E35800003AA0 /* Sources */,
+				4D6D8FC41C60E35800003AA0 /* Frameworks */,
+				4D6D8FC51C60E35800003AA0 /* Resources */,
+				534D3728E573B38A4360D8F3 /* [CP] Embed Pods Frameworks */,
+				4C84611F3CC664B8D7F39C9C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YDOpenHardwareSimple;
+			productName = YDOpenHardwareSimple;
+			productReference = 4D6D8FC71C60E35800003AA0 /* YDOpenHardwareSimple.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4D6D8FDF1C60E35900003AA0 /* YDOpenHardwareSimpleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D6D8FF71C60E35900003AA0 /* Build configuration list for PBXNativeTarget "YDOpenHardwareSimpleTests" */;
+			buildPhases = (
+				15255EB057F5EBCEBBF32FF1 /* [CP] Check Pods Manifest.lock */,
+				4D6D8FDC1C60E35900003AA0 /* Sources */,
+				4D6D8FDD1C60E35900003AA0 /* Frameworks */,
+				4D6D8FDE1C60E35900003AA0 /* Resources */,
+				2816A37896FB92D7ED21207D /* [CP] Embed Pods Frameworks */,
+				25007ECDB9107E74AB156B82 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D6D8FE21C60E35900003AA0 /* PBXTargetDependency */,
+			);
+			name = YDOpenHardwareSimpleTests;
+			productName = YDOpenHardwareSimpleTests;
+			productReference = 4D6D8FE01C60E35900003AA0 /* YDOpenHardwareSimpleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4D6D8FEA1C60E35900003AA0 /* YDOpenHardwareSimpleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D6D8FFA1C60E35900003AA0 /* Build configuration list for PBXNativeTarget "YDOpenHardwareSimpleUITests" */;
+			buildPhases = (
+				62950A4E5F95FEDED4DF37D0 /* [CP] Check Pods Manifest.lock */,
+				4D6D8FE71C60E35900003AA0 /* Sources */,
+				4D6D8FE81C60E35900003AA0 /* Frameworks */,
+				4D6D8FE91C60E35900003AA0 /* Resources */,
+				E7C67BF813CC3694747F5393 /* [CP] Embed Pods Frameworks */,
+				05981197787AC7B312D5C7A3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D6D8FED1C60E35900003AA0 /* PBXTargetDependency */,
+			);
+			name = YDOpenHardwareSimpleUITests;
+			productName = YDOpenHardwareSimpleUITests;
+			productReference = 4D6D8FEB1C60E35900003AA0 /* YDOpenHardwareSimpleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4D6D8FBF1C60E35800003AA0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = YD;
+				TargetAttributes = {
+					4D6D8FC61C60E35800003AA0 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 2ERYNAFK87;
+					};
+					4D6D8FDF1C60E35900003AA0 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 4D6D8FC61C60E35800003AA0;
+					};
+					4D6D8FEA1C60E35900003AA0 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 4D6D8FC61C60E35800003AA0;
+					};
+				};
+			};
+			buildConfigurationList = 4D6D8FC21C60E35800003AA0 /* Build configuration list for PBXProject "_YDBridgeWebViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4D6D8FBE1C60E35800003AA0;
+			productRefGroup = 4D6D8FC81C60E35800003AA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4D6D8FC61C60E35800003AA0 /* YDOpenHardwareSimple */,
+				4D6D8FDF1C60E35900003AA0 /* YDOpenHardwareSimpleTests */,
+				4D6D8FEA1C60E35900003AA0 /* YDOpenHardwareSimpleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4D6D8FC51C60E35800003AA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				415C6AC91F305DF6007BE9DA /* peripheralList.html in Resources */,
+				415C6AC81F305DF6007BE9DA /* index.html in Resources */,
+				4D6D8FDA1C60E35900003AA0 /* LaunchScreen.storyboard in Resources */,
+				4D6D8FD71C60E35900003AA0 /* Assets.xcassets in Resources */,
+				4D6D8FD51C60E35800003AA0 /* Main.storyboard in Resources */,
+				415C6ACA1F305DF6007BE9DA /* S3.html in Resources */,
+				4D4A64591D23C78200915104 /* ThirdParts.plist in Resources */,
+				415C6ACB1F305DF6007BE9DA /* source.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D6D8FDE1C60E35900003AA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D6D8FE91C60E35900003AA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05981197787AC7B312D5C7A3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YDOpenHardwareSimpleUITests/Pods-YDOpenHardwareSimpleUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		15255EB057F5EBCEBBF32FF1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		25007ECDB9107E74AB156B82 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YDOpenHardwareSimpleTests/Pods-YDOpenHardwareSimpleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2816A37896FB92D7ED21207D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YDOpenHardwareSimpleTests/Pods-YDOpenHardwareSimpleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C84611F3CC664B8D7F39C9C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YDOpenHardwareSimple/Pods-YDOpenHardwareSimple-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		534D3728E573B38A4360D8F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YDOpenHardwareSimple/Pods-YDOpenHardwareSimple-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62950A4E5F95FEDED4DF37D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E7C67BF813CC3694747F5393 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YDOpenHardwareSimpleUITests/Pods-YDOpenHardwareSimpleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F22F182B39CE0FE056694D4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4D6D8FC31C60E35800003AA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				411ED0D71F308BE60041909A /* YDBridgeWebMgr.h in Sources */,
+				411ED0D81F308BE60041909A /* YDBridgeWebMgr.m in Sources */,
+				411ED0D91F308BE60041909A /* YDBridgeWebView.h in Sources */,
+				411ED0DA1F308BE60041909A /* YDBridgeWebView.m in Sources */,
+				411ED0DB1F308BE60041909A /* YDBridgeWebViewController.h in Sources */,
+				411ED0DC1F308BE60041909A /* YDBridgeWebViewController.m in Sources */,
+				411ED0D51F308B7C0041909A /* ViewController.h in Sources */,
+				411ED0C41F3086510041909A /* YDWebNoNetworkView.m in Sources */,
+				415C6AD61F306137007BE9DA /* UIViewController+YDNavigation.m in Sources */,
+				4D4A645C1D23C80A00915104 /* YDThirdPartLoader.m in Sources */,
+				4D6D8FD21C60E35800003AA0 /* ViewController.m in Sources */,
+				4D6D8FCF1C60E35800003AA0 /* AppDelegate.m in Sources */,
+				415C6AB21F305D7E007BE9DA /* YDBlueToothMgr.m in Sources */,
+				4D4A64751D260EEB00915104 /* MSVCRouter.m in Sources */,
+				411ED0B81F3081E20041909A /* NSString+YDContainsString.m in Sources */,
+				415C6AD31F3060C5007BE9DA /* YDMBaseViewController.m in Sources */,
+				415C6ADA1F30669D007BE9DA /* UIViewController+YDViewController.m in Sources */,
+				4D4A645F1D23D4F200915104 /* YDThirdPardModel.m in Sources */,
+				4D4A646D1D23F10000915104 /* MSJsonKit.mm in Sources */,
+				415C6ACC1F305DF6007BE9DA /* YDBluetoothWebViewMgr.m in Sources */,
+				411ED0BE1F30838F0041909A /* CWStatusBarNotification.m in Sources */,
+				4D6D8FCC1C60E35800003AA0 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D6D8FDC1C60E35900003AA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D6D8FE51C60E35900003AA0 /* YDOpenHardwareSimpleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D6D8FE71C60E35900003AA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D6D8FF01C60E35900003AA0 /* YDOpenHardwareSimpleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4D6D8FE21C60E35900003AA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D6D8FC61C60E35800003AA0 /* YDOpenHardwareSimple */;
+			targetProxy = 4D6D8FE11C60E35900003AA0 /* PBXContainerItemProxy */;
+		};
+		4D6D8FED1C60E35900003AA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D6D8FC61C60E35800003AA0 /* YDOpenHardwareSimple */;
+			targetProxy = 4D6D8FEC1C60E35900003AA0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4D6D8FD31C60E35800003AA0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D6D8FD41C60E35800003AA0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4D6D8FD81C60E35900003AA0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D6D8FD91C60E35900003AA0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4D6D8FF21C60E35900003AA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4D6D8FF31C60E35900003AA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4D6D8FF51C60E35900003AA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 203E60A830441E97B860412C /* Pods-YDOpenHardwareSimple.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2ERYNAFK87;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/YDOpenHardwareSimple";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = YDOpenHardwareSimple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					YDOpenHardwareCore,
+					"-framework",
+					YDOpenHardwareSDK,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sport.yuedong;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5a931646-0f99-495f-b9dc-f7f4d7b9bb34";
+				PROVISIONING_PROFILE_SPECIFIER = dev_sp;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4D6D8FF61C60E35900003AA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5356DB0B1890D9BD48637937 /* Pods-YDOpenHardwareSimple.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/YDOpenHardwareSimple";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = YDOpenHardwareSimple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					YDOpenHardwareCore,
+					"-framework",
+					YDOpenHardwareSDK,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sport.yuedong;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4D6D8FF81C60E35900003AA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F1AFCFF58DC1882D940A5DC /* Pods-YDOpenHardwareSimpleTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = YDOpenHardwareSimpleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sport.yuedong.YDOpenHardwareSimpleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YDOpenHardwareSimple.app/YDOpenHardwareSimple";
+			};
+			name = Debug;
+		};
+		4D6D8FF91C60E35900003AA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6CA65630BF32A71DE9F9185 /* Pods-YDOpenHardwareSimpleTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = YDOpenHardwareSimpleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sport.yuedong.YDOpenHardwareSimpleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YDOpenHardwareSimple.app/YDOpenHardwareSimple";
+			};
+			name = Release;
+		};
+		4D6D8FFB1C60E35900003AA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CEF731D04C61A03A37784B8 /* Pods-YDOpenHardwareSimpleUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = YDOpenHardwareSimpleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sport.yuedong.YDOpenHardwareSimpleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = YDOpenHardwareSimple;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		4D6D8FFC1C60E35900003AA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80DC7CEA71F6A7E0D11A7DC2 /* Pods-YDOpenHardwareSimpleUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = YDOpenHardwareSimpleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sport.yuedong.YDOpenHardwareSimpleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = YDOpenHardwareSimple;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4D6D8FC21C60E35800003AA0 /* Build configuration list for PBXProject "_YDBridgeWebViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D6D8FF21C60E35900003AA0 /* Debug */,
+				4D6D8FF31C60E35900003AA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D6D8FF41C60E35900003AA0 /* Build configuration list for PBXNativeTarget "YDOpenHardwareSimple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D6D8FF51C60E35900003AA0 /* Debug */,
+				4D6D8FF61C60E35900003AA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D6D8FF71C60E35900003AA0 /* Build configuration list for PBXNativeTarget "YDOpenHardwareSimpleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D6D8FF81C60E35900003AA0 /* Debug */,
+				4D6D8FF91C60E35900003AA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D6D8FFA1C60E35900003AA0 /* Build configuration list for PBXNativeTarget "YDOpenHardwareSimpleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D6D8FFB1C60E35900003AA0 /* Debug */,
+				4D6D8FFC1C60E35900003AA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4D6D8FBF1C60E35800003AA0 /* Project object */;
+}

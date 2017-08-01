@@ -18,11 +18,12 @@
 #import "YDWebNoNetworkView.h"
 
 #import "YDBridgeWebMgr.h"
-#import "MSUtil.h"
+//#import "MSUtil.h"
 #import <Reachability.h>
-#import "TYSnapshot.h"
-#import "UIView+YDLoading.h"
+//#import "TYSnapshot.h"
+//#import "UIView+YDLoading.h"
 #import <WebViewJavascriptBridge.h>
+#import "Masonry.h"
 
 
 static CGFloat kProgressHeaderH = 2.f;
@@ -160,7 +161,7 @@ static CGFloat kProgressHeaderH = 2.f;
 }
 
 - (void)bind {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChange:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChange:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
 }
 
 #pragma mark -- notification
@@ -952,7 +953,7 @@ static CGFloat kProgressHeaderH = 2.f;
  @param navigation The navigation.
  */
 - (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)navigation {
-    MSLogD(@"request header: %@", self.currentRequest.allHTTPHeaderFields);
+    NSLog(@"request header: %@", self.currentRequest.allHTTPHeaderFields);
 }
 
 /*! @abstract Invoked when an error occurs while starting to load data for
@@ -962,7 +963,7 @@ static CGFloat kProgressHeaderH = 2.f;
  @param error The error that occurred.
  */
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
-    MSLogE(@"wkwebview error: %@", error);
+    NSLog(@"wkwebview error: %@", error);
     [self callback_webViewDidFailLoadWithError:error];
 }
 
@@ -989,7 +990,7 @@ static CGFloat kProgressHeaderH = 2.f;
  @param error The error that occurred.
  */
 - (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
-    MSLogE(@"wkwebview error:%@", error);
+    NSLog(@"wkwebview error:%@", error);
     //    [self callback_webViewDidFailLoadWithError:error];
 }
 
@@ -1043,7 +1044,8 @@ static CGFloat kProgressHeaderH = 2.f;
     }
     self.webMgr.currentTitle = self.title;
     if (self.useWK) {
-        if (self.freshWebView.canGoBack && ![[MSUtil noParamsURLStringFromURLString:self.originalUrlString] isEqualToString:[MSUtil noParamsURLStringFromURLString:self.urlString]] && [self.currentViewController isKindOfClass:[YDBridgeWebViewController class]]) {
+        if (self.freshWebView.canGoBack && [self.currentViewController isKindOfClass:[YDBridgeWebViewController class]]) {
+//            if (self.freshWebView.canGoBack && ![[MSUtil noParamsURLStringFromURLString:self.originalUrlString] isEqualToString:[MSUtil noParamsURLStringFromURLString:self.urlString]] && [self.currentViewController isKindOfClass:[YDBridgeWebViewController class]]) {
             if (AFTER_IOS9) {
                 self.currentViewController.navigationController.interactivePopGestureRecognizer.enabled = NO;
                 self.allowsBackForwardNavigationGestures = YES;
@@ -1072,7 +1074,7 @@ static CGFloat kProgressHeaderH = 2.f;
     }
 }
 -(BOOL)callback_webViewShouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(NSInteger)navigationType {
-    MSLogI(@"webview request:%@", request);
+    NSLog(@"webview request:%@", request);
     if (navigationType == UIWebViewNavigationTypeBackForward) {
         self.isBackForward = YES;
     } else {
@@ -1118,7 +1120,7 @@ static CGFloat kProgressHeaderH = 2.f;
 
 #pragma mark -- 清理
 -(void)dealloc {
-    MSLogI(@"webview dealloc");
+    NSLog(@"webview dealloc");
     if(BEFORE_IOS8) {
         self.oldWebView.delegate = nil;
     } else {
@@ -1144,11 +1146,11 @@ static CGFloat kProgressHeaderH = 2.f;
     [self.webMgr setCurrentViewController:viewController];
 }
 - (void)getSnapShotImage:(void(^)(UIImage *snapShotImage))then {
-    [TYSnapshot screenSnapshot:self.webView finishBlock:^(UIImage *snapShotImage) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            !then?:then(snapShotImage);
-        });
-    }];
+//    [TYSnapshot screenSnapshot:self.webView finishBlock:^(UIImage *snapShotImage) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            !then?:then(snapShotImage);
+//        });
+//    }];
 }
 
 - (void)setTopEdge:(CGFloat)topEdge {

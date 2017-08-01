@@ -332,4 +332,12 @@ static const CGFloat YDSectionH10 = 10.0; //TableView 节头默认高度
 static const CGFloat YDBtnH44     = 44.0;
 static const CGFloat YDCtrlH40    = 40.0;
 
+#define SCREEN_WIDTH_V0 [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT_V0 [UIScreen mainScreen].bounds.size.height
+
+#define SCREEN_WIDTH_V1 MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
+#define SCREEN_HEIGHT_V1 MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
+#define SCREEN_BOUNDS CGRectMake(0,0,SCREEN_WIDTH_V1, SCREEN_HEIGHT_V1)
+#define SCREEN_SIZE CGSizeMake(SCREEN_WIDTH_V1, SCREEN_HEIGHT_V1)
+
 #endif /* YDDefine_h */

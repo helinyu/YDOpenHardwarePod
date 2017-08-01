@@ -1,1 +1,0 @@
-../../../YDOpenHardware/ydOpenHardware/YDOpenHardwareThirdPart/YDOpenHardwareThirdPart/YDOpenHardwareThirdPart.h

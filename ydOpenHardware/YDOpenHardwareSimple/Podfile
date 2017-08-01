@@ -10,11 +10,14 @@ platform :ios, '7.0'
   pod 'BabyBluetooth', '~> 0.7.0'
   pod 'WebViewJavascriptBridge', '~> 6.0.2'
   pod 'Masonry', '~> 1.0.2'
-  pod 'FMDB', '~> 2.7.2'
+#  pod 'FMDB', '~> 2.7.2'
   pod 'SVProgressHUD', '~> 2.1.2'
-  pod 'YDOpenHardware', '~> 0.1.1'
+#  pod 'YDOpenHardware', '~> 0.1.1'
   pod 'NJKWebViewProgress', '~> 0.2.3'
   pod 'YYModel', '~> 1.0.4'
+  pod 'MJRefresh', '~> 3.1.12'
+  pod 'Reachability', '~> 3.2'
+
   # Pods for YDOpenHardwareSimple
 
   target 'YDOpenHardwareSimpleTests' do

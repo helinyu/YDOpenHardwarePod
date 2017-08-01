@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
 	                YDOpenHardware is for easier to use
 	               DESC
     s.dependency 'Masonry', '~> 1.0.2'
-    s.vendored_frameworks = 'framework/YDOpenHardwareCore.framework','framework/YDOpenHardwareSDK.framework'
+    s.vendored_frameworks = 'framework/YDOpenHardwareCore.framework'
+    # ,'framework/YDOpenHardwareSDK.framework'
 
 end
