@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		11B82CCA432A7146826C13A1 /* libPods-YDOpenHardwareSimpleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C8C5E839CF20EF2B5AE7FF /* libPods-YDOpenHardwareSimpleTests.a */; };
 		2D2143ECDF59385822D67DEA /* libPods-YDOpenHardwareSimpleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A01A50428189855CC78A48 /* libPods-YDOpenHardwareSimpleUITests.a */; };
+		411ED0B41F3080EE0041909A /* YDOpenHardwareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411ED0B21F3080EE0041909A /* YDOpenHardwareSDK.framework */; };
+		411ED0B51F3080EE0041909A /* YDOpenHardwareCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411ED0B31F3080EE0041909A /* YDOpenHardwareCore.framework */; };
+		411ED0B81F3081E20041909A /* NSString+YDContainsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0B61F3081E20041909A /* NSString+YDContainsString.m */; };
+		411ED0BB1F30824E0041909A /* YDBridgeWebMgr.m in Resources */ = {isa = PBXBuildFile; fileRef = 411ED0B91F30824D0041909A /* YDBridgeWebMgr.m */; };
+		411ED0BE1F30838F0041909A /* CWStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0BC1F30838E0041909A /* CWStatusBarNotification.m */; };
 		415C6AB21F305D7E007BE9DA /* YDBlueToothMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AB11F305D7E007BE9DA /* YDBlueToothMgr.m */; };
 		415C6AC81F305DF6007BE9DA /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 415C6AC01F305DF6007BE9DA /* index.html */; };
 		415C6AC91F305DF6007BE9DA /* peripheralList.html in Resources */ = {isa = PBXBuildFile; fileRef = 415C6AC11F305DF6007BE9DA /* peripheralList.html */; };
@@ -57,6 +62,16 @@
 /* Begin PBXFileReference section */
 		203E60A830441E97B860412C /* Pods-YDOpenHardwareSimple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDOpenHardwareSimple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YDOpenHardwareSimple/Pods-YDOpenHardwareSimple.debug.xcconfig"; sourceTree = "<group>"; };
 		2F1AFCFF58DC1882D940A5DC /* Pods-YDOpenHardwareSimpleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDOpenHardwareSimpleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YDOpenHardwareSimpleTests/Pods-YDOpenHardwareSimpleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		411ED0B01F3080DB0041909A /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YDOpenHardwareSDK.framework; path = ../../../../Desktop/thirdpath/YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
+		411ED0B11F3080DB0041909A /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
+		411ED0B21F3080EE0041909A /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YDOpenHardwareSDK.framework; path = ../../framework/YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
+		411ED0B31F3080EE0041909A /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YDOpenHardwareCore.framework; path = ../../framework/YDOpenHardwareCore.framework; sourceTree = "<group>"; };
+		411ED0B61F3081E20041909A /* NSString+YDContainsString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+YDContainsString.m"; sourceTree = "<group>"; };
+		411ED0B71F3081E20041909A /* NSString+YDContainsString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+YDContainsString.h"; sourceTree = "<group>"; };
+		411ED0B91F30824D0041909A /* YDBridgeWebMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDBridgeWebMgr.m; sourceTree = "<group>"; };
+		411ED0BA1F30824D0041909A /* YDBridgeWebMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDBridgeWebMgr.h; sourceTree = "<group>"; };
+		411ED0BC1F30838E0041909A /* CWStatusBarNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CWStatusBarNotification.m; sourceTree = "<group>"; };
+		411ED0BD1F30838F0041909A /* CWStatusBarNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CWStatusBarNotification.h; sourceTree = "<group>"; };
 		415C6AB01F305D7E007BE9DA /* YDBlueToothMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBlueToothMgr.h; sourceTree = "<group>"; };
 		415C6AB11F305D7E007BE9DA /* YDBlueToothMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBlueToothMgr.m; sourceTree = "<group>"; };
 		415C6AC01F305DF6007BE9DA /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
@@ -116,6 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				411ED0B41F3080EE0041909A /* YDOpenHardwareSDK.framework in Frameworks */,
+				411ED0B51F3080EE0041909A /* YDOpenHardwareCore.framework in Frameworks */,
 				4DB5ACEA1C732A7D00763E61 /* libsqlite3.tbd in Frameworks */,
 				9F5F0D99290CF496AF216787 /* libPods-YDOpenHardwareSimple.a in Frameworks */,
 			);
@@ -172,6 +189,10 @@
 				415C6ABF1F305DF6007BE9DA /* WebView */,
 				415C6AB01F305D7E007BE9DA /* YDBlueToothMgr.h */,
 				415C6AB11F305D7E007BE9DA /* YDBlueToothMgr.m */,
+				411ED0B71F3081E20041909A /* NSString+YDContainsString.h */,
+				411ED0B61F3081E20041909A /* NSString+YDContainsString.m */,
+				411ED0BD1F30838F0041909A /* CWStatusBarNotification.h */,
+				411ED0BC1F30838E0041909A /* CWStatusBarNotification.m */,
 			);
 			path = Bluetooth;
 			sourceTree = "<group>";
@@ -190,6 +211,8 @@
 				415C6AC71F305DF6007BE9DA /* YDBridgeWebViewController.m */,
 				415C6ACE1F305E21007BE9DA /* YDBridgeWebView.h */,
 				415C6ACF1F305E21007BE9DA /* YDBridgeWebView.m */,
+				411ED0BA1F30824D0041909A /* YDBridgeWebMgr.h */,
+				411ED0B91F30824D0041909A /* YDBridgeWebMgr.m */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -288,6 +311,8 @@
 		4D6D8FCA1C60E35800003AA0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				411ED0B11F3080DB0041909A /* YDOpenHardwareCore.framework */,
+				411ED0B01F3080DB0041909A /* YDOpenHardwareSDK.framework */,
 				4D6D8FCB1C60E35800003AA0 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -321,6 +346,8 @@
 		F8F9B82F1929C46A8859D4BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				411ED0B31F3080EE0041909A /* YDOpenHardwareCore.framework */,
+				411ED0B21F3080EE0041909A /* YDOpenHardwareSDK.framework */,
 				76CB78CCC48F1E0E3A7C8984 /* libPods-YDOpenHardwareSimple.a */,
 				F2C8C5E839CF20EF2B5AE7FF /* libPods-YDOpenHardwareSimpleTests.a */,
 				E5A01A50428189855CC78A48 /* libPods-YDOpenHardwareSimpleUITests.a */,
@@ -442,6 +469,7 @@
 			files = (
 				415C6AC91F305DF6007BE9DA /* peripheralList.html in Resources */,
 				415C6AC81F305DF6007BE9DA /* index.html in Resources */,
+				411ED0BB1F30824E0041909A /* YDBridgeWebMgr.m in Resources */,
 				4D6D8FDA1C60E35900003AA0 /* LaunchScreen.storyboard in Resources */,
 				4D6D8FD71C60E35900003AA0 /* Assets.xcassets in Resources */,
 				4D6D8FD51C60E35800003AA0 /* Main.storyboard in Resources */,
@@ -617,12 +645,14 @@
 				415C6AB21F305D7E007BE9DA /* YDBlueToothMgr.m in Sources */,
 				4D4A64751D260EEB00915104 /* MSVCRouter.m in Sources */,
 				415C6ACD1F305DF6007BE9DA /* YDBridgeWebViewController.m in Sources */,
+				411ED0B81F3081E20041909A /* NSString+YDContainsString.m in Sources */,
 				415C6AD31F3060C5007BE9DA /* YDMBaseViewController.m in Sources */,
 				415C6ADA1F30669D007BE9DA /* UIViewController+YDViewController.m in Sources */,
 				4D4A645F1D23D4F200915104 /* YDThirdPardModel.m in Sources */,
 				4D4A646D1D23F10000915104 /* MSJsonKit.mm in Sources */,
 				415C6ACC1F305DF6007BE9DA /* YDBluetoothWebViewMgr.m in Sources */,
 				415C6AD01F305E21007BE9DA /* YDBridgeWebView.m in Sources */,
+				411ED0BE1F30838F0041909A /* CWStatusBarNotification.m in Sources */,
 				4D6D8FCC1C60E35800003AA0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

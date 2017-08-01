@@ -11,7 +11,7 @@
 #import "YDBridgeWebMgr.h"
 #import "WebViewJavascriptBridge.h"
 #import <CoreBluetooth/CoreBluetooth.h>
-#import "NSDictionary+YDString.h"
+//#import "NSDictionary+YDString.h"
 #import "YYModel.h"
 #import "MSJsonKit.h"
 

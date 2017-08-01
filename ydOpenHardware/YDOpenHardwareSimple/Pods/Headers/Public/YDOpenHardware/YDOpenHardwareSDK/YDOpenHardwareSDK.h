@@ -1,0 +1,1 @@
+../../../../YDOpenHardware/framework/YDOpenHardwareSDK.framework/Headers/YDOpenHardwareSDK.h

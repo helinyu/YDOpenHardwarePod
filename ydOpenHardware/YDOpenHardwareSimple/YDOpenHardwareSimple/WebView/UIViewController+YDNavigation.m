@@ -9,6 +9,8 @@
 #import "UIViewController+YDNavigation.h"
 #import <objc/runtime.h>
 #import "YDMBaseViewController.h"
+#import "Masonry.h"
+#import "YDDefine.h"
 
 @interface UIViewController ()
 
@@ -76,7 +78,7 @@
                 //                                                  NSForegroundColorAttributeName: [UIColor whiteColor],
                 //                                                  }];
                 [self.navBar setBarStyle:UIBarStyleBlack];
-                [self.navBar setTintColor:YD_WHITE(1)];
+                [self.navBar setTintColor:[UIColor whiteColor]];
                 [self.navBar setBarTintColor:YDC_G];
                 [self.navBar setTitleTextAttributes:@{NSFontAttributeName:YDF_DEFAULT_R(YDFontSizeNav), NSForegroundColorAttributeName: YD_WHITE(1)}];
                 //            [self.navBar setBackgroundImage:[UIImage imageFromColor:YDC_G withSize:CGSizeMake(1, 1) radius:0] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
@@ -145,7 +147,7 @@
 
 - (void)yd_popUp {
     BOOL flag = YES;
-    if ([self isKindOfClass:[YDMBaseViewController class]] || [self isKindOfClass:[YDBaseViewController class]]) {
+    if ([self isKindOfClass:[YDMBaseViewController class]]) {
         if (!self.yd_isViewAppear) {
             flag = NO;
         }
@@ -165,7 +167,7 @@
 }
 
 - (void)yd_popToRootIfResetTabBar:(BOOL)resetTabBar {
-    YDBaseTabBarController *rootTabBarController = [[YDBaseTabBarController alloc] init];
+    YDMBaseViewController *rootTabBarController = [[YDMBaseViewController alloc] init];
     UIWindow *keyWindow = [UIApplication sharedApplication].delegate.window;
     if (keyWindow == nil) {
         return;

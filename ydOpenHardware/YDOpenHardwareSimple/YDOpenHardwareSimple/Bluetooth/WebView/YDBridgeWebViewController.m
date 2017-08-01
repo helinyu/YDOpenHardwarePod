@@ -10,8 +10,9 @@
 
 #import "YDBridgeWebView.h"
 #import "YDBridgeWebMgr.h"
+#import "Masonry.h"
 
-#import "MSUtil.h"
+//#import "MSUtil.h"
 
 
 @interface YDBridgeWebViewController () <YDBridgeWebViewDelegate>
@@ -64,7 +65,7 @@
 
 - (UIBarButtonItem *)shareItem {
     if (!_shareItem) {
-        _shareItem = [[UIBarButtonItem alloc] initWithTitle:MSLocalizedString(@"分享", nil) style:UIBarButtonItemStylePlain target:self action:@selector(toShare:)];
+        _shareItem = [[UIBarButtonItem alloc] initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(toShare:)];
         _shareItem.tintColor = YDC_NAV_TINT;
     }
     return _shareItem;
@@ -78,7 +79,7 @@
         _rightBtnLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10.f, 90.f, 21.f)];
         _rightBtnLabel.textColor = YDC_NAV_TINT;
         _rightBtnLabel.font = YDF_SYS(15.f);
-        _rightBtnLabel.text = MSLocalizedString(@"Location", nil);
+        _rightBtnLabel.text = @"location";
         _rightBtnLabel.textAlignment = NSTextAlignmentRight;
         
         UIButton *arrowBtn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -323,7 +324,7 @@
 #pragma mark - event action
 - (void)toRight:(id)sender {
     NSURLRequest *request =[[NSURLRequest alloc]init];
-    NSURL *url = [NSURL yd_URLWithString:self.rightBtnReloadUrlString];
+    NSURL *url = [NSURL URLWithString:self.rightBtnReloadUrlString];
     request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
 }

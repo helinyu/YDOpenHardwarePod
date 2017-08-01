@@ -1,8 +1,9 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/YDOpenHardware/framework"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/BabyBluetooth" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge"
-LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/BabyBluetooth" "$PODS_CONFIGURATION_BUILD_DIR/FMDB" "$PODS_CONFIGURATION_BUILD_DIR/Masonry" "$PODS_CONFIGURATION_BUILD_DIR/WebViewJavascriptBridge"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/BabyBluetooth" -isystem "${PODS_ROOT}/Headers/Public/FMDB" -isystem "${PODS_ROOT}/Headers/Public/Masonry" -isystem "${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"BabyBluetooth" -l"FMDB" -l"Masonry" -l"WebViewJavascriptBridge" -l"sqlite3" -framework "Foundation" -framework "UIKit" -framework "WebKit"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/BabyBluetooth" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/NJKWebViewProgress" "${PODS_ROOT}/Headers/Public/SVProgressHUD" "${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge" "${PODS_ROOT}/Headers/Public/YDOpenHardware" "${PODS_ROOT}/Headers/Public/YYModel"
+LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/BabyBluetooth" "$PODS_CONFIGURATION_BUILD_DIR/FMDB" "$PODS_CONFIGURATION_BUILD_DIR/Masonry" "$PODS_CONFIGURATION_BUILD_DIR/NJKWebViewProgress" "$PODS_CONFIGURATION_BUILD_DIR/SVProgressHUD" "$PODS_CONFIGURATION_BUILD_DIR/WebViewJavascriptBridge" "$PODS_CONFIGURATION_BUILD_DIR/YYModel"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/BabyBluetooth" -isystem "${PODS_ROOT}/Headers/Public/FMDB" -isystem "${PODS_ROOT}/Headers/Public/Masonry" -isystem "${PODS_ROOT}/Headers/Public/NJKWebViewProgress" -isystem "${PODS_ROOT}/Headers/Public/SVProgressHUD" -isystem "${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge" -isystem "${PODS_ROOT}/Headers/Public/YDOpenHardware" -isystem "${PODS_ROOT}/Headers/Public/YYModel"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"BabyBluetooth" -l"FMDB" -l"Masonry" -l"NJKWebViewProgress" -l"SVProgressHUD" -l"WebViewJavascriptBridge" -l"YYModel" -l"sqlite3" -framework "CoreFoundation" -framework "Foundation" -framework "QuartzCore" -framework "UIKit" -framework "WebKit" -framework "YDOpenHardwareSDK"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

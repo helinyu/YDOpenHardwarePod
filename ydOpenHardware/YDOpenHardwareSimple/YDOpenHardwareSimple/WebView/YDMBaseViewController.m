@@ -7,21 +7,21 @@
 //
 
 #import "YDMBaseViewController.h"
-#import "TYPagerController.h"
-#import "YDIndexViewController.h"
-#import "YDMDiscoverViewController.h"
-#import "YDCircleRootViewController.h"
-#import "YDCircleDynamicRootViewController.h"
+//#import "TYPagerController.h"
+//#import "YDIndexViewController.h"
+//#import "YDMDiscoverViewController.h"
+//#import "YDCircleRootViewController.h"
+//#import "YDCircleDynamicRootViewController.h"
 //#import "YDMMeViewController.h"
-#import "YDNewChallengeViewController.h"
-#import "YDLiveViewController.h"
-#import "YDIndexViewController.h"
+//#import "YDNewChallengeViewController.h"
+//#import "YDLiveViewController.h"
+//#import "YDIndexViewController.h"
 
-#import "YDIndexStepViewController.h"
-#import "YDIndexRunViewController.h"
-#import "YDIndexFitViewController.h"
-#import "YDIndexRideViewController.h"
-#import "YDMineViewController.h"
+//#import "YDIndexStepViewController.h"
+//#import "YDIndexRunViewController.h"
+//#import "YDIndexFitViewController.h"
+//#import "YDIndexRideViewController.h"
+//#import "YDMineViewController.h"
 #import "CWStatusBarNotification.h"
 
 @implementation YDMBaseViewController
@@ -34,9 +34,9 @@
         if (self.showMode == YDVCShowModeTabBar || self.showMode == YDVCShowModeBoth) {
             self.hidesBottomBarWhenPushed = NO;
         } else {
-            if (![self.class isSubclassOfClass:[YDIndexViewController class]] && ![self.class isSubclassOfClass:[YDNewChallengeViewController class]] && ![self.class isSubclassOfClass:[YDMDiscoverViewController class]] && ![self.class isSubclassOfClass:[YDCircleDynamicRootViewController class]] && ![self.class isSubclassOfClass:[YDMineViewController class]]) {
-                self.hidesBottomBarWhenPushed = YES;
-            }
+//            if (![self.class isSubclassOfClass:[YDIndexViewController class]] && ![self.class isSubclassOfClass:[YDNewChallengeViewController class]] && ![self.class isSubclassOfClass:[YDMDiscoverViewController class]] && ![self.class isSubclassOfClass:[YDCircleDynamicRootViewController class]] && ![self.class isSubclassOfClass:[YDMineViewController class]]) {
+//                self.hidesBottomBarWhenPushed = YES;
+//            }
         }
         self.navigationController.navigationBar.hidden = YES;
     }
@@ -57,13 +57,13 @@
 
 - (void)viewWillAppear: (BOOL)animated {
     [super viewWillAppear: animated];
-    if (self.statusBarNotification) {
-        [self.statusBarNotification dismissNotification];
-    }
-    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:NO];
-    MSLogI(@"\n1-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
-    //[TalkingData trackPageBegin: NSStringFromClass([self class])];
-    [MobClick beginLogPageView: self.title.length ? self.title : NSStringFromClass([self class])];
+//    if (self.statusBarNotification) {
+//        [self.statusBarNotification dismissNotification];
+//    }
+//    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:NO];
+//    MSLogI(@"\n1-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
+//    //[TalkingData trackPageBegin: NSStringFromClass([self class])];
+//    [MobClick beginLogPageView: self.title.length ? self.title : NSStringFromClass([self class])];
 }
 
 /**
@@ -98,10 +98,10 @@
     }
     _isViewAppear = NO;
     MSLogI(@"\n5-------------------------------\n%@ %@\n-------------------------------\n", NSStringFromClass([self class]), [NSString stringWithCString: __PRETTY_FUNCTION__ encoding: NSUTF8StringEncoding]);
-    [self yd_dismissContinuousMsg];
+//    [self yd_dismissContinuousMsg];
     //[TalkingData trackPageEnd: NSStringFromClass([self class])];
-    [MobClick endLogPageView: self.title.length ? self.title : NSStringFromClass([self class])];
-    [self yd_clearAllTimeoutLoading];
+//    [MobClick endLogPageView: self.title.length ? self.title : NSStringFromClass([self class])];
+//    [self yd_clearAllTimeoutLoading];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -198,9 +198,9 @@
     if (self.showMode == YDVCShowModeTabBar || self.showMode == YDVCShowModeBoth) {
         self.hidesBottomBarWhenPushed = NO;
     } else {
-        if (![self.class isSubclassOfClass:[YDIndexViewController class]] && ![self.class isSubclassOfClass:[YDNewChallengeViewController class]] && ![self.class isSubclassOfClass:[YDMDiscoverViewController class]] && ![self.class isSubclassOfClass:[YDCircleDynamicRootViewController class]] && ![self.class isSubclassOfClass:[YDMineViewController class]]) {
-            self.hidesBottomBarWhenPushed = YES;
-        }
+//        if (![self.class isSubclassOfClass:[YDIndexViewController class]] && ![self.class isSubclassOfClass:[YDNewChallengeViewController class]] && ![self.class isSubclassOfClass:[YDMDiscoverViewController class]] && ![self.class isSubclassOfClass:[YDCircleDynamicRootViewController class]] && ![self.class isSubclassOfClass:[YDMineViewController class]]) {
+//            self.hidesBottomBarWhenPushed = YES;
+//        }
     }
     
     self.navigationController.navigationBar.hidden = YES;
