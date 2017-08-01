@@ -66,6 +66,22 @@ like that:
 });
 ```
 
+5、data deliver protocol:
+we must deliver the data by the json format , you can deliver json object or data string and so on which can deliver to the oc 
+so we recomend the format si key:value  which is simpler ,it will more eaier to use.
+like the data of oc that :
+```
+@{
+@"uuid":c.UUID.UUIDString,
+@"value":@{
+         @"value0":value0,
+         @"value1":value1,
+         @"value2":value2,
+         @"value3":value3
+         }
+};
+```
+
 more detail you can see the [S3.html](https://github.com/helinyu/YDOpenHardwarePod/blob/master/ydOpenHardware/YDOpenHardwareSimple/YDOpenHardwareSimple/WebView/S3.html)
 
 
