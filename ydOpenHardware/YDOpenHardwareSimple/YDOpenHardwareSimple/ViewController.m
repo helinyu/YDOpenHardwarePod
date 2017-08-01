@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "YDThirdPartLoader.h"
 
-#import <YDOpenHardwareCore/YDOpenHardwareMgr.h>
+//#import <YDOpenHardwareCore/YDOpenHardwareMgr.h>
 
 #import "YDBridgeWebViewController.h"
 
@@ -36,7 +36,7 @@
 //    [[YDThirdPartLoader shared] toThirdPartVC];
     
 //    push or present
-    YDBridgeWebViewController *vc = [[YDBridgeWebViewController new];
+    YDBridgeWebViewController *vc = [YDBridgeWebViewController new];
      [self.navigationController pushViewController:vc animated:YES];
 
 }

@@ -7,10 +7,8 @@
 //
 
 #import "UIViewController+YDNavigation.h"
-#import "YDBaseTabBarController.h"
 #import <objc/runtime.h>
 #import "YDMBaseViewController.h"
-#import "YDBaseViewController.h"
 
 @interface UIViewController ()
 

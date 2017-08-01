@@ -7,12 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIView+Screenshot.h"
-#import "UIViewController+YDMessage.h"
 #import "UIViewController+YDNavigation.h"
-#import "UIViewController+YDLoading.h"
-#import "UIViewController+YDAlert.h"
-#import "UIViewController+YDActionSheet.h"
 #import "UIViewController+YDViewController.h"
 
 @interface YDMBaseViewController : UIViewController

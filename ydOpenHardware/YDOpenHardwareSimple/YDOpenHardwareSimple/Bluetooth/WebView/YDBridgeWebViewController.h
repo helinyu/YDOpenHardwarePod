@@ -7,6 +7,7 @@
 //
 
 #import "YDMBaseViewController.h"
+#import "YDDefine.h"
 
 @class YDBridgeWebView;
 

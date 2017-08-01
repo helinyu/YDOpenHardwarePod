@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:YDOpenHardwareSimple/YDOpenHardwareSimple.xcworkspace">
+   </FileRef>
+   <FileRef
       location = "group:YDOpenHardwareCore/YDOpenHardwareCore.xcodeproj">
    </FileRef>
    <FileRef

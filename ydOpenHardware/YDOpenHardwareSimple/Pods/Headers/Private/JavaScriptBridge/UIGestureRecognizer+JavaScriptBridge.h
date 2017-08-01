@@ -1,1 +1,0 @@
-../../../JavaScriptBridge/Classes/Private/UIGestureRecognizer+JavaScriptBridge.h

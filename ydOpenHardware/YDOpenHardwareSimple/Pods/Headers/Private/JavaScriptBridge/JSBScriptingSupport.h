@@ -1,1 +1,0 @@
-../../../JavaScriptBridge/Classes/JSBScriptingSupport.h

@@ -1,1 +1,0 @@
-../../../JavaScriptBridge/Classes/iOS/FrameworkSupport/SpriteKit/JSBSKTransition.h

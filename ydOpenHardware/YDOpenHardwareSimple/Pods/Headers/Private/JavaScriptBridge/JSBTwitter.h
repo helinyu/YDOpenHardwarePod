@@ -1,1 +1,0 @@
-../../../JavaScriptBridge/Classes/iOS/FrameworkSupport/Twitter/JSBTwitter.h
