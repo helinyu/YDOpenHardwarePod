@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface NSString (YDContainsString)
 
 - (BOOL)containsString:(NSString *)str;

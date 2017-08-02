@@ -340,4 +340,34 @@ static const CGFloat YDCtrlH40    = 40.0;
 #define SCREEN_BOUNDS CGRectMake(0,0,SCREEN_WIDTH_V1, SCREEN_HEIGHT_V1)
 #define SCREEN_SIZE CGSizeMake(SCREEN_WIDTH_V1, SCREEN_HEIGHT_V1)
 
+#define MSLocalizedString(key, comment) \
+[[MSLocalizable shared] localizedStringForKey:(key) value:@"" table:nil]
+
+#define MSLocalizedStringFromTable(key, tbl, comment) \
+[[MSLocalizable shared] localizedStringForKey:(key) value:@"" table:(tbl)]
+
+#define MSLocalizedStringWithDefaultValue(key, tbl, val, comment) \
+[[MSLocalizable shared] localizedStringForKey:(key) value:(val) table:(tbl)]
+
+#define MSLocalizedStringWithDefault(key, val) \
+[[MSLocalizable shared] localizedStringForKey:(key) value:(val) table: nil]
+
+#define MSLocalizedViewController(class) \
+[[MSLocalizable shared] localizedViewController:(class)]
+
+#define MSLocalizedImage(name) \
+[[MSLocalizable shared] localizedImage:(name)]
+
+#define MSLocalizationSetLanguage(language) \
+[[MSLocalizable shared] setLanguage:(language)]
+
+#define MSLocalizationReset \
+[[MSLocalizable shared] resetLocalization]
+
+#define MSLocalizationClearLanguage \
+[[MSLocalizable shared] clearLanguage]
+
+#define MSLocalizableSetPreferredLanguageUDKey(key) \
+[MSLocalizable setMSLocalizableUDKey: (key)]
+
 #endif /* YDDefine_h */

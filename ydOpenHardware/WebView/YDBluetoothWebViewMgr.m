@@ -166,7 +166,7 @@
     
 //    选择连接的对象
     [_webViewBridge registerHandler:@"onTouchPeripheral" handler:^(id data, WVJBResponseCallback responseCallback) {
-        MSLogD(@" choice peripheral data : %@",data);
+        NSLog(@" choice peripheral data : %@",data);
         if (data) {
             
             _btMgr.stopScan().connectingPeripheralUuid(data);
@@ -390,7 +390,7 @@
         if (operateState == YDOpenHardwareOperateStateSuccess) {
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"lastInsertStepsS3"];
         }else{
-            MSLogD(@"解除绑定失败");
+            NSLog(@"解除绑定失败");
         }
     }];
 

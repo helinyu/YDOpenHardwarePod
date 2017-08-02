@@ -29,7 +29,6 @@
 @property (nonatomic, assign, readwrite) NSInteger currentIndex;
 @property (nonatomic, strong, readwrite) CBPeripheral *currentPeripheral;
 
-
 @end
 
 static NSString *const ydNtfMangerDidUpdataValueForCharacteristic = @"yd.bluetooth.DidUpdataValueForCharacteristic";
