@@ -14,6 +14,7 @@
 @class YDBridgeWebMgr;
 @class YDMBaseViewController;
 @class NJKWebViewProgress;
+
 @protocol YDBridgeWebViewDelegate <NSObject>
 
 @optional
@@ -184,7 +185,7 @@
  */
 - (WKNavigation *)reload;
 
-#warning -- test
+//#warning -- test
 - (WKNavigation *)loadWithBundleFile:(NSString *)file;
 
 
