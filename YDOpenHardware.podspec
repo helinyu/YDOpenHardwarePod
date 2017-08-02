@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 	s.name         = 'YDOpenHardware'
-	s.version      = '0.1.7'
+	s.version      = '0.1.8'
 	s.summary      = '蓝牙硬件开发平台，数据存储'
 	s.ios.deployment_target = '7.0'
 	s.homepage     = 'https://github.com/helinyu/YDOpenHardwarePod'
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 	                YDOpenHardware is for easier to use
 	               DESC
    # dependency
- #    s.dependency 'Masonry', '~> 1.0.2'
+    s.dependency 'Masonry', '~> 1.0.2'
  #    s.dependency 'BabyBluetooth', '~> 0.7.0'
 	# s.dependency 'WebViewJavascriptBridge', '~> 6.0.2'
  #    s.dependency 'SVProgressHUD', '~> 2.1.2'
