@@ -16,13 +16,13 @@ Pod::Spec.new do |s|
 	               DESC
    # dependency
     s.dependency 'Masonry', '~> 1.0.2'
- #    s.dependency 'BabyBluetooth', '~> 0.7.0'
-	# s.dependency 'WebViewJavascriptBridge', '~> 6.0.2'
- #    s.dependency 'SVProgressHUD', '~> 2.1.2'
-	# s.dependency 'NJKWebViewProgress', '~> 0.2.3'
- #    s.dependency 'YYModel', '~> 1.0.4'
-	# s.dependency 'MJRefresh', '~> 3.1.12'
- #    s.dependency 'Reachability', '~> 3.2'
+    s.dependency 'BabyBluetooth', '~> 0.7.0'
+	s.dependency 'WebViewJavascriptBridge', '~> 6.0.2'
+    s.dependency 'SVProgressHUD', '~> 2.1.2'
+	s.dependency 'NJKWebViewProgress', '~> 0.2.3'
+    s.dependency 'YYModel', '~> 1.0.4'
+	s.dependency 'MJRefresh', '~> 3.1.12'
+    s.dependency 'Reachability', '~> 3.2'
 
     # s.vendored_frameworks = 'framework/*.framework'
 
