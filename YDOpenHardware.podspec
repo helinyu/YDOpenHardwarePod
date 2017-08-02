@@ -26,6 +26,6 @@ Pod::Spec.new do |s|
 	s.dependency 'MJRefresh', '~> 3.1.12'
     s.dependency 'Reachability', '~> 3.2'
 
-    # s.frameworks = 'framework/*'
+    # s.frameworks = 'ydOpenHardware/framework/*'
 
 end
