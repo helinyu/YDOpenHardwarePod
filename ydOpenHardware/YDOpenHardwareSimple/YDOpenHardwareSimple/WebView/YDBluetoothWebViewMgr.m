@@ -6,12 +6,12 @@
 //  Copyright © 2017年 apple. All rights reserved.
 //
 
-#import "YDS3WebViewMgr.h"
+#import "YDBluetoothWebViewMgr.h"
 #import "YDBlueToothMgr.h"
 #import "YDBridgeWebMgr.h"
 #import "WebViewJavascriptBridge.h"
 #import <CoreBluetooth/CoreBluetooth.h>
-//#import "NSDictionary+YDString.h"
+#import "NSDictionary+YDString.h"
 #import "YYModel.h"
 #import "MSJsonKit.h"
 
@@ -23,7 +23,7 @@
 
 
 
-@interface YDS3WebViewMgr ()
+@interface YDBluetoothWebViewMgr ()
 
 // openHardware
 
@@ -51,7 +51,7 @@
 
 @end
 
-@implementation YDS3WebViewMgr
+@implementation YDBluetoothWebViewMgr
 
 + (instancetype)shared {
     static id singleton = nil;
