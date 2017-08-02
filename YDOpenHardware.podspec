@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 	s.name         = 'YDOpenHardware'
-	s.version      = '0.2.0'
+	s.version      = '0.2.1'
 	s.summary      = '蓝牙硬件开发平台，数据存储'
 	s.ios.deployment_target = '7.0'
 	s.homepage     = 'https://github.com/helinyu/YDOpenHardwarePod'
