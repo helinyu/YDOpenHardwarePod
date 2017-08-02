@@ -84,6 +84,9 @@ like the data of oc that :
 
 more detail you can see the [S3.html](https://github.com/helinyu/YDOpenHardwarePod/blob/master/ydOpenHardware/YDOpenHardwareSimple/YDOpenHardwareSimple/WebView/S3.html)
 
+有关如何接入的流程：
+
+
 
 
 
