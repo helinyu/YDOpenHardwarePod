@@ -9,12 +9,13 @@ Pod::Spec.new do |s|
 	s.authors      = { "felix" => "2319979647@qq.com" }
 	s.platform     = :ios, '7.0'
 	s.source       = {:git => 'https://github.com/helinyu/YDOpenHardwarePod.git', :tag => s.version}
-	s.source_files = 'ydOpenHardware/Bluetooth/*.{h,m}','ydOpenHardware/extension/*.{h,m}'
+	s.source_files = 'ydOpenHardware/Bluetooth/*.{h,m}','ydOpenHardware/extension/*.{h,m}','ydOpenHardware/MSJsonKit/*.{h,m}'
 	# ,'ydOpenHardware/WebView/*.{h,m}'
 	s.requires_arc = true
 	s.description  = <<-DESC
 	                YDOpenHardware is for easier to use
 	               DESC
+
    # dependency
     s.dependency 'Masonry', '~> 1.0.2'
     s.dependency 'BabyBluetooth', '~> 0.7.0'
@@ -25,6 +26,6 @@ Pod::Spec.new do |s|
 	s.dependency 'MJRefresh', '~> 3.1.12'
     s.dependency 'Reachability', '~> 3.2'
 
-    # s.vendored_frameworks = 'framework/*.framework'
+    # s.frameworks = 'framework/*'
 
 end
