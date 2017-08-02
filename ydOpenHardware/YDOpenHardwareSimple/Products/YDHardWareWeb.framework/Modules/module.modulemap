@@ -1,0 +1,6 @@
+framework module YDHardWareWeb {
+  umbrella header "YDHardWareWeb.h"
+
+  export *
+  module * { export * }
+}
