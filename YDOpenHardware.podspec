@@ -9,7 +9,8 @@ Pod::Spec.new do |s|
 	s.authors      = { "felix" => "2319979647@qq.com" }
 	s.platform     = :ios, '7.0'
 	s.source       = {:git => 'https://github.com/helinyu/YDOpenHardwarePod.git', :tag => s.version}
-	s.source_files = 'ydOpenHardware/Bluetooth/*.{h,m}','ydOpenHardware/extension/*.{h,m}','ydOpenHardware/MSJsonKit/*.{h,mm}','ydOpenHardware/WebView/YDBridgeWebViewController.{h,m}'
+	s.source_files = 'ydOpenHardware/Bluetooth/*.{h,m}','ydOpenHardware/extension/*.{h,m}','ydOpenHardware/MSJsonKit/*.{h,mm}'
+	# ,'ydOpenHardware/WebView/YDBridgeWebViewController.{h,m}'
 	# ,'ydOpenHardware/WebView/YDS3WebViewMgr.{h,m}'
 	s.requires_arc = true
 	s.description  = <<-DESC
