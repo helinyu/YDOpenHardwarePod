@@ -13,9 +13,7 @@
 #import "WKWebViewJavascriptBridge.h"
 #import "YDBridgeWebView.h"
 #import "NJKWebViewProgress.h"
-
 #import "YDS3WebViewMgr.h"
-
 
 @interface YDBridgeWebMgr () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
