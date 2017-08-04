@@ -26,6 +26,10 @@
 
 
 //datas caches
-typedef void (^ResponseDic)(NSDictionary *dic);
+typedef void(^ResponseDic)(NSDictionary *dic);
+
+typedef void(^ResponseIdObject)(id idObj);
+typedef ResponseIdObject ResponseJsonObject;
+
 
 @end

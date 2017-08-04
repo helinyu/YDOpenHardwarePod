@@ -14,7 +14,7 @@
 #import "YDBridgeWebView.h"
 #import <NJKWebViewProgress.h>
 
-#import "YDS3WebViewMgr.h"
+#import "YDBluetoothWebViewMgr.h"
 
 
 @interface YDBridgeWebMgr () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -87,7 +87,7 @@
 }
 
 - (void)deliverBridge {
-    [YDS3WebViewMgr shared].webViewBridge = self.bridge;
+    [YDBluetoothWebViewMgr shared].webViewBridge = self.bridge;
 }
 
 - (void)registerBridgeHandler {
@@ -112,7 +112,7 @@
             break;
         case YDWebViewTypeS3:
         {
-            [[YDS3WebViewMgr shared] registerHandlers];
+            [[YDBluetoothWebViewMgr shared] registerHandlers];
         }
             break;
         default:
@@ -127,7 +127,7 @@
     switch (self.viewType) {
         case YDWebViewTypeS3:
         {
-            [[YDS3WebViewMgr shared] onActionByViewDidDisappear];
+            [[YDBluetoothWebViewMgr shared] onActionByViewDidDisappear];
         }
             break;
             
