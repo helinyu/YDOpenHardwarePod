@@ -325,7 +325,7 @@
     }
     YDOpenHardwareIntelligentScale *scale = [YDOpenHardwareIntelligentScale new];
     [scale constructByModel:infoDic];
-    [[YDOpenHardwareManager dataProvider] insertIntelligentScale:scale completion:^(BOOL success) {
+    [[YDOpenHardwareManager dataProvider] insertIntelligentScale:[infoDic ] completion:^(BOOL success) {
         
     }];
 
@@ -382,8 +382,7 @@
     if (!infoDic || ![infoDic isKindOfClass:[NSDictionary class]]) {
         return;
     }
-    YDOpenHardwareHeartRate *hr = [YDOpenHardwareHeartRate new];
-    [hr constructByModel:infoDic];
+    YDOpenHardwareHeartRate *hr = [YDOpenHardwareHeartRate yy_modelWithDictionary:infoDic];
     [[YDOpenHardwareManager dataProvider] insertHeartRate:hr completion:^(BOOL success) {
         
     }];
@@ -434,8 +433,7 @@
     if (!infoDic || ![infoDic isKindOfClass:[NSDictionary class]]) {
         return;
     }
-    YDOpenHardwarePedometer *pedometer = [YDOpenHardwarePedometer new];
-    [pedometer constructByModel:infoDic];
+    YDOpenHardwarePedometer *pedometer = [YDOpenHardwarePedometer yy_modelWithDictionary:infoDic];
     [[YDOpenHardwareManager dataProvider] insertPedometer:pedometer completion:^(BOOL success) {
     }];
 }
@@ -490,8 +488,7 @@
     if (!infoDic || ![infoDic isKindOfClass:[NSDictionary class]]) {
         return;
     }
-    YDOpenHardwareSleep *sleep = [YDOpenHardwareSleep new];
-    [sleep constructByModel:infoDic];
+    YDOpenHardwareSleep *sleep = [YDOpenHardwareSleep yy_modelWithDictionary:infoDic];
     [[YDOpenHardwareManager dataProvider] insertSleep:sleep completion:^(BOOL success) {
 //
     }];
@@ -531,6 +528,7 @@
     if (!infoDic || ![infoDic isKindOfClass:[NSDictionary class]]) {
         return;
     }
+    
     NSString *deviceIdentify = infoDic[@"deviceIdentify"];
     NSDate *timeSec = infoDic[@"timeSec"];
     NSDate *betweenStart = infoDic[@"betweenStart"];
