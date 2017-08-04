@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "YDThirdPartLoader.h"
 
 #import <YDOpenHardwareCore/YDOpenHardwareMgr.h>
 
@@ -31,12 +30,11 @@
 }
 
 - (IBAction)toThirdPartVC:(id)sender {
-//    [[YDThirdPartLoader shared] toThirdPartVC];
     
     YDBridgeWebViewController *vc = [YDBridgeWebViewController new];
     vc.urlString = @"S3.html";
     vc.type = YDWebViewTypeS3;
     [self.navigationController pushViewController:vc animated:YES];
-
+    
 }
 @end

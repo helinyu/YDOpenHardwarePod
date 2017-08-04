@@ -19,6 +19,8 @@
 		411ED0DA1F308BE60041909A /* YDBridgeWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0D11F308AE50041909A /* YDBridgeWebView.m */; };
 		411ED0DB1F308BE60041909A /* YDBridgeWebViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0CD1F308AE50041909A /* YDBridgeWebViewController.h */; };
 		411ED0DC1F308BE60041909A /* YDBridgeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0D01F308AE50041909A /* YDBridgeWebViewController.m */; };
+		415A54DF1F344B3A00BD61EA /* YDOpenHardwareCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415A54DD1F344AD700BD61EA /* YDOpenHardwareCore.framework */; };
+		415A54E01F344B3A00BD61EA /* YDOpenHardwareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415A54DE1F344AD700BD61EA /* YDOpenHardwareSDK.framework */; };
 		415C6AB21F305D7E007BE9DA /* YDBlueToothMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AB11F305D7E007BE9DA /* YDBlueToothMgr.m */; };
 		415C6AC81F305DF6007BE9DA /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 415C6AC01F305DF6007BE9DA /* index.html */; };
 		415C6AC91F305DF6007BE9DA /* peripheralList.html in Resources */ = {isa = PBXBuildFile; fileRef = 415C6AC11F305DF6007BE9DA /* peripheralList.html */; };
@@ -29,10 +31,7 @@
 		415C6AD61F306137007BE9DA /* UIViewController+YDNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD51F306137007BE9DA /* UIViewController+YDNavigation.m */; };
 		415C6ADA1F30669D007BE9DA /* UIViewController+YDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD91F30669D007BE9DA /* UIViewController+YDViewController.m */; };
 		4D4A64591D23C78200915104 /* ThirdParts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A64571D23C78200915104 /* ThirdParts.plist */; };
-		4D4A645C1D23C80A00915104 /* YDThirdPartLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A645B1D23C80A00915104 /* YDThirdPartLoader.m */; };
-		4D4A645F1D23D4F200915104 /* YDThirdPardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A645E1D23D4F200915104 /* YDThirdPardModel.m */; };
 		4D4A646D1D23F10000915104 /* MSJsonKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A646C1D23F10000915104 /* MSJsonKit.mm */; };
-		4D4A64751D260EEB00915104 /* MSVCRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A64741D260EEB00915104 /* MSVCRouter.m */; };
 		4D6D8FCC1C60E35800003AA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCB1C60E35800003AA0 /* main.m */; };
 		4D6D8FCF1C60E35800003AA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCE1C60E35800003AA0 /* AppDelegate.m */; };
 		4D6D8FD21C60E35800003AA0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FD11C60E35800003AA0 /* ViewController.m */; };
@@ -79,6 +78,8 @@
 		411ED0CF1F308AE50041909A /* YDBridgeWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDBridgeWebView.h; sourceTree = "<group>"; };
 		411ED0D01F308AE50041909A /* YDBridgeWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDBridgeWebViewController.m; sourceTree = "<group>"; };
 		411ED0D11F308AE50041909A /* YDBridgeWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDBridgeWebView.m; sourceTree = "<group>"; };
+		415A54DD1F344AD700BD61EA /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
+		415A54DE1F344AD700BD61EA /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
 		415C6AB01F305D7E007BE9DA /* YDBlueToothMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBlueToothMgr.h; sourceTree = "<group>"; };
 		415C6AB11F305D7E007BE9DA /* YDBlueToothMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBlueToothMgr.m; sourceTree = "<group>"; };
 		415C6AC01F305DF6007BE9DA /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
@@ -95,14 +96,8 @@
 		415C6AD91F30669D007BE9DA /* UIViewController+YDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YDViewController.m"; sourceTree = "<group>"; };
 		415C6ADE1F306A42007BE9DA /* YDDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDefine.h; sourceTree = "<group>"; };
 		4D4A64571D23C78200915104 /* ThirdParts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ThirdParts.plist; sourceTree = "<group>"; };
-		4D4A645A1D23C80A00915104 /* YDThirdPartLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDThirdPartLoader.h; sourceTree = "<group>"; };
-		4D4A645B1D23C80A00915104 /* YDThirdPartLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDThirdPartLoader.m; sourceTree = "<group>"; };
-		4D4A645D1D23D4F200915104 /* YDThirdPardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDThirdPardModel.h; sourceTree = "<group>"; };
-		4D4A645E1D23D4F200915104 /* YDThirdPardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDThirdPardModel.m; sourceTree = "<group>"; };
 		4D4A646B1D23F10000915104 /* MSJsonKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSJsonKit.h; sourceTree = "<group>"; };
 		4D4A646C1D23F10000915104 /* MSJsonKit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MSJsonKit.mm; sourceTree = "<group>"; };
-		4D4A64731D260EEB00915104 /* MSVCRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVCRouter.h; sourceTree = "<group>"; };
-		4D4A64741D260EEB00915104 /* MSVCRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVCRouter.m; sourceTree = "<group>"; };
 		4D6D8FC71C60E35800003AA0 /* YDOpenHardwareSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YDOpenHardwareSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6D8FCB1C60E35800003AA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D6D8FCD1C60E35800003AA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -134,6 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				415A54DF1F344B3A00BD61EA /* YDOpenHardwareCore.framework in Frameworks */,
+				415A54E01F344B3A00BD61EA /* YDOpenHardwareSDK.framework in Frameworks */,
 				4DB5ACEA1C732A7D00763E61 /* libsqlite3.tbd in Frameworks */,
 				9F5F0D99290CF496AF216787 /* libPods-YDOpenHardwareSimple.a in Frameworks */,
 			);
@@ -169,6 +166,15 @@
 				80DC7CEA71F6A7E0D11A7DC2 /* Pods-YDOpenHardwareSimpleUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		415A54DC1F344AD700BD61EA /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				415A54DD1F344AD700BD61EA /* YDOpenHardwareCore.framework */,
+				415A54DE1F344AD700BD61EA /* YDOpenHardwareSDK.framework */,
+			);
+			path = Framework;
 			sourceTree = "<group>";
 		};
 		415C6AAB1F305C97007BE9DA /* WebView */ = {
@@ -236,17 +242,6 @@
 			path = Plist;
 			sourceTree = "<group>";
 		};
-		4D4A64581D23C78200915104 /* ThirdPartLoader */ = {
-			isa = PBXGroup;
-			children = (
-				4D4A645A1D23C80A00915104 /* YDThirdPartLoader.h */,
-				4D4A645B1D23C80A00915104 /* YDThirdPartLoader.m */,
-				4D4A645D1D23D4F200915104 /* YDThirdPardModel.h */,
-				4D4A645E1D23D4F200915104 /* YDThirdPardModel.m */,
-			);
-			path = ThirdPartLoader;
-			sourceTree = "<group>";
-		};
 		4D4A646A1D23F10000915104 /* MSJsonKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,20 +251,10 @@
 			path = MSJsonKit;
 			sourceTree = "<group>";
 		};
-		4D4A64721D260EEB00915104 /* MSVCRouter */ = {
-			isa = PBXGroup;
-			children = (
-				4D4A64731D260EEB00915104 /* MSVCRouter.h */,
-				4D4A64741D260EEB00915104 /* MSVCRouter.m */,
-			);
-			path = MSVCRouter;
-			sourceTree = "<group>";
-		};
 		4D6D8FBE1C60E35800003AA0 = {
 			isa = PBXGroup;
 			children = (
 				4DB5ACE91C732A7D00763E61 /* libsqlite3.tbd */,
-				4DAB80341C7065BD00BED5D0 /* Framework */,
 				4D6D8FC91C60E35800003AA0 /* YDOpenHardwareSimple */,
 				4D6D8FE31C60E35900003AA0 /* YDOpenHardwareSimpleTests */,
 				4D6D8FEE1C60E35900003AA0 /* YDOpenHardwareSimpleUITests */,
@@ -292,10 +277,9 @@
 		4D6D8FC91C60E35800003AA0 /* YDOpenHardwareSimple */ = {
 			isa = PBXGroup;
 			children = (
-				4D4A64721D260EEB00915104 /* MSVCRouter */,
+				415A54DC1F344AD700BD61EA /* Framework */,
 				4D4A646A1D23F10000915104 /* MSJsonKit */,
 				4D4A64551D23C78200915104 /* Resource */,
-				4D4A64581D23C78200915104 /* ThirdPartLoader */,
 				4D6D8FCD1C60E35800003AA0 /* AppDelegate.h */,
 				4D6D8FCE1C60E35800003AA0 /* AppDelegate.m */,
 				4D6D8FD01C60E35800003AA0 /* ViewController.h */,
@@ -337,13 +321,6 @@
 				4D6D8FF11C60E35900003AA0 /* Info.plist */,
 			);
 			path = YDOpenHardwareSimpleUITests;
-			sourceTree = "<group>";
-		};
-		4DAB80341C7065BD00BED5D0 /* Framework */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Framework;
 			sourceTree = "<group>";
 		};
 		F8F9B82F1929C46A8859D4BE /* Frameworks */ = {
@@ -648,15 +625,12 @@
 				411ED0D51F308B7C0041909A /* ViewController.h in Sources */,
 				411ED0C41F3086510041909A /* YDWebNoNetworkView.m in Sources */,
 				415C6AD61F306137007BE9DA /* UIViewController+YDNavigation.m in Sources */,
-				4D4A645C1D23C80A00915104 /* YDThirdPartLoader.m in Sources */,
 				4D6D8FD21C60E35800003AA0 /* ViewController.m in Sources */,
 				4D6D8FCF1C60E35800003AA0 /* AppDelegate.m in Sources */,
 				415C6AB21F305D7E007BE9DA /* YDBlueToothMgr.m in Sources */,
-				4D4A64751D260EEB00915104 /* MSVCRouter.m in Sources */,
 				411ED0B81F3081E20041909A /* NSString+YDContainsString.m in Sources */,
 				415C6AD31F3060C5007BE9DA /* YDMBaseViewController.m in Sources */,
 				415C6ADA1F30669D007BE9DA /* UIViewController+YDViewController.m in Sources */,
-				4D4A645F1D23D4F200915104 /* YDThirdPardModel.m in Sources */,
 				4D4A646D1D23F10000915104 /* MSJsonKit.mm in Sources */,
 				415C6ACC1F305DF6007BE9DA /* YDS3WebViewMgr.m in Sources */,
 				411ED0BE1F30838F0041909A /* CWStatusBarNotification.m in Sources */,
@@ -807,7 +781,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2ERYNAFK87;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/YDOpenHardwareSimple";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/YDOpenHardwareSimple",
+					"$(PROJECT_DIR)/YDOpenHardwareSimple/Framework",
+				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = YDOpenHardwareSimple/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -835,7 +812,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/YDOpenHardwareSimple";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/YDOpenHardwareSimple",
+					"$(PROJECT_DIR)/YDOpenHardwareSimple/Framework",
+				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = YDOpenHardwareSimple/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

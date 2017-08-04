@@ -11,10 +11,6 @@
 #import <YDOpenHardwareSDK/YDOpenHardwareSDK.h>
 #import <YDOpenHardwareSDK/YDOpenHardwareUser.h>
 
-#import "YDThirdPartLoader.h"
-
-
-
 @interface AppDelegate ()
 
 @end
@@ -24,23 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [YDOpenHardwareCoreLoader load];
-    [[YDThirdPartLoader shared] load];
-    YDOpenHardwareUser *user = [[YDOpenHardwareUser alloc] init];
-    user.province = @"广东省";
-    user.city = @"深圳市";
-    user.userID = @133;
-    user.rank = @1;
-    user.sex = @0;
-    user.nick = @"test";
-    user.loveSports = @"乒乓球";
-    user.phone = @"13311112222";
-    user.signature = @"这是签名";
-    user.height = @170;
-    user.birth = [NSDate dateWithTimeIntervalSince1970: 694195200];
-    user.weight = @60000;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfOpenHardwareUserChange object: user];
     [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfOpenHardwareAppdidFinishLaunch object:nil];
     return YES;
 }
