@@ -323,9 +323,7 @@
     if (!infoDic || ![infoDic isKindOfClass:[NSDictionary class]]) {
         return;
     }
-    YDOpenHardwareIntelligentScale *scale = [YDOpenHardwareIntelligentScale new];
-    [scale constructByModel:infoDic];
-    [[YDOpenHardwareManager dataProvider] insertIntelligentScale:[infoDic ] completion:^(BOOL success) {
+    [[YDOpenHardwareManager dataProvider] insertIntelligentScale:[infoDic yy_modelToJSONObject] completion:^(BOOL success) {
         
     }];
 
@@ -335,7 +333,6 @@
     if (!infoDic || ![infoDic isKindOfClass:[NSDictionary class]]) {
         return;
     }
-    
     NSString *deviceIdentity = infoDic[@"deviceIdentity"];
     NSNumber *userId = infoDic[@"userId"];
     [[YDOpenHardwareManager dataProvider] selectNewSleepByDeviceIdentity:deviceIdentity userId:userId completion:^(BOOL success, YDOpenHardwareSleep *ohModel) {
