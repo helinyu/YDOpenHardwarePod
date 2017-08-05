@@ -82,6 +82,16 @@
         	responseCallback(data);
         });
 
+        //参数以key/value的方式
+        var datas = {"numberOfStep":12};
+        var pedometer = document.getElementById('testInsertPedemter');
+        pedometer.onclick = function(e) {
+            e.preventDefault();
+            bridge.callHandler('insertPedometer',datas,function(response) {
+                log('respone +',response);
+            });
+        };      
+                                 
 
     });
     
@@ -96,6 +106,11 @@
 		    scanBtn S3
 	    </button>
 	</div>
+    <div>
+        <button type="button" id='testInsertPedemter' style="text-decoration none;" >
+            测试插入步数
+        </button>
+    </div>
 
 	<div>
 

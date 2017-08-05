@@ -431,7 +431,22 @@
         return;
     }
     YDOpenHardwarePedometer *pedometer = [YDOpenHardwarePedometer yy_modelWithDictionary:infoDic];
+    pedometer.deviceId = _deviceId;
+    pedometer.userId = [[YDOpenHardwareManager sharedManager] getCurrentUser].userID;
+    pedometer.startTime = pedometer.endTime = [NSDate date];
+    pedometer.distance = @(23);
+    pedometer.calorie = @(23);
+    if (pedometer.extra == nil) {
+        pedometer.extra = @"";
+    }
     [[YDOpenHardwareManager dataProvider] insertPedometer:pedometer completion:^(BOOL success) {
+        if (success) {
+            NSLog(@"插入成功");
+        }
+        else{
+            NSLog(@"插入失败");
+        }
+        
     }];
 }
 
@@ -456,8 +471,6 @@
     NSDate *betweenStart = infoDic[@"betweenStart"];
     NSDate *endDate = infoDic[@"endDate"];
     NSNumber *userId = infoDic[@"userId"];
-    NSNumber *pageNo = infoDic[@"pageNo"];
-    NSNumber *pageSize = infoDic[@"pageSize"];
     [[YDOpenHardwareManager dataProvider] selectPedometerByDeviceIdentity:deviceIdentify timeSec:timeSec userId:userId betweenStart:betweenStart end:endDate completion:^(BOOL success, NSArray<YDOpenHardwarePedometer *> *pedometers) {
         !responseJsonObject?:responseJsonObject([pedometers yy_modelToJSONObject]);
     }];
