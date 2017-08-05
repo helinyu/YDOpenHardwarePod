@@ -196,6 +196,9 @@ selectSleepInPageByInfo
 @property (nonatomic, strong) NSNumber *status;//对应数据库字段：status
 @end
 
+注意：device_id & user_id 默认不用传入，在native 这边默认是当前的用户设备
+其他字段按需传入
+
 ```
 `
 
