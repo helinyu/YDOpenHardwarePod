@@ -430,12 +430,13 @@
     if (!infoDic || ![infoDic isKindOfClass:[NSDictionary class]]) {
         return;
     }
+//    test datas must deliver from the html
     YDOpenHardwarePedometer *pedometer = [YDOpenHardwarePedometer yy_modelWithDictionary:infoDic];
     pedometer.deviceId = _deviceId;
     pedometer.userId = [[YDOpenHardwareManager sharedManager] getCurrentUser].userID;
     pedometer.startTime = pedometer.endTime = [NSDate date];
-    pedometer.distance = @(23);
-    pedometer.calorie = @(23);
+    pedometer.startTime?(pedometer.startTime = [NSDate date]):nil;
+    pedometer.endTime?(pedometer.endTime = [NSDate date]):nil;
     if (pedometer.extra == nil) {
         pedometer.extra = @"";
     }
