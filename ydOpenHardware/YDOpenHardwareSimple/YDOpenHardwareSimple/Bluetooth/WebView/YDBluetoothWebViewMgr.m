@@ -432,14 +432,12 @@
     }
 //    test datas must deliver from the html
     YDOpenHardwarePedometer *pedometer = [YDOpenHardwarePedometer yy_modelWithDictionary:infoDic];
-    pedometer.deviceId = _deviceId;
+    pedometer.deviceId = _deviceIdentify;
     pedometer.userId = [[YDOpenHardwareManager sharedManager] getCurrentUser].userID;
     pedometer.startTime = pedometer.endTime = [NSDate date];
     pedometer.startTime?(pedometer.startTime = [NSDate date]):nil;
     pedometer.endTime?(pedometer.endTime = [NSDate date]):nil;
-    if (pedometer.extra == nil) {
-        pedometer.extra = @"";
-    }
+
     [[YDOpenHardwareManager dataProvider] insertPedometer:pedometer completion:^(BOOL success) {
         if (success) {
             NSLog(@"插入成功");
