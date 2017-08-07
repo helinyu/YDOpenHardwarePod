@@ -262,55 +262,7 @@
     }];
     
 //    write dats
-    [_webViewBridge registerHandler:@"writeToPeripheral" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSInteger length = [data[@"length"] integerValue];
-        Byte byte[] = {};
-        NSData *datas = [[NSData alloc] initWithBytes:byte length:length];
-        [_choicePeripheal writeValue:datas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
-    }];
-    
-//    test for S3 write dats
-    [_webViewBridge registerHandler:@"writeHome" handler:^(id data, WVJBResponseCallback responseCallback) {
-//        0x02
-        NSLog(@"peripheral state : %ld",wSelf.choicePeripheal.state);
-        Byte bytes[] = {0x02};
-        NSData *writeDatas = [[NSData alloc] initWithBytes:bytes length:1];
-        if (wSelf.writeCharacteristic) {
-            [wSelf.choicePeripheal writeValue:writeDatas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
-        }
-    }];
-    
-    [_webViewBridge registerHandler:@"writeHeartRate" handler:^(id data, WVJBResponseCallback responseCallback) {
-        //        0x03
-        Byte bytes[] = {0x03};
-        NSData *writeDatas = [[NSData alloc] initWithBytes:bytes length:1];
-        if (wSelf.writeCharacteristic) {
-            [wSelf.choicePeripheal writeValue:writeDatas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
-        }
-    }];
-    
-    [_webViewBridge registerHandler:@"writeStepCounter" handler:^(id data, WVJBResponseCallback responseCallback) {
-        //        0x04
-        Byte bytes[] = {0x04};
-        NSData *writeDatas = [[NSData alloc] initWithBytes:bytes length:1];
-        if (wSelf.writeCharacteristic) {
-            [wSelf.choicePeripheal writeValue:writeDatas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
-        }
-    }];
-    
-    [_webViewBridge registerHandler:@"writeSyncHeartRate" handler:^(id data, WVJBResponseCallback responseCallback) {
-        //        0x05
-        Byte bytes[] = {0x05};
-        NSData *writeDatas = [[NSData alloc] initWithBytes:bytes length:1];
-        if (wSelf.writeCharacteristic) {
-            [wSelf.choicePeripheal writeValue:writeDatas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
-        }
-    }];
-    
-    [_webViewBridge registerHandler:@"writeStep" handler:^(id data, WVJBResponseCallback responseCallback) {
-//
-//        NSString *string = (NSString *)data;
-        
+    [_webViewBridge registerHandler:@"writeDatas" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSString *hexString = data[@"hexString"];
         NSInteger length = [data[@"length"] integerValue];
         NSData *writeDatas = [NSData convertFromHexString:hexString length:length];
@@ -319,12 +271,6 @@
         }
     }];
     
-}
-
-- (void)sendMessageForservers:(NSString *)message {
-
-
-
 }
 
 - (void)reloadWithUrl:(NSString *)string {

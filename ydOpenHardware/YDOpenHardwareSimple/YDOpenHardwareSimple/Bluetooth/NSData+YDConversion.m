@@ -40,8 +40,7 @@
         ///将转化后的数放入Byte数组里
         j++;
     }
-    NSData *newData = [[NSData alloc] initWithBytes:bytes length:8];
-    return newData;
+    return [[NSData alloc] initWithBytes:bytes length:length];
 }
 
 @end
