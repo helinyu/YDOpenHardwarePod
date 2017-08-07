@@ -19,6 +19,8 @@
 #import <YDOpenHardwareSDK/YDOpenHardwareHeartRate.h>
 #import <YDOpenHardwareSDK/YDOpenHardwareSDK.h>
 
+#import "NSData+YDConversion.h"
+
 @interface YDBluetoothWebViewMgr ()
 
 // openHardware
@@ -44,6 +46,8 @@
 //mark
 @property (nonatomic, strong) CBPeripheral *choicePeripheal;
 @property (nonatomic, assign) NSInteger choiceIndex;
+
+@property (nonatomic, strong) CBCharacteristic *writeCharacteristic;
 
 @end
 
@@ -152,15 +156,15 @@
         if (data) {
             _btMgr.stopScan().connectingPeripheralUuid(data);
             [wSelf.btMgr onConnectCurrentPeripheralOfBluetooth];
-            _choicePeripheal = _btMgr.currentPeripheral;
-            [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal.identifier.UUIDString forKey:@"peripheralUUID"];
-            [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal forKey:@"choicePeripheral"];
             wSelf.btMgr.connectionCallBack = ^(BOOL success) {
                 if (success) {
                     [wSelf registerOpenHardWareWithPeripheral:_choicePeripheal];
                     [wSelf backDatasFromBluetooth];
                 }
             };
+            _choicePeripheal = _btMgr.currentPeripheral;
+            [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal.identifier.UUIDString forKey:@"peripheralUUID"];
+            [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal forKey:@"choicePeripheral"];
         }
     }];
     
@@ -257,20 +261,70 @@
         }];
     }];
     
-//   注入通知
-//    [_webViewBridge registerHandler:@"onNotificationSource" handler:^(id data, WVJBResponseCallback responseCallback) {
-//        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"9FBF120D-6301-42D9-8C58-25E699A21DBD"];
-//        NSData *uuidDatas = [uuid.UUIDString dataUsingEncoding:NSUTF8StringEncoding];
-//        NSLog(@"uudi Datas length : %lu",(unsigned long)uuidDatas.length);
-//        Byte *uuidBytes = (Byte *)[uuidDatas bytes];
-//        NSData *writeDatas;
-//        Byte writeBytes[] = {0x00,0x10,0x01,0x03,uuidBytes[0],uuidBytes[1],uuidBytes[2],uuidBytes[3]};
+//    write dats
+    [_webViewBridge registerHandler:@"writeToPeripheral" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSInteger length = [data[@"length"] integerValue];
+        Byte byte[] = {};
+        NSData *datas = [[NSData alloc] initWithBytes:byte length:length];
+        [_choicePeripheal writeValue:datas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
+    }];
+    
+//    test for S3 write dats
+    [_webViewBridge registerHandler:@"writeHome" handler:^(id data, WVJBResponseCallback responseCallback) {
+//        0x02
+        NSLog(@"peripheral state : %ld",wSelf.choicePeripheal.state);
+        Byte bytes[] = {0x02};
+        NSData *writeDatas = [[NSData alloc] initWithBytes:bytes length:1];
+        if (wSelf.writeCharacteristic) {
+            [wSelf.choicePeripheal writeValue:writeDatas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
+        }
+    }];
+    
+    [_webViewBridge registerHandler:@"writeHeartRate" handler:^(id data, WVJBResponseCallback responseCallback) {
+        //        0x03
+        Byte bytes[] = {0x03};
+        NSData *writeDatas = [[NSData alloc] initWithBytes:bytes length:1];
+        if (wSelf.writeCharacteristic) {
+            [wSelf.choicePeripheal writeValue:writeDatas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
+        }
+    }];
+    
+    [_webViewBridge registerHandler:@"writeStepCounter" handler:^(id data, WVJBResponseCallback responseCallback) {
+        //        0x04
+        Byte bytes[] = {0x04};
+        NSData *writeDatas = [[NSData alloc] initWithBytes:bytes length:1];
+        if (wSelf.writeCharacteristic) {
+            [wSelf.choicePeripheal writeValue:writeDatas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
+        }
+    }];
+    
+    [_webViewBridge registerHandler:@"writeSyncHeartRate" handler:^(id data, WVJBResponseCallback responseCallback) {
+        //        0x05
+        Byte bytes[] = {0x05};
+        NSData *writeDatas = [[NSData alloc] initWithBytes:bytes length:1];
+        if (wSelf.writeCharacteristic) {
+            [wSelf.choicePeripheal writeValue:writeDatas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
+        }
+    }];
+    
+    [_webViewBridge registerHandler:@"writeStep" handler:^(id data, WVJBResponseCallback responseCallback) {
 //
-//        writeDatas = [[NSData alloc] initWithBytes:writeBytes length:8];
+//        NSString *string = (NSString *)data;
+        
+        NSString *hexString = data[@"hexString"];
+        NSInteger length = [data[@"length"] integerValue];
+        NSData *writeDatas = [NSData convertFromHexString:hexString length:length];
+        if (wSelf.writeCharacteristic && writeDatas) {
+            [wSelf.choicePeripheal writeValue:writeDatas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
+        }
+    }];
     
-//    设置监听
+}
 
-    
+- (void)sendMessageForservers:(NSString *)message {
+
+
+
 }
 
 - (void)reloadWithUrl:(NSString *)string {
@@ -280,18 +334,29 @@
 - (void)backDatasFromBluetooth {
     __weak typeof (self) wSelf = self;
     _btMgr.servicesCallBack = ^(NSArray<CBService *> *services) {
-        
+//        返回服务
     };
 
     _btMgr.characteristicCallBack = ^(CBCharacteristic *c) {
         if (c.value && c.UUID) {
             [wSelf onDeliverToHtmlWithCharateristic:c];
+#warning test fff1
+//            [wSelf isWriteCharacteristicWithC:c UUIDString:@"FFF1"];
           }
      };
 }
 
+- (void)isWriteCharacteristicWithC:(CBCharacteristic *)c UUIDString:(NSString *)uuidString {
+    if ([c.UUID.UUIDString isEqualToString:uuidString]) {
+        _writeCharacteristic = c;
+    }else{
+        
+    }
+}
+
 // plist 文件加载数据格式
 - (void)onDeliverToHtmlWithCharateristic:(CBCharacteristic *)c {
+//test
     Byte *resultP = (Byte *)[c.value bytes];
 //    数据格式需要进行加载，解析数据格式 （变化），这里应该是怎么读取的，有关的格式
     NSString *value0 = [NSString stringWithFormat:@"0x%02X",resultP[0]];
@@ -350,8 +415,7 @@
 
 - (void)registerOpenHardWareWithPeripheral:(CBPeripheral *)peripheral {
     //   蓝牙连接成功了之后，就会注册数据库
-    //是否注册
-    _deviceId = peripheral.identifier.UUIDString;
+    //是否注册0x    _deviceId = peripheral.identifier.UUIDString;
     _plugName = peripheral.name;
     _userId = [[YDOpenHardwareManager sharedManager] getCurrentUser].userID;
     __weak typeof (self) wSelf = self;

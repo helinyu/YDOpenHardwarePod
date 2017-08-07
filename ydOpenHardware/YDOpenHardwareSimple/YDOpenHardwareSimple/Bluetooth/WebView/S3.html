@@ -46,7 +46,7 @@
          callbackButton.onclick = function(e) {
 	         e.preventDefault();
 	         log('JS calling handler "scan peripheral"')
-	         // window.location.href='./peripheralList.html';
+	         // window.location.href='./peripheralList.html';H
              var scanParams = {'YDBlueToothFilterType':3,'prefixField':'SH'};
 	         bridge.callHandler('onScanClick', scanParams, function(response) {
                 log('JS got response', response)
@@ -100,7 +100,57 @@
                 log('respone +',response);
             });
         };
-                                 
+
+        var writeHome = document.getElementById('writeHome');
+        writeHome.onclick = function(e) {
+            e.preventDefault();
+            bridge.callHandler('writeHome',"",function(response) {
+                log('respone +',response);
+            });
+        };    
+            
+        var writeHeartRate = document.getElementById('writeHeartRate');
+        writeHeartRate.onclick = function(e) {
+            e.preventDefault();
+            bridge.callHandler('writeHeartRate',"",function(response) {
+                log('respone +',response);
+            });
+        }; 
+
+        var writeStepCounter = document.getElementById('writeStepCounter');
+        writeStepCounter.onclick = function(e) {
+            e.preventDefault();
+            bridge.callHandler('writeStepCounter',"",function(response) {
+                log('respone +',response);
+            });
+        };     
+
+        var writeSyncHeartRate = document.getElementById('writeSyncHeartRate');
+        writeSyncHeartRate.onclick = function(e) {
+            e.preventDefault();
+            bridge.callHandler('writeSyncHeartRate',"",function(response) {
+                log('respone +',response);
+            });
+        }; 
+
+        var writeStep = document.getElementById('writeStep');
+        writeStep.onclick = function(e) {
+            e.preventDefault();
+            bridge.callHandler('writeStep',"",function(response) {
+                log('respone +',response);
+            });
+        };            
+
+        var writeDatas = document.getElementById('writeDatas');
+        writeDatas.onclick = function(e) {
+            e.preventDefault();
+            // test value
+            var datas = {"hexString":"0x06","length":1};
+            bridge.callHandler('writeDatas',datas,function(response) {
+                log('respone +',response);
+            });
+        }; 
+            
     });
     
     </script>
@@ -148,9 +198,34 @@
 
 		</label>
 	</div>
+        写有关的数据
+        <label>0x01 none</label>
+        <button id="reConnect">0x01</button>
+        <br/>
+        <label>0x02 home page</label>
+        <button id="writeHome">0x02</button>
+        <br/>
+        <label>0x03 heart rate</label>
+        <button id="writeHeartRate">0x03</button>
+        <br/>
+        <label>0x04 step counter</label>
+        <button id="writeStepCounter">0x04</button>
+        <br/>
+        <label>0x05 sync</label>
+        <button id="writeSyncHeartRate">0x05</button>
+        <br/>      
+        <label>0x06 sync</label>
+        <button id="writeStep">0x06</button>
+        <br/>                
+        <div>
+        
+    </div>
+    <div>
+        <label>写数据</label>
+        <button id="writeDatas">写数据</button>        
+    </div>
 
     <div id='log'></div>
 
 </body>
 </html>
-
