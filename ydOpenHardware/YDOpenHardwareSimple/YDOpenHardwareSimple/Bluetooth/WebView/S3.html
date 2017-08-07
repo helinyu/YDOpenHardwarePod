@@ -47,7 +47,8 @@
 	         e.preventDefault();
 	         log('JS calling handler "scan peripheral"')
 	         // window.location.href='./peripheralList.html';
-	         bridge.callHandler('onScanS3Click', 'S3', function(response) {
+             var scanParams = {'prefixField':'S3','YDBlueToothFilterType':3};
+	         bridge.callHandler('onScanClick', scanParams, function(response) {
                 log('JS got response', response)
             });
          };
@@ -90,9 +91,16 @@
             bridge.callHandler('insertPedometer',datas,function(response) {
                 log('respone +',response);
             });
-        };      
+        };
                                  
-
+        var source = document.getElementById('NotificationSource');
+        source.onclick = function(e) {
+            e.preventDefault();
+            bridge.callHandler('onNotificationSource',"",function(response) {
+                log('respone +',response);
+            });
+        };
+                                 
     });
     
     </script>
@@ -109,6 +117,11 @@
     <div>
         <button type="button" id='testInsertPedemter' style="text-decoration none;" >
             测试插入步数
+        </button>
+    </div>
+    <div>
+        <button type="button" id='NotificationSource' style="text-decoration none;" >
+            测试设置通知
         </button>
     </div>
 

@@ -73,16 +73,18 @@ static NSString *const ydNtfMangerDidUpdataValueForCharacteristic = @"yd.bluetoo
     }];
     
    [_bluetooth setFilterOnDiscoverPeripherals:^BOOL(NSString *peripheralName, NSDictionary *advertisementData, NSNumber *RSSI) {
-
-       if (peripheralName.length <= 0) {
-           return NO;
-       }else{
-           return YES;
-       }
        
-#warning  need to fix change
        NSLog(@"peripheral name : %@",peripheralName);
+       
         switch (wSelf.filterType) {
+            case YDBlueToothFilterTypeNone:
+            {
+                if (peripheralName.length > 0) {
+                    return YES;
+                }else{
+                    return NO;
+                }
+            }
             case YDBlueToothFilterTypeMatch:
             {
                 if ([peripheralName isEqualToString:wSelf.matchField]) {
@@ -226,6 +228,10 @@ static NSString *const ydNtfMangerDidUpdataValueForCharacteristic = @"yd.bluetoo
 
 }
 
+- (void)writeDatas:(NSData *)datas forCharacteristic:(CBCharacteristic *)characteristic  {
+    [self.currentPeripheral writeValue:datas forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];
+}
+
 #pragma mark -- custom methods
 
 + (instancetype)shared {
@@ -263,7 +269,6 @@ static NSString *const ydNtfMangerDidUpdataValueForCharacteristic = @"yd.bluetoo
 
 - (void)ontest:(NSNotification *)notification {
     CBCharacteristic *c = [notification.object objectForKey:@"characteristic"];
-
 }
 
 - (YDBlueToothMgr *(^)(void))stopScan {

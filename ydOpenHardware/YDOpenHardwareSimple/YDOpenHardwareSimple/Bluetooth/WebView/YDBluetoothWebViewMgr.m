@@ -72,10 +72,54 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onOpenHardwareUserChangeNotify:) name:YDNtfOpenHardwareUserChange object:nil];
 }
 
-- (void)scanPeripheralWithMatchWord:(NSString *)matchWord {
+- (void)scanPeripheralWithMatchInfo:(NSDictionary *)filterInfo {
     _btMgr = [YDBlueToothMgr shared];
-    _btMgr.filterType = YDBlueToothFilterTypeMatch;
-    _btMgr.matchField = matchWord;
+    _btMgr.filterType = (YDBlueToothFilterType)filterInfo[@"YDBlueToothFilterType"];
+
+    switch (_btMgr.filterType) {
+        case YDBlueToothFilterTypeNone:
+            break;
+        case YDBlueToothFilterTypeMatch:
+            _btMgr.matchField = filterInfo[@"matchField"];
+            break;
+        case YDBlueToothFilterTypeContain:
+            _btMgr.containField = filterInfo[@"containField"];
+            break;
+        case YDBlueToothFilterTypePrefix:
+            _btMgr.prefixField = filterInfo[@"prefixField"];
+            break;
+        case YDBlueToothFilterTypeSuffix:
+            _btMgr.suffixField = filterInfo[@"suffixField"];
+            break;
+        case YDBlueToothFilterTypePrefixAndSuffix:
+        {
+            _btMgr.prefixField = filterInfo[@"prefixField"];
+            _btMgr.suffixField = filterInfo[@"suffixField"];
+        }
+            break;
+        case YDBlueToothFilterTypePrefixAndContain:
+        {
+            _btMgr.prefixField = filterInfo[@"prefixField"];
+            _btMgr.containField = filterInfo[@"containField"];
+        }
+            break;
+        case YDBlueToothFilterTypeSuffixAndContrain:
+        {
+            _btMgr.suffixField = filterInfo[@"suffixField"];
+            _btMgr.containField = filterInfo[@"containField"];
+        }
+            break;
+        case YDBlueToothFilterTypePrefixAndContrainAndSuffix:
+        {
+            _btMgr.prefixField = filterInfo[@"prefixField"];
+            _btMgr.containField = filterInfo[@"containField"];
+            _btMgr.suffixField = filterInfo[@"suffixField"];
+        }
+            break;
+        default:
+            break;
+    }
+    
 }
 
 - (void)startScanThenSourcesCallback:(void(^)(NSArray *peirpherals))callback {
@@ -90,11 +134,11 @@
     //plist 文件加入 、方法名，参数
     __weak typeof (self) wSelf = self;
 //    这方法是固定的
-    [_webViewBridge registerHandler:@"onScanS3Click" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [_webViewBridge registerHandler:@"onScanClick" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (!data) {
             return ;
         }
-        [wSelf scanPeripheralWithMatchWord:data];
+        [wSelf scanPeripheralWithMatchInfo:data];
 //        跳转链接是后来处理的
         [self reloadWithUrl:@"peripheralList.html"];
         wSelf.btMgr.startScan().scanPeripheralCallback = ^(CBPeripheral *peripheral) {
@@ -109,6 +153,8 @@
             _btMgr.stopScan().connectingPeripheralUuid(data);
             [wSelf.btMgr onConnectCurrentPeripheralOfBluetooth];
             _choicePeripheal = _btMgr.currentPeripheral;
+            [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal.identifier.UUIDString forKey:@"peripheralUUID"];
+            [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal forKey:@"choicePeripheral"];
             wSelf.btMgr.connectionCallBack = ^(BOOL success) {
                 if (success) {
                     [wSelf registerOpenHardWareWithPeripheral:_choicePeripheal];
@@ -167,6 +213,7 @@
     
 // 计步
     [_webViewBridge registerHandler:@"insertPedometer" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"peri state : %ld",_choicePeripheal.state);
         [wSelf insertPedometer:data];
     }];
     
@@ -209,6 +256,20 @@
             !responseCallback?:responseCallback(dic);
         }];
     }];
+    
+//   注入通知
+//    [_webViewBridge registerHandler:@"onNotificationSource" handler:^(id data, WVJBResponseCallback responseCallback) {
+//        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"9FBF120D-6301-42D9-8C58-25E699A21DBD"];
+//        NSData *uuidDatas = [uuid.UUIDString dataUsingEncoding:NSUTF8StringEncoding];
+//        NSLog(@"uudi Datas length : %lu",(unsigned long)uuidDatas.length);
+//        Byte *uuidBytes = (Byte *)[uuidDatas bytes];
+//        NSData *writeDatas;
+//        Byte writeBytes[] = {0x00,0x10,0x01,0x03,uuidBytes[0],uuidBytes[1],uuidBytes[2],uuidBytes[3]};
+//
+//        writeDatas = [[NSData alloc] initWithBytes:writeBytes length:8];
+    
+//    设置监听
+
     
 }
 
@@ -268,13 +329,21 @@
 #pragma mark -- on action by vc
 
 - (void)onActionByViewDidDisappear {
+
     if (_btMgr) {
         _btMgr.quitConnected().stopScan();
     }
 }
 
 - (void)onActionByViewDidAppear {
-   
+    _choicePeripheal = [[NSUserDefaults standardUserDefaults] objectForKey:@"choicePeripheral"];
+    if (_choicePeripheal) {
+        if (!_btMgr) {
+            _btMgr = [YDBlueToothMgr shared];
+        }
+        [_btMgr onConnectBluetoothWithPeripheral:_choicePeripheal];
+    }
+
 }
 
 #pragma mark -- link to openHardware to datas caches
