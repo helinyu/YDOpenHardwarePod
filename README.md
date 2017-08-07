@@ -215,11 +215,13 @@ bridge.callHandler('onScanClick', scanParams, function(response) {
 log('JS got response', response)
 });
 };
+``````
 ```
 method: onScanClick
 params: scanParams (key/value)
-
+``````
 第一个参数是对应的过滤的类型：
+```
 YDBlueToothFilterTypeNone = 0,
 YDBlueToothFilterTypeMatch,  // match to filter and find the specify device
 YDBlueToothFilterTypeContain,    // contain the keyword to filter and find the specify device
@@ -229,15 +231,14 @@ YDBlueToothFilterTypePrefixAndSuffix, // key word by the prefix & suffix
 YDBlueToothFilterTypePrefixAndContain, // key word by the prefix & contain
 YDBlueToothFilterTypeSuffixAndContrain, // key word by the suffix & contain
 YDBlueToothFilterTypePrefixAndContrainAndSuffix, //key word by the prefix & contrain * suffix
-
+``````
 第二个参数是对应的是过滤方式的字段：
+```
 @property (nonatomic, copy) NSString *matchField; // 匹配
 @property (nonatomic, copy) NSString *prefixField; // 前缀
 @property (nonatomic, copy) NSString *suffixField; // 后缀
 @property (nonatomic, copy) NSString *containField; //包含
-
-
-`````
+``
 
 #写数据 
 >format : var datas = {"hexString":"0x06","length":1};
