@@ -47,7 +47,7 @@
 	         e.preventDefault();
 	         log('JS calling handler "scan peripheral"')
 	         // window.location.href='./peripheralList.html';
-             var scanParams = {'prefixField':'S3','YDBlueToothFilterType':3};
+             var scanParams = {'YDBlueToothFilterType':3,'prefixField':'SH'};
 	         bridge.callHandler('onScanClick', scanParams, function(response) {
                 log('JS got response', response)
             });

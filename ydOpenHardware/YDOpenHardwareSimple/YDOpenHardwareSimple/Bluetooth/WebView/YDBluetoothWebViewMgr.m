@@ -74,7 +74,7 @@
 
 - (void)scanPeripheralWithMatchInfo:(NSDictionary *)filterInfo {
     _btMgr = [YDBlueToothMgr shared];
-    _btMgr.filterType = (YDBlueToothFilterType)filterInfo[@"YDBlueToothFilterType"];
+    _btMgr.filterType = (YDBlueToothFilterType)[filterInfo[@"YDBlueToothFilterType"] integerValue];
 
     switch (_btMgr.filterType) {
         case YDBlueToothFilterTypeNone:
