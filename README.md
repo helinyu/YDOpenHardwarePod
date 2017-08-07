@@ -236,4 +236,21 @@ YDBlueToothFilterTypePrefixAndContrainAndSuffix, //key word by the prefix & cont
 @property (nonatomic, copy) NSString *suffixField; // 后缀
 @property (nonatomic, copy) NSString *containField; //包含
 
+
+`````
+
+#写数据 
+>format : var datas = {"hexString":"0x06","length":1};
+
+```
+writeDatas.onclick = function(e) {
+e.preventDefault();
+// test value
+var datas = {"hexString":"0x06","length":1};
+bridge.callHandler('writeDatas',datas,function(response) {
+log('respone +',response);
+});
+}; 
+``````
+
 ……
