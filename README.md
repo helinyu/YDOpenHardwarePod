@@ -242,7 +242,7 @@ YDBlueToothFilterTypePrefixAndContrainAndSuffix, //key word by the prefix & cont
 @property (nonatomic, copy) NSString *prefixField; // 前缀
 @property (nonatomic, copy) NSString *suffixField; // 后缀
 @property (nonatomic, copy) NSString *containField; //包含
-``
+``````
 
 
 #写数据 
