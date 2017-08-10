@@ -24,102 +24,57 @@
 /* Begin PBXBuildFile section */
 		4110A4041F3C2F1C00EBA5F1 /* YDBluetoothWebBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4021F3C2F1C00EBA5F1 /* YDBluetoothWebBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4110A41D1F3C2F6200EBA5F1 /* BabyBluetooth.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A40B1F3C2F6200EBA5F1 /* BabyBluetooth.h */; };
-		4110A41E1F3C2F6200EBA5F1 /* BabyBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A40C1F3C2F6200EBA5F1 /* BabyBluetooth.m */; };
 		4110A41F1F3C2F6200EBA5F1 /* BabyCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A40D1F3C2F6200EBA5F1 /* BabyCallback.h */; };
-		4110A4201F3C2F6200EBA5F1 /* BabyCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A40E1F3C2F6200EBA5F1 /* BabyCallback.m */; };
 		4110A4211F3C2F6200EBA5F1 /* BabyCentralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A40F1F3C2F6200EBA5F1 /* BabyCentralManager.h */; };
-		4110A4221F3C2F6200EBA5F1 /* BabyCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4101F3C2F6200EBA5F1 /* BabyCentralManager.m */; };
 		4110A4231F3C2F6200EBA5F1 /* BabyDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4111F3C2F6200EBA5F1 /* BabyDefine.h */; };
-		4110A4241F3C2F6200EBA5F1 /* BabyDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4121F3C2F6200EBA5F1 /* BabyDefine.m */; };
 		4110A4251F3C2F6200EBA5F1 /* BabyOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4131F3C2F6200EBA5F1 /* BabyOptions.h */; };
-		4110A4261F3C2F6200EBA5F1 /* BabyOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4141F3C2F6200EBA5F1 /* BabyOptions.m */; };
 		4110A4271F3C2F6200EBA5F1 /* BabyPeripheralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4151F3C2F6200EBA5F1 /* BabyPeripheralManager.h */; };
-		4110A4281F3C2F6200EBA5F1 /* BabyPeripheralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4161F3C2F6200EBA5F1 /* BabyPeripheralManager.m */; };
 		4110A4291F3C2F6200EBA5F1 /* BabyRhythm.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4171F3C2F6200EBA5F1 /* BabyRhythm.h */; };
-		4110A42A1F3C2F6200EBA5F1 /* BabyRhythm.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4181F3C2F6200EBA5F1 /* BabyRhythm.m */; };
 		4110A42B1F3C2F6200EBA5F1 /* BabySpeaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4191F3C2F6200EBA5F1 /* BabySpeaker.h */; };
-		4110A42C1F3C2F6200EBA5F1 /* BabySpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A41A1F3C2F6200EBA5F1 /* BabySpeaker.m */; };
 		4110A42D1F3C2F6200EBA5F1 /* BabyToy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A41B1F3C2F6200EBA5F1 /* BabyToy.h */; };
-		4110A42E1F3C2F6200EBA5F1 /* BabyToy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A41C1F3C2F6200EBA5F1 /* BabyToy.m */; };
 		4110A4491F3C2F6C00EBA5F1 /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4301F3C2F6C00EBA5F1 /* MASCompositeConstraint.h */; };
-		4110A44A1F3C2F6C00EBA5F1 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4311F3C2F6C00EBA5F1 /* MASCompositeConstraint.m */; };
 		4110A44B1F3C2F6C00EBA5F1 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4321F3C2F6C00EBA5F1 /* MASConstraint+Private.h */; };
 		4110A44C1F3C2F6C00EBA5F1 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4331F3C2F6C00EBA5F1 /* MASConstraint.h */; };
-		4110A44D1F3C2F6C00EBA5F1 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4341F3C2F6C00EBA5F1 /* MASConstraint.m */; };
 		4110A44E1F3C2F6C00EBA5F1 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4351F3C2F6C00EBA5F1 /* MASConstraintMaker.h */; };
-		4110A44F1F3C2F6C00EBA5F1 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4361F3C2F6C00EBA5F1 /* MASConstraintMaker.m */; };
 		4110A4501F3C2F6C00EBA5F1 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4371F3C2F6C00EBA5F1 /* MASLayoutConstraint.h */; };
-		4110A4511F3C2F6C00EBA5F1 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4381F3C2F6C00EBA5F1 /* MASLayoutConstraint.m */; };
 		4110A4521F3C2F6C00EBA5F1 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4391F3C2F6C00EBA5F1 /* Masonry.h */; };
 		4110A4531F3C2F6C00EBA5F1 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A43A1F3C2F6C00EBA5F1 /* MASUtilities.h */; };
 		4110A4541F3C2F6C00EBA5F1 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A43B1F3C2F6C00EBA5F1 /* MASViewAttribute.h */; };
-		4110A4551F3C2F6C00EBA5F1 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A43C1F3C2F6C00EBA5F1 /* MASViewAttribute.m */; };
 		4110A4561F3C2F6C00EBA5F1 /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A43D1F3C2F6C00EBA5F1 /* MASViewConstraint.h */; };
-		4110A4571F3C2F6C00EBA5F1 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A43E1F3C2F6C00EBA5F1 /* MASViewConstraint.m */; };
 		4110A4581F3C2F6C00EBA5F1 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A43F1F3C2F6C00EBA5F1 /* NSArray+MASAdditions.h */; };
-		4110A4591F3C2F6C00EBA5F1 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4401F3C2F6C00EBA5F1 /* NSArray+MASAdditions.m */; };
 		4110A45A1F3C2F6C00EBA5F1 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4411F3C2F6C00EBA5F1 /* NSArray+MASShorthandAdditions.h */; };
 		4110A45B1F3C2F6C00EBA5F1 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4421F3C2F6C00EBA5F1 /* NSLayoutConstraint+MASDebugAdditions.h */; };
-		4110A45C1F3C2F6C00EBA5F1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4431F3C2F6C00EBA5F1 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		4110A45D1F3C2F6C00EBA5F1 /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4441F3C2F6C00EBA5F1 /* View+MASAdditions.h */; };
-		4110A45E1F3C2F6C00EBA5F1 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4451F3C2F6C00EBA5F1 /* View+MASAdditions.m */; };
 		4110A45F1F3C2F6C00EBA5F1 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4461F3C2F6C00EBA5F1 /* View+MASShorthandAdditions.h */; };
 		4110A4601F3C2F6C00EBA5F1 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4471F3C2F6C00EBA5F1 /* ViewController+MASAdditions.h */; };
-		4110A4611F3C2F6C00EBA5F1 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4481F3C2F6C00EBA5F1 /* ViewController+MASAdditions.m */; };
-		4110A48B1F3C2F7600EBA5F1 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4110A4631F3C2F7600EBA5F1 /* MJRefresh.bundle */; };
 		4110A48C1F3C2F7600EBA5F1 /* MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4641F3C2F7600EBA5F1 /* MJRefresh.h */; };
 		4110A48D1F3C2F7600EBA5F1 /* MJRefreshAutoFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4651F3C2F7600EBA5F1 /* MJRefreshAutoFooter.h */; };
-		4110A48E1F3C2F7600EBA5F1 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4661F3C2F7600EBA5F1 /* MJRefreshAutoFooter.m */; };
 		4110A48F1F3C2F7600EBA5F1 /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4671F3C2F7600EBA5F1 /* MJRefreshAutoGifFooter.h */; };
-		4110A4901F3C2F7600EBA5F1 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4681F3C2F7600EBA5F1 /* MJRefreshAutoGifFooter.m */; };
 		4110A4911F3C2F7600EBA5F1 /* MJRefreshAutoNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4691F3C2F7600EBA5F1 /* MJRefreshAutoNormalFooter.h */; };
-		4110A4921F3C2F7600EBA5F1 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A46A1F3C2F7600EBA5F1 /* MJRefreshAutoNormalFooter.m */; };
 		4110A4931F3C2F7600EBA5F1 /* MJRefreshAutoStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A46B1F3C2F7600EBA5F1 /* MJRefreshAutoStateFooter.h */; };
-		4110A4941F3C2F7600EBA5F1 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A46C1F3C2F7600EBA5F1 /* MJRefreshAutoStateFooter.m */; };
 		4110A4951F3C2F7600EBA5F1 /* MJRefreshBackFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A46D1F3C2F7600EBA5F1 /* MJRefreshBackFooter.h */; };
-		4110A4961F3C2F7600EBA5F1 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A46E1F3C2F7600EBA5F1 /* MJRefreshBackFooter.m */; };
 		4110A4971F3C2F7600EBA5F1 /* MJRefreshBackGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A46F1F3C2F7600EBA5F1 /* MJRefreshBackGifFooter.h */; };
-		4110A4981F3C2F7600EBA5F1 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4701F3C2F7600EBA5F1 /* MJRefreshBackGifFooter.m */; };
 		4110A4991F3C2F7600EBA5F1 /* MJRefreshBackNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4711F3C2F7600EBA5F1 /* MJRefreshBackNormalFooter.h */; };
-		4110A49A1F3C2F7600EBA5F1 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4721F3C2F7600EBA5F1 /* MJRefreshBackNormalFooter.m */; };
 		4110A49B1F3C2F7600EBA5F1 /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4731F3C2F7600EBA5F1 /* MJRefreshBackStateFooter.h */; };
-		4110A49C1F3C2F7600EBA5F1 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4741F3C2F7600EBA5F1 /* MJRefreshBackStateFooter.m */; };
 		4110A49D1F3C2F7600EBA5F1 /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4751F3C2F7600EBA5F1 /* MJRefreshComponent.h */; };
-		4110A49E1F3C2F7600EBA5F1 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4761F3C2F7600EBA5F1 /* MJRefreshComponent.m */; };
 		4110A49F1F3C2F7600EBA5F1 /* MJRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4771F3C2F7600EBA5F1 /* MJRefreshConst.h */; };
-		4110A4A01F3C2F7600EBA5F1 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4781F3C2F7600EBA5F1 /* MJRefreshConst.m */; };
 		4110A4A11F3C2F7600EBA5F1 /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4791F3C2F7600EBA5F1 /* MJRefreshFooter.h */; };
-		4110A4A21F3C2F7600EBA5F1 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A47A1F3C2F7600EBA5F1 /* MJRefreshFooter.m */; };
 		4110A4A31F3C2F7600EBA5F1 /* MJRefreshGifHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A47B1F3C2F7600EBA5F1 /* MJRefreshGifHeader.h */; };
-		4110A4A41F3C2F7600EBA5F1 /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A47C1F3C2F7600EBA5F1 /* MJRefreshGifHeader.m */; };
 		4110A4A51F3C2F7600EBA5F1 /* MJRefreshHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A47D1F3C2F7600EBA5F1 /* MJRefreshHeader.h */; };
-		4110A4A61F3C2F7600EBA5F1 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A47E1F3C2F7600EBA5F1 /* MJRefreshHeader.m */; };
 		4110A4A71F3C2F7600EBA5F1 /* MJRefreshNormalHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A47F1F3C2F7600EBA5F1 /* MJRefreshNormalHeader.h */; };
-		4110A4A81F3C2F7600EBA5F1 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4801F3C2F7600EBA5F1 /* MJRefreshNormalHeader.m */; };
 		4110A4A91F3C2F7600EBA5F1 /* MJRefreshStateHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4811F3C2F7600EBA5F1 /* MJRefreshStateHeader.h */; };
-		4110A4AA1F3C2F7600EBA5F1 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4821F3C2F7600EBA5F1 /* MJRefreshStateHeader.m */; };
 		4110A4AB1F3C2F7600EBA5F1 /* NSBundle+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4831F3C2F7600EBA5F1 /* NSBundle+MJRefresh.h */; };
-		4110A4AC1F3C2F7600EBA5F1 /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4841F3C2F7600EBA5F1 /* NSBundle+MJRefresh.m */; };
 		4110A4AD1F3C2F7600EBA5F1 /* UIScrollView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4851F3C2F7600EBA5F1 /* UIScrollView+MJExtension.h */; };
-		4110A4AE1F3C2F7600EBA5F1 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4861F3C2F7600EBA5F1 /* UIScrollView+MJExtension.m */; };
 		4110A4AF1F3C2F7600EBA5F1 /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4871F3C2F7600EBA5F1 /* UIScrollView+MJRefresh.h */; };
-		4110A4B01F3C2F7600EBA5F1 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4881F3C2F7600EBA5F1 /* UIScrollView+MJRefresh.m */; };
 		4110A4B11F3C2F7600EBA5F1 /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4891F3C2F7600EBA5F1 /* UIView+MJExtension.h */; };
-		4110A4B21F3C2F7600EBA5F1 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A48A1F3C2F7600EBA5F1 /* UIView+MJExtension.m */; };
 		4110A4B81F3C2F7B00EBA5F1 /* NJKWebViewProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4B41F3C2F7B00EBA5F1 /* NJKWebViewProgress.h */; };
-		4110A4B91F3C2F7B00EBA5F1 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4B51F3C2F7B00EBA5F1 /* NJKWebViewProgress.m */; };
 		4110A4BA1F3C2F7B00EBA5F1 /* NJKWebViewProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4B61F3C2F7B00EBA5F1 /* NJKWebViewProgressView.h */; };
-		4110A4BB1F3C2F7B00EBA5F1 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4B71F3C2F7B00EBA5F1 /* NJKWebViewProgressView.m */; };
-		4110A4C11F3C2F8500EBA5F1 /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4110A4BD1F3C2F8500EBA5F1 /* LICENCE.txt */; };
 		4110A4C21F3C2F8500EBA5F1 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4BE1F3C2F8500EBA5F1 /* Reachability.h */; };
-		4110A4C31F3C2F8500EBA5F1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4BF1F3C2F8500EBA5F1 /* Reachability.m */; };
-		4110A4C41F3C2F8500EBA5F1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4C01F3C2F8500EBA5F1 /* README.md */; };
 		4110A4DF1F3C2F8C00EBA5F1 /* CWStatusBarNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4C61F3C2F8C00EBA5F1 /* CWStatusBarNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4110A4E01F3C2F8C00EBA5F1 /* CWStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4C71F3C2F8C00EBA5F1 /* CWStatusBarNotification.m */; };
 		4110A4E11F3C2F8C00EBA5F1 /* NSData+YDConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4C81F3C2F8C00EBA5F1 /* NSData+YDConversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4110A4E21F3C2F8C00EBA5F1 /* NSData+YDConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4C91F3C2F8C00EBA5F1 /* NSData+YDConversion.m */; };
 		4110A4E31F3C2F8C00EBA5F1 /* NSString+YDContainsString.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4CA1F3C2F8C00EBA5F1 /* NSString+YDContainsString.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4110A4E41F3C2F8C00EBA5F1 /* NSString+YDContainsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4CB1F3C2F8C00EBA5F1 /* NSString+YDContainsString.m */; };
 		4110A4E51F3C2F8C00EBA5F1 /* UIViewController+YDNavigation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4CC1F3C2F8C00EBA5F1 /* UIViewController+YDNavigation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4110A4E61F3C2F8C00EBA5F1 /* UIViewController+YDNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4CD1F3C2F8C00EBA5F1 /* UIViewController+YDNavigation.m */; };
 		4110A4E71F3C2F8C00EBA5F1 /* UIViewController+YDViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4CE1F3C2F8C00EBA5F1 /* UIViewController+YDViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -140,32 +95,20 @@
 		4110A4F61F3C2F8C00EBA5F1 /* YDWebNoNetworkView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4DD1F3C2F8C00EBA5F1 /* YDWebNoNetworkView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4110A4F71F3C2F8C00EBA5F1 /* YDWebNoNetworkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4DE1F3C2F8C00EBA5F1 /* YDWebNoNetworkView.m */; };
 		4110A50B1F3C2F9300EBA5F1 /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4F91F3C2F9300EBA5F1 /* SVIndefiniteAnimatedView.h */; };
-		4110A50C1F3C2F9300EBA5F1 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4FA1F3C2F9300EBA5F1 /* SVIndefiniteAnimatedView.m */; };
 		4110A50D1F3C2F9300EBA5F1 /* SVProgressAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4FB1F3C2F9300EBA5F1 /* SVProgressAnimatedView.h */; };
-		4110A50E1F3C2F9300EBA5F1 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4FC1F3C2F9300EBA5F1 /* SVProgressAnimatedView.m */; };
-		4110A50F1F3C2F9300EBA5F1 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4110A4FD1F3C2F9300EBA5F1 /* SVProgressHUD.bundle */; };
 		4110A5101F3C2F9300EBA5F1 /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4FE1F3C2F9300EBA5F1 /* SVProgressHUD.h */; };
-		4110A5111F3C2F9300EBA5F1 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4FF1F3C2F9300EBA5F1 /* SVProgressHUD.m */; };
 		4110A5121F3C2F9300EBA5F1 /* SVRadialGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5001F3C2F9300EBA5F1 /* SVRadialGradientLayer.h */; };
-		4110A5131F3C2F9300EBA5F1 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A5011F3C2F9300EBA5F1 /* SVRadialGradientLayer.m */; };
 		4110A5141F3C2F9300EBA5F1 /* WebViewJavascriptBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5031F3C2F9300EBA5F1 /* WebViewJavascriptBridge.h */; };
-		4110A5151F3C2F9300EBA5F1 /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A5041F3C2F9300EBA5F1 /* WebViewJavascriptBridge.m */; };
 		4110A5161F3C2F9300EBA5F1 /* WebViewJavascriptBridge_JS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5051F3C2F9300EBA5F1 /* WebViewJavascriptBridge_JS.h */; };
-		4110A5171F3C2F9300EBA5F1 /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A5061F3C2F9300EBA5F1 /* WebViewJavascriptBridge_JS.m */; };
 		4110A5181F3C2F9300EBA5F1 /* WebViewJavascriptBridgeBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5071F3C2F9300EBA5F1 /* WebViewJavascriptBridgeBase.h */; };
-		4110A5191F3C2F9300EBA5F1 /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A5081F3C2F9300EBA5F1 /* WebViewJavascriptBridgeBase.m */; };
 		4110A51A1F3C2F9300EBA5F1 /* WKWebViewJavascriptBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5091F3C2F9300EBA5F1 /* WKWebViewJavascriptBridge.h */; };
-		4110A51B1F3C2F9300EBA5F1 /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A50A1F3C2F9300EBA5F1 /* WKWebViewJavascriptBridge.m */; };
-		4110A5281F3C2F9C00EBA5F1 /* YDOpenHardwareCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4110A51D1F3C2F9C00EBA5F1 /* YDOpenHardwareCore.framework */; };
-		4110A5291F3C2F9C00EBA5F1 /* YDOpenHardwareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4110A51E1F3C2F9C00EBA5F1 /* YDOpenHardwareSDK.framework */; };
-		4110A52A1F3C2F9C00EBA5F1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4110A5201F3C2F9C00EBA5F1 /* LICENSE */; };
-		4110A52B1F3C2F9C00EBA5F1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4110A5211F3C2F9C00EBA5F1 /* README.md */; };
 		4110A52C1F3C2F9C00EBA5F1 /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5231F3C2F9C00EBA5F1 /* NSObject+YYModel.h */; };
-		4110A52D1F3C2F9C00EBA5F1 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A5241F3C2F9C00EBA5F1 /* NSObject+YYModel.m */; };
 		4110A52E1F3C2F9C00EBA5F1 /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5251F3C2F9C00EBA5F1 /* YYClassInfo.h */; };
-		4110A52F1F3C2F9C00EBA5F1 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A5261F3C2F9C00EBA5F1 /* YYClassInfo.m */; };
 		4110A5301F3C2F9C00EBA5F1 /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5271F3C2F9C00EBA5F1 /* YYModel.h */; };
 		4110A53A1F3C311200EBA5F1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4110A5391F3C311200EBA5F1 /* WebKit.framework */; };
+		4110A53B1F3C35F300EBA5F1 /* NSString+YDContainsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4CB1F3C2F8C00EBA5F1 /* NSString+YDContainsString.m */; };
+		4110A53F1F3C3ABB00EBA5F1 /* YDOpenHardwareCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4110A53D1F3C3ABB00EBA5F1 /* YDOpenHardwareCore.framework */; };
+		4110A5401F3C3ABB00EBA5F1 /* YDOpenHardwareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4110A53E1F3C3ABB00EBA5F1 /* YDOpenHardwareSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,8 +258,6 @@
 		4110A5081F3C2F9300EBA5F1 /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
 		4110A5091F3C2F9300EBA5F1 /* WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		4110A50A1F3C2F9300EBA5F1 /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
-		4110A51D1F3C2F9C00EBA5F1 /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
-		4110A51E1F3C2F9C00EBA5F1 /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
 		4110A5201F3C2F9C00EBA5F1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4110A5211F3C2F9C00EBA5F1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4110A5231F3C2F9C00EBA5F1 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
@@ -325,6 +266,8 @@
 		4110A5261F3C2F9C00EBA5F1 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
 		4110A5271F3C2F9C00EBA5F1 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
 		4110A5391F3C311200EBA5F1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		4110A53D1F3C3ABB00EBA5F1 /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
+		4110A53E1F3C3ABB00EBA5F1 /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,9 +275,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4110A53F1F3C3ABB00EBA5F1 /* YDOpenHardwareCore.framework in Frameworks */,
 				4110A53A1F3C311200EBA5F1 /* WebKit.framework in Frameworks */,
-				4110A5291F3C2F9C00EBA5F1 /* YDOpenHardwareSDK.framework in Frameworks */,
-				4110A5281F3C2F9C00EBA5F1 /* YDOpenHardwareCore.framework in Frameworks */,
+				4110A5401F3C3ABB00EBA5F1 /* YDOpenHardwareSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +287,7 @@
 		4110A3F51F3C2F1C00EBA5F1 = {
 			isa = PBXGroup;
 			children = (
-				4110A51C1F3C2F9C00EBA5F1 /* YDOpenHardware */,
+				4110A53C1F3C3ABB00EBA5F1 /* YDOpenHardware */,
 				4110A51F1F3C2F9C00EBA5F1 /* YYModel */,
 				4110A4F81F3C2F9300EBA5F1 /* SVProgressHUD */,
 				4110A5021F3C2F9300EBA5F1 /* WebViewJavascriptBridge */,
@@ -566,15 +509,6 @@
 			path = WebViewJavascriptBridge;
 			sourceTree = "<group>";
 		};
-		4110A51C1F3C2F9C00EBA5F1 /* YDOpenHardware */ = {
-			isa = PBXGroup;
-			children = (
-				4110A51D1F3C2F9C00EBA5F1 /* YDOpenHardwareCore.framework */,
-				4110A51E1F3C2F9C00EBA5F1 /* YDOpenHardwareSDK.framework */,
-			);
-			path = YDOpenHardware;
-			sourceTree = "<group>";
-		};
 		4110A51F1F3C2F9C00EBA5F1 /* YYModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,6 +537,15 @@
 				4110A5391F3C311200EBA5F1 /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4110A53C1F3C3ABB00EBA5F1 /* YDOpenHardware */ = {
+			isa = PBXGroup;
+			children = (
+				4110A53D1F3C3ABB00EBA5F1 /* YDOpenHardwareCore.framework */,
+				4110A53E1F3C3ABB00EBA5F1 /* YDOpenHardwareSDK.framework */,
+			);
+			path = YDOpenHardware;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -752,10 +695,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4110A4C11F3C2F8500EBA5F1 /* LICENCE.txt in Resources */,
-				4110A50F1F3C2F9300EBA5F1 /* SVProgressHUD.bundle in Resources */,
-				4110A52A1F3C2F9C00EBA5F1 /* LICENSE in Resources */,
-				4110A48B1F3C2F7600EBA5F1 /* MJRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,71 +721,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4110A4AE1F3C2F7600EBA5F1 /* UIScrollView+MJExtension.m in Sources */,
+				4110A53B1F3C35F300EBA5F1 /* NSString+YDContainsString.m in Sources */,
 				4110A4E21F3C2F8C00EBA5F1 /* NSData+YDConversion.m in Sources */,
-				4110A4571F3C2F6C00EBA5F1 /* MASViewConstraint.m in Sources */,
-				4110A4901F3C2F7600EBA5F1 /* MJRefreshAutoGifFooter.m in Sources */,
 				4110A4F01F3C2F8C00EBA5F1 /* YDBridgeWebView.m in Sources */,
-				4110A4261F3C2F6200EBA5F1 /* BabyOptions.m in Sources */,
-				4110A4981F3C2F7600EBA5F1 /* MJRefreshBackGifFooter.m in Sources */,
-				4110A49E1F3C2F7600EBA5F1 /* MJRefreshComponent.m in Sources */,
-				4110A4551F3C2F6C00EBA5F1 /* MASViewAttribute.m in Sources */,
-				4110A4A41F3C2F7600EBA5F1 /* MJRefreshGifHeader.m in Sources */,
-				4110A42C1F3C2F6200EBA5F1 /* BabySpeaker.m in Sources */,
-				4110A4AC1F3C2F7600EBA5F1 /* NSBundle+MJRefresh.m in Sources */,
 				4110A4EE1F3C2F8C00EBA5F1 /* YDBridgeWebMgr.m in Sources */,
-				4110A4B91F3C2F7B00EBA5F1 /* NJKWebViewProgress.m in Sources */,
 				4110A4E81F3C2F8C00EBA5F1 /* UIViewController+YDViewController.m in Sources */,
-				4110A4281F3C2F6200EBA5F1 /* BabyPeripheralManager.m in Sources */,
-				4110A4961F3C2F7600EBA5F1 /* MJRefreshBackFooter.m in Sources */,
-				4110A4241F3C2F6200EBA5F1 /* BabyDefine.m in Sources */,
-				4110A4941F3C2F7600EBA5F1 /* MJRefreshAutoStateFooter.m in Sources */,
-				4110A44A1F3C2F6C00EBA5F1 /* MASCompositeConstraint.m in Sources */,
-				4110A50C1F3C2F9300EBA5F1 /* SVIndefiniteAnimatedView.m in Sources */,
 				4110A4E61F3C2F8C00EBA5F1 /* UIViewController+YDNavigation.m in Sources */,
 				4110A4F21F3C2F8C00EBA5F1 /* YDBridgeWebViewController.m in Sources */,
-				4110A4B21F3C2F7600EBA5F1 /* UIView+MJExtension.m in Sources */,
-				4110A52B1F3C2F9C00EBA5F1 /* README.md in Sources */,
-				4110A49A1F3C2F7600EBA5F1 /* MJRefreshBackNormalFooter.m in Sources */,
-				4110A44F1F3C2F6C00EBA5F1 /* MASConstraintMaker.m in Sources */,
-				4110A5111F3C2F9300EBA5F1 /* SVProgressHUD.m in Sources */,
-				4110A4AA1F3C2F7600EBA5F1 /* MJRefreshStateHeader.m in Sources */,
-				4110A4B01F3C2F7600EBA5F1 /* UIScrollView+MJRefresh.m in Sources */,
-				4110A51B1F3C2F9300EBA5F1 /* WKWebViewJavascriptBridge.m in Sources */,
-				4110A4E41F3C2F8C00EBA5F1 /* NSString+YDContainsString.m in Sources */,
-				4110A45E1F3C2F6C00EBA5F1 /* View+MASAdditions.m in Sources */,
-				4110A4511F3C2F6C00EBA5F1 /* MASLayoutConstraint.m in Sources */,
-				4110A50E1F3C2F9300EBA5F1 /* SVProgressAnimatedView.m in Sources */,
-				4110A4921F3C2F7600EBA5F1 /* MJRefreshAutoNormalFooter.m in Sources */,
-				4110A4C41F3C2F8500EBA5F1 /* README.md in Sources */,
-				4110A4A81F3C2F7600EBA5F1 /* MJRefreshNormalHeader.m in Sources */,
 				4110A4E01F3C2F8C00EBA5F1 /* CWStatusBarNotification.m in Sources */,
-				4110A48E1F3C2F7600EBA5F1 /* MJRefreshAutoFooter.m in Sources */,
-				4110A4611F3C2F6C00EBA5F1 /* ViewController+MASAdditions.m in Sources */,
 				4110A4F71F3C2F8C00EBA5F1 /* YDWebNoNetworkView.m in Sources */,
-				4110A44D1F3C2F6C00EBA5F1 /* MASConstraint.m in Sources */,
-				4110A4A01F3C2F7600EBA5F1 /* MJRefreshConst.m in Sources */,
-				4110A4221F3C2F6200EBA5F1 /* BabyCentralManager.m in Sources */,
 				4110A4F51F3C2F8C00EBA5F1 /* YDMBaseViewController.m in Sources */,
-				4110A5171F3C2F9300EBA5F1 /* WebViewJavascriptBridge_JS.m in Sources */,
-				4110A5191F3C2F9300EBA5F1 /* WebViewJavascriptBridgeBase.m in Sources */,
-				4110A52F1F3C2F9C00EBA5F1 /* YYClassInfo.m in Sources */,
 				4110A4EA1F3C2F8C00EBA5F1 /* YDBlueToothMgr.m in Sources */,
-				4110A42A1F3C2F6200EBA5F1 /* BabyRhythm.m in Sources */,
-				4110A4BB1F3C2F7B00EBA5F1 /* NJKWebViewProgressView.m in Sources */,
-				4110A52D1F3C2F9C00EBA5F1 /* NSObject+YYModel.m in Sources */,
-				4110A4591F3C2F6C00EBA5F1 /* NSArray+MASAdditions.m in Sources */,
-				4110A45C1F3C2F6C00EBA5F1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
-				4110A4201F3C2F6200EBA5F1 /* BabyCallback.m in Sources */,
-				4110A5151F3C2F9300EBA5F1 /* WebViewJavascriptBridge.m in Sources */,
-				4110A4A61F3C2F7600EBA5F1 /* MJRefreshHeader.m in Sources */,
-				4110A42E1F3C2F6200EBA5F1 /* BabyToy.m in Sources */,
-				4110A41E1F3C2F6200EBA5F1 /* BabyBluetooth.m in Sources */,
-				4110A5131F3C2F9300EBA5F1 /* SVRadialGradientLayer.m in Sources */,
-				4110A49C1F3C2F7600EBA5F1 /* MJRefreshBackStateFooter.m in Sources */,
 				4110A4EC1F3C2F8C00EBA5F1 /* YDBluetoothWebViewMgr.m in Sources */,
-				4110A4C31F3C2F8500EBA5F1 /* Reachability.m in Sources */,
-				4110A4A21F3C2F7600EBA5F1 /* MJRefreshFooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -976,9 +862,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dtspread.apps.YDBluetoothWebBridge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -999,9 +887,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dtspread.apps.YDBluetoothWebBridge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
@@ -1010,6 +900,7 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = D2XBEJ6876;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 			};
 			name = Debug;
 		};
@@ -1018,6 +909,7 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = D2XBEJ6876;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 			};
 			name = Release;
 		};
