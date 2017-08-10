@@ -6,21 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		4195F0121F3C0D69006CA7B6 /* YDBluetoothWebBridgeCreate */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 4195F0131F3C0D69006CA7B6 /* Build configuration list for PBXAggregateTarget "YDBluetoothWebBridgeCreate" */;
-			buildPhases = (
-				4195F0181F3C0D87006CA7B6 /* ShellScript */,
-			);
-			dependencies = (
-				4195F0171F3C0D83006CA7B6 /* PBXTargetDependency */,
-			);
-			name = YDBluetoothWebBridgeCreate;
-			productName = YDBluetoothWebBridgeCreate;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		11B82CCA432A7146826C13A1 /* libPods-YDOpenHardwareSimpleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C8C5E839CF20EF2B5AE7FF /* libPods-YDOpenHardwareSimpleTests.a */; };
 		2D2143ECDF59385822D67DEA /* libPods-YDOpenHardwareSimpleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A01A50428189855CC78A48 /* libPods-YDOpenHardwareSimpleUITests.a */; };
@@ -44,98 +29,6 @@
 		415C6AD31F3060C5007BE9DA /* YDMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD21F3060C5007BE9DA /* YDMBaseViewController.m */; };
 		415C6AD61F306137007BE9DA /* UIViewController+YDNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD51F306137007BE9DA /* UIViewController+YDNavigation.m */; };
 		415C6ADA1F30669D007BE9DA /* UIViewController+YDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD91F30669D007BE9DA /* UIViewController+YDViewController.m */; };
-		4195EFC11F3C0BF0006CA7B6 /* YDBluetoothWebBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195EFBF1F3C0BF0006CA7B6 /* YDBluetoothWebBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4195EFC41F3C0BF0006CA7B6 /* YDBluetoothWebBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4195EFBD1F3C0BF0006CA7B6 /* YDBluetoothWebBridge.framework */; };
-		4195EFC51F3C0BF0006CA7B6 /* YDBluetoothWebBridge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4195EFBD1F3C0BF0006CA7B6 /* YDBluetoothWebBridge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4195EFCC1F3C0C78006CA7B6 /* YDOpenHardwareCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4195EFCA1F3C0C78006CA7B6 /* YDOpenHardwareCore.framework */; };
-		4195EFCD1F3C0C78006CA7B6 /* YDOpenHardwareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4195EFCB1F3C0C78006CA7B6 /* YDOpenHardwareSDK.framework */; };
-		4195F0331F3C0EB1006CA7B6 /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F01A1F3C0EB1006CA7B6 /* MASCompositeConstraint.h */; };
-		4195F0351F3C0EB1006CA7B6 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F01C1F3C0EB1006CA7B6 /* MASConstraint+Private.h */; };
-		4195F0361F3C0EB1006CA7B6 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F01D1F3C0EB1006CA7B6 /* MASConstraint.h */; };
-		4195F0381F3C0EB1006CA7B6 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F01F1F3C0EB1006CA7B6 /* MASConstraintMaker.h */; };
-		4195F03A1F3C0EB1006CA7B6 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F0211F3C0EB1006CA7B6 /* MASLayoutConstraint.h */; };
-		4195F03C1F3C0EB1006CA7B6 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F0231F3C0EB1006CA7B6 /* Masonry.h */; };
-		4195F03D1F3C0EB1006CA7B6 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F0241F3C0EB1006CA7B6 /* MASUtilities.h */; };
-		4195F03E1F3C0EB1006CA7B6 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F0251F3C0EB1006CA7B6 /* MASViewAttribute.h */; };
-		4195F0401F3C0EB1006CA7B6 /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F0271F3C0EB1006CA7B6 /* MASViewConstraint.h */; };
-		4195F0421F3C0EB1006CA7B6 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F0291F3C0EB1006CA7B6 /* NSArray+MASAdditions.h */; };
-		4195F0441F3C0EB1006CA7B6 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F02B1F3C0EB1006CA7B6 /* NSArray+MASShorthandAdditions.h */; };
-		4195F0451F3C0EB1006CA7B6 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F02C1F3C0EB1006CA7B6 /* NSLayoutConstraint+MASDebugAdditions.h */; };
-		4195F0471F3C0EB1006CA7B6 /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F02E1F3C0EB1006CA7B6 /* View+MASAdditions.h */; };
-		4195F0491F3C0EB1006CA7B6 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F0301F3C0EB1006CA7B6 /* View+MASShorthandAdditions.h */; };
-		4195F04A1F3C0EB1006CA7B6 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F0311F3C0EB1006CA7B6 /* ViewController+MASAdditions.h */; };
-		4195F0981F3C0F7A006CA7B6 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F0871F3C0F7A006CA7B6 /* Reachability.h */; };
-		4195F0C71F3C0F82006CA7B6 /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F0B61F3C0F82006CA7B6 /* NSObject+YYModel.h */; };
-		4195F0C91F3C0F82006CA7B6 /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F0B81F3C0F82006CA7B6 /* YYClassInfo.h */; };
-		4195F0CB1F3C0F82006CA7B6 /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F0BA1F3C0F82006CA7B6 /* YYModel.h */; };
-		4195F1241F3C0FC5006CA7B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4195F1231F3C0FC5006CA7B6 /* UIKit.framework */; };
-		4195F1261F3C0FE2006CA7B6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4195F1251F3C0FE2006CA7B6 /* WebKit.framework */; };
-		4195F1471F3C1346006CA7B6 /* NJKWebViewProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1431F3C1346006CA7B6 /* NJKWebViewProgress.h */; };
-		4195F1491F3C1346006CA7B6 /* NJKWebViewProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1451F3C1346006CA7B6 /* NJKWebViewProgressView.h */; };
-		4195F1541F3C14A5006CA7B6 /* WebViewJavascriptBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F14C1F3C14A5006CA7B6 /* WebViewJavascriptBridge.h */; };
-		4195F1561F3C14A5006CA7B6 /* WebViewJavascriptBridge_JS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F14E1F3C14A5006CA7B6 /* WebViewJavascriptBridge_JS.h */; };
-		4195F1581F3C14A5006CA7B6 /* WebViewJavascriptBridgeBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1501F3C14A5006CA7B6 /* WebViewJavascriptBridgeBase.h */; };
-		4195F15A1F3C14A5006CA7B6 /* WKWebViewJavascriptBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1521F3C14A5006CA7B6 /* WKWebViewJavascriptBridge.h */; };
-		4195F16F1F3C14F8006CA7B6 /* BabyBluetooth.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F15D1F3C14F8006CA7B6 /* BabyBluetooth.h */; };
-		4195F1711F3C14F8006CA7B6 /* BabyCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F15F1F3C14F8006CA7B6 /* BabyCallback.h */; };
-		4195F1731F3C14F8006CA7B6 /* BabyCentralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1611F3C14F8006CA7B6 /* BabyCentralManager.h */; };
-		4195F1751F3C14F8006CA7B6 /* BabyDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1631F3C14F8006CA7B6 /* BabyDefine.h */; };
-		4195F1771F3C14F8006CA7B6 /* BabyOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1651F3C14F8006CA7B6 /* BabyOptions.h */; };
-		4195F1791F3C14F8006CA7B6 /* BabyPeripheralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1671F3C14F8006CA7B6 /* BabyPeripheralManager.h */; };
-		4195F17B1F3C14F8006CA7B6 /* BabyRhythm.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1691F3C14F8006CA7B6 /* BabyRhythm.h */; };
-		4195F17D1F3C14F8006CA7B6 /* BabySpeaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F16B1F3C14F8006CA7B6 /* BabySpeaker.h */; };
-		4195F17F1F3C14F8006CA7B6 /* BabyToy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F16D1F3C14F8006CA7B6 /* BabyToy.h */; };
-		4195F1AA1F3C15BE006CA7B6 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4195F1821F3C15BE006CA7B6 /* MJRefresh.bundle */; };
-		4195F1AB1F3C15BE006CA7B6 /* MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1831F3C15BE006CA7B6 /* MJRefresh.h */; };
-		4195F1AC1F3C15BE006CA7B6 /* MJRefreshAutoFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1841F3C15BE006CA7B6 /* MJRefreshAutoFooter.h */; };
-		4195F1AE1F3C15BE006CA7B6 /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1861F3C15BE006CA7B6 /* MJRefreshAutoGifFooter.h */; };
-		4195F1B01F3C15BE006CA7B6 /* MJRefreshAutoNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1881F3C15BE006CA7B6 /* MJRefreshAutoNormalFooter.h */; };
-		4195F1B21F3C15BE006CA7B6 /* MJRefreshAutoStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F18A1F3C15BE006CA7B6 /* MJRefreshAutoStateFooter.h */; };
-		4195F1B41F3C15BE006CA7B6 /* MJRefreshBackFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F18C1F3C15BE006CA7B6 /* MJRefreshBackFooter.h */; };
-		4195F1B61F3C15BE006CA7B6 /* MJRefreshBackGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F18E1F3C15BE006CA7B6 /* MJRefreshBackGifFooter.h */; };
-		4195F1B81F3C15BE006CA7B6 /* MJRefreshBackNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1901F3C15BE006CA7B6 /* MJRefreshBackNormalFooter.h */; };
-		4195F1BA1F3C15BE006CA7B6 /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1921F3C15BE006CA7B6 /* MJRefreshBackStateFooter.h */; };
-		4195F1BC1F3C15BE006CA7B6 /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1941F3C15BE006CA7B6 /* MJRefreshComponent.h */; };
-		4195F1BE1F3C15BE006CA7B6 /* MJRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1961F3C15BE006CA7B6 /* MJRefreshConst.h */; };
-		4195F1C01F3C15BE006CA7B6 /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1981F3C15BE006CA7B6 /* MJRefreshFooter.h */; };
-		4195F1C21F3C15BE006CA7B6 /* MJRefreshGifHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F19A1F3C15BE006CA7B6 /* MJRefreshGifHeader.h */; };
-		4195F1C41F3C15BE006CA7B6 /* MJRefreshHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F19C1F3C15BE006CA7B6 /* MJRefreshHeader.h */; };
-		4195F1C61F3C15BE006CA7B6 /* MJRefreshNormalHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F19E1F3C15BE006CA7B6 /* MJRefreshNormalHeader.h */; };
-		4195F1C81F3C15BE006CA7B6 /* MJRefreshStateHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1A01F3C15BE006CA7B6 /* MJRefreshStateHeader.h */; };
-		4195F1CA1F3C15BE006CA7B6 /* NSBundle+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1A21F3C15BE006CA7B6 /* NSBundle+MJRefresh.h */; };
-		4195F1CC1F3C15BE006CA7B6 /* UIScrollView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1A41F3C15BE006CA7B6 /* UIScrollView+MJExtension.h */; };
-		4195F1CE1F3C15BE006CA7B6 /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1A61F3C15BE006CA7B6 /* UIScrollView+MJRefresh.h */; };
-		4195F1D01F3C15BE006CA7B6 /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1A81F3C15BE006CA7B6 /* UIView+MJExtension.h */; };
-		4195F1DC1F3C15EB006CA7B6 /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1D31F3C15EB006CA7B6 /* SVIndefiniteAnimatedView.h */; };
-		4195F1DE1F3C15EB006CA7B6 /* SVProgressAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1D51F3C15EB006CA7B6 /* SVProgressAnimatedView.h */; };
-		4195F1E01F3C15EB006CA7B6 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4195F1D71F3C15EB006CA7B6 /* SVProgressHUD.bundle */; };
-		4195F1E11F3C15EB006CA7B6 /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1D81F3C15EB006CA7B6 /* SVProgressHUD.h */; };
-		4195F1E31F3C15EB006CA7B6 /* SVRadialGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195F1DA1F3C15EB006CA7B6 /* SVRadialGradientLayer.h */; };
-		41A4E50D1F3C29CB0071F8D0 /* CWStatusBarNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A4E4F41F3C29CB0071F8D0 /* CWStatusBarNotification.h */; };
-		41A4E50E1F3C29CB0071F8D0 /* CWStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A4E4F51F3C29CB0071F8D0 /* CWStatusBarNotification.m */; };
-		41A4E50F1F3C29CB0071F8D0 /* NSData+YDConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A4E4F61F3C29CB0071F8D0 /* NSData+YDConversion.h */; };
-		41A4E5101F3C29CB0071F8D0 /* NSData+YDConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A4E4F71F3C29CB0071F8D0 /* NSData+YDConversion.m */; };
-		41A4E5111F3C29CB0071F8D0 /* NSString+YDContainsString.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A4E4F81F3C29CB0071F8D0 /* NSString+YDContainsString.h */; };
-		41A4E5121F3C29CB0071F8D0 /* NSString+YDContainsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A4E4F91F3C29CB0071F8D0 /* NSString+YDContainsString.m */; };
-		41A4E5131F3C29CB0071F8D0 /* UIViewController+YDNavigation.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A4E4FA1F3C29CB0071F8D0 /* UIViewController+YDNavigation.h */; };
-		41A4E5141F3C29CB0071F8D0 /* UIViewController+YDNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A4E4FB1F3C29CB0071F8D0 /* UIViewController+YDNavigation.m */; };
-		41A4E5151F3C29CB0071F8D0 /* UIViewController+YDViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A4E4FC1F3C29CB0071F8D0 /* UIViewController+YDViewController.h */; };
-		41A4E5161F3C29CB0071F8D0 /* UIViewController+YDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A4E4FD1F3C29CB0071F8D0 /* UIViewController+YDViewController.m */; };
-		41A4E5171F3C29CB0071F8D0 /* YDBlueToothMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A4E4FE1F3C29CB0071F8D0 /* YDBlueToothMgr.h */; };
-		41A4E5181F3C29CB0071F8D0 /* YDBlueToothMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A4E4FF1F3C29CB0071F8D0 /* YDBlueToothMgr.m */; };
-		41A4E5191F3C29CB0071F8D0 /* YDBluetoothWebViewMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A4E5001F3C29CB0071F8D0 /* YDBluetoothWebViewMgr.h */; };
-		41A4E51A1F3C29CB0071F8D0 /* YDBluetoothWebViewMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A4E5011F3C29CB0071F8D0 /* YDBluetoothWebViewMgr.m */; };
-		41A4E51B1F3C29CB0071F8D0 /* YDBridgeWebMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A4E5021F3C29CB0071F8D0 /* YDBridgeWebMgr.h */; };
-		41A4E51C1F3C29CB0071F8D0 /* YDBridgeWebMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A4E5031F3C29CB0071F8D0 /* YDBridgeWebMgr.m */; };
-		41A4E51D1F3C29CB0071F8D0 /* YDBridgeWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A4E5041F3C29CB0071F8D0 /* YDBridgeWebView.h */; };
-		41A4E51E1F3C29CB0071F8D0 /* YDBridgeWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A4E5051F3C29CB0071F8D0 /* YDBridgeWebView.m */; };
-		41A4E51F1F3C29CB0071F8D0 /* YDBridgeWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A4E5061F3C29CB0071F8D0 /* YDBridgeWebViewController.h */; };
-		41A4E5201F3C29CB0071F8D0 /* YDBridgeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A4E5071F3C29CB0071F8D0 /* YDBridgeWebViewController.m */; };
-		41A4E5211F3C29CB0071F8D0 /* YDDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A4E5081F3C29CB0071F8D0 /* YDDefine.h */; };
-		41A4E5221F3C29CB0071F8D0 /* YDMBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A4E5091F3C29CB0071F8D0 /* YDMBaseViewController.h */; };
-		41A4E5231F3C29CB0071F8D0 /* YDMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A4E50A1F3C29CB0071F8D0 /* YDMBaseViewController.m */; };
-		41A4E5241F3C29CB0071F8D0 /* YDWebNoNetworkView.h in Headers */ = {isa = PBXBuildFile; fileRef = 41A4E50B1F3C29CB0071F8D0 /* YDWebNoNetworkView.h */; };
-		41A4E5251F3C29CB0071F8D0 /* YDWebNoNetworkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A4E50C1F3C29CB0071F8D0 /* YDWebNoNetworkView.m */; };
 		41C6C2CA1F38769E00523099 /* NSData+YDConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6C2C91F38769E00523099 /* NSData+YDConversion.m */; };
 		4D6D8FCC1C60E35800003AA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCB1C60E35800003AA0 /* main.m */; };
 		4D6D8FCF1C60E35800003AA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCE1C60E35800003AA0 /* AppDelegate.m */; };
@@ -150,20 +43,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4195EFC21F3C0BF0006CA7B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D6D8FBF1C60E35800003AA0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4195EFBC1F3C0BF0006CA7B6;
-			remoteInfo = YDBluetoothWebBridge;
-		};
-		4195F0161F3C0D83006CA7B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D6D8FBF1C60E35800003AA0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4195EFBC1F3C0BF0006CA7B6;
-			remoteInfo = YDBluetoothWebBridge;
-		};
 		4D6D8FE11C60E35900003AA0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D6D8FBF1C60E35800003AA0 /* Project object */;
@@ -187,7 +66,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4195EFC51F3C0BF0006CA7B6 /* YDBluetoothWebBridge.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,153 +106,8 @@
 		415C6AD81F30669D007BE9DA /* UIViewController+YDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YDViewController.h"; sourceTree = "<group>"; };
 		415C6AD91F30669D007BE9DA /* UIViewController+YDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YDViewController.m"; sourceTree = "<group>"; };
 		415C6ADE1F306A42007BE9DA /* YDDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDefine.h; sourceTree = "<group>"; };
-		4195EFBD1F3C0BF0006CA7B6 /* YDBluetoothWebBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YDBluetoothWebBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4195EFBF1F3C0BF0006CA7B6 /* YDBluetoothWebBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDBluetoothWebBridge.h; sourceTree = "<group>"; };
-		4195EFC01F3C0BF0006CA7B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4195EFCA1F3C0C78006CA7B6 /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
-		4195EFCB1F3C0C78006CA7B6 /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
-		4195F01A1F3C0EB1006CA7B6 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
-		4195F01B1F3C0EB1006CA7B6 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
-		4195F01C1F3C0EB1006CA7B6 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
-		4195F01D1F3C0EB1006CA7B6 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
-		4195F01E1F3C0EB1006CA7B6 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
-		4195F01F1F3C0EB1006CA7B6 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
-		4195F0201F3C0EB1006CA7B6 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
-		4195F0211F3C0EB1006CA7B6 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
-		4195F0221F3C0EB1006CA7B6 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
-		4195F0231F3C0EB1006CA7B6 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
-		4195F0241F3C0EB1006CA7B6 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
-		4195F0251F3C0EB1006CA7B6 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
-		4195F0261F3C0EB1006CA7B6 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
-		4195F0271F3C0EB1006CA7B6 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
-		4195F0281F3C0EB1006CA7B6 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
-		4195F0291F3C0EB1006CA7B6 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		4195F02A1F3C0EB1006CA7B6 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
-		4195F02B1F3C0EB1006CA7B6 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		4195F02C1F3C0EB1006CA7B6 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
-		4195F02D1F3C0EB1006CA7B6 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		4195F02E1F3C0EB1006CA7B6 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
-		4195F02F1F3C0EB1006CA7B6 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
-		4195F0301F3C0EB1006CA7B6 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		4195F0311F3C0EB1006CA7B6 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
-		4195F0321F3C0EB1006CA7B6 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		4195F0861F3C0F7A006CA7B6 /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
-		4195F0871F3C0F7A006CA7B6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		4195F0881F3C0F7A006CA7B6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		4195F0891F3C0F7A006CA7B6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4195F0B31F3C0F82006CA7B6 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		4195F0B41F3C0F82006CA7B6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4195F0B61F3C0F82006CA7B6 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
-		4195F0B71F3C0F82006CA7B6 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
-		4195F0B81F3C0F82006CA7B6 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
-		4195F0B91F3C0F82006CA7B6 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
-		4195F0BA1F3C0F82006CA7B6 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
 		4195F1231F3C0FC5006CA7B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4195F1251F3C0FE2006CA7B6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		4195F1431F3C1346006CA7B6 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
-		4195F1441F3C1346006CA7B6 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
-		4195F1451F3C1346006CA7B6 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
-		4195F1461F3C1346006CA7B6 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
-		4195F14C1F3C14A5006CA7B6 /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
-		4195F14D1F3C14A5006CA7B6 /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
-		4195F14E1F3C14A5006CA7B6 /* WebViewJavascriptBridge_JS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge_JS.h; sourceTree = "<group>"; };
-		4195F14F1F3C14A5006CA7B6 /* WebViewJavascriptBridge_JS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge_JS.m; sourceTree = "<group>"; };
-		4195F1501F3C14A5006CA7B6 /* WebViewJavascriptBridgeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridgeBase.h; sourceTree = "<group>"; };
-		4195F1511F3C14A5006CA7B6 /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
-		4195F1521F3C14A5006CA7B6 /* WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
-		4195F1531F3C14A5006CA7B6 /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
-		4195F15D1F3C14F8006CA7B6 /* BabyBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBluetooth.h; sourceTree = "<group>"; };
-		4195F15E1F3C14F8006CA7B6 /* BabyBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBluetooth.m; sourceTree = "<group>"; };
-		4195F15F1F3C14F8006CA7B6 /* BabyCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyCallback.h; sourceTree = "<group>"; };
-		4195F1601F3C14F8006CA7B6 /* BabyCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyCallback.m; sourceTree = "<group>"; };
-		4195F1611F3C14F8006CA7B6 /* BabyCentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyCentralManager.h; sourceTree = "<group>"; };
-		4195F1621F3C14F8006CA7B6 /* BabyCentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyCentralManager.m; sourceTree = "<group>"; };
-		4195F1631F3C14F8006CA7B6 /* BabyDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyDefine.h; sourceTree = "<group>"; };
-		4195F1641F3C14F8006CA7B6 /* BabyDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyDefine.m; sourceTree = "<group>"; };
-		4195F1651F3C14F8006CA7B6 /* BabyOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyOptions.h; sourceTree = "<group>"; };
-		4195F1661F3C14F8006CA7B6 /* BabyOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyOptions.m; sourceTree = "<group>"; };
-		4195F1671F3C14F8006CA7B6 /* BabyPeripheralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyPeripheralManager.h; sourceTree = "<group>"; };
-		4195F1681F3C14F8006CA7B6 /* BabyPeripheralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyPeripheralManager.m; sourceTree = "<group>"; };
-		4195F1691F3C14F8006CA7B6 /* BabyRhythm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyRhythm.h; sourceTree = "<group>"; };
-		4195F16A1F3C14F8006CA7B6 /* BabyRhythm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyRhythm.m; sourceTree = "<group>"; };
-		4195F16B1F3C14F8006CA7B6 /* BabySpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabySpeaker.h; sourceTree = "<group>"; };
-		4195F16C1F3C14F8006CA7B6 /* BabySpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabySpeaker.m; sourceTree = "<group>"; };
-		4195F16D1F3C14F8006CA7B6 /* BabyToy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyToy.h; sourceTree = "<group>"; };
-		4195F16E1F3C14F8006CA7B6 /* BabyToy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyToy.m; sourceTree = "<group>"; };
-		4195F1821F3C15BE006CA7B6 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
-		4195F1831F3C15BE006CA7B6 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
-		4195F1841F3C15BE006CA7B6 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
-		4195F1851F3C15BE006CA7B6 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
-		4195F1861F3C15BE006CA7B6 /* MJRefreshAutoGifFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoGifFooter.h; sourceTree = "<group>"; };
-		4195F1871F3C15BE006CA7B6 /* MJRefreshAutoGifFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoGifFooter.m; sourceTree = "<group>"; };
-		4195F1881F3C15BE006CA7B6 /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
-		4195F1891F3C15BE006CA7B6 /* MJRefreshAutoNormalFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoNormalFooter.m; sourceTree = "<group>"; };
-		4195F18A1F3C15BE006CA7B6 /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
-		4195F18B1F3C15BE006CA7B6 /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
-		4195F18C1F3C15BE006CA7B6 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
-		4195F18D1F3C15BE006CA7B6 /* MJRefreshBackFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBackFooter.m; sourceTree = "<group>"; };
-		4195F18E1F3C15BE006CA7B6 /* MJRefreshBackGifFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackGifFooter.h; sourceTree = "<group>"; };
-		4195F18F1F3C15BE006CA7B6 /* MJRefreshBackGifFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBackGifFooter.m; sourceTree = "<group>"; };
-		4195F1901F3C15BE006CA7B6 /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
-		4195F1911F3C15BE006CA7B6 /* MJRefreshBackNormalFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBackNormalFooter.m; sourceTree = "<group>"; };
-		4195F1921F3C15BE006CA7B6 /* MJRefreshBackStateFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackStateFooter.h; sourceTree = "<group>"; };
-		4195F1931F3C15BE006CA7B6 /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
-		4195F1941F3C15BE006CA7B6 /* MJRefreshComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshComponent.h; sourceTree = "<group>"; };
-		4195F1951F3C15BE006CA7B6 /* MJRefreshComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshComponent.m; sourceTree = "<group>"; };
-		4195F1961F3C15BE006CA7B6 /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
-		4195F1971F3C15BE006CA7B6 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
-		4195F1981F3C15BE006CA7B6 /* MJRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooter.h; sourceTree = "<group>"; };
-		4195F1991F3C15BE006CA7B6 /* MJRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooter.m; sourceTree = "<group>"; };
-		4195F19A1F3C15BE006CA7B6 /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshGifHeader.h; sourceTree = "<group>"; };
-		4195F19B1F3C15BE006CA7B6 /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshGifHeader.m; sourceTree = "<group>"; };
-		4195F19C1F3C15BE006CA7B6 /* MJRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeader.h; sourceTree = "<group>"; };
-		4195F19D1F3C15BE006CA7B6 /* MJRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeader.m; sourceTree = "<group>"; };
-		4195F19E1F3C15BE006CA7B6 /* MJRefreshNormalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshNormalHeader.h; sourceTree = "<group>"; };
-		4195F19F1F3C15BE006CA7B6 /* MJRefreshNormalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshNormalHeader.m; sourceTree = "<group>"; };
-		4195F1A01F3C15BE006CA7B6 /* MJRefreshStateHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshStateHeader.h; sourceTree = "<group>"; };
-		4195F1A11F3C15BE006CA7B6 /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshStateHeader.m; sourceTree = "<group>"; };
-		4195F1A21F3C15BE006CA7B6 /* NSBundle+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+MJRefresh.h"; sourceTree = "<group>"; };
-		4195F1A31F3C15BE006CA7B6 /* NSBundle+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+MJRefresh.m"; sourceTree = "<group>"; };
-		4195F1A41F3C15BE006CA7B6 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
-		4195F1A51F3C15BE006CA7B6 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
-		4195F1A61F3C15BE006CA7B6 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
-		4195F1A71F3C15BE006CA7B6 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
-		4195F1A81F3C15BE006CA7B6 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
-		4195F1A91F3C15BE006CA7B6 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
-		4195F1D31F3C15EB006CA7B6 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
-		4195F1D41F3C15EB006CA7B6 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
-		4195F1D51F3C15EB006CA7B6 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
-		4195F1D61F3C15EB006CA7B6 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
-		4195F1D71F3C15EB006CA7B6 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		4195F1D81F3C15EB006CA7B6 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		4195F1D91F3C15EB006CA7B6 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		4195F1DA1F3C15EB006CA7B6 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
-		4195F1DB1F3C15EB006CA7B6 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
-		41A4E4F41F3C29CB0071F8D0 /* CWStatusBarNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStatusBarNotification.h; sourceTree = "<group>"; };
-		41A4E4F51F3C29CB0071F8D0 /* CWStatusBarNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStatusBarNotification.m; sourceTree = "<group>"; };
-		41A4E4F61F3C29CB0071F8D0 /* NSData+YDConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YDConversion.h"; sourceTree = "<group>"; };
-		41A4E4F71F3C29CB0071F8D0 /* NSData+YDConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YDConversion.m"; sourceTree = "<group>"; };
-		41A4E4F81F3C29CB0071F8D0 /* NSString+YDContainsString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YDContainsString.h"; sourceTree = "<group>"; };
-		41A4E4F91F3C29CB0071F8D0 /* NSString+YDContainsString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YDContainsString.m"; sourceTree = "<group>"; };
-		41A4E4FA1F3C29CB0071F8D0 /* UIViewController+YDNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YDNavigation.h"; sourceTree = "<group>"; };
-		41A4E4FB1F3C29CB0071F8D0 /* UIViewController+YDNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YDNavigation.m"; sourceTree = "<group>"; };
-		41A4E4FC1F3C29CB0071F8D0 /* UIViewController+YDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YDViewController.h"; sourceTree = "<group>"; };
-		41A4E4FD1F3C29CB0071F8D0 /* UIViewController+YDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YDViewController.m"; sourceTree = "<group>"; };
-		41A4E4FE1F3C29CB0071F8D0 /* YDBlueToothMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBlueToothMgr.h; sourceTree = "<group>"; };
-		41A4E4FF1F3C29CB0071F8D0 /* YDBlueToothMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBlueToothMgr.m; sourceTree = "<group>"; };
-		41A4E5001F3C29CB0071F8D0 /* YDBluetoothWebViewMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBluetoothWebViewMgr.h; sourceTree = "<group>"; };
-		41A4E5011F3C29CB0071F8D0 /* YDBluetoothWebViewMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBluetoothWebViewMgr.m; sourceTree = "<group>"; };
-		41A4E5021F3C29CB0071F8D0 /* YDBridgeWebMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBridgeWebMgr.h; sourceTree = "<group>"; };
-		41A4E5031F3C29CB0071F8D0 /* YDBridgeWebMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBridgeWebMgr.m; sourceTree = "<group>"; };
-		41A4E5041F3C29CB0071F8D0 /* YDBridgeWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBridgeWebView.h; sourceTree = "<group>"; };
-		41A4E5051F3C29CB0071F8D0 /* YDBridgeWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBridgeWebView.m; sourceTree = "<group>"; };
-		41A4E5061F3C29CB0071F8D0 /* YDBridgeWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBridgeWebViewController.h; sourceTree = "<group>"; };
-		41A4E5071F3C29CB0071F8D0 /* YDBridgeWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBridgeWebViewController.m; sourceTree = "<group>"; };
-		41A4E5081F3C29CB0071F8D0 /* YDDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDefine.h; sourceTree = "<group>"; };
-		41A4E5091F3C29CB0071F8D0 /* YDMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMBaseViewController.h; sourceTree = "<group>"; };
-		41A4E50A1F3C29CB0071F8D0 /* YDMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMBaseViewController.m; sourceTree = "<group>"; };
-		41A4E50B1F3C29CB0071F8D0 /* YDWebNoNetworkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDWebNoNetworkView.h; sourceTree = "<group>"; };
-		41A4E50C1F3C29CB0071F8D0 /* YDWebNoNetworkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDWebNoNetworkView.m; sourceTree = "<group>"; };
 		41C6C2C81F38769E00523099 /* NSData+YDConversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+YDConversion.h"; sourceTree = "<group>"; };
 		41C6C2C91F38769E00523099 /* NSData+YDConversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+YDConversion.m"; sourceTree = "<group>"; };
 		4D6D8FC71C60E35800003AA0 /* YDOpenHardwareSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YDOpenHardwareSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -404,17 +137,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4195EFB91F3C0BF0006CA7B6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4195F1261F3C0FE2006CA7B6 /* WebKit.framework in Frameworks */,
-				4195F1241F3C0FC5006CA7B6 /* UIKit.framework in Frameworks */,
-				4195EFCD1F3C0C78006CA7B6 /* YDOpenHardwareSDK.framework in Frameworks */,
-				4195EFCC1F3C0C78006CA7B6 /* YDOpenHardwareCore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4D6D8FC41C60E35800003AA0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,7 +144,6 @@
 				415A54DF1F344B3A00BD61EA /* YDOpenHardwareCore.framework in Frameworks */,
 				415A54E01F344B3A00BD61EA /* YDOpenHardwareSDK.framework in Frameworks */,
 				4DB5ACEA1C732A7D00763E61 /* libsqlite3.tbd in Frameworks */,
-				4195EFC41F3C0BF0006CA7B6 /* YDBluetoothWebBridge.framework in Frameworks */,
 				9F5F0D99290CF496AF216787 /* libPods-YDOpenHardwareSimple.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,245 +248,6 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
-		4195EFBE1F3C0BF0006CA7B6 /* YDBluetoothWebBridge */ = {
-			isa = PBXGroup;
-			children = (
-				4195F1811F3C15BE006CA7B6 /* MJRefresh */,
-				4195F15C1F3C14F8006CA7B6 /* BabyBluetooth */,
-				4195F14B1F3C14A5006CA7B6 /* WebViewJavascriptBridge */,
-				4195F1421F3C1346006CA7B6 /* NJKWebViewProgress */,
-				4195F0B21F3C0F82006CA7B6 /* YYModel */,
-				4195F0851F3C0F7A006CA7B6 /* Reachability */,
-				4195F0191F3C0EB1006CA7B6 /* Masonry */,
-				4195F1D21F3C15EB006CA7B6 /* SVProgressHUD */,
-				4195EFC91F3C0C55006CA7B6 /* YDOpenHardware */,
-				41A4E4F31F3C29CB0071F8D0 /* Source */,
-				4195EFBF1F3C0BF0006CA7B6 /* YDBluetoothWebBridge.h */,
-				4195EFC01F3C0BF0006CA7B6 /* Info.plist */,
-			);
-			path = YDBluetoothWebBridge;
-			sourceTree = "<group>";
-		};
-		4195EFC91F3C0C55006CA7B6 /* YDOpenHardware */ = {
-			isa = PBXGroup;
-			children = (
-				4195EFCA1F3C0C78006CA7B6 /* YDOpenHardwareCore.framework */,
-				4195EFCB1F3C0C78006CA7B6 /* YDOpenHardwareSDK.framework */,
-			);
-			path = YDOpenHardware;
-			sourceTree = "<group>";
-		};
-		4195F0191F3C0EB1006CA7B6 /* Masonry */ = {
-			isa = PBXGroup;
-			children = (
-				4195F01A1F3C0EB1006CA7B6 /* MASCompositeConstraint.h */,
-				4195F01B1F3C0EB1006CA7B6 /* MASCompositeConstraint.m */,
-				4195F01C1F3C0EB1006CA7B6 /* MASConstraint+Private.h */,
-				4195F01D1F3C0EB1006CA7B6 /* MASConstraint.h */,
-				4195F01E1F3C0EB1006CA7B6 /* MASConstraint.m */,
-				4195F01F1F3C0EB1006CA7B6 /* MASConstraintMaker.h */,
-				4195F0201F3C0EB1006CA7B6 /* MASConstraintMaker.m */,
-				4195F0211F3C0EB1006CA7B6 /* MASLayoutConstraint.h */,
-				4195F0221F3C0EB1006CA7B6 /* MASLayoutConstraint.m */,
-				4195F0231F3C0EB1006CA7B6 /* Masonry.h */,
-				4195F0241F3C0EB1006CA7B6 /* MASUtilities.h */,
-				4195F0251F3C0EB1006CA7B6 /* MASViewAttribute.h */,
-				4195F0261F3C0EB1006CA7B6 /* MASViewAttribute.m */,
-				4195F0271F3C0EB1006CA7B6 /* MASViewConstraint.h */,
-				4195F0281F3C0EB1006CA7B6 /* MASViewConstraint.m */,
-				4195F0291F3C0EB1006CA7B6 /* NSArray+MASAdditions.h */,
-				4195F02A1F3C0EB1006CA7B6 /* NSArray+MASAdditions.m */,
-				4195F02B1F3C0EB1006CA7B6 /* NSArray+MASShorthandAdditions.h */,
-				4195F02C1F3C0EB1006CA7B6 /* NSLayoutConstraint+MASDebugAdditions.h */,
-				4195F02D1F3C0EB1006CA7B6 /* NSLayoutConstraint+MASDebugAdditions.m */,
-				4195F02E1F3C0EB1006CA7B6 /* View+MASAdditions.h */,
-				4195F02F1F3C0EB1006CA7B6 /* View+MASAdditions.m */,
-				4195F0301F3C0EB1006CA7B6 /* View+MASShorthandAdditions.h */,
-				4195F0311F3C0EB1006CA7B6 /* ViewController+MASAdditions.h */,
-				4195F0321F3C0EB1006CA7B6 /* ViewController+MASAdditions.m */,
-			);
-			path = Masonry;
-			sourceTree = "<group>";
-		};
-		4195F0851F3C0F7A006CA7B6 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				4195F0861F3C0F7A006CA7B6 /* LICENCE.txt */,
-				4195F0871F3C0F7A006CA7B6 /* Reachability.h */,
-				4195F0881F3C0F7A006CA7B6 /* Reachability.m */,
-				4195F0891F3C0F7A006CA7B6 /* README.md */,
-			);
-			path = Reachability;
-			sourceTree = "<group>";
-		};
-		4195F0B21F3C0F82006CA7B6 /* YYModel */ = {
-			isa = PBXGroup;
-			children = (
-				4195F0B31F3C0F82006CA7B6 /* LICENSE */,
-				4195F0B41F3C0F82006CA7B6 /* README.md */,
-				4195F0B51F3C0F82006CA7B6 /* YYModel */,
-			);
-			path = YYModel;
-			sourceTree = "<group>";
-		};
-		4195F0B51F3C0F82006CA7B6 /* YYModel */ = {
-			isa = PBXGroup;
-			children = (
-				4195F0B61F3C0F82006CA7B6 /* NSObject+YYModel.h */,
-				4195F0B71F3C0F82006CA7B6 /* NSObject+YYModel.m */,
-				4195F0B81F3C0F82006CA7B6 /* YYClassInfo.h */,
-				4195F0B91F3C0F82006CA7B6 /* YYClassInfo.m */,
-				4195F0BA1F3C0F82006CA7B6 /* YYModel.h */,
-			);
-			path = YYModel;
-			sourceTree = "<group>";
-		};
-		4195F1421F3C1346006CA7B6 /* NJKWebViewProgress */ = {
-			isa = PBXGroup;
-			children = (
-				4195F1431F3C1346006CA7B6 /* NJKWebViewProgress.h */,
-				4195F1441F3C1346006CA7B6 /* NJKWebViewProgress.m */,
-				4195F1451F3C1346006CA7B6 /* NJKWebViewProgressView.h */,
-				4195F1461F3C1346006CA7B6 /* NJKWebViewProgressView.m */,
-			);
-			path = NJKWebViewProgress;
-			sourceTree = "<group>";
-		};
-		4195F14B1F3C14A5006CA7B6 /* WebViewJavascriptBridge */ = {
-			isa = PBXGroup;
-			children = (
-				4195F14C1F3C14A5006CA7B6 /* WebViewJavascriptBridge.h */,
-				4195F14D1F3C14A5006CA7B6 /* WebViewJavascriptBridge.m */,
-				4195F14E1F3C14A5006CA7B6 /* WebViewJavascriptBridge_JS.h */,
-				4195F14F1F3C14A5006CA7B6 /* WebViewJavascriptBridge_JS.m */,
-				4195F1501F3C14A5006CA7B6 /* WebViewJavascriptBridgeBase.h */,
-				4195F1511F3C14A5006CA7B6 /* WebViewJavascriptBridgeBase.m */,
-				4195F1521F3C14A5006CA7B6 /* WKWebViewJavascriptBridge.h */,
-				4195F1531F3C14A5006CA7B6 /* WKWebViewJavascriptBridge.m */,
-			);
-			path = WebViewJavascriptBridge;
-			sourceTree = "<group>";
-		};
-		4195F15C1F3C14F8006CA7B6 /* BabyBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				4195F15D1F3C14F8006CA7B6 /* BabyBluetooth.h */,
-				4195F15E1F3C14F8006CA7B6 /* BabyBluetooth.m */,
-				4195F15F1F3C14F8006CA7B6 /* BabyCallback.h */,
-				4195F1601F3C14F8006CA7B6 /* BabyCallback.m */,
-				4195F1611F3C14F8006CA7B6 /* BabyCentralManager.h */,
-				4195F1621F3C14F8006CA7B6 /* BabyCentralManager.m */,
-				4195F1631F3C14F8006CA7B6 /* BabyDefine.h */,
-				4195F1641F3C14F8006CA7B6 /* BabyDefine.m */,
-				4195F1651F3C14F8006CA7B6 /* BabyOptions.h */,
-				4195F1661F3C14F8006CA7B6 /* BabyOptions.m */,
-				4195F1671F3C14F8006CA7B6 /* BabyPeripheralManager.h */,
-				4195F1681F3C14F8006CA7B6 /* BabyPeripheralManager.m */,
-				4195F1691F3C14F8006CA7B6 /* BabyRhythm.h */,
-				4195F16A1F3C14F8006CA7B6 /* BabyRhythm.m */,
-				4195F16B1F3C14F8006CA7B6 /* BabySpeaker.h */,
-				4195F16C1F3C14F8006CA7B6 /* BabySpeaker.m */,
-				4195F16D1F3C14F8006CA7B6 /* BabyToy.h */,
-				4195F16E1F3C14F8006CA7B6 /* BabyToy.m */,
-			);
-			path = BabyBluetooth;
-			sourceTree = "<group>";
-		};
-		4195F1811F3C15BE006CA7B6 /* MJRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				4195F1821F3C15BE006CA7B6 /* MJRefresh.bundle */,
-				4195F1831F3C15BE006CA7B6 /* MJRefresh.h */,
-				4195F1841F3C15BE006CA7B6 /* MJRefreshAutoFooter.h */,
-				4195F1851F3C15BE006CA7B6 /* MJRefreshAutoFooter.m */,
-				4195F1861F3C15BE006CA7B6 /* MJRefreshAutoGifFooter.h */,
-				4195F1871F3C15BE006CA7B6 /* MJRefreshAutoGifFooter.m */,
-				4195F1881F3C15BE006CA7B6 /* MJRefreshAutoNormalFooter.h */,
-				4195F1891F3C15BE006CA7B6 /* MJRefreshAutoNormalFooter.m */,
-				4195F18A1F3C15BE006CA7B6 /* MJRefreshAutoStateFooter.h */,
-				4195F18B1F3C15BE006CA7B6 /* MJRefreshAutoStateFooter.m */,
-				4195F18C1F3C15BE006CA7B6 /* MJRefreshBackFooter.h */,
-				4195F18D1F3C15BE006CA7B6 /* MJRefreshBackFooter.m */,
-				4195F18E1F3C15BE006CA7B6 /* MJRefreshBackGifFooter.h */,
-				4195F18F1F3C15BE006CA7B6 /* MJRefreshBackGifFooter.m */,
-				4195F1901F3C15BE006CA7B6 /* MJRefreshBackNormalFooter.h */,
-				4195F1911F3C15BE006CA7B6 /* MJRefreshBackNormalFooter.m */,
-				4195F1921F3C15BE006CA7B6 /* MJRefreshBackStateFooter.h */,
-				4195F1931F3C15BE006CA7B6 /* MJRefreshBackStateFooter.m */,
-				4195F1941F3C15BE006CA7B6 /* MJRefreshComponent.h */,
-				4195F1951F3C15BE006CA7B6 /* MJRefreshComponent.m */,
-				4195F1961F3C15BE006CA7B6 /* MJRefreshConst.h */,
-				4195F1971F3C15BE006CA7B6 /* MJRefreshConst.m */,
-				4195F1981F3C15BE006CA7B6 /* MJRefreshFooter.h */,
-				4195F1991F3C15BE006CA7B6 /* MJRefreshFooter.m */,
-				4195F19A1F3C15BE006CA7B6 /* MJRefreshGifHeader.h */,
-				4195F19B1F3C15BE006CA7B6 /* MJRefreshGifHeader.m */,
-				4195F19C1F3C15BE006CA7B6 /* MJRefreshHeader.h */,
-				4195F19D1F3C15BE006CA7B6 /* MJRefreshHeader.m */,
-				4195F19E1F3C15BE006CA7B6 /* MJRefreshNormalHeader.h */,
-				4195F19F1F3C15BE006CA7B6 /* MJRefreshNormalHeader.m */,
-				4195F1A01F3C15BE006CA7B6 /* MJRefreshStateHeader.h */,
-				4195F1A11F3C15BE006CA7B6 /* MJRefreshStateHeader.m */,
-				4195F1A21F3C15BE006CA7B6 /* NSBundle+MJRefresh.h */,
-				4195F1A31F3C15BE006CA7B6 /* NSBundle+MJRefresh.m */,
-				4195F1A41F3C15BE006CA7B6 /* UIScrollView+MJExtension.h */,
-				4195F1A51F3C15BE006CA7B6 /* UIScrollView+MJExtension.m */,
-				4195F1A61F3C15BE006CA7B6 /* UIScrollView+MJRefresh.h */,
-				4195F1A71F3C15BE006CA7B6 /* UIScrollView+MJRefresh.m */,
-				4195F1A81F3C15BE006CA7B6 /* UIView+MJExtension.h */,
-				4195F1A91F3C15BE006CA7B6 /* UIView+MJExtension.m */,
-			);
-			path = MJRefresh;
-			sourceTree = "<group>";
-		};
-		4195F1D21F3C15EB006CA7B6 /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				4195F1D31F3C15EB006CA7B6 /* SVIndefiniteAnimatedView.h */,
-				4195F1D41F3C15EB006CA7B6 /* SVIndefiniteAnimatedView.m */,
-				4195F1D51F3C15EB006CA7B6 /* SVProgressAnimatedView.h */,
-				4195F1D61F3C15EB006CA7B6 /* SVProgressAnimatedView.m */,
-				4195F1D71F3C15EB006CA7B6 /* SVProgressHUD.bundle */,
-				4195F1D81F3C15EB006CA7B6 /* SVProgressHUD.h */,
-				4195F1D91F3C15EB006CA7B6 /* SVProgressHUD.m */,
-				4195F1DA1F3C15EB006CA7B6 /* SVRadialGradientLayer.h */,
-				4195F1DB1F3C15EB006CA7B6 /* SVRadialGradientLayer.m */,
-			);
-			path = SVProgressHUD;
-			sourceTree = "<group>";
-		};
-		41A4E4F31F3C29CB0071F8D0 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				41A4E4F41F3C29CB0071F8D0 /* CWStatusBarNotification.h */,
-				41A4E4F51F3C29CB0071F8D0 /* CWStatusBarNotification.m */,
-				41A4E4F61F3C29CB0071F8D0 /* NSData+YDConversion.h */,
-				41A4E4F71F3C29CB0071F8D0 /* NSData+YDConversion.m */,
-				41A4E4F81F3C29CB0071F8D0 /* NSString+YDContainsString.h */,
-				41A4E4F91F3C29CB0071F8D0 /* NSString+YDContainsString.m */,
-				41A4E4FA1F3C29CB0071F8D0 /* UIViewController+YDNavigation.h */,
-				41A4E4FB1F3C29CB0071F8D0 /* UIViewController+YDNavigation.m */,
-				41A4E4FC1F3C29CB0071F8D0 /* UIViewController+YDViewController.h */,
-				41A4E4FD1F3C29CB0071F8D0 /* UIViewController+YDViewController.m */,
-				41A4E4FE1F3C29CB0071F8D0 /* YDBlueToothMgr.h */,
-				41A4E4FF1F3C29CB0071F8D0 /* YDBlueToothMgr.m */,
-				41A4E5001F3C29CB0071F8D0 /* YDBluetoothWebViewMgr.h */,
-				41A4E5011F3C29CB0071F8D0 /* YDBluetoothWebViewMgr.m */,
-				41A4E5021F3C29CB0071F8D0 /* YDBridgeWebMgr.h */,
-				41A4E5031F3C29CB0071F8D0 /* YDBridgeWebMgr.m */,
-				41A4E5041F3C29CB0071F8D0 /* YDBridgeWebView.h */,
-				41A4E5051F3C29CB0071F8D0 /* YDBridgeWebView.m */,
-				41A4E5061F3C29CB0071F8D0 /* YDBridgeWebViewController.h */,
-				41A4E5071F3C29CB0071F8D0 /* YDBridgeWebViewController.m */,
-				41A4E5081F3C29CB0071F8D0 /* YDDefine.h */,
-				41A4E5091F3C29CB0071F8D0 /* YDMBaseViewController.h */,
-				41A4E50A1F3C29CB0071F8D0 /* YDMBaseViewController.m */,
-				41A4E50B1F3C29CB0071F8D0 /* YDWebNoNetworkView.h */,
-				41A4E50C1F3C29CB0071F8D0 /* YDWebNoNetworkView.m */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
 		4D6D8FBE1C60E35800003AA0 = {
 			isa = PBXGroup;
 			children = (
@@ -773,7 +255,6 @@
 				4D6D8FC91C60E35800003AA0 /* YDOpenHardwareSimple */,
 				4D6D8FE31C60E35900003AA0 /* YDOpenHardwareSimpleTests */,
 				4D6D8FEE1C60E35900003AA0 /* YDOpenHardwareSimpleUITests */,
-				4195EFBE1F3C0BF0006CA7B6 /* YDBluetoothWebBridge */,
 				4D6D8FC81C60E35800003AA0 /* Products */,
 				F8F9B82F1929C46A8859D4BE /* Frameworks */,
 				0F29F4D5F8F952C171B68864 /* Pods */,
@@ -786,7 +267,6 @@
 				4D6D8FC71C60E35800003AA0 /* YDOpenHardwareSimple.app */,
 				4D6D8FE01C60E35900003AA0 /* YDOpenHardwareSimpleTests.xctest */,
 				4D6D8FEB1C60E35900003AA0 /* YDOpenHardwareSimpleUITests.xctest */,
-				4195EFBD1F3C0BF0006CA7B6 /* YDBluetoothWebBridge.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -852,107 +332,7 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		4195EFBA1F3C0BF0006CA7B6 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4195F1B81F3C15BE006CA7B6 /* MJRefreshBackNormalFooter.h in Headers */,
-				4195F0451F3C0EB1006CA7B6 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */,
-				4195F0441F3C0EB1006CA7B6 /* NSArray+MASShorthandAdditions.h in Headers */,
-				4195F03C1F3C0EB1006CA7B6 /* Masonry.h in Headers */,
-				4195F0C91F3C0F82006CA7B6 /* YYClassInfo.h in Headers */,
-				41A4E5151F3C29CB0071F8D0 /* UIViewController+YDViewController.h in Headers */,
-				41A4E51D1F3C29CB0071F8D0 /* YDBridgeWebView.h in Headers */,
-				41A4E50D1F3C29CB0071F8D0 /* CWStatusBarNotification.h in Headers */,
-				41A4E5191F3C29CB0071F8D0 /* YDBluetoothWebViewMgr.h in Headers */,
-				4195F1751F3C14F8006CA7B6 /* BabyDefine.h in Headers */,
-				4195F1771F3C14F8006CA7B6 /* BabyOptions.h in Headers */,
-				4195F1AC1F3C15BE006CA7B6 /* MJRefreshAutoFooter.h in Headers */,
-				4195F1791F3C14F8006CA7B6 /* BabyPeripheralManager.h in Headers */,
-				4195EFC11F3C0BF0006CA7B6 /* YDBluetoothWebBridge.h in Headers */,
-				4195F1561F3C14A5006CA7B6 /* WebViewJavascriptBridge_JS.h in Headers */,
-				4195F1AB1F3C15BE006CA7B6 /* MJRefresh.h in Headers */,
-				41A4E50F1F3C29CB0071F8D0 /* NSData+YDConversion.h in Headers */,
-				41A4E5131F3C29CB0071F8D0 /* UIViewController+YDNavigation.h in Headers */,
-				4195F03D1F3C0EB1006CA7B6 /* MASUtilities.h in Headers */,
-				4195F1BA1F3C15BE006CA7B6 /* MJRefreshBackStateFooter.h in Headers */,
-				41A4E51F1F3C29CB0071F8D0 /* YDBridgeWebViewController.h in Headers */,
-				4195F1541F3C14A5006CA7B6 /* WebViewJavascriptBridge.h in Headers */,
-				4195F1B01F3C15BE006CA7B6 /* MJRefreshAutoNormalFooter.h in Headers */,
-				4195F1CC1F3C15BE006CA7B6 /* UIScrollView+MJExtension.h in Headers */,
-				4195F1B61F3C15BE006CA7B6 /* MJRefreshBackGifFooter.h in Headers */,
-				4195F1CE1F3C15BE006CA7B6 /* UIScrollView+MJRefresh.h in Headers */,
-				4195F17D1F3C14F8006CA7B6 /* BabySpeaker.h in Headers */,
-				4195F0421F3C0EB1006CA7B6 /* NSArray+MASAdditions.h in Headers */,
-				41A4E5211F3C29CB0071F8D0 /* YDDefine.h in Headers */,
-				4195F1DC1F3C15EB006CA7B6 /* SVIndefiniteAnimatedView.h in Headers */,
-				4195F04A1F3C0EB1006CA7B6 /* ViewController+MASAdditions.h in Headers */,
-				4195F1B21F3C15BE006CA7B6 /* MJRefreshAutoStateFooter.h in Headers */,
-				41A4E5221F3C29CB0071F8D0 /* YDMBaseViewController.h in Headers */,
-				4195F17F1F3C14F8006CA7B6 /* BabyToy.h in Headers */,
-				4195F1581F3C14A5006CA7B6 /* WebViewJavascriptBridgeBase.h in Headers */,
-				4195F1B41F3C15BE006CA7B6 /* MJRefreshBackFooter.h in Headers */,
-				4195F1CA1F3C15BE006CA7B6 /* NSBundle+MJRefresh.h in Headers */,
-				41A4E5171F3C29CB0071F8D0 /* YDBlueToothMgr.h in Headers */,
-				4195F0401F3C0EB1006CA7B6 /* MASViewConstraint.h in Headers */,
-				4195F16F1F3C14F8006CA7B6 /* BabyBluetooth.h in Headers */,
-				4195F1711F3C14F8006CA7B6 /* BabyCallback.h in Headers */,
-				4195F15A1F3C14A5006CA7B6 /* WKWebViewJavascriptBridge.h in Headers */,
-				4195F1C61F3C15BE006CA7B6 /* MJRefreshNormalHeader.h in Headers */,
-				4195F1BE1F3C15BE006CA7B6 /* MJRefreshConst.h in Headers */,
-				4195F1D01F3C15BE006CA7B6 /* UIView+MJExtension.h in Headers */,
-				4195F1731F3C14F8006CA7B6 /* BabyCentralManager.h in Headers */,
-				4195F17B1F3C14F8006CA7B6 /* BabyRhythm.h in Headers */,
-				41A4E5241F3C29CB0071F8D0 /* YDWebNoNetworkView.h in Headers */,
-				4195F0CB1F3C0F82006CA7B6 /* YYModel.h in Headers */,
-				4195F0491F3C0EB1006CA7B6 /* View+MASShorthandAdditions.h in Headers */,
-				4195F0351F3C0EB1006CA7B6 /* MASConstraint+Private.h in Headers */,
-				4195F1AE1F3C15BE006CA7B6 /* MJRefreshAutoGifFooter.h in Headers */,
-				4195F0331F3C0EB1006CA7B6 /* MASCompositeConstraint.h in Headers */,
-				41A4E51B1F3C29CB0071F8D0 /* YDBridgeWebMgr.h in Headers */,
-				4195F1491F3C1346006CA7B6 /* NJKWebViewProgressView.h in Headers */,
-				4195F1E11F3C15EB006CA7B6 /* SVProgressHUD.h in Headers */,
-				4195F03E1F3C0EB1006CA7B6 /* MASViewAttribute.h in Headers */,
-				4195F0C71F3C0F82006CA7B6 /* NSObject+YYModel.h in Headers */,
-				4195F1BC1F3C15BE006CA7B6 /* MJRefreshComponent.h in Headers */,
-				4195F1C21F3C15BE006CA7B6 /* MJRefreshGifHeader.h in Headers */,
-				4195F1DE1F3C15EB006CA7B6 /* SVProgressAnimatedView.h in Headers */,
-				41A4E5111F3C29CB0071F8D0 /* NSString+YDContainsString.h in Headers */,
-				4195F0981F3C0F7A006CA7B6 /* Reachability.h in Headers */,
-				4195F0471F3C0EB1006CA7B6 /* View+MASAdditions.h in Headers */,
-				4195F1C41F3C15BE006CA7B6 /* MJRefreshHeader.h in Headers */,
-				4195F1471F3C1346006CA7B6 /* NJKWebViewProgress.h in Headers */,
-				4195F1C01F3C15BE006CA7B6 /* MJRefreshFooter.h in Headers */,
-				4195F1C81F3C15BE006CA7B6 /* MJRefreshStateHeader.h in Headers */,
-				4195F0381F3C0EB1006CA7B6 /* MASConstraintMaker.h in Headers */,
-				4195F03A1F3C0EB1006CA7B6 /* MASLayoutConstraint.h in Headers */,
-				4195F1E31F3C15EB006CA7B6 /* SVRadialGradientLayer.h in Headers */,
-				4195F0361F3C0EB1006CA7B6 /* MASConstraint.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		4195EFBC1F3C0BF0006CA7B6 /* YDBluetoothWebBridge */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4195EFC61F3C0BF0006CA7B6 /* Build configuration list for PBXNativeTarget "YDBluetoothWebBridge" */;
-			buildPhases = (
-				4195EFB81F3C0BF0006CA7B6 /* Sources */,
-				4195EFB91F3C0BF0006CA7B6 /* Frameworks */,
-				4195EFBA1F3C0BF0006CA7B6 /* Headers */,
-				4195EFBB1F3C0BF0006CA7B6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = YDBluetoothWebBridge;
-			productName = YDBluetoothWebBridge;
-			productReference = 4195EFBD1F3C0BF0006CA7B6 /* YDBluetoothWebBridge.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		4D6D8FC61C60E35800003AA0 /* YDOpenHardwareSimple */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D6D8FF41C60E35900003AA0 /* Build configuration list for PBXNativeTarget "YDOpenHardwareSimple" */;
@@ -968,7 +348,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				4195EFC31F3C0BF0006CA7B6 /* PBXTargetDependency */,
 			);
 			name = YDOpenHardwareSimple;
 			productName = YDOpenHardwareSimple;
@@ -1026,15 +405,6 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = YD;
 				TargetAttributes = {
-					4195EFBC1F3C0BF0006CA7B6 = {
-						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Manual;
-					};
-					4195F0121F3C0D69006CA7B6 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = D2XBEJ6876;
-						ProvisioningStyle = Automatic;
-					};
 					4D6D8FC61C60E35800003AA0 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 2ERYNAFK87;
@@ -1065,22 +435,11 @@
 				4D6D8FC61C60E35800003AA0 /* YDOpenHardwareSimple */,
 				4D6D8FDF1C60E35900003AA0 /* YDOpenHardwareSimpleTests */,
 				4D6D8FEA1C60E35900003AA0 /* YDOpenHardwareSimpleUITests */,
-				4195EFBC1F3C0BF0006CA7B6 /* YDBluetoothWebBridge */,
-				4195F0121F3C0D69006CA7B6 /* YDBluetoothWebBridgeCreate */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4195EFBB1F3C0BF0006CA7B6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4195F1AA1F3C15BE006CA7B6 /* MJRefresh.bundle in Resources */,
-				4195F1E01F3C15EB006CA7B6 /* SVProgressHUD.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4D6D8FC51C60E35800003AA0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1170,19 +529,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YDOpenHardwareSimpleTests/Pods-YDOpenHardwareSimpleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4195F0181F3C0D87006CA7B6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Sets the target folders and the final framework product.\n\n# 如果工程名称和Framework的Target名称不一样的话，要自定义FMKNAME\n\n# 例如: FMK_NAME = \"MyFramework\"\n\n#FMK_NAME=${PROJECT_NAME}\n#FMK_NAME = ${TARGET_NAME}\nFMK_NAME=\"YDBluetoothWebBridge\"\n# Install dir will be the final output to the framework.\n\n# The following line create it in the root folder of the current project.\n\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n\n# Working dir will be deleted after the framework creation.\n\nWRK_DIR=build\n\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\n\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n\n# -configuration ${CONFIGURATION}\n\n# Clean and Building both architectures.\n\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos clean build\n\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator clean build\n\n# Cleaning the oldest.\n\nif [ -d \"${INSTALL_DIR}\" ]\n\nthen\n\nrm -rf \"${INSTALL_DIR}\"\n\nfi\n\nmkdir -p \"${INSTALL_DIR}\"\n\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\n\n# Uses the Lipo Tool to merge both binary files (i386  + armv6/armv7) into one Universal final product.\n#  这里是不是少了x86 ???\n\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/${FMK_NAME}\"\n\nrm -r \"${WRK_DIR}\"\n\nopen \"${INSTALL_DIR}\"\n";
-		};
 		4C84611F3CC664B8D7F39C9C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1261,25 +607,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4195EFB81F3C0BF0006CA7B6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				41A4E5251F3C29CB0071F8D0 /* YDWebNoNetworkView.m in Sources */,
-				41A4E5181F3C29CB0071F8D0 /* YDBlueToothMgr.m in Sources */,
-				41A4E51E1F3C29CB0071F8D0 /* YDBridgeWebView.m in Sources */,
-				41A4E51C1F3C29CB0071F8D0 /* YDBridgeWebMgr.m in Sources */,
-				41A4E50E1F3C29CB0071F8D0 /* CWStatusBarNotification.m in Sources */,
-				41A4E5121F3C29CB0071F8D0 /* NSString+YDContainsString.m in Sources */,
-				41A4E5201F3C29CB0071F8D0 /* YDBridgeWebViewController.m in Sources */,
-				41A4E5231F3C29CB0071F8D0 /* YDMBaseViewController.m in Sources */,
-				41A4E5101F3C29CB0071F8D0 /* NSData+YDConversion.m in Sources */,
-				41A4E51A1F3C29CB0071F8D0 /* YDBluetoothWebViewMgr.m in Sources */,
-				41A4E5161F3C29CB0071F8D0 /* UIViewController+YDViewController.m in Sources */,
-				41A4E5141F3C29CB0071F8D0 /* UIViewController+YDNavigation.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4D6D8FC31C60E35800003AA0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1326,16 +653,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4195EFC31F3C0BF0006CA7B6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4195EFBC1F3C0BF0006CA7B6 /* YDBluetoothWebBridge */;
-			targetProxy = 4195EFC21F3C0BF0006CA7B6 /* PBXContainerItemProxy */;
-		};
-		4195F0171F3C0D83006CA7B6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4195EFBC1F3C0BF0006CA7B6 /* YDBluetoothWebBridge */;
-			targetProxy = 4195F0161F3C0D83006CA7B6 /* PBXContainerItemProxy */;
-		};
 		4D6D8FE21C60E35900003AA0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4D6D8FC61C60E35800003AA0 /* YDOpenHardwareSimple */;
@@ -1368,88 +685,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4195EFC71F3C0BF0006CA7B6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge/YDOpenHardware",
-				);
-				INFOPLIST_FILE = YDBluetoothWebBridge/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dtspread.apps.YDBluetoothWebBridge;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		4195EFC81F3C0BF0006CA7B6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge/YDOpenHardware",
-				);
-				INFOPLIST_FILE = YDBluetoothWebBridge/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dtspread.apps.YDBluetoothWebBridge;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		4195F0141F3C0D69006CA7B6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = D2XBEJ6876;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		4195F0151F3C0D69006CA7B6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = D2XBEJ6876;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		4D6D8FF21C60E35900003AA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1653,24 +888,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4195EFC61F3C0BF0006CA7B6 /* Build configuration list for PBXNativeTarget "YDBluetoothWebBridge" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4195EFC71F3C0BF0006CA7B6 /* Debug */,
-				4195EFC81F3C0BF0006CA7B6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4195F0131F3C0D69006CA7B6 /* Build configuration list for PBXAggregateTarget "YDBluetoothWebBridgeCreate" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4195F0141F3C0D69006CA7B6 /* Debug */,
-				4195F0151F3C0D69006CA7B6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4D6D8FC21C60E35800003AA0 /* Build configuration list for PBXProject "_YDBridgeWebViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -1,0 +1,6 @@
+framework module YDBluetoothWebBridge {
+  umbrella header "YDBluetoothWebBridge.h"
+
+  export *
+  module * { export * }
+}
