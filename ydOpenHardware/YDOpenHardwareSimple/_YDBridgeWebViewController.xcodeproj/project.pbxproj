@@ -29,9 +29,6 @@
 		415C6AD31F3060C5007BE9DA /* YDMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD21F3060C5007BE9DA /* YDMBaseViewController.m */; };
 		415C6AD61F306137007BE9DA /* UIViewController+YDNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD51F306137007BE9DA /* UIViewController+YDNavigation.m */; };
 		415C6ADA1F30669D007BE9DA /* UIViewController+YDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD91F30669D007BE9DA /* UIViewController+YDViewController.m */; };
-		4195EFAF1F3C0B43006CA7B6 /* YDHardwareWeb.h in Headers */ = {isa = PBXBuildFile; fileRef = 4195EFAD1F3C0B43006CA7B6 /* YDHardwareWeb.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4195EFB21F3C0B43006CA7B6 /* YDHardwareWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4195EFAB1F3C0B42006CA7B6 /* YDHardwareWeb.framework */; };
-		4195EFB31F3C0B43006CA7B6 /* YDHardwareWeb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4195EFAB1F3C0B42006CA7B6 /* YDHardwareWeb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		41C6C2CA1F38769E00523099 /* NSData+YDConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6C2C91F38769E00523099 /* NSData+YDConversion.m */; };
 		4D6D8FCC1C60E35800003AA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCB1C60E35800003AA0 /* main.m */; };
 		4D6D8FCF1C60E35800003AA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCE1C60E35800003AA0 /* AppDelegate.m */; };
@@ -46,13 +43,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4195EFB01F3C0B43006CA7B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D6D8FBF1C60E35800003AA0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4195EFAA1F3C0B42006CA7B6;
-			remoteInfo = YDHardwareWeb;
-		};
 		4D6D8FE11C60E35900003AA0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D6D8FBF1C60E35800003AA0 /* Project object */;
@@ -76,7 +66,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4195EFB31F3C0B43006CA7B6 /* YDHardwareWeb.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,9 +106,6 @@
 		415C6AD81F30669D007BE9DA /* UIViewController+YDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YDViewController.h"; sourceTree = "<group>"; };
 		415C6AD91F30669D007BE9DA /* UIViewController+YDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YDViewController.m"; sourceTree = "<group>"; };
 		415C6ADE1F306A42007BE9DA /* YDDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDefine.h; sourceTree = "<group>"; };
-		4195EFAB1F3C0B42006CA7B6 /* YDHardwareWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YDHardwareWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4195EFAD1F3C0B43006CA7B6 /* YDHardwareWeb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDHardwareWeb.h; sourceTree = "<group>"; };
-		4195EFAE1F3C0B43006CA7B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41C6C2C81F38769E00523099 /* NSData+YDConversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+YDConversion.h"; sourceTree = "<group>"; };
 		41C6C2C91F38769E00523099 /* NSData+YDConversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+YDConversion.m"; sourceTree = "<group>"; };
 		4D6D8FC71C60E35800003AA0 /* YDOpenHardwareSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YDOpenHardwareSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,13 +135,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4195EFA71F3C0B42006CA7B6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4D6D8FC41C60E35800003AA0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -163,7 +142,6 @@
 				415A54DF1F344B3A00BD61EA /* YDOpenHardwareCore.framework in Frameworks */,
 				415A54E01F344B3A00BD61EA /* YDOpenHardwareSDK.framework in Frameworks */,
 				4DB5ACEA1C732A7D00763E61 /* libsqlite3.tbd in Frameworks */,
-				4195EFB21F3C0B43006CA7B6 /* YDHardwareWeb.framework in Frameworks */,
 				9F5F0D99290CF496AF216787 /* libPods-YDOpenHardwareSimple.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,15 +246,6 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
-		4195EFAC1F3C0B43006CA7B6 /* YDHardwareWeb */ = {
-			isa = PBXGroup;
-			children = (
-				4195EFAD1F3C0B43006CA7B6 /* YDHardwareWeb.h */,
-				4195EFAE1F3C0B43006CA7B6 /* Info.plist */,
-			);
-			path = YDHardwareWeb;
-			sourceTree = "<group>";
-		};
 		4D6D8FBE1C60E35800003AA0 = {
 			isa = PBXGroup;
 			children = (
@@ -284,7 +253,6 @@
 				4D6D8FC91C60E35800003AA0 /* YDOpenHardwareSimple */,
 				4D6D8FE31C60E35900003AA0 /* YDOpenHardwareSimpleTests */,
 				4D6D8FEE1C60E35900003AA0 /* YDOpenHardwareSimpleUITests */,
-				4195EFAC1F3C0B43006CA7B6 /* YDHardwareWeb */,
 				4D6D8FC81C60E35800003AA0 /* Products */,
 				F8F9B82F1929C46A8859D4BE /* Frameworks */,
 				0F29F4D5F8F952C171B68864 /* Pods */,
@@ -297,7 +265,6 @@
 				4D6D8FC71C60E35800003AA0 /* YDOpenHardwareSimple.app */,
 				4D6D8FE01C60E35900003AA0 /* YDOpenHardwareSimpleTests.xctest */,
 				4D6D8FEB1C60E35900003AA0 /* YDOpenHardwareSimpleUITests.xctest */,
-				4195EFAB1F3C0B42006CA7B6 /* YDHardwareWeb.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -361,36 +328,7 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		4195EFA81F3C0B42006CA7B6 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4195EFAF1F3C0B43006CA7B6 /* YDHardwareWeb.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		4195EFAA1F3C0B42006CA7B6 /* YDHardwareWeb */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4195EFB61F3C0B43006CA7B6 /* Build configuration list for PBXNativeTarget "YDHardwareWeb" */;
-			buildPhases = (
-				4195EFA61F3C0B42006CA7B6 /* Sources */,
-				4195EFA71F3C0B42006CA7B6 /* Frameworks */,
-				4195EFA81F3C0B42006CA7B6 /* Headers */,
-				4195EFA91F3C0B42006CA7B6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = YDHardwareWeb;
-			productName = YDHardwareWeb;
-			productReference = 4195EFAB1F3C0B42006CA7B6 /* YDHardwareWeb.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		4D6D8FC61C60E35800003AA0 /* YDOpenHardwareSimple */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D6D8FF41C60E35900003AA0 /* Build configuration list for PBXNativeTarget "YDOpenHardwareSimple" */;
@@ -406,7 +344,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				4195EFB11F3C0B43006CA7B6 /* PBXTargetDependency */,
 			);
 			name = YDOpenHardwareSimple;
 			productName = YDOpenHardwareSimple;
@@ -464,11 +401,6 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = YD;
 				TargetAttributes = {
-					4195EFAA1F3C0B42006CA7B6 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 2ERYNAFK87;
-						ProvisioningStyle = Automatic;
-					};
 					4D6D8FC61C60E35800003AA0 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 2ERYNAFK87;
@@ -499,19 +431,11 @@
 				4D6D8FC61C60E35800003AA0 /* YDOpenHardwareSimple */,
 				4D6D8FDF1C60E35900003AA0 /* YDOpenHardwareSimpleTests */,
 				4D6D8FEA1C60E35900003AA0 /* YDOpenHardwareSimpleUITests */,
-				4195EFAA1F3C0B42006CA7B6 /* YDHardwareWeb */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4195EFA91F3C0B42006CA7B6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4D6D8FC51C60E35800003AA0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -679,13 +603,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4195EFA61F3C0B42006CA7B6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4D6D8FC31C60E35800003AA0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -732,11 +649,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4195EFB11F3C0B43006CA7B6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4195EFAA1F3C0B42006CA7B6 /* YDHardwareWeb */;
-			targetProxy = 4195EFB01F3C0B43006CA7B6 /* PBXContainerItemProxy */;
-		};
 		4D6D8FE21C60E35900003AA0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4D6D8FC61C60E35800003AA0 /* YDOpenHardwareSimple */;
@@ -769,60 +681,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4195EFB41F3C0B43006CA7B6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2ERYNAFK87;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = YDHardwareWeb/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dtspread.apps.YDHardwareWeb;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		4195EFB51F3C0B43006CA7B6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2ERYNAFK87;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = YDHardwareWeb/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dtspread.apps.YDHardwareWeb;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		4D6D8FF21C60E35900003AA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1026,14 +884,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4195EFB61F3C0B43006CA7B6 /* Build configuration list for PBXNativeTarget "YDHardwareWeb" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4195EFB41F3C0B43006CA7B6 /* Debug */,
-				4195EFB51F3C0B43006CA7B6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
 		4D6D8FC21C60E35800003AA0 /* Build configuration list for PBXProject "_YDBridgeWebViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
