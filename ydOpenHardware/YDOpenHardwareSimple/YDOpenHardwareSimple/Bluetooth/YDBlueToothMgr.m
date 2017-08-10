@@ -32,7 +32,12 @@
 
 @end
 
-static NSString *const ydNtfMangerDidUpdataValueForCharacteristic = @"yd.bluetooth.DidUpdataValueForCharacteristic";
+NSString *const YDNtfMangerDidUpdataValueForCharacteristic = @"yd.ntf.bluetooth.did.update.value.for.characteristic";
+NSString *const YDNtfMangerDidUpdateNotificationStateForCharacteristic = @"yd.ntf.manager.did.update.notification.state.for.charcteristic";
+NSString *const YDNtfMangerDiscoverDescriptorsForCharacteristic = @"yd.ntf.manager.did.discover.descriptors.for.characteristic";
+NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.descriptors";
+
+
 
 @implementation YDBlueToothMgr
 
@@ -182,7 +187,7 @@ static NSString *const ydNtfMangerDidUpdataValueForCharacteristic = @"yd.bluetoo
 #pragma mark - services & characteristic
     
     [_bluetooth setBlockOnDiscoverCharacteristics:^(CBPeripheral *peripheral, CBService *service, NSError *error) {
-        NSLog(@"setBlockOnDiscoverCharacteristics");
+//        NSLog(@"setBlockOnDiscoverCharacteristics");
         for (CBCharacteristic *c in service.characteristics) {
            [wSelf.bluetooth notify:peripheral characteristic:c block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
                !wSelf.characteristicCallBack?:wSelf.characteristicCallBack(c);
@@ -194,7 +199,7 @@ static NSString *const ydNtfMangerDidUpdataValueForCharacteristic = @"yd.bluetoo
     [_bluetooth setBlockOnReadValueForCharacteristic:^(CBPeripheral *peripheral, CBCharacteristic *characteristic, NSError *error) {
         NSLog(@"setBlockOnReadValueForCharacteristic");
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:ydNtfMangerDidUpdataValueForCharacteristic object:characteristic];
+        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfMangerDidUpdataValueForCharacteristic object:characteristic];
         
         if (!error) {
             NSError *error1 = nil;
@@ -208,16 +213,16 @@ static NSString *const ydNtfMangerDidUpdataValueForCharacteristic = @"yd.bluetoo
     }];
     
     [_bluetooth setBlockOnDidUpdateNotificationStateForCharacteristic:^(CBCharacteristic *characteristic, NSError *error) {
-        NSLog(@"setBlockOnDidUpdateNotificationStateForCharacteristic");
+        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfMangerDidUpdateNotificationStateForCharacteristic object:characteristic];
     }];
     
-// characteristic & discriptors
+//    characteristic & discriptors
     [_bluetooth setBlockOnDiscoverDescriptorsForCharacteristic:^(CBPeripheral *peripheral, CBCharacteristic *characteristic, NSError *error) {
-        NSLog(@"setBlockOnDiscoverDescriptorsForCharacteristic");
+        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfMangerDiscoverDescriptorsForCharacteristic object:characteristic];
     }];
     
     [_bluetooth setBlockOnReadValueForDescriptors:^(CBPeripheral *peripheral, CBDescriptor *descriptor, NSError *error) {
-        NSLog(@"setBlockOnReadValueForDescriptors");
+        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfMangerReadValueForDescriptors object:descriptor];
     }];
     
     NSDictionary *scanForPeripheralsWithOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@YES};
@@ -265,10 +270,6 @@ static NSString *const ydNtfMangerDidUpdataValueForCharacteristic = @"yd.bluetoo
     return ^(void){
         return self;
     };
-}
-
-- (void)ontest:(NSNotification *)notification {
-    CBCharacteristic *c = [notification.object objectForKey:@"characteristic"];
 }
 
 - (YDBlueToothMgr *(^)(void))stopScan {

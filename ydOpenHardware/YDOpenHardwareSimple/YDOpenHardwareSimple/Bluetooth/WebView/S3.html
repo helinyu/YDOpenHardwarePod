@@ -53,6 +53,10 @@
             });
          };
 
+         bridge.registerHandler('deliverServices',function(data,responseCallback) {
+            console.log('deliver services');
+         });
+
          bridge.registerHandler('deliverCharacteristic', function(data, responseCallback) {
          	log('data'+data+':'+data.uuid+data.value.value0 +':'+data.value.value1+':'+data.value.value2+':'+data.value.value3+'.');
 
@@ -64,6 +68,7 @@
          	// distanceLabel.innerHTML =
             responseCallback(responseData);
         });
+
 
         bridge.registerHandler('deliverHeartRate', function(data, responseCallback) {
         	log('data'+data.heartRate);
@@ -149,8 +154,8 @@
             bridge.callHandler('writeDatas',datas,function(response) {
                 log('respone +',response);
             });
-        }; 
-            
+        };      
+
     });
     
     </script>

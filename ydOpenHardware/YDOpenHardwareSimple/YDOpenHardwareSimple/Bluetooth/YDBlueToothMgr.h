@@ -122,3 +122,12 @@ typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
 
 
 @end
+
+FOUNDATION_EXPORT NSString *const YDNtfMangerDidUpdataValueForCharacteristic;
+FOUNDATION_EXPORT NSString *const YDNtfMangerDidUpdateNotificationStateForCharacteristic;
+FOUNDATION_EXPORT NSString *const YDNtfMangerDiscoverDescriptorsForCharacteristic;
+FOUNDATION_EXPORT NSString *const YDNtfMangerReadValueForDescriptors;
+
+
+
+

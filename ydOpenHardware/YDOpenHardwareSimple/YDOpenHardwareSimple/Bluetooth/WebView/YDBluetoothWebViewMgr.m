@@ -74,6 +74,10 @@
 
 - (void)_addNotify{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onOpenHardwareUserChangeNotify:) name:YDNtfOpenHardwareUserChange object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDidUpdateCharacteristicValueNotify:) name:YDNtfMangerDidUpdataValueForCharacteristic object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDidUpdateNotificaitonStateForCharacteristicNotify:) name:YDNtfMangerDidUpdateNotificationStateForCharacteristic object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDiscoverDescriptorsForCharacteristicNotify:) name:YDNtfMangerDiscoverDescriptorsForCharacteristic object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onReadValueForDescriptorsNotify:) name:YDNtfMangerReadValueForDescriptors object:nil];
 }
 
 - (void)scanPeripheralWithMatchInfo:(NSDictionary *)filterInfo {
@@ -135,24 +139,23 @@
 
 - (void)registerHandlers {
 
-    //plist 文件加入 、方法名，参数
     __weak typeof (self) wSelf = self;
-//    这方法是固定的
+    
     [_webViewBridge registerHandler:@"onScanClick" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (!data) {
             return ;
         }
         [wSelf scanPeripheralWithMatchInfo:data];
-//        跳转链接是后来处理的
-        [self reloadWithUrl:@"peripheralList.html"];
+
+        //        [self reloadWithUrl:@"peripheralList.html"];
         wSelf.btMgr.startScan().scanPeripheralCallback = ^(CBPeripheral *peripheral) {
 //           处理返回来的数据（一般是列表）
-            [wSelf onAddToS3ListWithPeripheral:peripheral];
+            [wSelf onAddToListWithPeripheral:peripheral];
         };
     }];
     
 //    这个方法名也是需要加载的  （这里是触发链接&注册数据库）
-    [_webViewBridge registerHandler:@"onTouchPeripheral" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [_webViewBridge registerHandler:@"onChoicePeripheral" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (data) {
             _btMgr.stopScan().connectingPeripheralUuid(data);
             [wSelf.btMgr onConnectCurrentPeripheralOfBluetooth];
@@ -280,14 +283,12 @@
 - (void)backDatasFromBluetooth {
     __weak typeof (self) wSelf = self;
     _btMgr.servicesCallBack = ^(NSArray<CBService *> *services) {
-//        返回服务
+        [wSelf onDeliverToHtmlWithServices:services];
     };
 
     _btMgr.characteristicCallBack = ^(CBCharacteristic *c) {
         if (c.value && c.UUID) {
             [wSelf onDeliverToHtmlWithCharateristic:c];
-#warning test fff1
-//            [wSelf isWriteCharacteristicWithC:c UUIDString:@"FFF1"];
           }
      };
 }
@@ -300,34 +301,60 @@
     }
 }
 
+- (void)onDeliverToHtmlWithServices:(NSArray<CBService *> *)services {
+    NSMutableDictionary *servicesDic = @{}.mutableCopy;
+    for (NSInteger index =0; index <services.count; index++) {
+        NSString *key = [NSString stringWithFormat:@"index%ld",(long)index];
+        NSString *value = [NSString stringWithFormat:@"%2@",services[index]];
+        if (key && value) {
+            [servicesDic setObject:value forKey:key];
+        }
+    }
+    [_webViewBridge callHandler:@"deliverServices" data:servicesDic responseCallback:^(id responseData) {
+        
+    }];
+}
+
 // plist 文件加载数据格式
 - (void)onDeliverToHtmlWithCharateristic:(CBCharacteristic *)c {
-//test
     Byte *resultP = (Byte *)[c.value bytes];
-//    数据格式需要进行加载，解析数据格式 （变化），这里应该是怎么读取的，有关的格式
-    NSString *value0 = [NSString stringWithFormat:@"0x%02X",resultP[0]];
-    NSString *value1 = [NSString stringWithFormat:@"0x%02X",resultP[1]];
-    NSString *value2 = [NSString stringWithFormat:@"0x%02X",resultP[2]];
-    NSString *value3 = [NSString stringWithFormat:@"0x%02X",resultP[3]];
-    if ((value0 !=nil) && (value1 !=nil) && (value2 !=nil) && (value3 !=nil) && (c.UUID.UUIDString.length >0)) {
-        NSDictionary *characteristicInfo = @{@"uuid":c.UUID.UUIDString,
-                                             @"value":@{
-                                                     @"value0":value0,
-                                                     @"value1":value1,
-                                                     @"value2":value2,
-                                                     @"value3":value3
-                                                     }
-                                             };
+
+    //    数据格式需要进行加载，解析数据格式 （变化），这里应该是怎么读取的，有关的格式
+    NSMutableDictionary *characteristicInfo = @{}.mutableCopy;
+    [characteristicInfo setObject:c.UUID.UUIDString forKey:@"uuid"];
+    NSMutableDictionary *valueInfo = @{}.mutableCopy;
+    for (int index =0; index <c.value.length; index++) {
+        NSString *key = [NSString stringWithFormat:@"value%d",index];
+        NSString *value = [NSString stringWithFormat:@"0x%02X",resultP[index]];
+        if (key && value) {
+            [valueInfo setObject:value forKey:key];
+        }
+    }
+    [characteristicInfo setObject:valueInfo forKey:@"value"];
+    
+//    NSString *value0 = [NSString stringWithFormat:@"0x%02X",resultP[0]];
+//    NSString *value1 = [NSString stringWithFormat:@"0x%02X",resultP[1]];
+//    NSString *value2 = [NSString stringWithFormat:@"0x%02X",resultP[2]];
+//    NSString *value3 = [NSString stringWithFormat:@"0x%02X",resultP[3]];
+//    if ((value0 !=nil) && (value1 !=nil) && (value2 !=nil) && (value3 !=nil) && (c.UUID.UUIDString.length >0)) {
+//        NSDictionary *characteristicInfo = @{@"uuid":c.UUID.UUIDString,
+//                                             @"value":@{
+//                                                     @"value0":value0,
+//                                                     @"value1":value1,
+//                                                     @"value2":value2,
+//                                                     @"value3":value3
+//                                                     }
+//                                             };
 //        这个方法可以是写死的
         [_webViewBridge callHandler:@"deliverCharacteristic" data:characteristicInfo responseCallback:^(id responseData) {
             NSLog(@"response data : %@",responseData);
         }];
-     }
+//     }
 }
 
 #pragma mark --xx handler with html
 
-- (void)onAddToS3ListWithPeripheral:(CBPeripheral *)peripheral {
+- (void)onAddToListWithPeripheral:(CBPeripheral *)peripheral {
     if (peripheral.name && peripheral.identifier) {
 //        返回去的参数，这个需要进行加载
         NSDictionary *peripheralInfo = @{@"name":peripheral.name,@"uuid":peripheral.identifier.UUIDString};
@@ -393,6 +420,30 @@
         }else{
             NSLog(@"解除绑定失败");
         }
+    }];
+}
+
+- (void)onDidUpdateCharacteristicValueNotify:(NSNotification *)notificaiton {
+    [_webViewBridge callHandler:@"onDidUpdateCharacteristicValueNotify" data:[notificaiton.object yy_modelToJSONObject] responseCallback:^(id responseData) {
+        
+    }];
+}
+
+- (void)onDidUpdateNotificaitonStateForCharacteristicNotify:(NSNotification *)notification {
+    [_webViewBridge callHandler:@"onNotificaitonStateForCharacteristicNotif" data:[notification.object yy_modelToJSONObject] responseCallback:^(id responseData) {
+        
+    }];
+}
+
+- (void)onDiscoverDescriptorsForCharacteristicNotify:(NSNotification *)notification {
+    [_webViewBridge callHandler:@"onDiscoverDescriptorsForCharacteristicNotify" data:[notification.object yy_modelToJSONObject] responseCallback:^(id responseData) {
+        
+    }];
+}
+
+- (void)onReadValueForDescriptorsNotify:(NSNotification *)notificaiton {
+    [_webViewBridge callHandler:@"onReadValueForDescriptorsNotify" data:[notificaiton.object yy_modelToJSONObject] responseCallback:^(id responseData) {
+        
     }];
 }
 

@@ -21,7 +21,6 @@
 		411ED0DC1F308BE60041909A /* YDBridgeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0D01F308AE50041909A /* YDBridgeWebViewController.m */; };
 		415A54DF1F344B3A00BD61EA /* YDOpenHardwareCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415A54DD1F344AD700BD61EA /* YDOpenHardwareCore.framework */; };
 		415A54E01F344B3A00BD61EA /* YDOpenHardwareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415A54DE1F344AD700BD61EA /* YDOpenHardwareSDK.framework */; };
-		415A54E21F344FE100BD61EA /* methods.plist in Resources */ = {isa = PBXBuildFile; fileRef = 415A54E11F344FE100BD61EA /* methods.plist */; };
 		415A54E61F347E9C00BD61EA /* YDOpenHardwareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 415A54E51F347E9C00BD61EA /* YDOpenHardwareModel.m */; };
 		415C6AB21F305D7E007BE9DA /* YDBlueToothMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AB11F305D7E007BE9DA /* YDBlueToothMgr.m */; };
 		415C6AC91F305DF6007BE9DA /* peripheralList.html in Resources */ = {isa = PBXBuildFile; fileRef = 415C6AC11F305DF6007BE9DA /* peripheralList.html */; };
@@ -79,7 +78,6 @@
 		411ED0D11F308AE50041909A /* YDBridgeWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDBridgeWebView.m; sourceTree = "<group>"; };
 		415A54DD1F344AD700BD61EA /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
 		415A54DE1F344AD700BD61EA /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
-		415A54E11F344FE100BD61EA /* methods.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = methods.plist; sourceTree = "<group>"; };
 		415A54E41F347E9C00BD61EA /* YDOpenHardwareModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDOpenHardwareModel.h; sourceTree = "<group>"; };
 		415A54E51F347E9C00BD61EA /* YDOpenHardwareModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDOpenHardwareModel.m; sourceTree = "<group>"; };
 		415C6AB01F305D7E007BE9DA /* YDBlueToothMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBlueToothMgr.h; sourceTree = "<group>"; };
@@ -231,7 +229,6 @@
 				411ED0D11F308AE50041909A /* YDBridgeWebView.m */,
 				411ED0CD1F308AE50041909A /* YDBridgeWebViewController.h */,
 				411ED0D01F308AE50041909A /* YDBridgeWebViewController.m */,
-				415A54E11F344FE100BD61EA /* methods.plist */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -431,7 +428,6 @@
 			files = (
 				415C6AC91F305DF6007BE9DA /* peripheralList.html in Resources */,
 				4D6D8FDA1C60E35900003AA0 /* LaunchScreen.storyboard in Resources */,
-				415A54E21F344FE100BD61EA /* methods.plist in Resources */,
 				4D6D8FD71C60E35900003AA0 /* Assets.xcassets in Resources */,
 				4D6D8FD51C60E35800003AA0 /* Main.storyboard in Resources */,
 				415C6ACA1F305DF6007BE9DA /* S3.html in Resources */,

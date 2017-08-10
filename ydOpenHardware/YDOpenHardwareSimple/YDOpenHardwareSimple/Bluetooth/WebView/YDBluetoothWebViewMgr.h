@@ -16,7 +16,7 @@
 
 + (instancetype)shared;
 
-- (void)scanPeripheralWithMatchWord:(NSString *)matchWord;
+- (void)scanPeripheralWithMatchInfo:(NSString *)matchWord;
 
 - (void)startScanThenSourcesCallback:(void(^)(NSArray *peirpherals))callback;
 

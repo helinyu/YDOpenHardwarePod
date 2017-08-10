@@ -87,7 +87,7 @@
                 }
                 choiceItem = idValue;
                 alert("选择项目的值:"+idValue);
-                bridge.callHandler('onTouchPeripheral',idValue,function(response) {
+                bridge.callHandler('onChoicePeripheral',idValue,function(response) {
                     log('js got resposne ',response);
                 }); 
                 // window.history.go(-1);               
