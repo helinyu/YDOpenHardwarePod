@@ -107,8 +107,8 @@
 		4110A5301F3C2F9C00EBA5F1 /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5271F3C2F9C00EBA5F1 /* YYModel.h */; };
 		4110A53A1F3C311200EBA5F1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4110A5391F3C311200EBA5F1 /* WebKit.framework */; };
 		4110A53B1F3C35F300EBA5F1 /* NSString+YDContainsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4CB1F3C2F8C00EBA5F1 /* NSString+YDContainsString.m */; };
-		4110A5441F3C3E2200EBA5F1 /* YDOpenHardwareCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4110A5421F3C3E2200EBA5F1 /* YDOpenHardwareCore.framework */; };
-		4110A5451F3C3E2200EBA5F1 /* YDOpenHardwareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4110A5431F3C3E2200EBA5F1 /* YDOpenHardwareSDK.framework */; };
+		4110A54B1F3C407D00EBA5F1 /* YDOpenHardwareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4110A54A1F3C407D00EBA5F1 /* YDOpenHardwareSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		4110A54C1F3C449000EBA5F1 /* YDOpenHardwareSDK.framework in Sources */ = {isa = PBXBuildFile; fileRef = 4110A54A1F3C407D00EBA5F1 /* YDOpenHardwareSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,8 +266,7 @@
 		4110A5261F3C2F9C00EBA5F1 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
 		4110A5271F3C2F9C00EBA5F1 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
 		4110A5391F3C311200EBA5F1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		4110A5421F3C3E2200EBA5F1 /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
-		4110A5431F3C3E2200EBA5F1 /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
+		4110A54A1F3C407D00EBA5F1 /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,9 +274,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4110A5441F3C3E2200EBA5F1 /* YDOpenHardwareCore.framework in Frameworks */,
 				4110A53A1F3C311200EBA5F1 /* WebKit.framework in Frameworks */,
-				4110A5451F3C3E2200EBA5F1 /* YDOpenHardwareSDK.framework in Frameworks */,
+				4110A54B1F3C407D00EBA5F1 /* YDOpenHardwareSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,8 +540,7 @@
 		4110A5411F3C3E2200EBA5F1 /* YDOpenHardware */ = {
 			isa = PBXGroup;
 			children = (
-				4110A5421F3C3E2200EBA5F1 /* YDOpenHardwareCore.framework */,
-				4110A5431F3C3E2200EBA5F1 /* YDOpenHardwareSDK.framework */,
+				4110A54A1F3C407D00EBA5F1 /* YDOpenHardwareSDK.framework */,
 			);
 			path = YDOpenHardware;
 			sourceTree = "<group>";
@@ -721,6 +718,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4110A54C1F3C449000EBA5F1 /* YDOpenHardwareSDK.framework in Sources */,
 				4110A53B1F3C35F300EBA5F1 /* NSString+YDContainsString.m in Sources */,
 				4110A4E21F3C2F8C00EBA5F1 /* NSData+YDConversion.m in Sources */,
 				4110A4F01F3C2F8C00EBA5F1 /* YDBridgeWebView.m in Sources */,
