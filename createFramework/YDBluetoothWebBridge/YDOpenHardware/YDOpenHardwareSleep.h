@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
-
 /**
  *  对应数据表：yd_open_hardware_db.open_hardware_sleep
  */

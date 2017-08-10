@@ -146,10 +146,8 @@
             return ;
         }
         [wSelf scanPeripheralWithMatchInfo:data];
-
-        //        [self reloadWithUrl:@"peripheralList.html"];
+        [self reloadWithUrl:data[@"toLink"]];
         wSelf.btMgr.startScan().scanPeripheralCallback = ^(CBPeripheral *peripheral) {
-//           处理返回来的数据（一般是列表）
             [wSelf onAddToListWithPeripheral:peripheral];
         };
     }];
@@ -357,8 +355,8 @@
 - (void)onAddToListWithPeripheral:(CBPeripheral *)peripheral {
     if (peripheral.name && peripheral.identifier) {
 //        返回去的参数，这个需要进行加载
-        NSDictionary *peripheralInfo = @{@"name":peripheral.name,@"uuid":peripheral.identifier.UUIDString};
-        [_webViewBridge callHandler:@"insertPeripheralInHtml" data:peripheralInfo responseCallback:^(id responseData) {
+//        NSDictionary *peripheralInfo = @{@"name":peripheral.name,@"uuid":peripheral.identifier.UUIDString};
+        [_webViewBridge callHandler:@"insertPeripheralInHtml" data:[peripheral yy_modelToJSONObject] responseCallback:^(id responseData) {
             NSLog(@"response datas from html : %@",responseData);
         }];
     }

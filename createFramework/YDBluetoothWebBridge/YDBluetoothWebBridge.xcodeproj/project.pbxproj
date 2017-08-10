@@ -107,8 +107,15 @@
 		4110A5301F3C2F9C00EBA5F1 /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5271F3C2F9C00EBA5F1 /* YYModel.h */; };
 		4110A53A1F3C311200EBA5F1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4110A5391F3C311200EBA5F1 /* WebKit.framework */; };
 		4110A53B1F3C35F300EBA5F1 /* NSString+YDContainsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A4CB1F3C2F8C00EBA5F1 /* NSString+YDContainsString.m */; };
-		4110A54B1F3C407D00EBA5F1 /* YDOpenHardwareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4110A54A1F3C407D00EBA5F1 /* YDOpenHardwareSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		4110A54C1F3C449000EBA5F1 /* YDOpenHardwareSDK.framework in Sources */ = {isa = PBXBuildFile; fileRef = 4110A54A1F3C407D00EBA5F1 /* YDOpenHardwareSDK.framework */; };
+		4110A55C1F3C4D0A00EBA5F1 /* YDOpenHardwareDataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5531F3C4D0A00EBA5F1 /* YDOpenHardwareDataProvider.h */; };
+		4110A55D1F3C4D0A00EBA5F1 /* YDOpenHardwareHeartRate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5541F3C4D0A00EBA5F1 /* YDOpenHardwareHeartRate.h */; };
+		4110A55E1F3C4D0A00EBA5F1 /* YDOpenHardwareIntelligentScale.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5551F3C4D0A00EBA5F1 /* YDOpenHardwareIntelligentScale.h */; };
+		4110A55F1F3C4D0A00EBA5F1 /* YDOpenHardwareManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5561F3C4D0A00EBA5F1 /* YDOpenHardwareManager.h */; };
+		4110A5601F3C4D0A00EBA5F1 /* YDOpenHardwarePedometer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5571F3C4D0A00EBA5F1 /* YDOpenHardwarePedometer.h */; };
+		4110A5611F3C4D0A00EBA5F1 /* YDOpenHardwareSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5581F3C4D0A00EBA5F1 /* YDOpenHardwareSDK.h */; };
+		4110A5621F3C4D0A00EBA5F1 /* YDOpenHardwareSDKDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A5591F3C4D0A00EBA5F1 /* YDOpenHardwareSDKDefine.h */; };
+		4110A5631F3C4D0A00EBA5F1 /* YDOpenHardwareSleep.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A55A1F3C4D0A00EBA5F1 /* YDOpenHardwareSleep.h */; };
+		4110A5641F3C4D0A00EBA5F1 /* YDOpenHardwareUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A55B1F3C4D0A00EBA5F1 /* YDOpenHardwareUser.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,7 +273,15 @@
 		4110A5261F3C2F9C00EBA5F1 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
 		4110A5271F3C2F9C00EBA5F1 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
 		4110A5391F3C311200EBA5F1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		4110A54A1F3C407D00EBA5F1 /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
+		4110A5531F3C4D0A00EBA5F1 /* YDOpenHardwareDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDOpenHardwareDataProvider.h; sourceTree = "<group>"; };
+		4110A5541F3C4D0A00EBA5F1 /* YDOpenHardwareHeartRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDOpenHardwareHeartRate.h; sourceTree = "<group>"; };
+		4110A5551F3C4D0A00EBA5F1 /* YDOpenHardwareIntelligentScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDOpenHardwareIntelligentScale.h; sourceTree = "<group>"; };
+		4110A5561F3C4D0A00EBA5F1 /* YDOpenHardwareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDOpenHardwareManager.h; sourceTree = "<group>"; };
+		4110A5571F3C4D0A00EBA5F1 /* YDOpenHardwarePedometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDOpenHardwarePedometer.h; sourceTree = "<group>"; };
+		4110A5581F3C4D0A00EBA5F1 /* YDOpenHardwareSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDOpenHardwareSDK.h; sourceTree = "<group>"; };
+		4110A5591F3C4D0A00EBA5F1 /* YDOpenHardwareSDKDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDOpenHardwareSDKDefine.h; sourceTree = "<group>"; };
+		4110A55A1F3C4D0A00EBA5F1 /* YDOpenHardwareSleep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDOpenHardwareSleep.h; sourceTree = "<group>"; };
+		4110A55B1F3C4D0A00EBA5F1 /* YDOpenHardwareUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDOpenHardwareUser.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,7 +290,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4110A53A1F3C311200EBA5F1 /* WebKit.framework in Frameworks */,
-				4110A54B1F3C407D00EBA5F1 /* YDOpenHardwareSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +299,7 @@
 		4110A3F51F3C2F1C00EBA5F1 = {
 			isa = PBXGroup;
 			children = (
-				4110A5411F3C3E2200EBA5F1 /* YDOpenHardware */,
+				4110A5521F3C4D0A00EBA5F1 /* YDOpenHardware */,
 				4110A51F1F3C2F9C00EBA5F1 /* YYModel */,
 				4110A4F81F3C2F9300EBA5F1 /* SVProgressHUD */,
 				4110A5021F3C2F9300EBA5F1 /* WebViewJavascriptBridge */,
@@ -537,10 +551,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4110A5411F3C3E2200EBA5F1 /* YDOpenHardware */ = {
+		4110A5521F3C4D0A00EBA5F1 /* YDOpenHardware */ = {
 			isa = PBXGroup;
 			children = (
-				4110A54A1F3C407D00EBA5F1 /* YDOpenHardwareSDK.framework */,
+				4110A5531F3C4D0A00EBA5F1 /* YDOpenHardwareDataProvider.h */,
+				4110A5541F3C4D0A00EBA5F1 /* YDOpenHardwareHeartRate.h */,
+				4110A5551F3C4D0A00EBA5F1 /* YDOpenHardwareIntelligentScale.h */,
+				4110A5561F3C4D0A00EBA5F1 /* YDOpenHardwareManager.h */,
+				4110A5571F3C4D0A00EBA5F1 /* YDOpenHardwarePedometer.h */,
+				4110A5581F3C4D0A00EBA5F1 /* YDOpenHardwareSDK.h */,
+				4110A5591F3C4D0A00EBA5F1 /* YDOpenHardwareSDKDefine.h */,
+				4110A55A1F3C4D0A00EBA5F1 /* YDOpenHardwareSleep.h */,
+				4110A55B1F3C4D0A00EBA5F1 /* YDOpenHardwareUser.h */,
 			);
 			path = YDOpenHardware;
 			sourceTree = "<group>";
@@ -568,9 +590,12 @@
 				4110A4EB1F3C2F8C00EBA5F1 /* YDBluetoothWebViewMgr.h in Headers */,
 				4110A4211F3C2F6200EBA5F1 /* BabyCentralManager.h in Headers */,
 				4110A4251F3C2F6200EBA5F1 /* BabyOptions.h in Headers */,
+				4110A5641F3C4D0A00EBA5F1 /* YDOpenHardwareUser.h in Headers */,
 				4110A5101F3C2F9300EBA5F1 /* SVProgressHUD.h in Headers */,
+				4110A5631F3C4D0A00EBA5F1 /* YDOpenHardwareSleep.h in Headers */,
 				4110A52C1F3C2F9C00EBA5F1 /* NSObject+YYModel.h in Headers */,
 				4110A4231F3C2F6200EBA5F1 /* BabyDefine.h in Headers */,
+				4110A55C1F3C4D0A00EBA5F1 /* YDOpenHardwareDataProvider.h in Headers */,
 				4110A4541F3C2F6C00EBA5F1 /* MASViewAttribute.h in Headers */,
 				4110A52E1F3C2F9C00EBA5F1 /* YYClassInfo.h in Headers */,
 				4110A4A31F3C2F7600EBA5F1 /* MJRefreshGifHeader.h in Headers */,
@@ -587,11 +612,13 @@
 				4110A4561F3C2F6C00EBA5F1 /* MASViewConstraint.h in Headers */,
 				4110A44C1F3C2F6C00EBA5F1 /* MASConstraint.h in Headers */,
 				4110A4AF1F3C2F7600EBA5F1 /* UIScrollView+MJRefresh.h in Headers */,
+				4110A5611F3C4D0A00EBA5F1 /* YDOpenHardwareSDK.h in Headers */,
 				4110A4501F3C2F6C00EBA5F1 /* MASLayoutConstraint.h in Headers */,
 				4110A45D1F3C2F6C00EBA5F1 /* View+MASAdditions.h in Headers */,
 				4110A4BA1F3C2F7B00EBA5F1 /* NJKWebViewProgressView.h in Headers */,
 				4110A4C21F3C2F8500EBA5F1 /* Reachability.h in Headers */,
 				4110A4521F3C2F6C00EBA5F1 /* Masonry.h in Headers */,
+				4110A5601F3C4D0A00EBA5F1 /* YDOpenHardwarePedometer.h in Headers */,
 				4110A4AB1F3C2F7600EBA5F1 /* NSBundle+MJRefresh.h in Headers */,
 				4110A48C1F3C2F7600EBA5F1 /* MJRefresh.h in Headers */,
 				4110A41F1F3C2F6200EBA5F1 /* BabyCallback.h in Headers */,
@@ -604,6 +631,7 @@
 				4110A45A1F3C2F6C00EBA5F1 /* NSArray+MASShorthandAdditions.h in Headers */,
 				4110A4951F3C2F7600EBA5F1 /* MJRefreshBackFooter.h in Headers */,
 				4110A42B1F3C2F6200EBA5F1 /* BabySpeaker.h in Headers */,
+				4110A55E1F3C4D0A00EBA5F1 /* YDOpenHardwareIntelligentScale.h in Headers */,
 				4110A4A51F3C2F7600EBA5F1 /* MJRefreshHeader.h in Headers */,
 				4110A4491F3C2F6C00EBA5F1 /* MASCompositeConstraint.h in Headers */,
 				4110A45B1F3C2F6C00EBA5F1 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */,
@@ -615,14 +643,17 @@
 				4110A4601F3C2F6C00EBA5F1 /* ViewController+MASAdditions.h in Headers */,
 				4110A50D1F3C2F9300EBA5F1 /* SVProgressAnimatedView.h in Headers */,
 				4110A44B1F3C2F6C00EBA5F1 /* MASConstraint+Private.h in Headers */,
+				4110A55F1F3C4D0A00EBA5F1 /* YDOpenHardwareManager.h in Headers */,
 				4110A49B1F3C2F7600EBA5F1 /* MJRefreshBackStateFooter.h in Headers */,
 				4110A4041F3C2F1C00EBA5F1 /* YDBluetoothWebBridge.h in Headers */,
+				4110A55D1F3C4D0A00EBA5F1 /* YDOpenHardwareHeartRate.h in Headers */,
 				4110A4AD1F3C2F7600EBA5F1 /* UIScrollView+MJExtension.h in Headers */,
 				4110A5141F3C2F9300EBA5F1 /* WebViewJavascriptBridge.h in Headers */,
 				4110A4A11F3C2F7600EBA5F1 /* MJRefreshFooter.h in Headers */,
 				4110A48F1F3C2F7600EBA5F1 /* MJRefreshAutoGifFooter.h in Headers */,
 				4110A4911F3C2F7600EBA5F1 /* MJRefreshAutoNormalFooter.h in Headers */,
 				4110A50B1F3C2F9300EBA5F1 /* SVIndefiniteAnimatedView.h in Headers */,
+				4110A5621F3C4D0A00EBA5F1 /* YDOpenHardwareSDKDefine.h in Headers */,
 				4110A41D1F3C2F6200EBA5F1 /* BabyBluetooth.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -718,7 +749,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4110A54C1F3C449000EBA5F1 /* YDOpenHardwareSDK.framework in Sources */,
 				4110A53B1F3C35F300EBA5F1 /* NSString+YDContainsString.m in Sources */,
 				4110A4E21F3C2F8C00EBA5F1 /* NSData+YDConversion.m in Sources */,
 				4110A4F01F3C2F8C00EBA5F1 /* YDBridgeWebView.m in Sources */,
@@ -855,6 +885,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YDOpenHardware",
+					"$(PROJECT_DIR)/Framework",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = YDBluetoothWebBridge/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -880,6 +912,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YDOpenHardware",
+					"$(PROJECT_DIR)/Framework",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = YDBluetoothWebBridge/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
