@@ -1,0 +1,6 @@
+framework module YDOpenHardwareSDK {
+  umbrella header "YDOpenHardwareSDK.h"
+
+  export *
+  module * { export * }
+}

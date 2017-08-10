@@ -8,6 +8,7 @@
 
 #import "YDMBaseViewController.h"
 #import "YDDefine.h"
+#import <UIKit/UIKit.h>
 
 @class YDBridgeWebView;
 
