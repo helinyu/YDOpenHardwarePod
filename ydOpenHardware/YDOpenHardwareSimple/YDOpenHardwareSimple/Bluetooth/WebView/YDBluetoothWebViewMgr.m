@@ -381,7 +381,10 @@
     if (peripheral.name && peripheral.identifier) {
 //        返回去的参数，这个需要进行加载
 //        NSDictionary *peripheralInfo = @{@"name":peripheral.name,@"uuid":peripheral.identifier.UUIDString};
-        [_webViewBridge callHandler:@"insertPeripheralInHtml" data:[peripheral yy_modelToJSONObject] responseCallback:^(id responseData) {
+        NSMutableDictionary *peripherlInfo = @{}.mutableCopy;
+        peripherlInfo = [peripheral yy_modelToJSONObject];
+        [peripherlInfo setObject:peripheral.identifier.UUIDString forKey:@"uuid"];
+        [_webViewBridge callHandler:@"insertPeripheralInHtml" data:peripherlInfo responseCallback:^(id responseData) {
             NSLog(@"response datas from html : %@",responseData);
         }];
     }
