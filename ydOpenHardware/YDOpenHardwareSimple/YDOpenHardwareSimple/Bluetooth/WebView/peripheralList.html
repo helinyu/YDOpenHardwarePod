@@ -66,13 +66,21 @@
         
 
         // 注册插入数据 ,传入对象为字符串对象
-        bridge.registerHandler('insertPeripheralInHtml', function(data, responseCallback) {
+        bridge.registerHandler('scanResultSingleBack', function(data, responseCallback) {
             var responseData = { 'name':'response from html to oc'+ data }
             peripherals.push('data');
             logEl(data.uuid,data.name + ';' + data.uuid);
             responseCallback(responseData);
         });      
 
+         bridge.registerHandler('onServicesResultBack',function(data,responseCallback) {
+            log('services count : '+data.length); 
+            // if (data.uuid == 'FFF0') {
+            //     do some thing what you want 
+            // }
+            responseCallback({'toLink':'S3.html'});
+         });
+                                 
         // 点击html的按钮时间
         document.onclick=mouseClick;
         function mouseClick(evt){
@@ -87,7 +95,7 @@
                 }
                 choiceItem = idValue;
                 alert("选择项目的值:"+idValue);
-                bridge.callHandler('onChoicePeripheral',idValue,function(response) {
+                bridge.callHandler('onConnectPeripheralClick',idValue,function(response) {
                     log('js got resposne ',response);
                 }); 
                 // window.history.go(-1);               

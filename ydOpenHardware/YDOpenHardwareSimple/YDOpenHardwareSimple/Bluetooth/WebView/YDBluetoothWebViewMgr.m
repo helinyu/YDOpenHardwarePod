@@ -153,10 +153,9 @@
     }];
     
 //    这个方法名也是需要加载的  （这里是触发链接&注册数据库）
-    [_webViewBridge registerHandler:@"onChoicePeripheral" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [_webViewBridge registerHandler:@"onConnectPeripheralClick" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (data) {
             _btMgr.stopScan().connectingPeripheralUuid(data);
-            [self loadAnotherHTMLWithDatas:data];
             [wSelf.btMgr onConnectCurrentPeripheralOfBluetooth];
             wSelf.btMgr.connectionCallBack = ^(BOOL success) {
                 if (success) {
@@ -165,6 +164,7 @@
                 }
             };
             _choicePeripheal = _btMgr.currentPeripheral;
+            [self loadAnotherHTMLWithDatas:data];
             [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal.identifier.UUIDString forKey:@"peripheralUUID"];
             [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal forKey:@"choicePeripheral"];
         }
@@ -227,7 +227,6 @@
     
 // 计步
     [_webViewBridge registerHandler:@"insertPedometer" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"peri state : %ld",_choicePeripheal.state);
         [wSelf insertPedometer:data];
         [self loadAnotherHTMLWithDatas:data];
     }];
@@ -317,21 +316,20 @@
 }
 
 - (void)onDeliverToHtmlWithServices:(NSArray<CBService *> *)services {
-    NSMutableDictionary *servicesDic = @{}.mutableCopy;
-    for (NSInteger index =0; index <services.count; index++) {
-        NSString *key = [NSString stringWithFormat:@"index%ld",(long)index];
-        NSString *value = [NSString stringWithFormat:@"%2@",services[index]];
-        if (key && value) {
-            [servicesDic setObject:value forKey:key];
-        }
-    }
-    [_webViewBridge callHandler:@"deliverServices" data:servicesDic responseCallback:^(id responseData) {
-        
+//    test service
+    
+    id jsonObj = [services yy_modelToJSONObject];
+    __weak typeof (self) wSelf = self;
+    [_webViewBridge callHandler:@"onServicesResultBack" data:jsonObj responseCallback:^(id responseData) {
+        [wSelf loadAnotherHTMLWithDatas:responseData];
     }];
 }
 
 
 - (void)loadAnotherHTMLWithDatas:(id)datas {
+    if (![datas isKindOfClass:[NSDictionary class]]) {
+        return;
+    }
     NSString *toLink = (NSString *)[datas objectForKey:@"toLink"];
     if (toLink) {
         [self reloadWithUrl:toLink];
@@ -341,7 +339,6 @@
 // plist 文件加载数据格式
 - (void)onDeliverToHtmlWithCharateristic:(CBCharacteristic *)c {
     Byte *resultP = (Byte *)[c.value bytes];
-
     //    数据格式需要进行加载，解析数据格式 （变化），这里应该是怎么读取的，有关的格式
     NSMutableDictionary *characteristicInfo = @{}.mutableCopy;
     [characteristicInfo setObject:c.UUID.UUIDString forKey:@"uuid"];
@@ -354,37 +351,20 @@
         }
     }
     [characteristicInfo setObject:valueInfo forKey:@"value"];
-    
-//    NSString *value0 = [NSString stringWithFormat:@"0x%02X",resultP[0]];
-//    NSString *value1 = [NSString stringWithFormat:@"0x%02X",resultP[1]];
-//    NSString *value2 = [NSString stringWithFormat:@"0x%02X",resultP[2]];
-//    NSString *value3 = [NSString stringWithFormat:@"0x%02X",resultP[3]];
-//    if ((value0 !=nil) && (value1 !=nil) && (value2 !=nil) && (value3 !=nil) && (c.UUID.UUIDString.length >0)) {
-//        NSDictionary *characteristicInfo = @{@"uuid":c.UUID.UUIDString,
-//                                             @"value":@{
-//                                                     @"value0":value0,
-//                                                     @"value1":value1,
-//                                                     @"value2":value2,
-//                                                     @"value3":value3
-//                                                     }
-//                                             };
-//        这个方法可以是写死的
-        [_webViewBridge callHandler:@"deliverCharacteristic" data:characteristicInfo responseCallback:^(id responseData) {
-            NSLog(@"response data : %@",responseData);
-        }];
-//     }
+    [_webViewBridge callHandler:@"onCharacteristicResultBack" data:characteristicInfo responseCallback:^(id responseData) {
+        NSLog(@"response data : %@",responseData);
+    }];
 }
 
 #pragma mark --xx handler with html
 
 - (void)onAddToListWithPeripheral:(CBPeripheral *)peripheral {
     if (peripheral.name && peripheral.identifier) {
-//        返回去的参数，这个需要进行加载
 //        NSDictionary *peripheralInfo = @{@"name":peripheral.name,@"uuid":peripheral.identifier.UUIDString};
         NSMutableDictionary *peripherlInfo = @{}.mutableCopy;
         peripherlInfo = [peripheral yy_modelToJSONObject];
         [peripherlInfo setObject:peripheral.identifier.UUIDString forKey:@"uuid"];
-        [_webViewBridge callHandler:@"insertPeripheralInHtml" data:peripherlInfo responseCallback:^(id responseData) {
+        [_webViewBridge callHandler:@"scanResultSingleBack" data:peripherlInfo responseCallback:^(id responseData) {
             NSLog(@"response datas from html : %@",responseData);
         }];
     }
@@ -414,7 +394,7 @@
 
 - (void)registerOpenHardWareWithPeripheral:(CBPeripheral *)peripheral {
     //   蓝牙连接成功了之后，就会注册数据库
-    //是否注册0x    _deviceId = peripheral.identifier.UUIDString;
+    _deviceId = peripheral.identifier.UUIDString;
     _plugName = peripheral.name;
     _userId = [[YDOpenHardwareManager sharedManager] getCurrentUser].userID;
     __weak typeof (self) wSelf = self;
@@ -450,27 +430,28 @@
 }
 
 - (void)onDidUpdateCharacteristicValueNotify:(NSNotification *)notificaiton {
-    [_webViewBridge callHandler:@"onDidUpdateCharacteristicValueNotify" data:[notificaiton.object yy_modelToJSONObject] responseCallback:^(id responseData) {
-        
-    }];
+//    [_webViewBridge callHandler:@"onDidUpdateCharacteristicValueNotify" data:[notificaiton.object yy_modelToJSONObject] responseCallback:^(id responseData) {
+//
+//    }];
 }
 
 - (void)onDidUpdateNotificaitonStateForCharacteristicNotify:(NSNotification *)notification {
-    [_webViewBridge callHandler:@"onNotificaitonStateForCharacteristicNotif" data:[notification.object yy_modelToJSONObject] responseCallback:^(id responseData) {
-        
-    }];
+//    NSDictionary *objInfo = [notification.object yy_modelToJSONObject];
+//    [_webViewBridge callHandler:@"onNotificaitonStateForCharacteristicNotif" data:[notification.object yy_modelToJSONObject] responseCallback:^(id responseData) {
+//
+//    }];
 }
 
 - (void)onDiscoverDescriptorsForCharacteristicNotify:(NSNotification *)notification {
-    [_webViewBridge callHandler:@"onDiscoverDescriptorsForCharacteristicNotify" data:[notification.object yy_modelToJSONObject] responseCallback:^(id responseData) {
-        
-    }];
+//    [_webViewBridge callHandler:@"onDiscoverDescriptorsForCharacteristicNotify" data:[notification.object yy_modelToJSONObject] responseCallback:^(id responseData) {
+//
+//    }];
 }
 
 - (void)onReadValueForDescriptorsNotify:(NSNotification *)notificaiton {
-    [_webViewBridge callHandler:@"onReadValueForDescriptorsNotify" data:[notificaiton.object yy_modelToJSONObject] responseCallback:^(id responseData) {
-        
-    }];
+//    [_webViewBridge callHandler:@"onReadValueForDescriptorsNotify" data:[notificaiton.object yy_modelToJSONObject] responseCallback:^(id responseData) {
+//
+//    }];
 }
 
 #pragma mark 体重秤
@@ -591,7 +572,6 @@
     pedometer.deviceId = _deviceIdentify;
     pedometer.userId = [[YDOpenHardwareManager sharedManager] getCurrentUser].userID;
     pedometer.startTime = pedometer.endTime = [NSDate date];
-    pedometer.startTime?(pedometer.startTime = [NSDate date]):nil;
     pedometer.endTime?(pedometer.endTime = [NSDate date]):nil;
 
     [[YDOpenHardwareManager dataProvider] insertPedometer:pedometer completion:^(BOOL success) {
