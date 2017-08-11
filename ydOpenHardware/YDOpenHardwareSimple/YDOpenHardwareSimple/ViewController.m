@@ -12,7 +12,6 @@
 
 #import "YDBridgeWebViewController.h"
 
-
 @interface ViewController ()
 
 - (IBAction)toThirdPartVC:(id)sender;

@@ -146,7 +146,7 @@
             return ;
         }
         [wSelf scanPeripheralWithMatchInfo:data];
-        [self reloadWithUrl:data[@"toLink"]];
+        [self loadAnotherHTMLWithDatas:data];
         wSelf.btMgr.startScan().scanPeripheralCallback = ^(CBPeripheral *peripheral) {
             [wSelf onAddToListWithPeripheral:peripheral];
         };
@@ -156,6 +156,7 @@
     [_webViewBridge registerHandler:@"onChoicePeripheral" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (data) {
             _btMgr.stopScan().connectingPeripheralUuid(data);
+            [self loadAnotherHTMLWithDatas:data];
             [wSelf.btMgr onConnectCurrentPeripheralOfBluetooth];
             wSelf.btMgr.connectionCallBack = ^(BOOL success) {
                 if (success) {
@@ -172,22 +173,26 @@
 #pragma mark -- 数据存储操作method name  & data (key/value )
 //    智能体称
     [_webViewBridge registerHandler:@"insertIntelligentScale" handler:^(id data, WVJBResponseCallback responseCallback) {
-            [wSelf insertIntelligentScale:data];
+        [wSelf insertIntelligentScale:data];
+        [self loadAnotherHTMLWithDatas:data];
     }];
     
     [_webViewBridge registerHandler:@"selectNewIntelligentScaleByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectNewIntelligentScaleByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectIntelligentScaleByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectIntelligentScaleByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectIntelligentScaleInPageByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectIntelligentScaleInPageByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
@@ -196,21 +201,25 @@
 //    心率
     [_webViewBridge registerHandler:@"insertHeartRate" handler:^(id data, WVJBResponseCallback responseCallback) {
         [wSelf insertHeartRate:data];
+        [self loadAnotherHTMLWithDatas:data];
     }];
     
     [_webViewBridge registerHandler:@"selectNewHeartRateByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectNewHeartRateByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectHeartRateByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectHeartRateByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectHeartRateInPageByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectHeartRateInPageByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
@@ -220,21 +229,25 @@
     [_webViewBridge registerHandler:@"insertPedometer" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"peri state : %ld",_choicePeripheal.state);
         [wSelf insertPedometer:data];
+        [self loadAnotherHTMLWithDatas:data];
     }];
     
     [_webViewBridge registerHandler:@"selectNewPedometerByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectNewPedometerByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectPedometerByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectPedometerByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectPedometerInPageByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectPedometerInPageByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
@@ -242,16 +255,19 @@
     
 //    睡眠
     [_webViewBridge registerHandler:@"insertSleep" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf insertSleep:data];
     }];
     
     [_webViewBridge registerHandler:@"selectNewSleepByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectNewSleepByInfo:data completion:^(id idObj) {
             !responseCallback?:responseCallback(idObj);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectSleepByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectSleepByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
@@ -267,6 +283,7 @@
         NSString *hexString = data[@"hexString"];
         NSInteger length = [data[@"length"] integerValue];
         NSData *writeDatas = [NSData convertFromHexString:hexString length:length];
+        [self loadAnotherHTMLWithDatas:data];
         if (wSelf.writeCharacteristic && writeDatas) {
             [wSelf.choicePeripheal writeValue:writeDatas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
         }
@@ -311,6 +328,14 @@
     [_webViewBridge callHandler:@"deliverServices" data:servicesDic responseCallback:^(id responseData) {
         
     }];
+}
+
+
+- (void)loadAnotherHTMLWithDatas:(id)datas {
+    NSString *toLink = (NSString *)[datas objectForKey:@"toLink"];
+    if (toLink) {
+        [self reloadWithUrl:toLink];
+    }
 }
 
 // plist 文件加载数据格式
