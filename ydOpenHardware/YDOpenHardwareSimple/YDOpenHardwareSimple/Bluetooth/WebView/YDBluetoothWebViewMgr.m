@@ -567,14 +567,21 @@
     if (!infoDic || ![infoDic isKindOfClass:[NSDictionary class]]) {
         return;
     }
-//    test datas must deliver from the html
-    YDOpenHardwarePedometer *pedometer = [YDOpenHardwarePedometer yy_modelWithDictionary:infoDic];
-    pedometer.deviceId = _deviceIdentify;
-    pedometer.userId = [[YDOpenHardwareManager sharedManager] getCurrentUser].userID;
-    pedometer.startTime = pedometer.endTime = [NSDate date];
-    pedometer.endTime?(pedometer.endTime = [NSDate date]):nil;
+    //    test datas must deliver from the html :note some params(datas must not be nil)
+    YDOpenHardwarePedometer *pe = [YDOpenHardwarePedometer yy_modelWithDictionary:infoDic];
+    pe.deviceId = _deviceIdentify;
+    pe.userId = [[YDOpenHardwareManager sharedManager] getCurrentUser].userID;
+    !pe.startTime?(pe.startTime = [NSDate date]):nil;
+    !pe.endTime?(pe.endTime = [NSDate date]):nil;
+    !pe.extra?(pe.extra = @""):nil;
+    !pe.distance?(pe.distance = @0):nil;
+    !pe.calorie?(pe.calorie =@0):nil;
+    !pe.extra?(pe.extra = @""):nil;
+    !pe.serverId?(pe.serverId = @0):nil;
+    !pe.status?(pe.status = @0):nil;
+    !pe.numberOfStep?(pe.numberOfStep = @0):nil;
 
-    [[YDOpenHardwareManager dataProvider] insertPedometer:pedometer completion:^(BOOL success) {
+    [[YDOpenHardwareManager dataProvider] insertPedometer:pe completion:^(BOOL success) {
         if (success) {
             NSLog(@"插入成功");
         }
