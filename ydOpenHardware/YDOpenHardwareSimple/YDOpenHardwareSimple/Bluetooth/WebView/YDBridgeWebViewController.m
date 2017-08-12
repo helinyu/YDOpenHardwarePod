@@ -11,6 +11,7 @@
 #import "YDBridgeWebView.h"
 #import "YDBridgeWebMgr.h"
 #import "Masonry.h"
+#import "YDConstants.h"
 
 //#import "MSUtil.h"
 
@@ -167,9 +168,8 @@
 - (void)msBind {
     [super msBind];
     
-    // ...
-//    yd.readload.html
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRealHtmlNotify:) name:@"yd.readload.html" object:nil];
+//    load html which is in local
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRealHtmlNotify:) name:YDNtfLoadHtml object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBecomActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onGoBackNotify) name:@"ydNtfGoBack" object:nil];
 }

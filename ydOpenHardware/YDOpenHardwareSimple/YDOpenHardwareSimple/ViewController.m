@@ -9,8 +9,8 @@
 #import "ViewController.h"
 
 #import <YDOpenHardwareCore/YDOpenHardwareMgr.h>
-
 #import "YDBridgeWebViewController.h"
+#import "YDConstants.h"
 
 @interface ViewController ()
 
@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLoadHtmlNotify:) name:@"yd.ntf.load.outside.bundle.html" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLoadHtmlNotify:) name:YDNtfLoadOutsideBundleHtml object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +46,7 @@
     NSString *urlString = noti.object;
     NSString *filePath = [[NSBundle mainBundle] pathForResource:urlString ofType:nil];
     NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"yd.readload.html" object:htmlString];
+    [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfLoadHtml object:htmlString];
 }
 
 @end

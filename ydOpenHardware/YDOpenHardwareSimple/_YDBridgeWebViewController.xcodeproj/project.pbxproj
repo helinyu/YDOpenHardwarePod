@@ -29,6 +29,7 @@
 		415C6AD31F3060C5007BE9DA /* YDMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD21F3060C5007BE9DA /* YDMBaseViewController.m */; };
 		415C6AD61F306137007BE9DA /* UIViewController+YDNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD51F306137007BE9DA /* UIViewController+YDNavigation.m */; };
 		415C6ADA1F30669D007BE9DA /* UIViewController+YDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C6AD91F30669D007BE9DA /* UIViewController+YDViewController.m */; };
+		416F5EF11F3EE9690079AF0A /* YDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 416F5EF01F3EE9690079AF0A /* YDConstants.m */; };
 		41C6C2CA1F38769E00523099 /* NSData+YDConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6C2C91F38769E00523099 /* NSData+YDConversion.m */; };
 		4D6D8FCC1C60E35800003AA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCB1C60E35800003AA0 /* main.m */; };
 		4D6D8FCF1C60E35800003AA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCE1C60E35800003AA0 /* AppDelegate.m */; };
@@ -106,6 +107,8 @@
 		415C6AD81F30669D007BE9DA /* UIViewController+YDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+YDViewController.h"; path = "../WebView/UIViewController+YDViewController.h"; sourceTree = "<group>"; };
 		415C6AD91F30669D007BE9DA /* UIViewController+YDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+YDViewController.m"; path = "../WebView/UIViewController+YDViewController.m"; sourceTree = "<group>"; };
 		415C6ADE1F306A42007BE9DA /* YDDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDefine.h; sourceTree = "<group>"; };
+		416F5EEF1F3EE9690079AF0A /* YDConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDConstants.h; sourceTree = "<group>"; };
+		416F5EF01F3EE9690079AF0A /* YDConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDConstants.m; sourceTree = "<group>"; };
 		4195F1231F3C0FC5006CA7B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4195F1251F3C0FE2006CA7B6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		41C6C2C81F38769E00523099 /* NSData+YDConversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+YDConversion.h"; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 				41C6C2C91F38769E00523099 /* NSData+YDConversion.m */,
 				412172561F3D7F7600A47AD9 /* CBService+YYModel.h */,
 				412172571F3D7F7600A47AD9 /* CBService+YYModel.m */,
+				416F5EEF1F3EE9690079AF0A /* YDConstants.h */,
+				416F5EF01F3EE9690079AF0A /* YDConstants.m */,
 			);
 			name = extension;
 			sourceTree = "<group>";
@@ -616,6 +621,7 @@
 				411ED0D91F308BE60041909A /* YDBridgeWebView.h in Sources */,
 				411ED0DA1F308BE60041909A /* YDBridgeWebView.m in Sources */,
 				411ED0DB1F308BE60041909A /* YDBridgeWebViewController.h in Sources */,
+				416F5EF11F3EE9690079AF0A /* YDConstants.m in Sources */,
 				411ED0DC1F308BE60041909A /* YDBridgeWebViewController.m in Sources */,
 				411ED0D51F308B7C0041909A /* ViewController.h in Sources */,
 				411ED0C41F3086510041909A /* YDWebNoNetworkView.m in Sources */,

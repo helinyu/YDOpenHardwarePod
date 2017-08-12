@@ -20,6 +20,7 @@
 #import <YDOpenHardwareSDK/YDOpenHardwareSDK.h>
 #import "CBService+YYModel.h"
 #import "NSData+YDConversion.h"
+#import "YDConstants.h"
 
 
 
@@ -294,9 +295,9 @@
 
 - (void)reloadWithUrl:(NSString *)urlString {
     if (![urlString hasPrefix:@"http"]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"yd.ntf.load.outside.bundle.html" object:urlString];
+        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfLoadOutsideBundleHtml object:urlString];
     }else{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"yd.readload.html" object:urlString userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfLoadHtml object:urlString userInfo:nil];
     }
 }
 
