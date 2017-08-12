@@ -21,6 +21,8 @@
 #import "CBService+YYModel.h"
 #import "NSData+YDConversion.h"
 
+
+
 @interface YDBluetoothWebViewMgr ()
 
 // openHardware
@@ -290,8 +292,12 @@
     
 }
 
-- (void)reloadWithUrl:(NSString *)string {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"yd.readload.html" object:string userInfo:nil];
+- (void)reloadWithUrl:(NSString *)urlString {
+    if (![urlString hasPrefix:@"http"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"yd.ntf.load.outside.bundle.html" object:urlString];
+    }else{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"yd.readload.html" object:urlString userInfo:nil];
+    }
 }
 
 - (void)backDatasFromBluetooth {

@@ -117,7 +117,7 @@ static CGFloat kProgressHeaderH = 2.f;
             NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
             [self loadRequest:request];
         }else{
-            [self loadWithBundleFile:self.urlString];
+            [self loadWithBundleFile:self.urlString BaseURL:nil];
         }
          [self webview_refresh];
     }
@@ -361,11 +361,8 @@ static CGFloat kProgressHeaderH = 2.f;
     }
 }
 
-- (WKNavigation *)loadWithBundleFile:(NSString *)file {
+- (WKNavigation *)loadWithBundleFile:(NSString *)htmlString BaseURL:(NSURL *)baseUrl {
     self.webMgr.notFirstTrigger = NO;
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:file ofType:nil];
-    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    NSURL *baseUrl = [[NSBundle mainBundle] bundleURL];
     if (!self.useWK) {
         [self.oldWebView loadHTMLString:htmlString baseURL:baseUrl];
         return nil;
@@ -498,7 +495,7 @@ static CGFloat kProgressHeaderH = 2.f;
     self.webMgr.notFirstTrigger = NO;
     if (!self.useWK) {
         if (![self.urlString hasPrefix:@"http"]) {
-            [self loadWithBundleFile:self.urlString];
+            [self loadWithBundleFile:self.urlString BaseURL:nil];
             return nil;
         }
         [self.oldWebView reload];

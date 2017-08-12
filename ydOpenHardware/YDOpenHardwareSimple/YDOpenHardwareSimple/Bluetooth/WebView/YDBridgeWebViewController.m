@@ -17,7 +17,6 @@
 
 @interface YDBridgeWebViewController () <YDBridgeWebViewDelegate>
 
-
 @property (nonatomic, copy) NSString *curUrlString;
 
 @property (nonatomic, strong) YDBridgeWebMgr *webMgr;
@@ -257,7 +256,7 @@
 //test
         if ([self.urlString containsString:@"peripheralList"]) {
             self.urlString = @"S3.html";
-            [_webView loadWithBundleFile:self.urlString];
+            [_webView loadWithBundleFile:self.urlString BaseURL:nil];
         } else {
             
             self.navigationController.interactivePopGestureRecognizer.enabled = self.preNavPopGPEnableStatus;

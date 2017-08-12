@@ -184,8 +184,8 @@
  */
 - (WKNavigation *)reload;
 
-#warning -- test
-- (WKNavigation *)loadWithBundleFile:(NSString *)file;
+#warning -- for local bundle test
+- (WKNavigation *)loadWithBundleFile:(NSString *)htmlString BaseURL:(NSURL *)baseUrl;
 
 
 /*! @abstract Reloads the current page, performing end-to-end revalidation

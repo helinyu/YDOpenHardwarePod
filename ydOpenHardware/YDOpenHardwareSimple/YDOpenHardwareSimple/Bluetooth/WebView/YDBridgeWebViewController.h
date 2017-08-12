@@ -24,6 +24,7 @@
 
 + (instancetype)instanceWithType:(YDWebViewType)type urlString:(NSString *)urlString;
 - (instancetype)initWithUrl:(NSString *)urlString andType:(YDWebViewType)type;
+- (void)configureBundleHtmlWithHtmlString:(NSString *)htmlString BaseUrl:(NSURL *)baseUrl;
 
 - (void)reloadWebView;
 

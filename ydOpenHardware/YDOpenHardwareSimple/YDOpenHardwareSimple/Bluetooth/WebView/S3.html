@@ -46,7 +46,7 @@
          callbackButton.onclick = function(e) {
 	         e.preventDefault();
 	         log('JS calling handler "scan peripheral"')
-	         window.location.href='./peripheralList.html';
+             // window.location.href='./peripheralList.html';
              var scanParams = {'YDBlueToothFilterType':0,'prefixField':'S3','toLink':'peripheralList.html'};
 	         bridge.callHandler('onScanClick', scanParams, function(response) {
                 log('JS got response', response)
