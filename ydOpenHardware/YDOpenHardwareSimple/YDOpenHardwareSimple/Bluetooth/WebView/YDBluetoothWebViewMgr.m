@@ -18,7 +18,7 @@
 #import <YDOpenHardwareSDK/YDOpenHardwareIntelligentScale.h>
 #import <YDOpenHardwareSDK/YDOpenHardwareHeartRate.h>
 #import <YDOpenHardwareSDK/YDOpenHardwareSDK.h>
-
+#import "CBService+YYModel.h"
 #import "NSData+YDConversion.h"
 
 @interface YDBluetoothWebViewMgr ()
@@ -303,7 +303,7 @@
     _btMgr.characteristicCallBack = ^(CBCharacteristic *c) {
         if (c.value && c.UUID) {
             [wSelf onDeliverToHtmlWithCharateristic:c];
-          }
+        }
      };
 }
 
@@ -430,28 +430,39 @@
 }
 
 - (void)onDidUpdateCharacteristicValueNotify:(NSNotification *)notificaiton {
-//    [_webViewBridge callHandler:@"onDidUpdateCharacteristicValueNotify" data:[notificaiton.object yy_modelToJSONObject] responseCallback:^(id responseData) {
-//
-//    }];
+    CBCharacteristic *c = notificaiton.object;
+    NSDictionary *jsonObj = [c convertToDictionary];
+    [_webViewBridge callHandler:@"onDidUpdateCharacteristicValueNotify" data:jsonObj responseCallback:^(id responseData) {
+        NSLog(@"notificaiton response characteristic value : %@",responseData);
+    }];
 }
 
 - (void)onDidUpdateNotificaitonStateForCharacteristicNotify:(NSNotification *)notification {
-//    NSDictionary *objInfo = [notification.object yy_modelToJSONObject];
-//    [_webViewBridge callHandler:@"onNotificaitonStateForCharacteristicNotif" data:[notification.object yy_modelToJSONObject] responseCallback:^(id responseData) {
-//
-//    }];
+    CBCharacteristic *c = notification.object;
+    NSDictionary *jsonObj = [c convertToDictionary];
+    [_webViewBridge callHandler:@"onNotificaitonStateForCharacteristicNotify" data:jsonObj responseCallback:^(id responseData) {
+        NSLog(@"notificaiton response characteristic :%@",responseData);
+    }];
 }
 
 - (void)onDiscoverDescriptorsForCharacteristicNotify:(NSNotification *)notification {
-//    [_webViewBridge callHandler:@"onDiscoverDescriptorsForCharacteristicNotify" data:[notification.object yy_modelToJSONObject] responseCallback:^(id responseData) {
-//
-//    }];
+    CBCharacteristic *c =  notification.object;
+    NSDictionary *jsonObj = [c convertToDictionary];
+    [_webViewBridge callHandler:@"onDiscoverDescriptorsForCharacteristicNotify" data:jsonObj responseCallback:^(id responseData) {
+        NSLog(@"notification response descriptors for characteristic : %@",responseData);
+    }];
 }
 
 - (void)onReadValueForDescriptorsNotify:(NSNotification *)notificaiton {
-//    [_webViewBridge callHandler:@"onReadValueForDescriptorsNotify" data:[notificaiton.object yy_modelToJSONObject] responseCallback:^(id responseData) {
-//
-//    }];
+    CBDescriptor *desc = notificaiton.object;
+    NSMutableDictionary * jsonObj = @{}.mutableCopy;
+    [jsonObj setObject:desc.UUID.UUIDString forKey:@"uuid"];
+    if (desc.value) {
+        [jsonObj setObject:[NSString stringWithFormat:@"%@",desc.value] forKey:@"value"];
+    }
+    [_webViewBridge callHandler:@"onReadValueForDescriptorsNotify" data:jsonObj responseCallback:^(id responseData) {
+        NSLog(@"notificaiton response descriptors notify : %@",notificaiton);
+    }];
 }
 
 #pragma mark 体重秤

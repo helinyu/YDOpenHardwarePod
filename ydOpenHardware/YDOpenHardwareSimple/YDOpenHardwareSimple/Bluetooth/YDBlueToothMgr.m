@@ -187,18 +187,17 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
 #pragma mark - services & characteristic
     
     [_bluetooth setBlockOnDiscoverCharacteristics:^(CBPeripheral *peripheral, CBService *service, NSError *error) {
-//        NSLog(@"setBlockOnDiscoverCharacteristics");
+        NSLog(@"setBlockOnDiscoverCharacteristics");
         for (CBCharacteristic *c in service.characteristics) {
            [wSelf.bluetooth notify:peripheral characteristic:c block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
                !wSelf.characteristicCallBack?:wSelf.characteristicCallBack(c);
-               NSLog(@"c; %@",c.UUID.UUIDString);
+               NSLog(@" c: %@",c.UUID.UUIDString);
            }];
         }
     }];
     
     [_bluetooth setBlockOnReadValueForCharacteristic:^(CBPeripheral *peripheral, CBCharacteristic *characteristic, NSError *error) {
         NSLog(@"setBlockOnReadValueForCharacteristic");
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfMangerDidUpdataValueForCharacteristic object:characteristic];
         
         if (!error) {

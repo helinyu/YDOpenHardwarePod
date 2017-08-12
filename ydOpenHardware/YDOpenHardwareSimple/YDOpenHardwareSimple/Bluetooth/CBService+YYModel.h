@@ -11,3 +11,9 @@
 @interface CBService (YYModel)
 
 @end
+
+@interface CBCharacteristic (YYModel)
+
+- (NSDictionary *)convertToDictionary;
+
+@end
