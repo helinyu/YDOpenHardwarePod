@@ -169,7 +169,7 @@
             _choicePeripheal = _btMgr.currentPeripheral;
             [self loadAnotherHTMLWithDatas:data];
             [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal.identifier.UUIDString forKey:@"peripheralUUID"];
-            [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal forKey:@"choicePeripheral"];
+//            [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal forKey:@"choicePeripheral"];
         }
     }];
     
@@ -293,14 +293,6 @@
     
 }
 
-- (void)reloadWithUrl:(NSString *)urlString {
-    if (![urlString hasPrefix:@"http"]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfLoadOutsideBundleHtml object:urlString];
-    }else{
-        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfLoadHtml object:urlString userInfo:nil];
-    }
-}
-
 - (void)backDatasFromBluetooth {
     __weak typeof (self) wSelf = self;
     _btMgr.servicesCallBack = ^(NSArray<CBService *> *services) {
@@ -323,8 +315,6 @@
 }
 
 - (void)onDeliverToHtmlWithServices:(NSArray<CBService *> *)services {
-//    test service
-    
     id jsonObj = [services yy_modelToJSONObject];
     __weak typeof (self) wSelf = self;
     [_webViewBridge callHandler:@"onServicesResultBack" data:jsonObj responseCallback:^(id responseData) {
@@ -339,7 +329,11 @@
     }
     NSString *toLink = (NSString *)[datas objectForKey:@"toLink"];
     if (toLink) {
-        [self reloadWithUrl:toLink];
+        if (![toLink hasPrefix:@"http"]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfLoadOutsideBundleHtml object:toLink];
+        }else{
+            [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfLoadHtml object:toLink userInfo:nil];
+        }
     }
 }
 
@@ -387,7 +381,6 @@
 }
 
 - (void)onActionByViewDidAppear {
-    _choicePeripheal = [[NSUserDefaults standardUserDefaults] objectForKey:@"choicePeripheral"];
     if (_choicePeripheal) {
         if (!_btMgr) {
             _btMgr = [YDBlueToothMgr shared];
