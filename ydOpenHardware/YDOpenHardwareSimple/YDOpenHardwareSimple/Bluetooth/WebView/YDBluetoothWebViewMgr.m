@@ -460,10 +460,28 @@
     if (!infoDic || ![infoDic isKindOfClass:[NSDictionary class]]) {
         return;
     }
-    [[YDOpenHardwareManager dataProvider] insertIntelligentScale:[infoDic yy_modelToJSONObject] completion:^(BOOL success) {
-        
+    YDOpenHardwareIntelligentScale *intelligentScale = [YDOpenHardwareIntelligentScale new];
+    intelligentScale = [YDOpenHardwareIntelligentScale yy_modelWithDictionary:infoDic];
+    intelligentScale.deviceId = _deviceIdentify;
+    intelligentScale.timeSec?nil:(intelligentScale.timeSec =[NSDate date]);
+    intelligentScale.weightG?nil:(intelligentScale.weightG = @0);
+    intelligentScale.heightCm?nil:(intelligentScale.heightCm = @0);
+    intelligentScale.bodyFatPer?nil:(intelligentScale.bodyFatPer = @0);
+    intelligentScale.bodyMusclePer?nil:(intelligentScale.bodyMusclePer = @0);
+    intelligentScale.bodyMassIndex?nil:(intelligentScale.bodyMassIndex = @0);
+    intelligentScale.basalMetabolismRate?nil:(intelligentScale.basalMetabolismRate = @0);
+    intelligentScale.bodyWaterPercentage?nil:(intelligentScale.bodyWaterPercentage = @0);
+    intelligentScale.userId = _userId;
+    intelligentScale.extra?nil:(intelligentScale.extra = @"");
+    intelligentScale.serverId?nil:(intelligentScale.serverId = @0);
+    intelligentScale.status?nil:(intelligentScale.status = @0);
+    [[YDOpenHardwareManager dataProvider] insertIntelligentScale:intelligentScale completion:^(BOOL success) {
+        if (success) {
+            NSLog(@"插入体重秤数据成功");
+        }else{
+            NSLog(@"插入体重秤数据失败");
+        }
     }];
-
 }
 
 - (void)selectNewIntelligentScaleByInfo:(id)infoDic completion:(ResponseJsonObject)responseJsonObject{
@@ -517,8 +535,20 @@
         return;
     }
     YDOpenHardwareHeartRate *hr = [YDOpenHardwareHeartRate yy_modelWithDictionary:infoDic];
+    hr.deviceId = _deviceIdentify;
+    hr.heartRate?nil:(hr.heartRate = @0);
+    hr.startTime?nil:(hr.startTime =[NSDate date]);
+    hr.endTime?nil:(hr.endTime = [NSDate date]);
+    hr.userId = _userId;
+    hr.extra?nil:(hr.extra = @"");
+    hr.serverId?nil:(hr.serverId = @0);
+    hr.status?nil:(hr.status = @0);
     [[YDOpenHardwareManager dataProvider] insertHeartRate:hr completion:^(BOOL success) {
-        
+        if (success) {
+            NSLog(@"插入心率成功");
+        }else{
+            NSLog(@"插入心率失败");
+        }
     }];
 }
 
@@ -583,10 +613,10 @@
 
     [[YDOpenHardwareManager dataProvider] insertPedometer:pe completion:^(BOOL success) {
         if (success) {
-            NSLog(@"插入成功");
+            NSLog(@"插入计步成功");
         }
         else{
-            NSLog(@"插入失败");
+            NSLog(@"插入计步失败");
         }
         
     }];
@@ -641,8 +671,21 @@
         return;
     }
     YDOpenHardwareSleep *sleep = [YDOpenHardwareSleep yy_modelWithDictionary:infoDic];
+    sleep.deviceId = _deviceIdentify;
+    sleep.sleepSec?nil:(sleep.sleepSec = @0);
+    sleep.sleepSection?nil:(sleep.sleepSection = @0);
+    sleep.startTime?nil:(sleep.startTime = [NSDate date]);
+    sleep.endTime?nil:(sleep.endTime = [NSDate date]);
+    sleep.userId = _userId;
+    sleep.extra?nil:(sleep.extra = @"");
+    sleep.serverId?nil:(sleep.serverId = @0);
+    sleep.status?nil:(sleep.status = @0);
     [[YDOpenHardwareManager dataProvider] insertSleep:sleep completion:^(BOOL success) {
-//
+        if (success) {
+            NSLog(@"插入睡眠数据成功");
+        }else{
+            NSLog(@"插入睡眠数据失败");
+        }
     }];
 }
 
