@@ -10,7 +10,7 @@
 
 NSString *const YDNtfLoadOutsideBundleHtml = @"yd.ntf.load.outside.bundle.html";
 NSString *const YDNtfLoadHtml = @"yd.ntf.load.html";
-NSString *const YDNtfGoBack = @"yd.ntf.go.back";
+//NSString *const YDNtfGoBack = @"yd.ntf.go.back";
 
 
 

@@ -20,7 +20,7 @@
 
 - (void)startScanThenSourcesCallback:(void(^)(NSArray *peirpherals))callback;
 
-- (void)registerHandlers;
+- (void)registerHandlersWithType:(NSUInteger)type;
 
 - (void)onActionByViewDidDisappear;
 

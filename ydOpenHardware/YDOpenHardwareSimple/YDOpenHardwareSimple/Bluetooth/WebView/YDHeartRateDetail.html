@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" charset="utf-8">
+        <style type='text/css'>
+            html { font-family:Helvetica; color:#222; }
+            button { margin:0 3px 10px; font-size:12px; }
+            .logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
+        </style>
+</head>
+
+<body>
+    <script>
+    window.onerror = function(err) {
+        log('window.onerror: ' + err)
+    }
+    
+// 固定的模块
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'https://__bridge_loaded__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+
+// 这里调用
+    setupWebViewJavascriptBridge(function(bridge) {
+        var uniqueId = 0
+        var choiceItem ;
+        var peripherals = new Array();
+
+        function log(message, data) {
+            var log = document.getElementById('log')
+            var el = document.createElement('button')
+            el.className = 'logLine'
+            el.id = uniqueId;
+            el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+            if (log.children.length) { 
+                log.insertBefore(el, log.children[0]) 
+            }
+            else { 
+                log.appendChild(el)
+            }
+        }
+
+        function logEl(id,message, data) {
+            var log = document.getElementById('log')
+            var el = document.createElement('button')
+            el.className = 'logLine'
+            el.id = id;
+            el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+            if (log.children.length) { 
+                log.insertBefore(el, log.children[0]) 
+            }
+            else { 
+                log.appendChild(el)
+            }
+        }
+
+        function isNull(data){ 
+            return (data == "" || data == undefined || data == null) ? "暂无" : data; 
+        }
+
+        // 注册插入数据 ,传入对象为字符串对象
+        bridge.registerHandler('scanResultSingleBack', function(data, responseCallback) {
+            var responseData = { 'name':'response from html to oc'+ data }
+            peripherals.push('data');
+            logEl(data.uuid,data.name + ';' + data.uuid);
+            responseCallback(responseData);
+        });      
+
+         bridge.registerHandler('onServicesResultBack',function(data,responseCallback) {
+            log('services count : '+data.length);
+            responseCallback({'toLink':'S3.html'});
+         });
+
+         bridge.registerHandler('onCharacteristicResultBack',function(data,responseCallback) {
+            log("获取到的数据"+data);
+         // var stepLabel = document.getElementById("stepPedometerID");
+         // var catorieLabel = document.getElementById("catorieID");
+         });
+
+         var sleepBtn = document.getElementById("sleepBtnId");
+         sleepBtn.onclick = function (){
+             bridge.callHandler('onGoBackClick', 'S3', function(response) {
+                log('JS got response', response)
+            });                     
+         } 
+
+        callbackButton.onclick = function(e) {
+             e.preventDefault();
+             log('JS calling handler "scan peripheral"')
+             // window.location.href='./peripheralList.html';
+             var scanParams = {'YDBlueToothFilterType':0,'prefixField':'S3','toLink':'peripheralList.html'};
+             bridge.callHandler('onScanClick', scanParams, function(response) {
+                log('JS got response', response)
+            });
+         };
+
+        var heartRateBtn = document.getElementById("heartRateBtnID");
+        heartRateBtn.onclick = function(e) {
+            e.preventDefault();
+            log("to heartrate deital");
+            var datas = {'toLink':''};
+            bridge.callHandler('',datas,function(response){
+                
+            });
+        }
+
+        // 点击html的按钮时间
+        document.onclick=mouseClick;
+        function mouseClick(evt){
+            if(evt){//不是ie
+                var idValue = evt.target.id;
+                if (idValue == -1) {
+                    window.history.back(-1);
+                    bridge.callHandler('onGoBackClick', 'S3', function(response) {
+                        log('JS got response', response)
+                    });                    
+                    return;
+                }
+                choiceItem = idValue;
+                alert("选择项目的值:"+idValue);
+                bridge.callHandler('onConnectPeripheralClick',idValue,function(response) {
+                    log('js got resposne ',response);
+                }); 
+            }else if(window.event){ //ie
+                 var idValue = window.event.srcElement.id;
+                 log(idValue + 'idValue');
+            }
+        }
+     });
+
+    </script>
+        <button id="-1">返回上一页</button>
+    <hr/>
+        蓝牙列表
+    <hr/>
+    <div>
+    	<label>今天步数</label>
+    	<label id="stepPedometerID"></label>
+    </div>
+
+    <div>
+		<label>步行距离约：</label>	
+		<label id="distanceID"></label>
+    </div>
+	<div>
+		<label>大卡</label>	
+		<label id="catorieID"></label>
+    </div>
+    <div>
+    	<label>睡眠详情</label>
+    	<button id="sleepBtnId"></button>
+    </div>
+    <div>
+    	<label>心率详情</label>
+    	<button id="heartRateBtnID type="button"></button>
+    </div>
+    <div id='log'></div>
+    </body>
+</html>
+

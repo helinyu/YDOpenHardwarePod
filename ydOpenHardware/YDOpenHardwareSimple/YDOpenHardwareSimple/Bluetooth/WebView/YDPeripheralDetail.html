@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" charset="utf-8">
+        <style type='text/css'>
+            html { font-family:Helvetica; color:#222; }
+            button { margin:0 3px 10px; font-size:12px; }
+            .logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
+        </style>
+</head>
+
+<body>
+    <script>
+    window.onerror = function(err) {
+        log('window.onerror: ' + err)
+    }
+    
+// 固定的模块
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'https://__bridge_loaded__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+
+// 这里调用
+    setupWebViewJavascriptBridge(function(bridge) {
+        var uniqueId = 0
+        var choiceItem ;
+        var peripherals = new Array();
+
+        function log(message, data) {
+            var log = document.getElementById('log')
+            var el = document.createElement('button')
+            el.className = 'logLine'
+            el.id = uniqueId;
+            el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+            if (log.children.length) { 
+                log.insertBefore(el, log.children[0]) 
+            }
+            else { 
+                log.appendChild(el)
+            }
+        }
+
+        function logEl(id,message, data) {
+            var log = document.getElementById('log')
+            var el = document.createElement('button')
+            el.className = 'logLine'
+            el.id = id;
+            el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+            if (log.children.length) { 
+                log.insertBefore(el, log.children[0]) 
+            }
+            else { 
+                log.appendChild(el)
+            }
+        }
+
+        function isNull(data){ 
+            return (data == "" || data == undefined || data == null) ? "暂无" : data; 
+        }
+        
+        bridge.registerHandler('onCharacteristicResultBack',function(data,responseCallback) {
+         // var stepLabel = document.getElementById("stepPedometerID");
+         // var catorieLabel = document.getElementById("catorieID");
+
+         // you can insert the datas like here
+        });
+       
+        // 点击html的按钮时间
+        document.onclick=mouseClick;
+        function mouseClick(e){
+            // e.preventDefault();
+            alert(" 点击了");
+            var eId = e.target.id;
+            if (eId) {
+                if (eId == "sleepBtnId") {
+                    log("to sleep detial html");
+                    var datas = {'toLink':'YDSleepDetial.html'};
+                    bridge.callHandler('onSleep', '', function(response) {
+                        log('JS got response from oc : ', response)
+                    });  
+                    return;        
+                }
+
+                if (eId == "heartRateBtnID") {
+                    log("to heartrate deital");
+                    // var datas = {'toLink':'YDHeartRateDetail.html'};
+                    bridge.callHandler('onLoadHtmlByLink',datas,function(response){
+                                       
+                    });                
+                    return;
+                }
+
+                if (eId == "synBtnID") {
+                    var datas = {};
+                    bridge.callHandler('onSycn', datas, function(response) {
+                    });  
+                    return;  
+                }
+
+                if (eId == "powerBtnID") {
+                    var datas = {};
+                    bridge.callHandler('onPower', datas, function(response) {
+
+                    });  
+                    return;              
+                }
+
+                if (eId == "settingBtnID") {
+                    var datas = {};
+                    bridge.callHandler('onSetting', datas, function(response) {
+
+                    });  
+                    return;              
+                }
+
+                if (eId == "opDataBaseId") {
+                    var datas = {'toLink':'YDDatabaseOperation.html'};
+                    bridge.callHandler('onLoadHtmlByLink', datas, function(response) {
+                        log('JS got response from oc', response)
+                    });                
+                }
+
+                if (eId == -1) {
+                    var datas = {'toLink':'YDPeripheralList.html'};
+                    bridge.callHandler('onLoadHtmlByLink', datas, function(response) {
+                        log('JS got response from oc', response)
+                    });                    
+                    return;
+                }
+            }else if(window.event){ //ie
+                 var idValue = window.event.srcElement.id;
+                 log(idValue + 'idValue');
+            }
+        }
+     });
+
+    </script>
+        <button id="-1"> 返回上一页 </button>
+        <button id="opDataBaseId"> 数据库的操作 </button>>
+    <hr/>
+
+    <button id="synBtnID">立即同步</button>
+    <button id="powerBtnID">电量 :  <label id="powerID"></label></button>
+    <button id="settingBtnID">设置</button>
+
+    <hr/>
+        蓝牙列表
+    <hr/>
+
+    <div>
+    	<label>今天步数 : </label>
+    	<label id="stepPedometerID"></label>
+    </div>
+
+    <div>
+		<label>步行距离约 : </label>	
+		<label id="distanceID"></label>
+    </div>
+
+	<div>
+		<label>大卡 : </label>	
+		<label id="catorieID"></label>
+    </div>
+
+    <div>
+    	<button id="sleepBtnId">睡眠详情</button>
+    </div>
+
+    <div>
+    	<button id="heartRateBtnID" type="button">心率详情</button>
+    </div>
+
+    <div id='log'></div>
+    </body>
+</html>
+

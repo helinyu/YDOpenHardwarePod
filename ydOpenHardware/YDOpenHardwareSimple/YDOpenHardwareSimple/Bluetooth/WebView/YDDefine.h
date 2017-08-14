@@ -14,7 +14,7 @@
 typedef NS_ENUM(NSInteger, YDWebViewType) {
     YDWebViewTypeInner,
     YDWebViewTypeOuter,
-    YDWebViewTypeS3,
+    YDWebViewTypeBluetooth,
 };
 
 #define IS_SCREEN_SIZE_1 [UIScreen mainScreen].bounds.size.height == 480

@@ -138,9 +138,27 @@
     _btMgr.startScan();
 }
 
-- (void)registerHandlers {
-
+- (void)registerHandlersWithType:(NSUInteger)type {
+    
     __weak typeof (self) wSelf = self;
+    
+//    load the YDRegisterInteractiveHtmlMethods.plist register methods
+     NSString *path =[[NSBundle mainBundle] pathForResource:@"YDRegisterInteractiveHtmlMethods" ofType:@"plist"];
+    NSArray *methods = [NSArray arrayWithContentsOfFile:path];
+    for (NSDictionary *typeObj in methods) {
+        if ([typeObj objectForKey:@"type"]) {
+            for (NSString *methodString in [typeObj objectForKey:@"methods"]) {
+                #pragma clang diagnostic push
+                #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                [self performSelector:NSSelectorFromString(methodString)];
+                #pragma clang diagnostic pop
+            }
+        }
+    }
+    
+    [_webViewBridge registerHandler:@"onLoadHtmlByLink" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
+    }];
     
     [_webViewBridge registerHandler:@"onScanClick" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (!data) {
@@ -352,7 +370,7 @@
     }
     [characteristicInfo setObject:valueInfo forKey:@"value"];
     [_webViewBridge callHandler:@"onCharacteristicResultBack" data:characteristicInfo responseCallback:^(id responseData) {
-        NSLog(@"response data : %@",responseData);
+        NSLog(@"oc got response data from js : %@",responseData);
     }];
 }
 
@@ -487,9 +505,9 @@
     intelligentScale.status?nil:(intelligentScale.status = @0);
     [[YDOpenHardwareManager dataProvider] insertIntelligentScale:intelligentScale completion:^(BOOL success) {
         if (success) {
-            [SVProgressHUD showWithStatus:@"插入体重秤数据成功"];
+            [SVProgressHUD showInfoWithStatus:@"插入体重秤数据成功"];
         }else{
-            [SVProgressHUD showWithStatus:@"插入体重秤数据失败"];
+            [SVProgressHUD showInfoWithStatus:@"插入体重秤数据失败"];
         }
     }];
 }
@@ -555,9 +573,9 @@
     hr.status?nil:(hr.status = @0);
     [[YDOpenHardwareManager dataProvider] insertHeartRate:hr completion:^(BOOL success) {
         if (success) {
-            [SVProgressHUD showWithStatus:@"插入心率成功"];
+            [SVProgressHUD showInfoWithStatus:@"插入心率成功"];
         }else{
-            [SVProgressHUD showWithStatus:@"插入心率失败"];
+            [SVProgressHUD showInfoWithStatus:@"插入心率失败"];
         }
     }];
 }
@@ -623,10 +641,10 @@
 
     [[YDOpenHardwareManager dataProvider] insertPedometer:pe completion:^(BOOL success) {
         if (success) {
-            [SVProgressHUD showWithStatus:@"插入计步成功"];
+            [SVProgressHUD showInfoWithStatus:@"插入计步成功"];
         }
         else{
-            [SVProgressHUD showWithStatus:@"插入计步失败"];
+            [SVProgressHUD showInfoWithStatus:@"插入计步失败"];
         }
     }];
 }
@@ -691,9 +709,9 @@
     sleep.status?nil:(sleep.status = @0);
     [[YDOpenHardwareManager dataProvider] insertSleep:sleep completion:^(BOOL success) {
         if (success) {
-            [SVProgressHUD showWithStatus:@"插入睡眠数据成功"];
+            [SVProgressHUD showInfoWithStatus:@"插入睡眠数据成功"];
         }else{
-            [SVProgressHUD showWithStatus:@"插入睡眠数据失败"];
+            [SVProgressHUD showInfoWithStatus:@"插入睡眠数据失败"];
         }
     }];
 }

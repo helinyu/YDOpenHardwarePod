@@ -18,6 +18,7 @@
 @property (nonatomic, strong) WebViewJavascriptBridge *bridge;
 @property (nonatomic, strong) WKProcessPool *processPool;
 @property (nonatomic, assign) YDWebViewType viewType;
+@property (nonatomic, assign) NSUInteger bluetoothBusinessType;
 @property (nonatomic, copy) NSString *currentURLString;
 @property (nonatomic, copy) NSString *currentTitle;
 

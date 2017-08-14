@@ -103,21 +103,21 @@
         NSLog(@"%@", data);
     }];
     
-    [_bridge registerHandler:@"onGoBackClick" handler:^(id data, WVJBResponseCallback responseCallback) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfGoBack object:nil];
-    }];
+//    [_bridge registerHandler:@"onGoBackClick" handler:^(id data, WVJBResponseCallback responseCallback) {
+//        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfGoBack object:nil];
+//    }];
     
 //    specify js invoke oc methods
     switch (self.viewType) {
         case YDWebViewTypeInner:
-            
+
             break;
         case YDWebViewTypeOuter:
-            
+
             break;
-        case YDWebViewTypeS3:
+        case YDWebViewTypeBluetooth:
         {
-            [[YDBluetoothWebViewMgr shared] registerHandlers];
+            [[YDBluetoothWebViewMgr shared] registerHandlersWithType:self.bluetoothBusinessType];
         }
             break;
         default:
@@ -130,7 +130,7 @@
 - (void)onActionByViewDidDisappear {
     
     switch (self.viewType) {
-        case YDWebViewTypeS3:
+        case YDWebViewTypeBluetooth:
         {
             [[YDBluetoothWebViewMgr shared] onActionByViewDidDisappear];
         }

@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" charset="utf-8">
+        <style type='text/css'>
+            html { font-family:Helvetica; color:#222; }
+            button { margin:0 3px 10px; font-size:12px; }
+            .logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
+        </style>
+</head>
+
+<body>
+    <script>
+    window.onerror = function(err) {
+        log('window.onerror: ' + err)
+    }
+    
+// 固定的模块
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'https://__bridge_loaded__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+
+// 这里调用
+    setupWebViewJavascriptBridge(function(bridge) {
+        var uniqueId = 0
+        var choiceItem ;
+        var peripherals = new Array();
+
+        function log(message, data) {
+            var log = document.getElementById('log')
+            var el = document.createElement('button')
+            el.className = 'logLine'
+            el.id = uniqueId;
+            el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+            if (log.children.length) { 
+                log.insertBefore(el, log.children[0]) 
+            }
+            else { 
+                log.appendChild(el)
+            }
+        }
+
+        function logEl(id,message, data) {
+            var log = document.getElementById('log')
+            var el = document.createElement('button')
+            el.className = 'logLine'
+            el.id = id;
+            el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+            if (log.children.length) { 
+                log.insertBefore(el, log.children[0]) 
+            }
+            else { 
+                log.appendChild(el)
+            }
+        }
+
+        function isNull(data){ 
+            return (data == "" || data == undefined || data == null) ? "暂无" : data; 
+        }
+
+	    // bridge.registerHandler('onServicesResultBack',function(data,responseCallback) {
+	    //     log('services count : '+data.length);
+	    //     responseCallback({'toLink':'S3.html'});
+	    // });
+
+         var insertPedometerBtn = document.getElementById("insertPedometerId");
+         insertPedometerBtn.onclick = function (){
+         	var datas = {};
+            bridge.callHandler('insertPedometer', datas, function(response) {
+                log('JS got response', response)
+            });                     
+        }
+
+        var pedometerNewBtn = document.getElementById("stepPedometerNewActioinId");
+        pedometerNewBtn.onclick = function() {
+        	var datas = {};
+        	bridge.callHandler('selectNewPedometerByInfo', datas, function(response) {
+        		var pedometerNewDatasLabel = document.getElementById("stepPedometerNewDatasId");
+        		pedometerNewDatasLabel.innerHtml = response;
+        	});
+        }
+
+        var pedometerBtn = document.getElementById("stepPedometerActioinId");
+        pedometerBtn.onclick = function(e) {
+        	e.preventDefault();
+        	var datas = {};
+        	bridge.callHandler('selectPedometerByInfo', datas, function(response) {
+		        var pedometerDatasLabel = document.getElementById("stepPedometerDatasId");
+		        pedometerDatasLabel.innerHtml = response;
+        	});
+        }
+
+        var pedometerPageBtn = document.getElementById("stepPedometerPageActioinId");
+        pedometerPageBtn.onclick = function(e) {
+        	e.preventDefault();
+        	var datas = {};
+        	bridge.callHandler('selectPedometerPageByInfo', datas, function(response) {
+        		var pedometerPageLabel = document.getElementById("stepPedometerPageDatasId");
+        		pedometerPageLabel.innerHtml = response;
+        	});
+        }
+      
+
+		var insertHeartRateBtn = document.getElementById("insertHeartRateId");
+         insertHeartRateBtn.onclick = function (e){
+         	e.preventDefault();
+         	var datas = {};
+            bridge.callHandler('insertHeartRate', datas, function(response) {
+                log('JS got response', response)
+            });                     
+        }
+
+		var insertHeartRateBtn = document.getElementById("insertHeartRateId");
+         insertHeartRateBtn.onclick = function (){
+         	var datas = {};
+            bridge.callHandler('insertHeartRate', datas, function(response) {
+                log('JS got response', response)
+            });                     
+        }        
+
+		var insertIntelligentScaleBtn = document.getElementById("insertIntelligentScaleId");
+         insertIntelligentScaleBtn.onclick = function (){
+         	var datas = {};
+            bridge.callHandler('insertIntelligentScale', datas, function(response) {
+                log('JS got response', response)
+            });                     
+        }        
+
+     });
+
+    </script>
+        <button id="-1">返回上一页</button>
+    <hr/>
+
+    <div>
+    	<label>插入步数 （12） ：</label>
+    	<button id="insertPedometerId"></button>
+    </div>
+   	<button id="stepPedometerActioinId">获取步数</button>
+    新的步数：<label id="stepPedometerDatasId"></label>
+    input>
+    <br/>
+	<button id="stepPedometerNewActioinId">获取步数</button>
+    步数：<label id="stepPedometerNewDatasId"></label>
+    input>    
+    <br/>
+	<button id="stepPedometerPageActioinId">获取步数</button>
+    分页步数：<label id="stepPedometerPageDatasId"></label>
+    input>  
+    <hr/>
+
+    <div>
+		<label>插入心率 （70） ：</label>	
+		<button id="insertHeartRateId"></button>
+    </div>
+    <hr/>
+
+	<div>
+		<label>插入体重（60） 身高（170）</label>	
+		<button id="insertIntelligentScaleId"></button>
+    </div>
+	<hr/>
+
+    <div>
+    	<label>插入睡眠</label>
+    	<button id="insertSleepId"></button>
+    </div>
+    <hr/>
+
+    <div id='log'></div>
+    </body>
+</html>
+

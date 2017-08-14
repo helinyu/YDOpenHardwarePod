@@ -22,6 +22,9 @@
 @property (nonatomic, weak, readwrite) YDBridgeWebView *webView;
 @property (nonatomic, assign) CGFloat topEdge;
 
+//
+@property (nonatomic, assign) NSUInteger bluetoothBusinessType;
+
 + (instancetype)instanceWithType:(YDWebViewType)type urlString:(NSString *)urlString;
 - (instancetype)initWithUrl:(NSString *)urlString andType:(YDWebViewType)type;
 - (void)configureBundleHtmlWithHtmlString:(NSString *)htmlString BaseUrl:(NSURL *)baseUrl;

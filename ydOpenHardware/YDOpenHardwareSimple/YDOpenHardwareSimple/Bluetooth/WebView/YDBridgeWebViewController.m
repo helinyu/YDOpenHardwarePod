@@ -139,6 +139,7 @@
             self.curUrlString = self.urlString;
         }
         YDBridgeWebView *webview = [YDBridgeWebView instanceWithType:self.type urlString:self.curUrlString webMgr:self.webMgr];
+        _webMgr.bluetoothBusinessType = self.bluetoothBusinessType;
         webview.currentViewController = self;
         self.curUrlString = self.webView.urlString;
         [self.view addSubview:webview];
@@ -171,7 +172,6 @@
 //    load html which is in local
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRealHtmlNotify:) name:YDNtfLoadHtml object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBecomActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onGoBackNotify:) name:@"ydNtfGoBack" object:nil];
     
     
 }
@@ -367,11 +367,6 @@
 #pragma mark - notification
 - (void)appBecomActive:(NSNotification *)notification {
     
-}
-
-- (void)onGoBackNotify:(NSString *)htmlString {
-    self.urlString = htmlString;
-    [self yd_popUp];
 }
 
 - (void)onRealHtmlNotify:(NSNotification *)notification {

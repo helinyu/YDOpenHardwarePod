@@ -24,7 +24,6 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLoadHtmlNotify:) name:YDNtfLoadOutsideBundleHtml object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onGoBackNotify:) name:YDNtfGoBack object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,27 +31,19 @@
 }
 
 - (IBAction)toThirdPartVC:(id)sender {
-
-//   load html string
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"S3.html" ofType:nil];
+//   load html string  S3.html
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"YDPeripheralList.html" ofType:nil];
     NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     YDBridgeWebViewController *vc = [YDBridgeWebViewController new];
     vc.urlString = htmlString;
-    vc.type = YDWebViewTypeS3;
+    vc.type = YDWebViewTypeBluetooth;
+    vc.bluetoothBusinessType = 0;
     [self.navigationController pushViewController:vc animated:YES];
-    
 }
 
 - (void)onLoadHtmlNotify:(NSNotification *)noti {
     NSString *urlString = noti.object;
     NSString *filePath = [[NSBundle mainBundle] pathForResource:urlString ofType:nil];
-    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfLoadHtml object:htmlString];
-}
-
-//for test
-- (void)onGoBackNotify:(NSNotification *)notification {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"S3.html" ofType:nil];
     NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfLoadHtml object:htmlString];
 }

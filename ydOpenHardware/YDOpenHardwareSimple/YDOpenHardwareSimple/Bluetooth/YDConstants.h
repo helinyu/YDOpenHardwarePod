@@ -10,4 +10,5 @@
 
 UIKIT_EXTERN NSString *const YDNtfLoadOutsideBundleHtml;
 UIKIT_EXTERN NSString *const YDNtfLoadHtml;
-UIKIT_EXTERN NSString *const YDNtfGoBack;
+//UIKIT_EXTERN NSString *const YDNtfGoBack;
+
