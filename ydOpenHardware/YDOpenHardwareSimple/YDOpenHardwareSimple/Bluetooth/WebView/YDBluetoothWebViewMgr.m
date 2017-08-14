@@ -21,8 +21,7 @@
 #import "CBService+YYModel.h"
 #import "NSData+YDConversion.h"
 #import "YDConstants.h"
-
-
+#import "SVProgressHUD.h"
 
 @interface YDBluetoothWebViewMgr ()
 
@@ -64,7 +63,6 @@
     });
     return singleton;
 }
-
 
 - (instancetype)init
 {
@@ -488,9 +486,9 @@
     intelligentScale.status?nil:(intelligentScale.status = @0);
     [[YDOpenHardwareManager dataProvider] insertIntelligentScale:intelligentScale completion:^(BOOL success) {
         if (success) {
-            NSLog(@"插入体重秤数据成功");
+            [SVProgressHUD showWithStatus:@"插入体重秤数据成功"];
         }else{
-            NSLog(@"插入体重秤数据失败");
+            [SVProgressHUD showWithStatus:@"插入体重秤数据失败"];
         }
     }];
 }
@@ -556,9 +554,9 @@
     hr.status?nil:(hr.status = @0);
     [[YDOpenHardwareManager dataProvider] insertHeartRate:hr completion:^(BOOL success) {
         if (success) {
-            NSLog(@"插入心率成功");
+            [SVProgressHUD showWithStatus:@"插入心率成功"];
         }else{
-            NSLog(@"插入心率失败");
+            [SVProgressHUD showWithStatus:@"插入心率失败"];
         }
     }];
 }
@@ -624,12 +622,11 @@
 
     [[YDOpenHardwareManager dataProvider] insertPedometer:pe completion:^(BOOL success) {
         if (success) {
-            NSLog(@"插入计步成功");
+            [SVProgressHUD showWithStatus:@"插入计步成功"];
         }
         else{
-            NSLog(@"插入计步失败");
+            [SVProgressHUD showWithStatus:@"插入计步失败"];
         }
-        
     }];
 }
 
@@ -693,9 +690,9 @@
     sleep.status?nil:(sleep.status = @0);
     [[YDOpenHardwareManager dataProvider] insertSleep:sleep completion:^(BOOL success) {
         if (success) {
-            NSLog(@"插入睡眠数据成功");
+            [SVProgressHUD showWithStatus:@"插入睡眠数据成功"];
         }else{
-            NSLog(@"插入睡眠数据失败");
+            [SVProgressHUD showWithStatus:@"插入睡眠数据失败"];
         }
     }];
 }

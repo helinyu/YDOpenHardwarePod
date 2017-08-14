@@ -42,7 +42,7 @@
 	
 		// 开始扫描
          var callbackButton = document.getElementById('scanBtn')
-         callbackButton.innerHTML = 'scanBtn'
+         callbackButton.innerHTML = '扫描蓝牙'
          callbackButton.onclick = function(e) {
 	         e.preventDefault();
 	         log('JS calling handler "scan peripheral"')
@@ -86,14 +86,45 @@
 
 
         //参数以key/value的方式 插入数据库
-        var datas = {"numberOfStep":12};
         var pedometer = document.getElementById('testInsertPedemter');
         pedometer.onclick = function(e) {
             e.preventDefault();
+            // 可以插入需求中的数据
+            var datas = {"numberOfStep":12};
             bridge.callHandler('insertPedometer',datas,function(response) {
-                log('respone +',response);
+                log('respone 步数 +',response);
             });
         };
+
+        var sleep = document.getElementById('testInsertHeartRate');
+        sleep.onclick = function(e) {
+            e.preventDefault();
+            // 可以插入需求中的数据
+            var datas = {"heartRate":70};
+            bridge.callHandler('insertHeartRate',datas,function(response) {
+                log("插入心率");
+            });
+        }
+
+        var sleep = document.getElementById('testInsertSleep');
+        sleep.onclick = function(e) {
+            e.preventDefault();
+            // 可以插入需求中的数据
+            var datas = {"sleepSec":28800};
+            bridge.callHandler('insertSleep',datas,function(response) {
+                log("插入睡眠");
+            });
+        }
+
+        var sleep = document.getElementById('testInsertIntelligentScale');
+        sleep.onclick = function(e) {
+            e.preventDefault();
+            // 可以插入需求中的数据
+            var datas = {"weightG":70,"heightCm":170};
+            bridge.callHandler('insertIntelligentScale',datas,function(response) {
+                log("插入智能体秤");
+            });
+        }
 
         // 写入到peripheral
         var writeDatas = document.getElementById('writeDatas');
@@ -104,13 +135,12 @@
             bridge.callHandler('writeDatas',datas,function(response) {
                 log('respone +',response);
             });
-        };      
-
+        };
     });
     
     </script>
     <div>
-        <a href="./source.html">跳转链接</a>
+        <!-- <a href="./source.html">跳转链接</a> -->
     </div>
     <div id='buttons'></div>
     <div id='btns'></div>
@@ -119,19 +149,29 @@
 		    scanBtn S3
 	    </button>
 	</div>
+    <hr/>
     <div>
         <button type="button" id='testInsertPedemter' style="text-decoration none;" >
-            测试插入步数
+            测试插入步数（12）
         </button>
+        <button type="button" id="testInsertHeartRate" style="text-decoration none">
+            插入心率数据（70）
+        </button>
+        <button type="button" id="testInsertSleep" style="text-decoration none">
+            插入睡眠数据（28800）
+        </button>        
+        <button type="button" id="testInsertIntelligentScale" style="text-decoration none">
+            插入体重秤数据（60）
+        </button>        
     </div>
+    <hr/>
     <div>
         <button type="button" id='NotificationSource' style="text-decoration none;" >
             测试设置通知
         </button>
     </div>
-
+    <hr/>
 	<div>
-
 		<label>心率</label>
 		<label id="heartRateLabel"></label>		
 		<br/>
@@ -147,14 +187,12 @@
 
 		<br/>
 		<label>距离</label>
-		<label id="distanceLabel">
-
-		</label>
+		<label id="distanceLabel"></label>
 	</div>
         
     </div>
+    <hr/>
     <div>
-        <label>写数据</label>
         <button id="writeDatas">写数据</button>        
     </div>
 

@@ -117,9 +117,7 @@ typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
 
 @property (nonatomic, copy) void(^characteristicCallBack)(CBCharacteristic *c);
 
-
 - (void)writeDatas:(NSData *)datas forCharacteristic:(CBCharacteristic *)characteristic; // write datas for the specify characteristic
-
 
 @end
 

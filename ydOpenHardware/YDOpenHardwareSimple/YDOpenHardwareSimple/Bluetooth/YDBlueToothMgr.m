@@ -37,8 +37,6 @@ NSString *const YDNtfMangerDidUpdateNotificationStateForCharacteristic = @"yd.nt
 NSString *const YDNtfMangerDiscoverDescriptorsForCharacteristic = @"yd.ntf.manager.did.discover.descriptors.for.characteristic";
 NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.descriptors";
 
-
-
 @implementation YDBlueToothMgr
 
 #pragma mark -- system function
