@@ -13,7 +13,7 @@
 #import "WKWebViewJavascriptBridge.h"
 #import "YDBridgeWebView.h"
 #import "NJKWebViewProgress.h"
-
+#import <YDOpenHardwareSDK/YDOpenHardwareSDK.h>
 #import "YDBluetoothWebViewMgr.h"
 
 
@@ -61,6 +61,12 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppDidFinishLauchNotify:) name:YDNtfOpenHardwareAppDidFinishLaunch object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppWillResignActiveNotify:) name:YDNtfOpenHardwareAppWillResignActive object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppDidEnterBackgoundNotify:) name:YDNtfOpenHardwareAppDidEnterBackground object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onWillEnterForegroundNotify:) name:YDNtfOpenHardwareAppWillEnterForeground object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppDidBecomeActiveNotify:) name:YDNtfOpenHardwareAppDidBecomeActive object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(OnAppWillTerminateNotify:) name:YDNtfOpenHardwareAppWillTerminate object:nil];
     }
     return self;
 }
@@ -134,10 +140,49 @@
         default:
             break;
     }
-    
+}
 
-    
-    
+#pragma mark -- notification methods
+- (void)onAppDidFinishLauchNotify:(NSNotification *)notify {
+    NSDictionary *dic = @{};
+    [_bridge callHandler:@"onAppDidFinishLauchNotify" data:dic responseCallback:^(id responseData) {
+        
+    }];
+}
+
+- (void)onAppWillResignActiveNotify:(NSNotification *)notify {
+    NSDictionary *dic = @{};
+    [_bridge callHandler:@"onAppWillResignActiveNotify" data:dic responseCallback:^(id responseData) {
+        
+    }];
+}
+
+- (void)onAppDidEnterBackgoundNotify:(NSNotification *)notify {
+    NSDictionary *dic = @{};
+    [_bridge callHandler:@"onAppWillResignActiveNotify" data:dic responseCallback:^(id responseData) {
+        
+    }];
+}
+
+- (void)onWillEnterForegroundNotify:(NSNotification *)notify {
+    NSDictionary *dic = @{};
+    [_bridge callHandler:@"onAppWillResignActiveNotify" data:dic responseCallback:^(id responseData) {
+        
+    }];
+}
+
+- (void)onAppDidBecomeActiveNotify:(NSNotification *)notify {
+    NSDictionary *dic = @{};
+    [_bridge callHandler:@"onAppWillResignActiveNotify" data:dic responseCallback:^(id responseData) {
+        
+    }];
+}
+
+- (void)OnAppWillTerminateNotify:(NSNotification *)notify {
+    NSDictionary *dic = @{};
+    [_bridge callHandler:@"onAppWillResignActiveNotify" data:dic responseCallback:^(id responseData) {
+        
+    }];
 }
 
 @end

@@ -7,8 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "YDBlueToothMgr.h"
 
 @interface YDOpenHardwareSimpleTests : XCTestCase
+
+@property (nonatomic, strong) YDBlueToothMgr *btMgr;
 
 @end
 
@@ -17,6 +20,7 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    _btMgr = [YDBlueToothMgr shared];
 }
 
 - (void)tearDown {

@@ -172,6 +172,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRealHtmlNotify:) name:YDNtfLoadHtml object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBecomActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onGoBackNotify) name:@"ydNtfGoBack" object:nil];
+    
+    
 }
 
 /**

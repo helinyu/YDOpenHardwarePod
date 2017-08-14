@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfOpenHardwareAppdidFinishLaunch object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfOpenHardwareAppDidFinishLaunch object:nil];
     return YES;
 }
 

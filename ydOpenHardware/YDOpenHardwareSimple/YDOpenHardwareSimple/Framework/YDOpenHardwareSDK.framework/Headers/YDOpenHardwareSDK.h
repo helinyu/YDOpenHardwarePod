@@ -15,7 +15,7 @@ FOUNDATION_EXPORT double YDOpenHardwareSDKVersionNumber;
 //! Project version string for YDOpenHardwareSDK.
 FOUNDATION_EXPORT const unsigned char YDOpenHardwareSDKVersionString[];
 
-static NSString *const YDNtfOpenHardwareAppdidFinishLaunch = @"YDNtfOpenHardwareAppdidFinishLaunch";
+static NSString *const YDNtfOpenHardwareAppDidFinishLaunch = @"YDNtfOpenHardwareAppDidFinishLaunch";
 static NSString *const YDNtfOpenHardwareAppWillResignActive = @"YDNtfOpenHardwareAppWillResignActive";
 static NSString *const YDNtfOpenHardwareAppDidEnterBackground = @"YDNtfOpenHardwareAppDidEnterBackground";
 static NSString *const YDNtfOpenHardwareAppWillEnterForeground = @"YDNtfOpenHardwareAppWillEnterForeground";
