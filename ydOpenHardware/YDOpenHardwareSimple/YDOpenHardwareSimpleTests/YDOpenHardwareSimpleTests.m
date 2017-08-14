@@ -26,11 +26,15 @@
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
+    
+    _btMgr.stopScan();
+    _btMgr = nil;
 }
 
-- (void)testExample {
+- (void)testScan {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
 }
 
 - (void)testPerformanceExample {

@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@class CBPeripheral;
-@class CBService;
-@class CBCharacteristic;
+#import <CoreBluetooth/CoreBluetooth.h>
 
 typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
     YDBlueToothFilterTypeNone = 0,
@@ -31,6 +29,7 @@ typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
 //- (void)startScan;
 - (YDBlueToothMgr *(^)(void))startScan;
 - (YDBlueToothMgr *(^)(void))stopScan;
+//- (BOOL)isScanning;
 
 /*
  *@metod quit the connection abount the central with the peripheral
@@ -64,7 +63,7 @@ typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
  * @parmam : connectedPeripheral (recommended)
  * discussion : 传入参数有两种方式，一种方式是同步block的方式，实现链式调用传入，另外一个种是直接传入
  */
-- (YDBlueToothMgr * (^)(CBPeripheral *peripheral))connectedPeripheral;
+- (YDBlueToothMgr * (^)(CBPeripheral *peripheral))connectingPeripheral;
 - (YDBlueToothMgr *(^)(NSString *uuidString))connectingPeripheralUuid;
 /*
  * @param  currentIndex depend on the outside logic ,which help to choose the current peripheral

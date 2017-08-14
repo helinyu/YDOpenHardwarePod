@@ -105,16 +105,7 @@
             }
         }
 
-        var goBackBtn = document.getElementById('goBack');
-        goBackBtn.onclick = function(e) {
-             e.preventDefault();
-             log('JS calling handler "scan peripheral"')
-             // window.location.href='./peripheralList.html';
-             bridge.callHandler('onGoBackClick', 'S3', function(response) {
-                log('JS got response', response)
-            });
-         };        // bridge.callHandler('goback',function(response))       
-    });
+     });
 
     </script>
 

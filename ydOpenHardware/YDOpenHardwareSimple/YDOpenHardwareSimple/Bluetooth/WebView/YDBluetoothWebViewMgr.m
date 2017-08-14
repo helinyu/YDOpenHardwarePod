@@ -272,6 +272,7 @@
             !responseCallback?:responseCallback(dic);
         }];
     }];
+    
     [_webViewBridge registerHandler:@"selectSleepInPageByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
         [wSelf selectSleepInPageByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
@@ -731,7 +732,6 @@
     if (!infoDic || ![infoDic isKindOfClass:[NSDictionary class]]) {
         return;
     }
-    
     NSString *deviceIdentify = _deviceIdentify;
     NSDate *timeSec = infoDic[@"timeSec"];
     NSDate *betweenStart = infoDic[@"betweenStart"];

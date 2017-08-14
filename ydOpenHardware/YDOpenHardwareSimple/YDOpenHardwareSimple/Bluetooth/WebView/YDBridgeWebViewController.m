@@ -171,7 +171,7 @@
 //    load html which is in local
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRealHtmlNotify:) name:YDNtfLoadHtml object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBecomActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onGoBackNotify) name:@"ydNtfGoBack" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onGoBackNotify:) name:@"ydNtfGoBack" object:nil];
     
     
 }
@@ -257,7 +257,6 @@
 //        [self.webView goBack];
 //test
         if ([self.urlString containsString:@"peripheralList"]) {
-            self.urlString = @"S3.html";
             [_webView loadWithBundleFile:self.urlString BaseURL:nil];
         } else {
             
@@ -370,7 +369,8 @@
     
 }
 
-- (void)onGoBackNotify {
+- (void)onGoBackNotify:(NSString *)htmlString {
+    self.urlString = htmlString;
     [self yd_popUp];
 }
 

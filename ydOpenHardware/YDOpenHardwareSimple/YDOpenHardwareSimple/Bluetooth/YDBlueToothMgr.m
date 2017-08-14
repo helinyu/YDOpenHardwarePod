@@ -256,7 +256,6 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
     }
 }
 
-
 - (YDBlueToothMgr *(^)(void))startScan {
     _peripherals = [NSMutableArray<CBPeripheral *> new];
     [_bluetooth cancelAllPeripheralsConnection];
@@ -345,7 +344,7 @@ _bluetooth.having(peripheral).connectToPeripherals().discoverServices().discover
     };
 }
 
-- (YDBlueToothMgr * (^)(CBPeripheral *peripheral))connectedPeripheral {
+- (YDBlueToothMgr * (^)(CBPeripheral *peripheral))connectingPeripheral {
     __weak typeof (self) wSelf = self;
     return ^(CBPeripheral *peripheral){
         wSelf.currentPeripheral = peripheral;

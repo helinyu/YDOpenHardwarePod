@@ -24,6 +24,7 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLoadHtmlNotify:) name:YDNtfLoadOutsideBundleHtml object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onGoBackNotify:) name:YDNtfGoBack object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +46,13 @@
 - (void)onLoadHtmlNotify:(NSNotification *)noti {
     NSString *urlString = noti.object;
     NSString *filePath = [[NSBundle mainBundle] pathForResource:urlString ofType:nil];
+    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfLoadHtml object:htmlString];
+}
+
+//for test
+- (void)onGoBackNotify:(NSNotification *)notification {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"S3.html" ofType:nil];
     NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfLoadHtml object:htmlString];
 }

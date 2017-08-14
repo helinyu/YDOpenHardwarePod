@@ -15,7 +15,7 @@
 #import "NJKWebViewProgress.h"
 #import <YDOpenHardwareSDK/YDOpenHardwareSDK.h>
 #import "YDBluetoothWebViewMgr.h"
-
+#import "YDConstants.h"
 
 @interface YDBridgeWebMgr () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -104,8 +104,7 @@
     }];
     
     [_bridge registerHandler:@"onGoBackClick" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"返回上一个页面");
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ydNtfGoBack" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfGoBack object:nil];
     }];
     
 //    specify js invoke oc methods

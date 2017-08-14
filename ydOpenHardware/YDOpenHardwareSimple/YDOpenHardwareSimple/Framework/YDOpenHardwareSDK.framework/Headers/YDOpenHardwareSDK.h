@@ -32,4 +32,3 @@ static NSString *const YDNtfOpenHardwareAppWillTerminate = @"YDNtfOpenHardwareAp
 #import <YDOpenHardwareSDK/YDOpenHardwarePedometer.h>
 #import <YDOpenHardwareSDK/YDOpenHardwareSleep.h>
 #import <YDOpenHardwareSDK/YDOpenHardwareUser.h>
-
