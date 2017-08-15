@@ -29,4 +29,7 @@ typedef void(^ResponseDic)(NSDictionary *dic);
 typedef void(^ResponseIdObject)(id idObj);
 typedef ResponseIdObject ResponseJsonObject;
 
+//test for write dats
+- (void)writeDatas:(NSData *)datas;
+
 @end

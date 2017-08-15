@@ -29,7 +29,6 @@
 @property (nonatomic, assign, readwrite) NSInteger currentIndex;
 @property (nonatomic, strong, readwrite) CBPeripheral *currentPeripheral;
 
-
 @end
 
 NSString *const YDNtfMangerDidUpdataValueForCharacteristic = @"yd.ntf.bluetooth.did.update.value.for.characteristic";
@@ -188,7 +187,7 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
         for (CBCharacteristic *c in service.characteristics) {
            [wSelf.bluetooth notify:peripheral characteristic:c block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
                !wSelf.characteristicCallBack?:wSelf.characteristicCallBack(c);
-               NSLog(@" c: %@",c.UUID.UUIDString);
+               NSLog(@"c : %@",c.UUID.UUIDString);
            }];
         }
     }];

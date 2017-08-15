@@ -17,6 +17,8 @@
 		411BD3041F42883300D8CB9A /* YDPeripheralList.html in Resources */ = {isa = PBXBuildFile; fileRef = 411BD2FD1F42881C00D8CB9A /* YDPeripheralList.html */; };
 		411BD3051F42883300D8CB9A /* YDSleepDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 411BD2FE1F42881C00D8CB9A /* YDSleepDetail.html */; };
 		411BD3081F42A0E700D8CB9A /* YDBluetoothWebViewMgr+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 411BD3071F42A0E700D8CB9A /* YDBluetoothWebViewMgr+Time.m */; };
+		411BD30E1F42C2AB00D8CB9A /* YDBluetoothWebViewMgr+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 411BD30D1F42C2AB00D8CB9A /* YDBluetoothWebViewMgr+Extension.m */; };
+		411BD3101F42C47E00D8CB9A /* YDSetting.html in Resources */ = {isa = PBXBuildFile; fileRef = 411BD30F1F42C47800D8CB9A /* YDSetting.html */; };
 		411ED0B81F3081E20041909A /* NSString+YDContainsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0B61F3081E20041909A /* NSString+YDContainsString.m */; };
 		411ED0BE1F30838F0041909A /* CWStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0BC1F30838E0041909A /* CWStatusBarNotification.m */; };
 		411ED0C41F3086510041909A /* YDWebNoNetworkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 411ED0C21F3086510041909A /* YDWebNoNetworkView.m */; };
@@ -95,6 +97,9 @@
 		411BD2FE1F42881C00D8CB9A /* YDSleepDetail.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDSleepDetail.html; sourceTree = "<group>"; };
 		411BD3061F42A0E700D8CB9A /* YDBluetoothWebViewMgr+Time.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YDBluetoothWebViewMgr+Time.h"; sourceTree = "<group>"; };
 		411BD3071F42A0E700D8CB9A /* YDBluetoothWebViewMgr+Time.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YDBluetoothWebViewMgr+Time.m"; sourceTree = "<group>"; };
+		411BD30C1F42C2AB00D8CB9A /* YDBluetoothWebViewMgr+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YDBluetoothWebViewMgr+Extension.h"; sourceTree = "<group>"; };
+		411BD30D1F42C2AB00D8CB9A /* YDBluetoothWebViewMgr+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YDBluetoothWebViewMgr+Extension.m"; sourceTree = "<group>"; };
+		411BD30F1F42C47800D8CB9A /* YDSetting.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDSetting.html; sourceTree = "<group>"; };
 		411ED0B01F3080DB0041909A /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YDOpenHardwareSDK.framework; path = ../../../../Desktop/thirdpath/YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
 		411ED0B11F3080DB0041909A /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
 		411ED0B61F3081E20041909A /* NSString+YDContainsString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+YDContainsString.m"; sourceTree = "<group>"; };
@@ -210,6 +215,8 @@
 			children = (
 				41E8C4951F41A4E800C91C8D /* YDBluetoothWebViewMgr+HtmlReigsterMothods.m */,
 				41E8C4941F41A4E800C91C8D /* YDBluetoothWebViewMgr+HtmlReigsterMothods.h */,
+				411BD30C1F42C2AB00D8CB9A /* YDBluetoothWebViewMgr+Extension.h */,
+				411BD30D1F42C2AB00D8CB9A /* YDBluetoothWebViewMgr+Extension.m */,
 				41E8C48F1F41A0B000C91C8D /* YDRegisterInteractiveHtmlMethods.plist */,
 				411ED0C31F3086510041909A /* YDWebNoNetworkView.h */,
 				411ED0C21F3086510041909A /* YDWebNoNetworkView.m */,
@@ -238,6 +245,7 @@
 		411BD2F71F42881C00D8CB9A /* html */ = {
 			isa = PBXGroup;
 			children = (
+				411BD30F1F42C47800D8CB9A /* YDSetting.html */,
 				411BD2F81F42881C00D8CB9A /* peripheralList.html */,
 				411BD2F91F42881C00D8CB9A /* S3.html */,
 				411BD2FA1F42881C00D8CB9A /* YDDatabaseOperation.html */,
@@ -483,6 +491,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				411BD3101F42C47E00D8CB9A /* YDSetting.html in Resources */,
 				411BD2FF1F42883300D8CB9A /* peripheralList.html in Resources */,
 				411BD3001F42883300D8CB9A /* S3.html in Resources */,
 				411BD3011F42883300D8CB9A /* YDDatabaseOperation.html in Resources */,
@@ -674,6 +683,7 @@
 				411ED0B81F3081E20041909A /* NSString+YDContainsString.m in Sources */,
 				415C6AD31F3060C5007BE9DA /* YDMBaseViewController.m in Sources */,
 				412172581F3D7F7600A47AD9 /* CBService+YYModel.m in Sources */,
+				411BD30E1F42C2AB00D8CB9A /* YDBluetoothWebViewMgr+Extension.m in Sources */,
 				415C6ADA1F30669D007BE9DA /* UIViewController+YDViewController.m in Sources */,
 				415C6ACC1F305DF6007BE9DA /* YDBluetoothWebViewMgr.m in Sources */,
 				411BD3081F42A0E700D8CB9A /* YDBluetoothWebViewMgr+Time.m in Sources */,

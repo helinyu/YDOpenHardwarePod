@@ -24,6 +24,9 @@
 #import "SVProgressHUD.h"
 #import "YDBluetoothWebViewMgr+Time.h"
 
+//test
+#import "YDBluetoothWebViewMgr+Extension.h"
+
 
 @interface YDBluetoothWebViewMgr ()
 
@@ -52,10 +55,13 @@
 @property (nonatomic, assign) NSInteger choiceIndex;
 
 @property (nonatomic, strong) CBCharacteristic *writeCharacteristic;
+@property (nonatomic, strong) CBCharacteristic *readCharacteristic;
+@property (nonatomic, strong) NSMutableArray *mCharacteristics;
 
 @end
 
 @implementation YDBluetoothWebViewMgr
+
 
 + (instancetype)shared {
     static id singleton = nil;
@@ -70,17 +76,54 @@
 {
     self = [super init];
     if (self) {
-        [self _addNotify];
+        [self __addNotify];
+        [self __baseInit];
     }
     return self;
 }
 
-- (void)_addNotify{
+#pragma mark -- custom inner methods
+
+- (void)__baseInit {
+    _mCharacteristics = @[].mutableCopy;
+}
+
+- (void)__addNotify{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onOpenHardwareUserChangeNotify:) name:YDNtfOpenHardwareUserChange object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDidUpdateCharacteristicValueNotify:) name:YDNtfMangerDidUpdataValueForCharacteristic object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDidUpdateNotificaitonStateForCharacteristicNotify:) name:YDNtfMangerDidUpdateNotificationStateForCharacteristic object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDiscoverDescriptorsForCharacteristicNotify:) name:YDNtfMangerDiscoverDescriptorsForCharacteristic object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onReadValueForDescriptorsNotify:) name:YDNtfMangerReadValueForDescriptors object:nil];
+    
+}
+
+- (void)__cacheCharacteristic:(CBCharacteristic *)c {
+    if (_mCharacteristics.count <= 0 ){
+        [_mCharacteristics addObject:c];
+        return;
+    }
+    
+    for (NSInteger index = 0; index < _mCharacteristics.count; index++) {
+        CBCharacteristic *innerC = _mCharacteristics[index];
+        if ([innerC.UUID.UUIDString isEqualToString:c.UUID.UUIDString]) {
+            [_mCharacteristics removeObject:innerC];
+            [_mCharacteristics insertObject:c atIndex:index];
+        }else{
+            if (index == (_mCharacteristics.count -1)) {
+                [_mCharacteristics addObject:c];
+            }
+        }
+    }
+    
+}
+
+- (CBCharacteristic *)__patternCharacteristicWithUUIDString:(NSString *)uuidString {
+    for (CBCharacteristic *innerC in _mCharacteristics) {
+        if ([innerC.UUID.UUIDString isEqualToString:uuidString]) {
+            return innerC;
+        }
+    }
+    return nil;
 }
 
 - (void)scanPeripheralWithMatchInfo:(NSDictionary *)filterInfo {
@@ -133,6 +176,8 @@
     
 }
 
+
+
 - (void)startScanThenSourcesCallback:(void(^)(NSArray *peirpherals))callback {
     _btMgr.scanCallBack = ^(NSArray<CBPeripheral *> *peripherals) {
         !callback?:callback(peripherals);
@@ -158,6 +203,44 @@
         }
     }
     
+//    set the read & write characteristic
+    [_webViewBridge registerHandler:@"writeCharacteristicWithUUIDString" handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (!data && ![data isKindOfClass:[NSDictionary class]]) {
+            [SVProgressHUD showInfoWithStatus:@"传入数据不可以为空"];
+            return ;
+        }
+        NSString *uuidString = [data objectForKey:@"uuid"];
+        if (uuidString.length <= 0) {
+            [SVProgressHUD showInfoWithStatus:@"uuid 不可以为空"];
+            return;
+        }
+        _writeCharacteristic = [self __patternCharacteristicWithUUIDString:uuidString];
+        if (_writeCharacteristic) {
+            !responseCallback?:responseCallback(@"设置成功");
+        }else{
+            !responseCallback?:responseCallback(@"设置失败");
+        }
+    }];
+    
+    [_webViewBridge registerHandler:@"readCharacteristicWithUUIDString" handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (!data && ![data isKindOfClass:[NSDictionary class]]) {
+            [SVProgressHUD showInfoWithStatus:@"传入数据不可以为空"];
+            return ;
+        }
+        NSString *uuidString = [data objectForKey:@"uuid"];
+        if (uuidString.length <= 0) {
+            [SVProgressHUD showInfoWithStatus:@"uuid 不可以为空"];
+            return;
+        }
+        _readCharacteristic = [self __patternCharacteristicWithUUIDString:uuidString];
+        if (_readCharacteristic) {
+            !responseCallback?:responseCallback(@"设置成功");
+        }else{
+            !responseCallback?:responseCallback(@"设置失败");
+        }
+    }];
+    
+//    for test bundle html
     [_webViewBridge registerHandler:@"onLoadHtmlByLink" handler:^(id data, WVJBResponseCallback responseCallback) {
         [self loadAnotherHTMLWithDatas:data];
     }];
@@ -187,7 +270,6 @@
             _choicePeripheal = _btMgr.currentPeripheral;
             [self loadAnotherHTMLWithDatas:data];
             [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal.identifier.UUIDString forKey:@"peripheralUUID"];
-//            [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal forKey:@"choicePeripheral"];
         }
     }];
     
@@ -320,6 +402,15 @@
         }
     }];
     
+//    for test
+    [_webViewBridge registerHandler:@"onAlarmClicked" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self onAlarmClicked];
+    }];
+    
+}
+
+- (void)writeDatas:(NSData *)datas {
+    [self.choicePeripheal writeValue:datas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
 }
 
 - (void)backDatasFromBluetooth {
@@ -329,6 +420,7 @@
     };
 
     _btMgr.characteristicCallBack = ^(CBCharacteristic *c) {
+        [wSelf __cacheCharacteristic:c];
         if (c.value && c.UUID) {
             [wSelf onDeliverToHtmlWithCharateristic:c];
         }

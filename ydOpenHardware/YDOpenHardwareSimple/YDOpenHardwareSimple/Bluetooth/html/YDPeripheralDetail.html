@@ -66,12 +66,26 @@
         }
         
         bridge.registerHandler('onCharacteristicResultBack',function(data,responseCallback) {
-         // var stepLabel = document.getElementById("stepPedometerID");
-         // var catorieLabel = document.getElementById("catorieID");
+            log('data' + JSON.stringify(data));
+            var dataString = JSON.stringify(data);
+            var uuidString = data.uuid;
 
-         // you can insert the datas like here
+            if ((data.uuid == 'FFF6') || (data.uuid == '0000fff6-0100-1000-8000-00805f9b34fb')) {
+                var datas = {'uuid':data.uuid};
+                bridge.callHandler('writeCharacteristicWithUUIDString', datas, function(response) {
+                    log('设置读取的charcteristic' + response);
+                });
+            }
+
+            if ( (data.uuid == 'FFF7') || (data.uuid == '0000fff7-0100-1000-8000-00805f9b34fb')) {
+                var datas = {'uuid':data.uuid};
+                bridge.callHandler('readCharacteristicWithUUIDString', datas,function(response) {
+                    log('设置阅读的characteristic' + response);
+                });
+            }
+
         });
-       
+
         // 点击html的按钮时间
         document.onclick=mouseClick;
         function mouseClick(e){
@@ -113,8 +127,8 @@
                 }
 
                 if (eId == "settingBtnID") {
-                    var datas = {};
-                    bridge.callHandler('onSetting', datas, function(response) {
+                    var datas = {'toLink':'YDSetting.html'};
+                    bridge.callHandler('onLoadHtmlByLink', datas, function(response) {
 
                     });  
                     return;              
@@ -149,7 +163,7 @@
     <button id="synBtnID">立即同步</button>
     <button id="powerBtnID">电量 :  <label id="powerID"></label></button>
     <button id="settingBtnID">设置</button>
-
+ 
     <hr/>
         蓝牙列表
     <hr/>

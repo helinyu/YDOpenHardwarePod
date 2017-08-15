@@ -31,6 +31,7 @@
 // 这里调用
     setupWebViewJavascriptBridge(function(bridge) {
         var uniqueId = 0
+        var choiceItem ;
         var peripherals = new Array();
 
         function log(message, data) {
@@ -65,54 +66,30 @@
             return (data == "" || data == undefined || data == null) ? "暂无" : data; 
         }
 
-        // 注册插入数据 ,传入对象为字符串对象
-        bridge.registerHandler('scanResultSingleBack', function(data, responseCallback) {
-            var responseData = { 'name':'response from html to oc'+ data }
-            peripherals.push('data');
-            logEl(data.uuid,data.name + ';' + data.uuid);
-            responseCallback(responseData);
-        });      
+		var lookforAlarmBtn = document.getElementById("goBackId");
+        lookforAlarmBtn.onclick = function (){
+       		var datas = {'toLink':'YDPeripheralDetail.html'};
+            bridge.callHandler('onLoadHtmlByLink', datas, function(response) {
+                log('JS got response', response)
+            });                     
+        }              	
 
-         bridge.registerHandler('onServicesResultBack',function(data,responseCallback) {
-            log('services count : '+data.length);
-            responseCallback({'toLink':'YDPeripheralDetail.html'});
-         });
+    	var lookforAlarmBtn = document.getElementById("alarmId");
+        lookforAlarmBtn.onclick = function (){
+            var datas = {};
+            bridge.callHandler('onAlarmClicked', datas, function(response) {
+                log('JS got response', response)
+            });                     
+        }       	
 
-
-                                 
-        // 点击html的按钮时间
-        document.onclick=mouseClick;
-        function mouseClick(e){
-            if(e){//不是ie
-		        e.preventDefault();
-                var eId = e.target.id;
-                if (eId == "scanBtnId") {
-                	log('开始扫描');
-	             	var scanParams = {'YDBlueToothFilterType':0};
-                	bridge.callHandler('onScanClick', scanParams, function(response) {
-                		log('js got oc response' + reponse);
-                	});
-                	return;
-                }	
-
-                bridge.callHandler('onConnectPeripheralClick',eId,function(response) {
-                    log('js got resposne ',response);
-                });
-                                 
-            }else if(window.event){ //ie
-                 var idValue = window.event.srcElement.id;
-                 log(idValue + 'idValue');
-            }
-        }
      });
 
     </script>
-    <button id="scanBtnId">开始扫描蓝牙</button>
-    <hr/>
-        蓝牙列表
-    <hr/>
-    <div id='log'></div>
 
+       <button id="goBackId">返回上一页</button>
+
+       <br/><br/>
+       <button id="alarmId">寻找我的手环</button>
     </body>
 </html>
 
