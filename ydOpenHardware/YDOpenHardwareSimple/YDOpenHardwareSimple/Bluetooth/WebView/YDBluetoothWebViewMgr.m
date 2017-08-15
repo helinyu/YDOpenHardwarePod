@@ -22,6 +22,8 @@
 #import "NSData+YDConversion.h"
 #import "YDConstants.h"
 #import "SVProgressHUD.h"
+#import "YDBluetoothWebViewMgr+Time.h"
+
 
 @interface YDBluetoothWebViewMgr ()
 
@@ -253,6 +255,11 @@
     [_webViewBridge registerHandler:@"selectNewPedometerByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
         [self loadAnotherHTMLWithDatas:data];
         [wSelf selectNewPedometerByInfo:data completion:^(NSDictionary *dic) {
+            if (dic) {
+                [SVProgressHUD showInfoWithStatus:@"成功获取数据"];
+            }else{
+                [SVProgressHUD showInfoWithStatus:@"获取数据失败"];
+            }
             !responseCallback?:responseCallback(dic);
         }];
     }];
@@ -260,7 +267,12 @@
     [_webViewBridge registerHandler:@"selectPedometerByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
         [self loadAnotherHTMLWithDatas:data];
         [wSelf selectPedometerByInfo:data completion:^(NSDictionary *dic) {
-            !responseCallback?:responseCallback(dic);
+            if (dic) {
+                [SVProgressHUD showInfoWithStatus:@"成功获取数据"];
+            }else{
+                [SVProgressHUD showInfoWithStatus:@"获取数据失败"];
+            }
+            responseCallback(dic);
         }];
     }];
     
@@ -596,10 +608,11 @@
         return;
     }
     NSString *deviceIdentify = _deviceIdentify;
-    NSDate *dateTime = infoDic[@"dateTime"];
     NSNumber *userId = _userId;
-    [[YDOpenHardwareManager dataProvider] selectHeartRateByDeviceIdentity:deviceIdentify timeSec:dateTime userId:userId betweenStart:dateTime end:dateTime completion:^(BOOL success, NSArray<YDOpenHardwareHeartRate *> *heartRates) {
-        !responseJsonObject?:responseJsonObject([heartRates yy_modelToJSONObject]);
+    [self convertToSelectedTimeWithInfo:infoDic then:^(NSDate *timeSec, NSDate *startTime, NSDate *endTime) {
+        [[YDOpenHardwareManager dataProvider] selectHeartRateByDeviceIdentity:deviceIdentify timeSec:timeSec userId:userId betweenStart:startTime end:endTime completion:^(BOOL success, NSArray<YDOpenHardwareHeartRate *> *heartRates) {
+            !responseJsonObject?:responseJsonObject([heartRates yy_modelToJSONObject]);
+        }];
     }];
 }
 
@@ -609,15 +622,15 @@
     }
 
     NSString *deviceIdentify = _deviceIdentify;
-    NSDate *dateTime = infoDic[@"dateTime"];
     NSNumber *userId = _userId;
     NSNumber *pageNo = infoDic[@"pageNo"];
     NSNumber *pageSize = infoDic[@"pageSize"];
-    [[YDOpenHardwareManager dataProvider] selectHeartRateByDeviceIdentity:deviceIdentify timeSec:dateTime userId:userId betweenStart:dateTime end:dateTime pageNo:pageNo pageSize:pageSize completion:^(BOOL success, NSArray<YDOpenHardwareHeartRate *> *heartRates) {
-        !responseJsonObject?:responseJsonObject([heartRates yy_modelToJSONObject]);
+    [self convertToSelectedTimeWithInfo:infoDic then:^(NSDate *timeSec, NSDate *startTime, NSDate *endTime) {
+        [[YDOpenHardwareManager dataProvider] selectHeartRateByDeviceIdentity:deviceIdentify timeSec:timeSec userId:userId betweenStart:startTime end:endTime pageNo:pageNo pageSize:pageSize completion:^(BOOL success, NSArray<YDOpenHardwareHeartRate *> *heartRates) {
+            !responseJsonObject?:responseJsonObject([heartRates yy_modelToJSONObject]);
+        }];
     }];
 }
-
 
 #pragma mark 计步
 
@@ -650,9 +663,6 @@
 }
 
 - (void)selectNewPedometerByInfo:(id)infoDic completion:(ResponseJsonObject)responseJsonObject {
-    if (!infoDic || ![infoDic isKindOfClass:[NSDictionary class]]) {
-        return;
-    }
     NSString *deviceIdentify = _deviceIdentify;
     NSNumber *userId = _userId;
     [[YDOpenHardwareManager dataProvider] selectNewPedometerByDeviceIdentity:deviceIdentify userId:userId completion:^(BOOL success, YDOpenHardwarePedometer *ohModel) {
@@ -666,12 +676,16 @@
     }
 
     NSString *deviceIdentify = _deviceIdentify;
-    NSDate *timeSec = infoDic[@"timeSec"];
-    NSDate *betweenStart = infoDic[@"betweenStart"];
-    NSDate *endDate = infoDic[@"endDate"];
     NSNumber *userId = _userId;
-    [[YDOpenHardwareManager dataProvider] selectPedometerByDeviceIdentity:deviceIdentify timeSec:timeSec userId:userId betweenStart:betweenStart end:endDate completion:^(BOOL success, NSArray<YDOpenHardwarePedometer *> *pedometers) {
-        !responseJsonObject?:responseJsonObject([pedometers yy_modelToJSONObject]);
+    [self convertToSelectedTimeWithInfo:infoDic then:^(NSDate *timeSec, NSDate *startTime, NSDate *endTime) {
+        [[YDOpenHardwareManager dataProvider] selectPedometerByDeviceIdentity:deviceIdentify timeSec:timeSec userId:userId betweenStart:startTime end:endTime completion:^(BOOL success, NSArray<YDOpenHardwarePedometer *> *pedometers) {
+            if (success) {
+                [SVProgressHUD showInfoWithStatus:@"成功"];
+            }else{
+                [SVProgressHUD showInfoWithStatus:@"失败"];
+            }
+            !responseJsonObject?:responseJsonObject([pedometers yy_modelToJSONObject]);
+        }];
     }];
 }
 
@@ -680,15 +694,15 @@
         return;
     }
     NSString *deviceIdentify = _deviceIdentify;
-    NSDate *timeSec = infoDic[@"timeSec"];
-    NSDate *betweenStart = infoDic[@"betweenStart"];
-    NSDate *endDate = infoDic[@"endDate"];
     NSNumber *userId = _userId;
     NSNumber *pageNo = infoDic[@"pageNo"];
     NSNumber *pageSize = infoDic[@"pageSize"];
-    [[YDOpenHardwareManager dataProvider] selectPedometerByDeviceIdentity:deviceIdentify timeSec:timeSec userId:userId betweenStart:betweenStart end:endDate pageNo:pageNo pageSize:pageSize completion:^(BOOL success, NSArray<YDOpenHardwarePedometer *> *pedometers) {
-        !responseJsonObject?:responseJsonObject([pedometers yy_modelToJSONObject]);
+    [self convertToSelectedTimeWithInfo:infoDic then:^(NSDate *timeSec, NSDate *startTime, NSDate *endTime) {
+        [[YDOpenHardwareManager dataProvider] selectPedometerByDeviceIdentity:deviceIdentify timeSec:timeSec userId:userId betweenStart:startTime end:endTime pageNo:pageNo pageSize:pageSize completion:^(BOOL success, NSArray<YDOpenHardwarePedometer *> *pedometers) {
+            !responseJsonObject?:responseJsonObject([pedometers yy_modelToJSONObject]);
+        }];
     }];
+
 }
 
 #pragma mark 睡眠
@@ -735,14 +749,13 @@
         return;
     }
     NSString *deviceIdentify = _deviceIdentify;
-    NSDate *timeSec = infoDic[@"timeSec"];
-    NSDate *betweenStart = infoDic[@"betweenStart"];
-    NSDate *endDate = infoDic[@"endDate"];
     NSNumber *userId = _userId;
-    [[YDOpenHardwareManager dataProvider] selectSleepByDeviceIdentity:deviceIdentify timeSec:timeSec userId:userId betweenStart:betweenStart end:endDate completion:^(BOOL success, NSArray<YDOpenHardwareSleep *> *sleeps) {
-        if (success) {
-            !responseJsonObject?:responseJsonObject([sleeps yy_modelToJSONObject]);
-        }
+    [self convertToSelectedTimeWithInfo:infoDic then:^(NSDate *timeSec, NSDate *startTime, NSDate *endTime) {
+        [[YDOpenHardwareManager dataProvider] selectSleepByDeviceIdentity:deviceIdentify timeSec:timeSec userId:userId betweenStart:startTime end:endTime completion:^(BOOL success, NSArray<YDOpenHardwareSleep *> *sleeps) {
+            if (success) {
+                !responseJsonObject?:responseJsonObject([sleeps yy_modelToJSONObject]);
+            }
+        }];
     }];
 }
 
@@ -751,16 +764,15 @@
         return;
     }
     NSString *deviceIdentify = _deviceIdentify;
-    NSDate *timeSec = infoDic[@"timeSec"];
-    NSDate *betweenStart = infoDic[@"betweenStart"];
-    NSDate *endDate = infoDic[@"endDate"];
     NSNumber *userId = _userId;
     NSNumber *pageNo = infoDic[@"pageNo"];
     NSNumber *pageSize = infoDic[@"pageSize"];
-    [[YDOpenHardwareManager dataProvider] selectSleepByDeviceIdentity:deviceIdentify timeSec:timeSec userId:userId betweenStart:betweenStart end:endDate pageNo:pageNo pageSize:pageSize completion:^(BOOL success, NSArray<YDOpenHardwareSleep *> *sleeps) {
-        if (success) {
-            !reponseJsonObject?:reponseJsonObject([sleeps yy_modelToJSONObject]);
-        }
+    [self convertToSelectedTimeWithInfo:infoDic then:^(NSDate *timeSec, NSDate *startTime, NSDate *endTime) {
+        [[YDOpenHardwareManager dataProvider] selectSleepByDeviceIdentity:deviceIdentify timeSec:timeSec userId:userId betweenStart:startTime end:endTime pageNo:pageNo pageSize:pageSize completion:^(BOOL success, NSArray<YDOpenHardwareSleep *> *sleeps) {
+            if (success) {
+                !reponseJsonObject?:reponseJsonObject([sleeps yy_modelToJSONObject]);
+            }
+        }];
     }];
 }
 

@@ -72,7 +72,7 @@
 
          var insertPedometerBtn = document.getElementById("insertPedometerId");
          insertPedometerBtn.onclick = function (){
-         	var datas = {};
+            var datas = {"numberOfStep":12};
             bridge.callHandler('insertPedometer', datas, function(response) {
                 log('JS got response', response)
             });                     
@@ -82,28 +82,33 @@
         pedometerNewBtn.onclick = function() {
         	var datas = {};
         	bridge.callHandler('selectNewPedometerByInfo', datas, function(response) {
-        		var pedometerNewDatasLabel = document.getElementById("stepPedometerNewDatasId");
-        		pedometerNewDatasLabel.innerHtml = response;
+                var datas = JSON.stringify(response);
+                log('获取最新数据:' + datas);
         	});
         }
 
         var pedometerBtn = document.getElementById("stepPedometerActioinId");
         pedometerBtn.onclick = function(e) {
         	e.preventDefault();
-        	var datas = {};
+            // var timeSec = new Date(Date.parse("12/12/2013"));
+            var startTime = 1502700000;
+            var datas = {'startTime':startTime};
         	bridge.callHandler('selectPedometerByInfo', datas, function(response) {
-		        var pedometerDatasLabel = document.getElementById("stepPedometerDatasId");
-		        pedometerDatasLabel.innerHtml = response;
+                var datas = JSON.stringify(response);
+                log('获取步数:' + datas);
+
         	});
         }
 
         var pedometerPageBtn = document.getElementById("stepPedometerPageActioinId");
         pedometerPageBtn.onclick = function(e) {
         	e.preventDefault();
-        	var datas = {};
-        	bridge.callHandler('selectPedometerPageByInfo', datas, function(response) {
-        		var pedometerPageLabel = document.getElementById("stepPedometerPageDatasId");
-        		pedometerPageLabel.innerHtml = response;
+            var startTime = 1502700000;
+            var datas = {'startTime':startTime,'pageNo':1,'pageSize':10};        	
+            bridge.callHandler('selectPedometerInPageByInfo', datas, function(response) {
+                 var datas = JSON.stringify(response);
+                log('分页获取步数:' + datas);        		
+
         	});
         }
       
@@ -111,9 +116,9 @@
 		var insertHeartRateBtn = document.getElementById("insertHeartRateId");
          insertHeartRateBtn.onclick = function (e){
          	e.preventDefault();
-         	var datas = {};
+           var datas = {};
             bridge.callHandler('insertHeartRate', datas, function(response) {
-                log('JS got response', response)
+                log('JS got response from oc', response)
             });                     
         }
 
@@ -140,22 +145,21 @@
     <hr/>
 
     <div>
-    	<label>插入步数 （12） ：</label>
-    	<button id="insertPedometerId"></button>
+    	<button id="insertPedometerId">插入步数 （12）</button>
     </div>
-   	<button id="stepPedometerActioinId">获取步数</button>
-    新的步数：<label id="stepPedometerDatasId"></label>
-    input>
+   	<button id="stepPedometerNewActioinId">获取最新步数</button>
     <br/>
-	<button id="stepPedometerNewActioinId">获取步数</button>
-    步数：<label id="stepPedometerNewDatasId"></label>
-    input>    
+
+	<button id="stepPedometerActioinId">获取步数</button>
     <br/>
-	<button id="stepPedometerPageActioinId">获取步数</button>
-    分页步数：<label id="stepPedometerPageDatasId"></label>
-    input>  
+
+	<button id="stepPedometerPageActioinId">分页获取步数</button>
     <hr/>
 
+    <br/>
+    <br/>
+    <br/>
+    ##实现上面的
     <div>
 		<label>插入心率 （70） ：</label>	
 		<button id="insertHeartRateId"></button>
