@@ -106,6 +106,7 @@
     for (NSInteger index = 0; index < _mCharacteristics.count; index++) {
         CBCharacteristic *innerC = _mCharacteristics[index];
         if ([innerC.UUID.UUIDString isEqualToString:c.UUID.UUIDString]) {
+//            for warning
             [_mCharacteristics removeObject:innerC];
             [_mCharacteristics insertObject:c atIndex:index];
         }else{
@@ -394,8 +395,7 @@
 //    write dats
     [_webViewBridge registerHandler:@"writeDatas" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSString *hexString = data[@"hexString"];
-        NSInteger length = [data[@"length"] integerValue];
-        NSData *writeDatas = [NSData convertFromHexString:hexString length:length];
+        NSData *writeDatas = [NSData dataWithHexString:hexString];
         [self loadAnotherHTMLWithDatas:data];
         if (wSelf.writeCharacteristic && writeDatas) {
             [wSelf.choicePeripheal writeValue:writeDatas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
@@ -404,9 +404,21 @@
     
 //    for test
     [_webViewBridge registerHandler:@"onAlarmClicked" handler:^(id data, WVJBResponseCallback responseCallback) {
-        [self onAlarmClicked];
+//        [self onAlarmClicked];
+        [self writeDatasWithDictionay:data];
     }];
     
+}
+
+- (void)writeDatasWithDictionay:(NSDictionary *)dic{
+    NSString *value = [dic objectForKey:@"value"];
+    if (value.length <= 0) {
+        [SVProgressHUD showInfoWithStatus:@"传入的value 解析之后为空"];
+        return;
+    }
+
+    NSData *data  = [NSData dataWithHexString:value];
+    [self writeDatas:data];
 }
 
 - (void)writeDatas:(NSData *)datas {

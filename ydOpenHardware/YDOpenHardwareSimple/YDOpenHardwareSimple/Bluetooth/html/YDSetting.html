@@ -76,7 +76,12 @@
 
     	var lookforAlarmBtn = document.getElementById("alarmId");
         lookforAlarmBtn.onclick = function (){
-            var datas = {};
+
+            // Byte data[] = { 0x36, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x40};
+            // var dataBytes = '36.0A.00.00.00.00.00.00.00.00.00.00.00.00.00.40';
+            // var dataBytes = '0x360x0A0x000x000x000x000x000x000x000x000x000x000x000x000x000x40';
+            var dataBytes = '36 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 40';
+            var datas = {'length':length};
             bridge.callHandler('onAlarmClicked', datas, function(response) {
                 log('JS got response', response)
             });                     

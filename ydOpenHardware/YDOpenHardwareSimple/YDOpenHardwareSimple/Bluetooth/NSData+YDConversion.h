@@ -10,6 +10,6 @@
 
 @interface NSData (YDConversion)
 
-+ (NSData *)convertFromHexString:(NSString *)message length:(NSInteger)length;
++ (NSData *)dataWithHexString:(NSString *)message;
 
 @end
