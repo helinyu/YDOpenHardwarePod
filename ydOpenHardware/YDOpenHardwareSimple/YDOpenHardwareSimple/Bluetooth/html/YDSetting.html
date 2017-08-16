@@ -78,14 +78,285 @@
         lookforAlarmBtn.onclick = function (){
 
             // Byte data[] = { 0x36, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x40};
-            // var dataBytes = '36.0A.00.00.00.00.00.00.00.00.00.00.00.00.00.40';
             // var dataBytes = '0x360x0A0x000x000x000x000x000x000x000x000x000x000x000x000x000x40';
             var dataBytes = '36 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 40';
-            var datas = {'length':length};
-            bridge.callHandler('onAlarmClicked', datas, function(response) {
+            var datas = {'value':dataBytes};
+            bridge.callHandler('onWriteDatasClickByDictionay', datas, function(response) {
                 log('JS got response', response)
             });                     
-        }       	
+        }
+// 下面的有待测试
+
+// 设置消息通知
+        var phoneBtn = document.getElementById('iphoneId'); 
+        phoneBtn.onclick = function(e) {
+            e.preventDefault();
+            // var dataBytes = '85 '
+            var phonedatas = {85 01 01 01};
+            alert('85 01');
+            bridge.callHandler('onPhoneClick', datas ,function(response) {
+                log('js got from oc response',response);
+            });
+            alert('85 02');
+            var msgDatas = {85 02};
+            bridge.callHandler("onMsgClick", datas ,function(response) {
+
+            });
+        }   	
+
+        var phoneContentBtn = document.getElementById('iphoneContentId');
+        phoneContentBtn.onclick = function(e) {
+            var phoneContentDatas = {};
+            bridge.callHandler('onPhoneContentClick',phoneContentDatas,function(response) {
+
+            });          
+        };
+        // 0x 81 可以获取到数据，这个是在后面的数据里面 。 （读取应该需要灵活性，应该是需要进行读取的）
+
+        var alarmClockBtn = document.getElementById('alarmClockId');
+        alarmClockBtn.onclick = function(e) {
+            var alarmClockDatas = {};
+            bridge.callHander('');
+        }
+
+        //不同历史请求
+        var requestSyncBtn = document.getElementById('requestSyncId');
+        requestSyncBtn.onclick = function(e) {
+            var requestSyncDatas = {09 01};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        }
+
+        var syncFailureBtn = document.getElementById('syncFailureId');
+        syncFailureBtn.onclick = function(e) {
+            var syncFailureDatas = {09 02 00};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        }        
+
+
+       var syncSuccessBtn = document.getElementById('syncSuccessId');
+        syncSuccessBtn.onclick = function(e) {
+            var requestSyncDatas = {09 02 01};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        }       
+
+       var syncNoneDatasBtn = document.getElementById('syncNoneDatasId');
+        syncNoneDatasBtn.onclick = function(e) {
+            var requestSyncDatas = {09 80 00 00};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        }  
+         
+       var syncNoneDatasBtn = document.getElementById('syncNoneDatasId');
+        syncNoneDatasBtn.onclick = function(e) {
+            var requestSyncDatas = {09 80 00 00};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        }  
+
+        var syncTimeBtn = document.getElementById('syncTimeId');
+        syncTimeBtn.onclick = function(e) {
+            // 设置时间
+            var requestSyncDatas = {09 81 00 01 02 03 04 05 06 07 08};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        };  
+
+        var synUploadBtn = document.getElementById('synUploadId');
+        synUploadBtn.onclick = function(e) {
+            // 上传数据包
+            var requestSyncDatas = {09 81 00 01 02 03 04 05 06 07 08 09};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        }; 
+
+        var syncEndBtn document.getElementById('syncEndId');
+        syncEndBtn.onclick = function(e) {
+            // 上传数据包
+            var requestSyncDatas = {09 83 11 11};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        }; 
+        
+        // 个人信息
+        var personInfoBtn document.getElementById('personInfoId');
+        personInfoBtn.onclick = function(e) {
+            // 上传数据包 0b 01 7个数据字节
+            var requestSyncDatas = {0B  01 00 01 02 03 04 05 06};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        }; 
+
+        var nameBtn = document.getElementById('nameId');
+        nameBtn.onclick = function(e) {
+            // 上传数据包 0b 01 1~12个数据字节
+            var requestSyncDatas = {0B  01 00 01 02 03 04 05 06};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        }; 
+       
+        var languageBtn = document.getElementById('languageId');
+        nameBtn.onclick = function(e) {
+            // 上传数据包 0b 02 1个数据字节 （00 英语； 01 中文）
+            var requestSyncDatas = {0B  01 01};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        };
+
+        var RestoreFactorySettingsBtn = document.getElementById('RestoreFactorySettingsId');
+        RestoreFactorySettingsBtn.onclick = function(e) {
+            // 上传数据包 0b 04 
+            var requestSyncDatas = {0B 04};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        };
+
+        var personInfoBtn = document.getElementById('personInfoId');
+        personInfoBtn.onclick = function(e) {
+            var requestSyncDatas = {0B 05};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        };
+
+        var setNameBtn = document.getElementById('setNameId');
+        setNameBtn.onclick = function(e) {
+            var requestSyncDatas = {0B 06};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        };
+
+
+        var RestoreFactorySettingsBtn= document.getElementById('RestoreFactorySettingsId');
+        RestoreFactorySettingsBtn.onclick = function(e) {
+            // 上传数据包 0b 04 
+            var requestSyncDatas = {0B 07};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        };
+
+        var readPersonInfoBtn= document.getElementById('readPersonInfoId');
+        readPersonInfoBtn.onclick = function(e) {
+            // 上传数据包 0b 04 
+            var requestSyncDatas = {0B 81};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        };
+
+       var readBlePersonBTn= document.getElementById('readBlePersonName');
+        readBlePersonBTn.onclick = function(e) {
+            // 上传数据包 0b 04 
+            var requestSyncDatas = {0B 82};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        };
+
+      var readBleLanguageBtn= document.getElementById('readBleLanguage');
+        readBleLanguageBtn.onclick = function(e) {
+            // 上传数据包 0b 04 
+            var requestSyncDatas = {0B 83};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        };
+
+        var bleToMacAddressBtn = document.getElementById('bleToMacAddressId');
+        readBleLanguageBtn.onclick = function(e) {
+            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });
+        };
+
+        var isNotBoundBtn = document.getElementById('isNotSupportBoundId');
+        isNotBoundBtn.onclick = function(e) {
+            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });    
+        };
+
+        var isBoundBtn = document.getElementById('isNotSupportBoundId');
+        isBoundBtn.onclick = function(e) {
+            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });    
+        };
+
+        var appreadBleDeviceBtn = document.getElementById('appreadBleDeviceID');
+        appreadBleDeviceBtn.onclick = function(e) {
+            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });    
+        };
+
+        var bleUploadVersionInfoBtn = document.getElementById('bleUploadVersionInfoId');
+        bleUploadVersionInfoBtn.onclick = function(e) {
+            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });    
+        };
+
+        var bleUploadProductInfoBtn = document.getElementById('bleUploadProductInfoId');
+        bleUploadProductInfoBtn.onclick = function(e) {
+            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });    
+        };
+
+        var blueUploadSerialNumberBtn = document.getElementById('blueUploadSerialNumber');
+        blueUploadSerialNumberBtn.onclick = function(e) {
+            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });    
+        };
+
+        var setBatteryBtn = document.getElementById('setBatteryId');
+        setBatteryBtn.onclick = function(e) {
+            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });    
+        };
+        
+        var bleUploadBatteryBtn = document.getElementById('bleUploadBatteryId');
+        bleUploadBatteryBtn.onclick = function(e) {
+            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });    
+        };         
+
+        var firmwareUpdateBtn = document.getElementById('firmwareUpdateId');
+        firmwareUpdateBtn.onclick = function(e) {
+            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
+            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+            });    
+        };   
 
      });
 
@@ -95,6 +366,67 @@
 
        <br/><br/>
        <button id="alarmId">寻找我的手环</button>
+       <br/>
+       <button id="iphoneId">设置来电提示</button>
+       <br/>
+       <button id="iphoneContentId">设置来电提醒具体内容</button>
+       <br/>
+       <button id="alarmClockId">设置闹钟</button>
+
+       <hr/>
+       设置历史数据同步计步、睡眠
+       <hr/>
+       <button id="requestSyncId">发起同步请求</button>
+       <button id="syncFailureId">同步失败告诉请求</button>
+       <button id="syncSuccessId">不同成功告诉请求</button>
+       <button id="syncNoneDatasId">ble 没有历史数据同步</button>
+       <button id="syncTimeId">日期时间数据上传</button>
+       <button id="synUploadId"> 上传数据包</button>
+       <button id="syncEndId">设备上传结束包</button>
+
+       <hr/>
+       个人信息系统环境设置
+       <hr/>
+       <button id="personInfoId">个人信息</button>
+       <button id="setNameId">设置用户姓名</button>
+       <button id="languageId">设置语言</button>
+       <button id="RestoreFactorySettingsId"> 恢复厂家设置</button>
+       <button id="readPersonInfoId"> 读取ble个人信息</button>
+       <button id="readBlePersonName"> 读取ble设备用户姓名</button>
+       <button id="readBleLanguage"> 读取ble设备语言</button>
+       <button id=""> ble 上传个人信息</button>
+       <button id=""> ble 上传用户姓名</button>
+       <button id=""> ble 上传设备语言</button>
+
+       <hr/>
+       蓝牙连接相关设置
+       <hr/>
+       <button id="bleToMacAddressId">app 向ble发送手机mac地址</button>
+       <!-- 发送mac地址，应该是一个绑定过程 -->
+       <button id="isNotSupportBoundId">不支持bound</button>
+       <button id="isSupportBoundId">支持bound</button>
+
+       <hr/>
+       设备信息
+       <hr/>
+       <button id="appreadBleDeviceID">app 读取设备信息</button>
+       <button id="bleUploadVersionInfoId">设备上传版本消息</button>
+       <button id="bleUploadProductInfoId">设备上传厂家消息</button>
+       <button id="blueUploadSerialNumber">设备上传序列号</button>
+
+       <hr/>
+       电池电量
+       <hr/>
+       <button id="setBatteryId">app 向ble设置电池电量</button>
+       <button id="bleUploadBatteryId"> ble设备-上传电池状态，电池电量</button>
+
+       <hr/>
+           固件升级
+       <hr/>
+       <button id="firmwareUpdateId">固件升级</button>
+
+       <hr/>
+
     </body>
 </html>
 

@@ -10,6 +10,7 @@
 #import "BabyBluetooth.h"
 #import "SVProgressHUD.h"
 #import "NSString+YDContainsString.h"
+#import "YDPeripheralInfo.h"
 
 @interface YDBlueToothMgr ()
 
@@ -23,6 +24,7 @@
  * discussion : this attribute must be implement for selected and search service enable by it ,if not ,it will be not find the services
  */
 @property (nonatomic, strong) NSMutableArray<CBPeripheral *> *peripherals;
+@property (nonatomic, strong) NSMutableArray<YDPeripheralInfo *> *peripheralInfos;
 
 @property (nonatomic, strong) NSMutableArray<CBService *> *connectedPeripheralServices;
 
@@ -71,6 +73,15 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
             NSLog(@"find peripheral name is : %@",peripheral.name);
             !wSelf.scanCallBack?:wSelf.scanCallBack(wSelf.peripherals);
             !wSelf.scanPeripheralCallback?:wSelf.scanPeripheralCallback(peripheral);
+            
+            // add some info
+            YDPeripheralInfo *peripheralInfo = [YDPeripheralInfo new];
+            peripheralInfo.peripheral = peripheral;
+            peripheralInfo.advertisementData = advertisementData;
+            peripheralInfo.RSSI = RSSI;
+            [wSelf.peripheralInfos addObject:peripheralInfo];
+            !wSelf.scanPeripheralInfoCallback?:wSelf.scanPeripheralInfoCallback(peripheralInfo);
+            !wSelf.scanPeripheralInfosCallBack?:wSelf.scanPeripheralInfosCallBack(wSelf.peripheralInfos);
         }
     }];
     
@@ -256,6 +267,7 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
 
 - (YDBlueToothMgr *(^)(void))startScan {
     _peripherals = [NSMutableArray<CBPeripheral *> new];
+    _peripheralInfos = [NSMutableArray<YDPeripheralInfo *> new];
     [_bluetooth cancelAllPeripheralsConnection];
     _bluetooth = [BabyBluetooth shareBabyBluetooth];
     [self babyDelegate];

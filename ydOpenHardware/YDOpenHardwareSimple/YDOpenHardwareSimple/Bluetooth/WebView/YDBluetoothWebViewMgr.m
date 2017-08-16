@@ -403,7 +403,7 @@
     }];
     
 //    for test
-    [_webViewBridge registerHandler:@"onAlarmClicked" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [_webViewBridge registerHandler:@"onWriteDatasClickByDictionay" handler:^(id data, WVJBResponseCallback responseCallback) {
 //        [self onAlarmClicked];
         [self writeDatasWithDictionay:data];
     }];

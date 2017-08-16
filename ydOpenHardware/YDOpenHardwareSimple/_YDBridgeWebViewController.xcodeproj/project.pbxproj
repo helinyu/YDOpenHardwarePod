@@ -43,6 +43,7 @@
 		41E8C47F1F41728400C91C8D /* YDDatabaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E8C47E1F41728400C91C8D /* YDDatabaseTest.m */; };
 		41E8C4931F41A25F00C91C8D /* YDRegisterInteractiveHtmlMethods.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41E8C48F1F41A0B000C91C8D /* YDRegisterInteractiveHtmlMethods.plist */; };
 		41E8C4961F41A4E800C91C8D /* YDBluetoothWebViewMgr+HtmlReigsterMothods.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E8C4951F41A4E800C91C8D /* YDBluetoothWebViewMgr+HtmlReigsterMothods.m */; };
+		41F93A7B1F441CB1002F680E /* YDPeripheralInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F93A7A1F441CB1002F680E /* YDPeripheralInfo.m */; };
 		4D6D8FCC1C60E35800003AA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCB1C60E35800003AA0 /* main.m */; };
 		4D6D8FCF1C60E35800003AA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCE1C60E35800003AA0 /* AppDelegate.m */; };
 		4D6D8FD21C60E35800003AA0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FD11C60E35800003AA0 /* ViewController.m */; };
@@ -140,6 +141,8 @@
 		41E8C48F1F41A0B000C91C8D /* YDRegisterInteractiveHtmlMethods.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = YDRegisterInteractiveHtmlMethods.plist; path = WebView/YDRegisterInteractiveHtmlMethods.plist; sourceTree = "<group>"; };
 		41E8C4941F41A4E800C91C8D /* YDBluetoothWebViewMgr+HtmlReigsterMothods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YDBluetoothWebViewMgr+HtmlReigsterMothods.h"; sourceTree = "<group>"; };
 		41E8C4951F41A4E800C91C8D /* YDBluetoothWebViewMgr+HtmlReigsterMothods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YDBluetoothWebViewMgr+HtmlReigsterMothods.m"; sourceTree = "<group>"; };
+		41F93A791F441CB1002F680E /* YDPeripheralInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDPeripheralInfo.h; sourceTree = "<group>"; };
+		41F93A7A1F441CB1002F680E /* YDPeripheralInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDPeripheralInfo.m; sourceTree = "<group>"; };
 		4D6D8FC71C60E35800003AA0 /* YDOpenHardwareSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YDOpenHardwareSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6D8FCB1C60E35800003AA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D6D8FCD1C60E35800003AA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 				416F5EF01F3EE9690079AF0A /* YDConstants.m */,
 				411BD3061F42A0E700D8CB9A /* YDBluetoothWebViewMgr+Time.h */,
 				411BD3071F42A0E700D8CB9A /* YDBluetoothWebViewMgr+Time.m */,
+				41F93A791F441CB1002F680E /* YDPeripheralInfo.h */,
+				41F93A7A1F441CB1002F680E /* YDPeripheralInfo.m */,
 			);
 			name = extension;
 			sourceTree = "<group>";
@@ -667,6 +672,7 @@
 			files = (
 				411ED0D71F308BE60041909A /* YDBridgeWebMgr.h in Sources */,
 				411ED0D81F308BE60041909A /* YDBridgeWebMgr.m in Sources */,
+				41F93A7B1F441CB1002F680E /* YDPeripheralInfo.m in Sources */,
 				411ED0D91F308BE60041909A /* YDBridgeWebView.h in Sources */,
 				411ED0DA1F308BE60041909A /* YDBridgeWebView.m in Sources */,
 				411ED0DB1F308BE60041909A /* YDBridgeWebViewController.h in Sources */,

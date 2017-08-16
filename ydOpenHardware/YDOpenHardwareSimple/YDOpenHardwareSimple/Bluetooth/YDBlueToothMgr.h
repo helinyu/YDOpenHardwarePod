@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
+@class YDPeripheralInfo;
+
 typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
     YDBlueToothFilterTypeNone = 0,
     YDBlueToothFilterTypeMatch,  // match to filter and find the specify device
@@ -83,6 +85,15 @@ typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
  */
 @property (nonatomic, copy) void(^scanCallBack)(NSArray<CBPeripheral *> *peripherals);
 @property (nonatomic, copy) void(^scanPeripheralCallback)(CBPeripheral *peripheral);
+
+/*
+ * @param : info contain more info abount peripheral
+ * @attribute : CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI
+ * @see : setBlockOnDiscoverToPeripherals methods the result block back
+ */
+@property (nonatomic, copy) void(^scanPeripheralInfosCallBack)(NSArray<YDPeripheralInfo *> * peripherals);
+@property (nonatomic, copy) void(^scanPeripheralInfoCallback)(YDPeripheralInfo *peripheralInfo);
+
 
 //connect
 /*
