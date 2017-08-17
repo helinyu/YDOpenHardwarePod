@@ -183,6 +183,35 @@
     
 }
 
+- (void)connectPeripheral:(CBPeripheral *)peripheal {
+    [_btMgr onConnectBluetoothWithPeripheral:peripheal];
+}
+
+- (void)connectDefaultPeirpheal {
+    [_btMgr connectingPeripheral];
+}
+
+- (void)quitConnectedWithDatasDic:(id)info {
+    if ([info isKindOfClass:[NSDictionary class]]) {
+        NSString *uuidString = [info objectForKey:@"uuid"];
+        if (uuidString.length >0) {
+            CBPeripheral *peripehral = [_btMgr obtainPeripheralWithUUIDString:uuidString];
+            if (peripehral) {
+                [self cancelConnectedPeripheralWithPeripheal:peripehral];
+                return;
+            }
+        }
+    }
+    [self cancelConnectPeripheal];
+}
+
+- (void)cancelConnectPeripheal {
+    [_btMgr quitConnected];
+}
+- (void)cancelConnectedPeripheralWithPeripheal:(CBPeripheral *)peripheal {
+    _btMgr.quitConnectedPeripheal(peripheal);
+}
+
 - (void)startScanThenSourcesCallback:(void(^)(NSArray *peirpherals))callback {
     _btMgr.scanCallBack = ^(NSArray<CBPeripheral *> *peripherals) {
         !callback?:callback(peripherals);
@@ -266,6 +295,11 @@
         wSelf.btMgr.startScan().scanPeripheralCallback = ^(CBPeripheral *peripheral) {
             [wSelf onAddToListWithPeripheral:peripheral];
         };
+    }];
+    
+    [_webViewBridge registerHandler:@"quitConnectClick" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [wSelf quitConnectedWithDatasDic:data];
+        responseCallback(nil);
     }];
     
 //    这个方法名也是需要加载的  （这里是触发链接&注册数据库）
@@ -460,15 +494,22 @@
         [wSelf onDeliverToHtmlWithServices:services];
     };
 
-    _btMgr.characteristicCallBack = ^(CBCharacteristic *c) {
+    _btMgr.updateValueCharacteristicCallBack = ^(CBCharacteristic *c) {
+        if (c.value && c.UUID) {
+            [wSelf onDeliverToHtmlWithCharateristic:c];
+        }
+    };
+    
+    _btMgr.discoverCharacteristicCallback = ^(CBCharacteristic *c) {
         [wSelf __cacheCharacteristic:c];
         if (c.value && c.UUID) {
             [wSelf onDeliverToHtmlWithCharateristic:c];
-//            if ([c.UUID.UUIDString isEqualToString:@"FFF7"]) {
-//                [wSelf.choicePeripheal readValueForCharacteristic:c];
-//            }
+            //            if ([c.UUID.UUIDString isEqualToString:@"FFF7"]) {
+            //                [wSelf.choicePeripheal readValueForCharacteristic:c];
+            //            }
         }
-     };
+
+    };
 }
 
 // 写入那些需要写的数据而没有写的数据

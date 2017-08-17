@@ -197,8 +197,9 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
         NSLog(@"setBlockOnDiscoverCharacteristics");
         for (CBCharacteristic *c in service.characteristics) {
            [wSelf.bluetooth notify:peripheral characteristic:c block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
-               !wSelf.characteristicCallBack?:wSelf.characteristicCallBack(c);
-               NSLog(@"c : %@",c.UUID.UUIDString);
+//               !wSelf.characteristicCallBack?:wSelf.characteristicCallBack(c);
+               !wSelf.discoverCharacteristicCallback?:wSelf.discoverCharacteristicCallback(c);
+               NSLog(@" discoverCharacteristicCallback c : %@",c.UUID.UUIDString);
            }];
         }
     }];
@@ -206,15 +207,8 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
     [_bluetooth setBlockOnReadValueForCharacteristic:^(CBPeripheral *peripheral, CBCharacteristic *characteristic, NSError *error) {
         NSLog(@"setBlockOnReadValueForCharacteristic");
         [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfMangerDidUpdataValueForCharacteristic object:characteristic];
-        
-        if (!error) {
-            NSError *error1 = nil;
-            id dict = [NSJSONSerialization JSONObjectWithData:characteristic.value options:NSJSONReadingMutableContainers error:&error1];
-            NSLog(@"dict is : %@",dict);
-        }
-        
-        !wSelf.characteristicCallBack?:wSelf.characteristicCallBack(characteristic);
-        NSLog(@"characteristic ; %@",characteristic.UUID.UUIDString);
+        !wSelf.updateValueCharacteristicCallBack?:wSelf.updateValueCharacteristicCallBack(characteristic);
+        NSLog(@"update value for read c :%@ ",characteristic.UUID.UUIDString);
 
     }];
     
@@ -297,6 +291,14 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
     };
 }
 
+- (YDBlueToothMgr *(^)(CBPeripheral *peripheral))quitConnectedPeripheal {
+    __weak typeof (self) wSelf = self;
+    return ^(CBPeripheral *peripheral) {
+            [wSelf.bluetooth cancelPeripheralConnection:peripheral];
+        return self;
+    };
+}
+
 - (void)addConnectedServicesWithServices:(NSArray<CBService *> *)services {
     for (CBService *service in services) {
         [self addConnectedServicesWithService:service];
@@ -360,6 +362,15 @@ _bluetooth.having(peripheral).connectToPeripherals().discoverServices().discover
         wSelf.currentPeripheral = peripheral;
         return self;
     };
+}
+
+- (CBPeripheral *)obtainPeripheralWithUUIDString:(NSString *)uuidString {
+    for (CBPeripheral *peripheal in _peripherals) {
+        if ([peripheal.identifier.UUIDString isEqualToString:uuidString]) {
+            return peripheal;
+        }
+    }
+    return nil;
 }
 
 @end

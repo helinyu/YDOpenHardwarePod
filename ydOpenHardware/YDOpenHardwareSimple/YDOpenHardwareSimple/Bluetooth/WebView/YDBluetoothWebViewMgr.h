@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class CBPeripheral;
 @class WebViewJavascriptBridge;
 
 @interface YDBluetoothWebViewMgr :NSObject
@@ -17,6 +17,11 @@
 + (instancetype)shared;
 
 - (void)scanPeripheralWithMatchInfo:(NSString *)matchWord;
+
+- (void)connectPeripheral:(CBPeripheral *)peripheal;
+- (void)connectDefaultPeirpheal; // 连接上一个已经设置为连接目标的蓝牙
+- (void)cancelConnectPeripheal;
+- (void)cancelConnectedPeripheralWithPeripheal:(CBPeripheral *)peripheal;
 
 - (void)startScanThenSourcesCallback:(void(^)(NSArray *peirpherals))callback;
 

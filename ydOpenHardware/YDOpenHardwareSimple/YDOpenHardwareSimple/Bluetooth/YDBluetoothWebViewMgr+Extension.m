@@ -18,6 +18,10 @@
     //    for test yuedong own band
     __weak typeof (self) wSelf = self;
     
+    [self.webViewBridge registerHandler:@"onSetPhoneCallOnClick" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [wSelf setTelEnable:YES andMessageEnable:YES];
+    }];
+    
     [self.webViewBridge registerHandler:@"onWriteDatasWithHeader" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"log : %@",[data objectForKey:@"log"]);
         NSString *value = [data objectForKey:@"value"];
@@ -240,5 +244,26 @@ Boolean isCheckSumValid(Byte *rcvBuff, NSInteger rcvBuffLength) {
 //默认是10000步数 时间：86400s 一天
     [self setStepTargetWithStep:5000 andRewardStep:86400];
 }
+
+/**
+ 55. 设置ANCS的开关
+ */
+- (void)setTelEnable:(BOOL)telEnable andMessageEnable:(BOOL)messageEnable{
+    Byte AA = 0x00;
+    Byte tel = 0x00;
+    if (telEnable) {
+        tel = 0x01;
+    }
+    Byte message = 0x00;
+    if (message) {
+        message = 0x02;
+    }
+    AA = tel + message;
+    Byte crc = (0x60 + AA) & 0xFF;
+    Byte data[] = {0x60, AA, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,crc};
+    NSData *data0 = [[NSData alloc] initWithBytes:data length:16];
+    [self writeDatas:data0];
+}
+
 
 @end

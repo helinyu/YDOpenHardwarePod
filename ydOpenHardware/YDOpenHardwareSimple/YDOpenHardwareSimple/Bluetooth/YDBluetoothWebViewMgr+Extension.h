@@ -16,4 +16,6 @@
 
 -(void)writeByteWithHeader:(Byte)header andData:(NSData *)datas;
 
+- (void)setTelEnable:(BOOL)telEnable andMessageEnable:(BOOL)messageEnable;
+
 @end

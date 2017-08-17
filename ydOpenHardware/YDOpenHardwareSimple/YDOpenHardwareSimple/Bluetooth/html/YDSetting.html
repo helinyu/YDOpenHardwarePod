@@ -66,6 +66,13 @@
             return (data == "" || data == undefined || data == null) ? "暂无" : data; 
         }
 
+        var quitConnectBtn = document.getElementById("quitConnectedId");
+        quitConnectBtn.onclick = function(e) {
+            bridge.callHandler('quitConnectClick',{},function(response) {
+                log('has quit connect');
+            });
+        } 
+
 		var lookforAlarmBtn = document.getElementById("goBackId");
         lookforAlarmBtn.onclick = function (){
        		var datas = {'toLink':'YDPeripheralDetail.html'};
@@ -90,6 +97,12 @@
 // 设置消息通知
         var phoneBtn = document.getElementById('iphoneId'); 
         phoneBtn.onclick = function(e) {
+
+            var alarmPhone = {};
+            bridge.callHandler('onSetPhoneCallOnClick', alarmPhone, function(response) {
+                log("js gor from oc & set the alarm phone");
+            });            
+
             // e.preventDefault();
             var phoneByteString = "01 01 01";
             var header = 0x85;
@@ -158,7 +171,7 @@
         alarmClockBtn.onclick = function(e) {
             var requestParams = {};
             bridge.callHander('onClockClick',function(responseData) {
-                
+
             });
         }
 
@@ -377,6 +390,7 @@
     </script>
 
        <button id="goBackId">返回上一页</button>
+       <button id="quitConnectedId">断开连接</button>
 
        <br/><br/>
        <button id="alarmId">寻找我的手环</button>
@@ -391,6 +405,10 @@
        <br/>
        <button id="iphoneContentId">设置来电提醒具体内容</button>
        <br/>
+       <hr/>
+           上面设置的内容还是有区别的
+       <hr/>
+
        <button id="alarmClockId">设置闹钟</button>
 
        <hr/>

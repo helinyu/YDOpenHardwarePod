@@ -38,6 +38,7 @@ typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
  *@discussion may be like that ,the VC dealloc, we may be need to quit the connected
  */
 - (YDBlueToothMgr *(^)(void))quitConnected;
+- (YDBlueToothMgr *(^)(CBPeripheral *peripheral))quitConnectedPeripheal;
 
 /*
  * @param :blue tooth search & filter key word and  pattern, required
@@ -125,9 +126,15 @@ typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
 @property (nonatomic, copy) void(^heartRateCallBack)(NSString *heartString);
 @property (nonatomic, copy) void(^tripCallBack)(CGFloat calories, CGFloat distance);
 
-@property (nonatomic, copy) void(^characteristicCallBack)(CBCharacteristic *c);
+typedef void (^CharacteristicCallback)(CBCharacteristic *c);
+@property (nonatomic, copy) CharacteristicCallback discoverCharacteristicCallback;
+@property (nonatomic, copy) CharacteristicCallback updateValueCharacteristicCallBack;
 
 - (void)writeDatas:(NSData *)datas forCharacteristic:(CBCharacteristic *)characteristic; // write datas for the specify characteristic
+
+//obtain the cbperipheal by the uuid which is specified
+//@property (nonnull, copy) void(^ObtainPeirpheal)(NSString *uuid);
+- (CBPeripheral *)obtainPeripheralWithUUIDString:(NSString *)uuidString;
 
 @end
 

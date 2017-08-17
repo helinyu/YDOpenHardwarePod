@@ -1,0 +1,62 @@
+
+2017-08-17 18:02:23.829490+0800 test_yuedong_band[23777:5126240] setBlockOnConnected
+2017-08-17 18:02:23.829538+0800 test_yuedong_band[23777:5126240] vc success : 1
+2017-08-17 18:02:24.249670+0800 test_yuedong_band[23777:5126240] setBlockOnDiscoverServices
+2017-08-17 18:02:24.250034+0800 test_yuedong_band[23777:5126240] vc service : <CBService: 0x1c027eb00, isPrimary = YES, UUID = 00001530-1212-EFDE-1523-785FEABCD123>
+2017-08-17 18:02:24.250088+0800 test_yuedong_band[23777:5126240] vc service : <CBService: 0x1c027f1c0, isPrimary = YES, UUID = FFF0>
+2017-08-17 18:02:24.370934+0800 test_yuedong_band[23777:5126240] setBlockOnDiscoverCharacteristics
+2017-08-17 18:02:24.371084+0800 test_yuedong_band[23777:5126240]  vc discover characteristic : <CBCharacteristic: 0x1c02a3f60, UUID = 00001532-1212-EFDE-1523-785FEABCD123, properties = 0x4, value = (null), notifying = NO>
+2017-08-17 18:02:24.371284+0800 test_yuedong_band[23777:5126240]  vc discover characteristic : <CBCharacteristic: 0x1c02a3540, UUID = 00001531-1212-EFDE-1523-785FEABCD123, properties = 0x18, value = (null), notifying = NO>
+2017-08-17 18:02:35.847071+0800 test_yuedong_band[23777:5126240] setBlockOnDiscoverCharacteristics
+2017-08-17 18:02:35.847218+0800 test_yuedong_band[23777:5126240]  vc discover characteristic : <CBCharacteristic: 0x1c42a6d20, UUID = FFF1, properties = 0xA, value = (null), notifying = NO>
+2017-08-17 18:02:35.847511+0800 test_yuedong_band[23777:5126240]  vc discover characteristic : <CBCharacteristic: 0x1c42a6e40, UUID = FFF2, properties = 0x2, value = (null), notifying = NO>
+2017-08-17 18:02:35.847786+0800 test_yuedong_band[23777:5126240]  vc discover characteristic : <CBCharacteristic: 0x1c42a6f00, UUID = FFF3, properties = 0x8, value = (null), notifying = NO>
+2017-08-17 18:02:35.848030+0800 test_yuedong_band[23777:5126240]  vc discover characteristic : <CBCharacteristic: 0x1c42a0b40, UUID = FFF4, properties = 0x10, value = (null), notifying = NO>
+2017-08-17 18:02:35.848485+0800 test_yuedong_band[23777:5126240]  vc discover characteristic : <CBCharacteristic: 0x1c02a0600, UUID = FFF5, properties = 0x2, value = (null), notifying = NO>
+2017-08-17 18:02:35.848747+0800 test_yuedong_band[23777:5126240]  vc discover characteristic : <CBCharacteristic: 0x1c02a4860, UUID = FFF6, properties = 0xA, value = (null), notifying = NO>
+2017-08-17 18:02:35.849119+0800 test_yuedong_band[23777:5126240]  vc discover characteristic : <CBCharacteristic: 0x1c02a4260, UUID = FFF7, properties = 0x10, value = (null), notifying = NO>
+2017-08-17 18:02:35.890354+0800 test_yuedong_band[23777:5126240] error didUpdateValueForCharacteristic 00001532-1212-EFDE-1523-785FEABCD123 with error: Reading is not permitted.
+2017-08-17 18:02:35.890479+0800 test_yuedong_band[23777:5126240] setBlockOnReadValueForCharacteristic
+2017-08-17 18:02:35.890711+0800 test_yuedong_band[23777:5126240] onDidUpdateCharacteristicValueNotify c: <CBCharacteristic: 0x1c02a3f60, UUID = 00001532-1212-EFDE-1523-785FEABCD123, properties = 0x4, value = (null), notifying = NO>
+2017-08-17 18:02:35.890893+0800 test_yuedong_band[23777:5126240]  vc update vlaue : <CBCharacteristic: 0x1c02a3f60, UUID = 00001532-1212-EFDE-1523-785FEABCD123, properties = 0x4, value = (null), notifying = NO>
+2017-08-17 18:02:35.890939+0800 test_yuedong_band[23777:5126240] updateValueCharacteristicCallBack characteristic ; 00001532-1212-EFDE-1523-785FEABCD123
+2017-08-17 18:02:35.949885+0800 test_yuedong_band[23777:5126240] error didUpdateValueForCharacteristic 00001531-1212-EFDE-1523-785FEABCD123 with error: Reading is not permitted.
+2017-08-17 18:02:35.950042+0800 test_yuedong_band[23777:5126240] setBlockOnReadValueForCharacteristic
+2017-08-17 18:02:35.950317+0800 test_yuedong_band[23777:5126240] onDidUpdateCharacteristicValueNotify c: <CBCharacteristic: 0x1c02a3540, UUID = 00001531-1212-EFDE-1523-785FEABCD123, properties = 0x18, value = (null), notifying = NO>
+2017-08-17 18:02:35.952339+0800 test_yuedong_band[23777:5126240]  vc update vlaue : <CBCharacteristic: 0x1c02a3540, UUID = 00001531-1212-EFDE-1523-785FEABCD123, properties = 0x18, value = (null), notifying = NO>
+2017-08-17 18:02:35.952437+0800 test_yuedong_band[23777:5126240] updateValueCharacteristicCallBack characteristic ; 00001531-1212-EFDE-1523-785FEABCD123
+2017-08-17 18:02:36.190267+0800 test_yuedong_band[23777:5126240] >>>didUpdateNotificationStateForCharacteristic
+2017-08-17 18:02:36.190592+0800 test_yuedong_band[23777:5126240] >>>uuid:FFF7,isNotifying:isNotifying
+2017-08-17 18:02:36.190849+0800 test_yuedong_band[23777:5126240] onDidUpdateNotificaitonStateForCharacteristicNotify :
+2017-08-17 18:02:36.250489+0800 test_yuedong_band[23777:5126240] setBlockOnReadValueForCharacteristic
+2017-08-17 18:02:36.251059+0800 test_yuedong_band[23777:5126240] onDidUpdateCharacteristicValueNotify c: <CBCharacteristic: 0x1c42a6d20, UUID = FFF1, properties = 0xA, value = <00>, notifying = NO>
+2017-08-17 18:02:36.251518+0800 test_yuedong_band[23777:5126240]  vc update vlaue : <CBCharacteristic: 0x1c42a6d20, UUID = FFF1, properties = 0xA, value = <00>, notifying = NO>
+2017-08-17 18:02:36.252021+0800 test_yuedong_band[23777:5126240] updateValueCharacteristicCallBack characteristic ; FFF1
+2017-08-17 18:02:36.310378+0800 test_yuedong_band[23777:5126240] setBlockOnReadValueForCharacteristic
+2017-08-17 18:02:36.310853+0800 test_yuedong_band[23777:5126240] onDidUpdateCharacteristicValueNotify c: <CBCharacteristic: 0x1c42a6e40, UUID = FFF2, properties = 0x2, value = <00>, notifying = NO>
+2017-08-17 18:02:36.311326+0800 test_yuedong_band[23777:5126240]  vc update vlaue : <CBCharacteristic: 0x1c42a6e40, UUID = FFF2, properties = 0x2, value = <00>, notifying = NO>
+2017-08-17 18:02:36.311842+0800 test_yuedong_band[23777:5126240] updateValueCharacteristicCallBack characteristic ; FFF2
+2017-08-17 18:02:36.370383+0800 test_yuedong_band[23777:5126240] setBlockOnReadValueForCharacteristic
+2017-08-17 18:02:36.370796+0800 test_yuedong_band[23777:5126240] onDidUpdateCharacteristicValueNotify c: <CBCharacteristic: 0x1c42a6f00, UUID = FFF3, properties = 0x8, value = <00>, notifying = NO>
+2017-08-17 18:02:36.371466+0800 test_yuedong_band[23777:5126240]  vc update vlaue : <CBCharacteristic: 0x1c42a6f00, UUID = FFF3, properties = 0x8, value = <00>, notifying = NO>
+2017-08-17 18:02:36.371821+0800 test_yuedong_band[23777:5126240] updateValueCharacteristicCallBack characteristic ; FFF3
+2017-08-17 18:02:36.430483+0800 test_yuedong_band[23777:5126240] setBlockOnReadValueForCharacteristic
+2017-08-17 18:02:36.430931+0800 test_yuedong_band[23777:5126240] onDidUpdateCharacteristicValueNotify c: <CBCharacteristic: 0x1c42a0b40, UUID = FFF4, properties = 0x10, value = <00>, notifying = NO>
+2017-08-17 18:02:36.431555+0800 test_yuedong_band[23777:5126240]  vc update vlaue : <CBCharacteristic: 0x1c42a0b40, UUID = FFF4, properties = 0x10, value = <00>, notifying = NO>
+2017-08-17 18:02:36.431870+0800 test_yuedong_band[23777:5126240] updateValueCharacteristicCallBack characteristic ; FFF4
+2017-08-17 18:02:36.490346+0800 test_yuedong_band[23777:5126240] setBlockOnReadValueForCharacteristic
+2017-08-17 18:02:36.490758+0800 test_yuedong_band[23777:5126240] onDidUpdateCharacteristicValueNotify c: <CBCharacteristic: 0x1c02a0600, UUID = FFF5, properties = 0x2, value = <00>, notifying = NO>
+2017-08-17 18:02:36.491292+0800 test_yuedong_band[23777:5126240]  vc update vlaue : <CBCharacteristic: 0x1c02a0600, UUID = FFF5, properties = 0x2, value = <00>, notifying = NO>
+2017-08-17 18:02:36.491656+0800 test_yuedong_band[23777:5126240] updateValueCharacteristicCallBack characteristic ; FFF5
+2017-08-17 18:02:36.551137+0800 test_yuedong_band[23777:5126240] setBlockOnReadValueForCharacteristic
+2017-08-17 18:02:36.551547+0800 test_yuedong_band[23777:5126240] onDidUpdateCharacteristicValueNotify c: <CBCharacteristic: 0x1c02a4860, UUID = FFF6, properties = 0xA, value = <46000000 00000000 00000000 00000046>, notifying = NO>
+2017-08-17 18:02:36.552423+0800 test_yuedong_band[23777:5126240]  vc update vlaue : <CBCharacteristic: 0x1c02a4860, UUID = FFF6, properties = 0xA, value = <46000000 00000000 00000000 00000046>, notifying = NO>
+2017-08-17 18:02:36.553258+0800 test_yuedong_band[23777:5126240] updateValueCharacteristicCallBack characteristic ; FFF6
+2017-08-17 18:02:36.610158+0800 test_yuedong_band[23777:5126240] 设置通知成功
+2017-08-17 18:02:45.487353+0800 test_yuedong_band[23777:5126240] 设置通知成功
+2017-08-17 18:02:48.383659+0800 test_yuedong_band[23777:5126240] 设置通知成功
+2017-08-17 18:02:48.384136+0800 test_yuedong_band[23777:5126240] 设置通知成功
+2017-08-17 18:02:48.384796+0800 test_yuedong_band[23777:5126240] 设置通知成功
+2017-08-17 18:02:48.385324+0800 test_yuedong_band[23777:5126240] 设置通知成功
+2017-08-17 18:02:48.385766+0800 test_yuedong_band[23777:5126240] 设置通知成功
+2017-08-17 18:02:48.386355+0800 test_yuedong_band[23777:5126240] 设置通知成功
