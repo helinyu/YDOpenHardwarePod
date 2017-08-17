@@ -92,7 +92,7 @@
 
          function connectAlert() {
             log('connectAlert');
-            var bytes = "36 01 00 00 00 00 00 00 00 00 00 00 00 00 00";
+            var bytes = "36 01 00 00 00 00 00 00 00 00 00 00 00 00 00 37";
             var resquests = {'value':bytes,'log':'js->oc链接警告'};
             bridge.callHandler('onWriteDatasClickByDictionay', resquests, function(response){
                 log('response '+ response);
@@ -116,14 +116,7 @@
         };
 
         function readMacAddress() {
-            log('readMacAddress');
-                // Byte data[] = {0x22, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x22};
-            var datas = "22 00 00 00 00 00 00 00 00 00 00 00 00 00 00 22";
-            var requests = {'value':datas,'log':'js->oc ios mac Address'};
-            bridge.callHandler('onWriteDatasClickByDictionay', requests, function(response){
-                
-            });
-        };
+         };
 
         function writeStepTarget() {
             log('writeStepTarget');

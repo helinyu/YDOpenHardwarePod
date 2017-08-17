@@ -92,13 +92,8 @@
 // 上面这两个方法使用一个的方法就好，一个是有services 一个是service 只是返回链接是否成功onConnectPeripheralResultBack
         bridge.registerHandler('onServicesResultBack',function(data,responseCallback) {
             log('services count : '+data.length);
-                // connectAlert();
-                // setSystemTime();
-                // startRealtimeStep();
-                // readMacAddress();
-                // writeStepTarget();
-                // bandSync();
-                responseCallback({'toLink':'YDPeripheralDetail.html'});            
+                var toLink = "YDPeripheralDetail.html";
+                responseCallback({'toLink':toLink});            
          });        
                                  
         // 点击html的按钮时间

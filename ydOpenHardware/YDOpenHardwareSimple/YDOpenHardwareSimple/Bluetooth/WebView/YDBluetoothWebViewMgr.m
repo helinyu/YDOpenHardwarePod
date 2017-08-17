@@ -26,7 +26,7 @@
 
 //test
 #import "YDBluetoothWebViewMgr+Extension.h"
-
+#import "YDBluetoothWebViewMgr+ReadDatas.h"
 
 @interface YDBluetoothWebViewMgr ()
 
@@ -58,6 +58,9 @@
 @property (nonatomic, strong) CBCharacteristic *readCharacteristic;
 @property (nonatomic, strong) NSMutableArray *mCharacteristics;
 
+//need write datas
+@property (nonatomic, strong) NSMutableArray<NSData *> *needWriteDatas;
+
 @end
 
 @implementation YDBluetoothWebViewMgr
@@ -86,6 +89,7 @@
 
 - (void)__baseInit {
     _mCharacteristics = @[].mutableCopy;
+    _needWriteDatas = @[].mutableCopy;
 }
 
 - (void)__addNotify{
@@ -179,13 +183,15 @@
     
 }
 
-
-
 - (void)startScanThenSourcesCallback:(void(^)(NSArray *peirpherals))callback {
     _btMgr.scanCallBack = ^(NSArray<CBPeripheral *> *peripherals) {
         !callback?:callback(peripherals);
     };
     _btMgr.startScan();
+}
+
+- (void)reConnectLastPeripherl {
+    
 }
 
 - (void)registerHandlersWithType:(NSUInteger)type {
@@ -444,6 +450,7 @@
         [self.choicePeripheal writeValue:datas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
     }else{
         NSLog(@"写数据失败");
+        [_needWriteDatas addObject:datas];
     }
 }
 
@@ -462,6 +469,18 @@
 //            }
         }
      };
+}
+
+// 写入那些需要写的数据而没有写的数据
+- (void)__writeNeedWrittenDatas {
+    if (_needWriteDatas.count == 0) {
+        return;
+    }
+    
+    for (NSData *data in _needWriteDatas) {
+        [self writeDatas:data];
+        [_needWriteDatas removeObject:data];
+    }
 }
 
 - (void)isWriteCharacteristicWithC:(CBCharacteristic *)c UUIDString:(NSString *)uuidString {
@@ -594,9 +613,14 @@
     }];
 }
 
+#pragma mark -- did updaet characteristic
+
 - (void)onDidUpdateCharacteristicValueNotify:(NSNotification *)notificaiton {
     CBCharacteristic *c = notificaiton.object;
     NSLog(@"onDidUpdateCharacteristicValueNotify c: %@",c);
+#warning  for test
+    [self readByteWithData:c.value];
+//    for test
     NSDictionary *jsonObj = [c convertToDictionary];
     [_webViewBridge callHandler:@"onDidUpdateCharacteristicValueNotify" data:jsonObj responseCallback:^(id responseData) {
         NSLog(@"notificaiton response characteristic value : %@",responseData);
