@@ -7,21 +7,68 @@
 //
 
 #import "YDBluetoothWebViewMgr+Extension.h"
+#import "WebViewJavascriptBridge.h"
+#import "NSData+YDConversion.h"
 
 @implementation YDBluetoothWebViewMgr (Extension)
 
-//- (void)onAlarmClicked {
-//    [self transferMotorSignalWithTimeLength:10];
-//}
-//
-////查找丢失的手环
-//- (void)transferMotorSignalWithTimeLength:(NSInteger)timeLength{
-////    Byte crc = (0x36 + (Byte)timeLength) & 0xFF;
-//    Byte data[] = { 0x36, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x40};
-//    NSData *data0 = [[NSData alloc] initWithBytes:data length:16];
-////    [self writeDataWithByte:data0];
-//    [self writeDatas:data0];
-//}
+- (void)registerExtension {
+    NSLog(@"注册额外的内容");
+    
+    //    for test yuedong own band
+    __weak typeof (self) wSelf = self;
+    
+    [self.webViewBridge registerHandler:@"onWriteDatasWithHeader" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"log : %@",[data objectForKey:@"log"]);
+        NSString *value = [data objectForKey:@"value"];
+        Byte headerV = (Byte)[[data objectForKey:@"header"] integerValue];
+        if (value.length <= 0) {
+            NSLog(@"解析之后传入value是空");
+            return;
+        }
+        NSData *contentDatas = [NSData dataWithHexString:value];
+        [self writeByteWithHeader:headerV andData:contentDatas];
+    }];
+    
+    [self.webViewBridge registerHandler:@"setSystemTime" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"set system time : %@",data);
+        [wSelf setSystemTime];
+    }];
+    
+    [self.webViewBridge registerHandler:@"writeStepTarget" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"write step traget : %@",data);
+        [wSelf writeStepTarget];
+    }];
+    
+    [self.webViewBridge registerHandler:@"testAlarmPhone" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"test alarm phoen %@",data);
+        [wSelf testAlarmPhone];
+    }];
+}
+
+- (void)testAlarmPhone {
+    Byte header = (Byte) 0x85;
+    Byte data[] = {0x01, 0X01, 0X01};
+    NSData *data0 = [[NSData alloc] initWithBytes:data length:3];
+    [self writeByteWithHeader:header andData:data0];
+    
+    Byte data1[] = {0x02, 0X02};
+    NSData *data10 = [[NSData alloc] initWithBytes:data1 length:2];
+    [self writeByteWithHeader:header andData:data10];
+}
+
+- (void)onAlarmClicked {
+    [self transferMotorSignalWithTimeLength:10];
+}
+
+//查找丢失的手环
+- (void)transferMotorSignalWithTimeLength:(NSInteger)timeLength{
+//    Byte crc = (0x36 + (Byte)timeLength) & 0xFF;
+    Byte data[] = { 0x36, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x40};
+    NSData *data0 = [[NSData alloc] initWithBytes:data length:16];
+//    [self writeDataWithByte:data0];
+    [self writeDatas:data0];
+}
 
 -(void)writeByteWithHeader:(Byte)header andData:(NSData *)data
 {
@@ -101,6 +148,97 @@ Boolean isCheckSumValid(Byte *rcvBuff, NSInteger rcvBuffLength) {
     }
     NSData *dData = [[NSData alloc]initWithBytes:d length:count];
     return dData;
+}
+
+//for test my band tools
+
+- (void)setSystemTime
+{
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        //        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        //        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+        [dateFormatter setDateFormat:@"yy:MM:dd:HH:mm:ss"];
+        NSDate *today = [NSDate date];
+        NSString *str=[dateFormatter stringFromDate:today];
+        NSArray *arr=[str componentsSeparatedByString:@":"];
+        if (arr.count == 6) {
+            int year0 = ((NSString *)arr[0]).intValue;
+            int month0 = ((NSString *)arr[1]).intValue;
+            int day0 = ((NSString *)arr[2]).intValue;
+            int hour0 = ((NSString *)arr[3]).intValue;
+            int min0 = ((NSString *)arr[4]).intValue;
+            int sec0 = ((NSString *)arr[5]).intValue;
+            
+            Byte year1 = (Byte)(year0/10) << 4;
+            Byte year2 = (Byte)(year0%10);
+            Byte year = year1 + year2;
+            
+            Byte month1 = (Byte)(month0/10) << 4;
+            Byte month2 = (Byte)(month0%10);
+            Byte month = month1 + month2;
+            
+            Byte day1 = (Byte)(day0/10) << 4;
+            Byte day2 = (Byte)(day0%10);
+            Byte day = day1 + day2;
+            
+            Byte hour1 = (Byte)(hour0/10) << 4;
+            Byte hour2 = (Byte)(hour0%10);
+            Byte hour = hour1 + hour2;
+            
+            Byte min1 = (Byte)(min0/10) << 4;
+            Byte min2 = (Byte)(min0%10);
+            Byte min = min1 + min2;
+            
+            Byte sec1 = (Byte)(sec0/10) << 4;
+            Byte sec2 = (Byte)(sec0%10);
+            Byte sec = sec1 + sec2;
+            
+            [self setTimeWithYear:year andMonth:month andDay:day andHour:hour andMin:min andSec:sec];
+        }
+}
+
+- (void)setTimeWithYear:(Byte)year
+               andMonth:(Byte)month
+                 andDay:(Byte)day
+                andHour:(Byte)hour
+                 andMin:(Byte)min
+                 andSec:(Byte)sec
+{
+    Byte crc0 = 0x01 + year + month + day + hour + min + sec;
+    Byte crc1 = crc0 & 0xFF;
+    
+    Byte data[] = { 0x01, year, month, day, hour, min, sec,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,crc1};
+    NSData *data0 = [[NSData alloc] initWithBytes:data length:16];
+    [self writeDatas:data0];
+}
+
+
+//test for target write step
+- (void)setStepTargetWithStep:(NSInteger)step andRewardStep:(NSInteger)rewardStep{
+    Byte AA = (step & 0xFF0000) >> 16;
+    Byte BB = (step & 0x00FF00) >> 8;
+    Byte CC = (step & 0x0000FF);
+    
+    Byte DD = (rewardStep & 0xFF0000) >> 16;
+    Byte EE = (rewardStep & 0x00FF00) >> 8;
+    Byte FF = (rewardStep & 0x0000FF);
+    
+    Byte crc = (0x0B + AA + BB + CC + DD + EE + FF) & 0xFF;
+    Byte data[] = { 0x0B, AA, BB, CC, DD, EE, FF,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,crc};
+    NSData *data0 = [[NSData alloc] initWithBytes:data length:16];
+    [self writeDatas:data0];
+}
+
+- (void)writeStepTarget{
+//    _stepTarget = [NSNumber numberWithInteger:10000];
+//        [[NSUserDefaults standardUserDefaults] setObject:_stepTarget forKey:STEP_TARGET_DAY];
+//    }
+//    NSNumber *_rewardAimStep = [[NSUserDefaults standardUserDefaults] objectForKey:@"day_aim_step"];
+//    if (_rewardAimStep == nil) {
+//        _rewardAimStep = [NSNumber numberWithInteger:10000];
+//    }
+//默认是10000步数 时间：86400s 一天
+    [self setStepTargetWithStep:5000 andRewardStep:86400];
 }
 
 @end

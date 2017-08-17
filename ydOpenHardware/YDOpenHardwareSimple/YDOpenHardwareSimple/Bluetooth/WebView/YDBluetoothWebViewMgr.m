@@ -107,8 +107,10 @@
         CBCharacteristic *innerC = _mCharacteristics[index];
         if ([innerC.UUID.UUIDString isEqualToString:c.UUID.UUIDString]) {
 //            for warning
-            [_mCharacteristics removeObject:innerC];
-            [_mCharacteristics insertObject:c atIndex:index];
+//            [_mCharacteristics removeObject:innerC];
+//            [_mCharacteristics insertObject:c atIndex:index];
+            [_mCharacteristics replaceObjectAtIndex:index withObject:c];
+            break;
         }else{
             if (index == (_mCharacteristics.count -1)) {
                 [_mCharacteristics addObject:c];
@@ -188,6 +190,9 @@
 
 - (void)registerHandlersWithType:(NSUInteger)type {
     
+//    for extension business extension
+    [self registerExtension];
+    
     __weak typeof (self) wSelf = self;
     
 //    load the YDRegisterInteractiveHtmlMethods.plist register methods
@@ -260,16 +265,18 @@
 //    这个方法名也是需要加载的  （这里是触发链接&注册数据库）
     [_webViewBridge registerHandler:@"onConnectPeripheralClick" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (data) {
+//            [self loadAnotherHTMLWithDatas:data];
             _btMgr.stopScan().connectingPeripheralUuid(data);
             [wSelf.btMgr onConnectCurrentPeripheralOfBluetooth];
             wSelf.btMgr.connectionCallBack = ^(BOOL success) {
+                __strong typeof (wSelf) strongSelf = wSelf;
+                [strongSelf deliverConnectResultToHTmlWithResult:success];
                 if (success) {
-                    [wSelf registerOpenHardWareWithPeripheral:_choicePeripheal];
-                    [wSelf backDatasFromBluetooth];
+                    [strongSelf registerOpenHardWareWithPeripheral:_choicePeripheal];
+                    [strongSelf backDatasFromBluetooth];
                 }
             };
             _choicePeripheal = _btMgr.currentPeripheral;
-            [self loadAnotherHTMLWithDatas:data];
             [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal.identifier.UUIDString forKey:@"peripheralUUID"];
         }
     }];
@@ -402,15 +409,26 @@
         }
     }];
     
-//    for test
     [_webViewBridge registerHandler:@"onWriteDatasClickByDictionay" handler:^(id data, WVJBResponseCallback responseCallback) {
 //        [self onAlarmClicked];
-        [self writeDatasWithDictionay:data];
+        NSLog(@"data : %@",data);
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            [self writeDatasWithDictionay:data];
+        });
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !responseCallback?:responseCallback(@{@"flag":@(YES)});
+        });
     }];
     
 }
 
 - (void)writeDatasWithDictionay:(NSDictionary *)dic{
+    if (![dic isKindOfClass:[NSDictionary class]]) {
+        NSLog(@"传入的数据不是字典 dic; %@",dic);
+        return;
+    }
+    
     NSString *value = [dic objectForKey:@"value"];
     if (value.length <= 0) {
         [SVProgressHUD showInfoWithStatus:@"传入的value 解析之后为空"];
@@ -422,7 +440,11 @@
 }
 
 - (void)writeDatas:(NSData *)datas {
-    [self.choicePeripheal writeValue:datas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
+    if (_writeCharacteristic) {
+        [self.choicePeripheal writeValue:datas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
+    }else{
+        NSLog(@"写数据失败");
+    }
 }
 
 - (void)backDatasFromBluetooth {
@@ -435,6 +457,9 @@
         [wSelf __cacheCharacteristic:c];
         if (c.value && c.UUID) {
             [wSelf onDeliverToHtmlWithCharateristic:c];
+//            if ([c.UUID.UUIDString isEqualToString:@"FFF7"]) {
+//                [wSelf.choicePeripheal readValueForCharacteristic:c];
+//            }
         }
      };
 }
@@ -445,6 +470,13 @@
     }else{
         
     }
+}
+
+- (void)deliverConnectResultToHTmlWithResult:(BOOL)result {
+    __weak typeof (self) wSelf = self;
+    [_webViewBridge callHandler:@"onConnectPeripheralResultBack" data:@{@"result":@(result)} responseCallback:^(id responseData) {
+        [wSelf loadAnotherHTMLWithDatas:responseData];
+    }];
 }
 
 - (void)onDeliverToHtmlWithServices:(NSArray<CBService *> *)services {
@@ -564,6 +596,7 @@
 
 - (void)onDidUpdateCharacteristicValueNotify:(NSNotification *)notificaiton {
     CBCharacteristic *c = notificaiton.object;
+    NSLog(@"onDidUpdateCharacteristicValueNotify c: %@",c);
     NSDictionary *jsonObj = [c convertToDictionary];
     [_webViewBridge callHandler:@"onDidUpdateCharacteristicValueNotify" data:jsonObj responseCallback:^(id responseData) {
         NSLog(@"notificaiton response characteristic value : %@",responseData);
@@ -573,6 +606,7 @@
 - (void)onDidUpdateNotificaitonStateForCharacteristicNotify:(NSNotification *)notification {
     CBCharacteristic *c = notification.object;
     NSDictionary *jsonObj = [c convertToDictionary];
+    NSLog(@"onDidUpdateNotificaitonStateForCharacteristicNotify :");
     [_webViewBridge callHandler:@"onNotificaitonStateForCharacteristicNotify" data:jsonObj responseCallback:^(id responseData) {
         NSLog(@"notificaiton response characteristic :%@",responseData);
     }];

@@ -75,8 +75,8 @@
         }              	
 
     	var lookforAlarmBtn = document.getElementById("alarmId");
-        lookforAlarmBtn.onclick = function (){
-
+        lookforAlarmBtn.onclick = function (e){
+            alert('点击了寻找手环按钮');
             // Byte data[] = { 0x36, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x40};
             // var dataBytes = '0x360x0A0x000x000x000x000x000x000x000x000x000x000x000x000x000x40';
             var dataBytes = '36 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 40';
@@ -90,273 +90,287 @@
 // 设置消息通知
         var phoneBtn = document.getElementById('iphoneId'); 
         phoneBtn.onclick = function(e) {
-            e.preventDefault();
-            // var dataBytes = '85 '
-            var phonedatas = {85 01 01 01};
-            alert('85 01');
-            bridge.callHandler('onPhoneClick', datas ,function(response) {
+            // e.preventDefault();
+            var phoneByteString = "01 01 01";
+            var header = 0x85;
+            alert('85 01 01 01');
+            var phoneRequestParams = {'value':phoneByteString, 'header':header};
+            bridge.callHandler('onWriteDatasWithHeader', phoneRequestParams ,function(response) {
                 log('js got from oc response',response);
             });
-            alert('85 02');
-            var msgDatas = {85 02};
-            bridge.callHandler("onMsgClick", datas ,function(response) {
+
+            alert('85 02 02');
+            var msgByteString = "02 02";
+            var header = 0x85;
+            var msgRequestParams = {'value':msgByteString, 'header':header};
+            bridge.callHandler("onWriteDatasWithHeader", msgRequestParams ,function(response) {
 
             });
-        }   	
+        }  
+
+        var cancelShockNoABtn = document.getElementById('cancelShockNoAId');
+        cancelShockNoABtn.onclick = function(e) {
+            alert('点击了来电未接受取消震动');
+            var header = 0x85;
+            dataByteString = "01 02 01";
+            var requestParams = {'value':dataByteString,'header':header};
+            bridge.callHandler("onWriteDatasWithHeader", requestParams ,function(response) {
+
+            });    
+        }
+
+        var cancelShockHasABtn = document.getElementById('cancelShockHasAId');
+        cancelShockHasABtn.onclick = function(e) {
+              // Byte header = (Byte) 0x85;
+            // Byte data[] = {0x01, 0X08, 0X01};
+            alert('点击了来电接受取消震动');
+            var dataByteString = "01 08 01";
+            var header  = 0x85;
+            var requestParams = {'value':dataByteString,'header':header};
+            bridge.callHandler("onWriteDatasWithHeader", requestParams ,function(response) {
+
+            });    
+        };
+
+        var testphoneBtn = document.getElementById('testphoneId');
+            testphoneBtn.onclick = function(e) {
+              // Byte header = (Byte) 0x85;
+            // Byte data[] = {0x01, 0X08, 0X01};
+            alert('testphoneBtn');
+         
+            var requestParams = {};
+            bridge.callHandler("testAlarmPhone", requestParams ,function(response) {
+
+            });    
+        };
 
         var phoneContentBtn = document.getElementById('iphoneContentId');
-        phoneContentBtn.onclick = function(e) {
-            var phoneContentDatas = {};
-            bridge.callHandler('onPhoneContentClick',phoneContentDatas,function(response) {
+            phoneContentBtn.onclick = function(e) {
+            var requestParams = {};
+            bridge.callHandler('onWriteDatasWithHeader',requestParams,function(response) {
 
             });          
         };
-        // 0x 81 可以获取到数据，这个是在后面的数据里面 。 （读取应该需要灵活性，应该是需要进行读取的）
 
+      //   // 0x 81 可以获取到数据，这个是在后面的数据里面 。 （读取应该需要灵活性，应该是需要进行读取的）
+        //  闹钟的读取内容
         var alarmClockBtn = document.getElementById('alarmClockId');
         alarmClockBtn.onclick = function(e) {
-            var alarmClockDatas = {};
-            bridge.callHander('');
-        }
-
-        //不同历史请求
-        var requestSyncBtn = document.getElementById('requestSyncId');
-        requestSyncBtn.onclick = function(e) {
-            var requestSyncDatas = {09 01};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
+            var requestParams = {};
+            bridge.callHander('onClockClick',function(responseData) {
+                
             });
         }
 
-        var syncFailureBtn = document.getElementById('syncFailureId');
-        syncFailureBtn.onclick = function(e) {
-            var syncFailureDatas = {09 02 00};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      // //   //不同历史请求
+      //   var requestSyncBtn = document.getElementById('requestSyncId');
+      //   requestSyncBtn.onclick = function(e) {
+      //       var requestSyncDatas = "09 01";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }
 
-            });
-        }        
+      //   var syncFailureBtn = document.getElementById('syncFailureId');
+      //   syncFailureBtn.onclick = function(e) {
+      //       var syncFailureDatas = "09 02 00";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }        
 
+      //  var syncSuccessBtn = document.getElementById('syncSuccessId');
+      //   syncSuccessBtn.onclick = function(e) {
+      //       var requestSyncDatas = "09 02 01";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }       
 
-       var syncSuccessBtn = document.getElementById('syncSuccessId');
-        syncSuccessBtn.onclick = function(e) {
-            var requestSyncDatas = {09 02 01};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });
-        }       
-
-       var syncNoneDatasBtn = document.getElementById('syncNoneDatasId');
-        syncNoneDatasBtn.onclick = function(e) {
-            var requestSyncDatas = {09 80 00 00};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });
-        }  
+      //  var syncNoneDatasBtn = document.getElementById('syncNoneDatasId');
+      //   syncNoneDatasBtn.onclick = function(e) {
+      //       var requestSyncDatas = "09 80 00 00";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }  
          
-       var syncNoneDatasBtn = document.getElementById('syncNoneDatasId');
-        syncNoneDatasBtn.onclick = function(e) {
-            var requestSyncDatas = {09 80 00 00};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //  var syncNoneDatasBtn = document.getElementById('syncNoneDatasId');
+      //   syncNoneDatasBtn.onclick = function(e) {
+      //       var requestSyncDatas = "09 80 00 00";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }  
 
-            });
-        }  
+      //   var syncTimeBtn = document.getElementById('syncTimeId');
+      //   syncTimeBtn.onclick = function(e) {
+      //       // 设置时间
+      //       var requestSyncDatas = "09 81 00 01 02 03 04 05 06 07 08";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };  
 
-        var syncTimeBtn = document.getElementById('syncTimeId');
-        syncTimeBtn.onclick = function(e) {
-            // 设置时间
-            var requestSyncDatas = {09 81 00 01 02 03 04 05 06 07 08};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //   var synUploadBtn = document.getElementById('synUploadId');
+      //   synUploadBtn.onclick = function(e) {
+      //       // 上传数据包
+      //       var requestSyncDatas = "09 81 00 01 02 03 04 05 06 07 08 09";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }; 
 
-            });
-        };  
-
-        var synUploadBtn = document.getElementById('synUploadId');
-        synUploadBtn.onclick = function(e) {
-            // 上传数据包
-            var requestSyncDatas = {09 81 00 01 02 03 04 05 06 07 08 09};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });
-        }; 
-
-        var syncEndBtn document.getElementById('syncEndId');
-        syncEndBtn.onclick = function(e) {
-            // 上传数据包
-            var requestSyncDatas = {09 83 11 11};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });
-        }; 
+      //   var syncEndBtn document.getElementById('syncEndId');
+      //   syncEndBtn.onclick = function(e) {
+      //       // 上传数据包
+      //       var requestSyncDatas = "09 83 11 11";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }; 
         
-        // 个人信息
-        var personInfoBtn document.getElementById('personInfoId');
-        personInfoBtn.onclick = function(e) {
-            // 上传数据包 0b 01 7个数据字节
-            var requestSyncDatas = {0B  01 00 01 02 03 04 05 06};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      // //   // 个人信息
+      //   var personInfoBtn document.getElementById('personInfoId');
+      //   personInfoBtn.onclick = function(e) {
+      //       // 上传数据包 0b 01 7个数据字节
+      //       var requestSyncDatas = "0B  01 00 01 02 03 04 05 06";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }; 
 
-            });
-        }; 
-
-        var nameBtn = document.getElementById('nameId');
-        nameBtn.onclick = function(e) {
-            // 上传数据包 0b 01 1~12个数据字节
-            var requestSyncDatas = {0B  01 00 01 02 03 04 05 06};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });
-        }; 
+      //   var nameBtn = document.getElementById('nameId');
+      //   nameBtn.onclick = function(e) {
+      //       // 上传数据包 0b 01 1~12个数据字节
+      //       var requestSyncDatas = "0B  01 00 01 02 03 04 05 06";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }; 
        
-        var languageBtn = document.getElementById('languageId');
-        nameBtn.onclick = function(e) {
-            // 上传数据包 0b 02 1个数据字节 （00 英语； 01 中文）
-            var requestSyncDatas = {0B  01 01};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //   var languageBtn = document.getElementById('languageId');
+      //   nameBtn.onclick = function(e) {
+      //       // 上传数据包 0b 02 1个数据字节 （00 英语； 01 中文）
+      //       var requestSyncDatas = "0B  01 01";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
 
-            });
-        };
+      //   var RestoreFactorySettingsBtn = document.getElementById('RestoreFactorySettingsId');
+      //   RestoreFactorySettingsBtn.onclick = function(e) {
+      //       // 上传数据包 0b 04 
+      //       var requestSyncDatas = "0B 04";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
 
-        var RestoreFactorySettingsBtn = document.getElementById('RestoreFactorySettingsId');
-        RestoreFactorySettingsBtn.onclick = function(e) {
-            // 上传数据包 0b 04 
-            var requestSyncDatas = {0B 04};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //   var personInfoBtn = document.getElementById('personInfoId');
+      //   personInfoBtn.onclick = function(e) {
+      //       var requestSyncDatas = "0B 05";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
 
-            });
-        };
+      //   var setNameBtn = document.getElementById('setNameId');
+      //   setNameBtn.onclick = function(e) {
+      //       var requestSyncDatas = "0B 06";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
 
-        var personInfoBtn = document.getElementById('personInfoId');
-        personInfoBtn.onclick = function(e) {
-            var requestSyncDatas = {0B 05};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //   var RestoreFactorySettingsBtn= document.getElementById('RestoreFactorySettingsId');
+      //   RestoreFactorySettingsBtn.onclick = function(e) {
+      //       // 上传数据包 0b 04 
+      //       var requestSyncDatas = "0B 07";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
 
-            });
-        };
+      //   var readPersonInfoBtn= document.getElementById('readPersonInfoId');
+      //   readPersonInfoBtn.onclick = function(e) {
+      //       // 上传数据包 0b 04 
+      //       var requestSyncDatas = "0B 81";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
 
-        var setNameBtn = document.getElementById('setNameId');
-        setNameBtn.onclick = function(e) {
-            var requestSyncDatas = {0B 06};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //  var readBlePersonBTn= document.getElementById('readBlePersonName');
+      //   readBlePersonBTn.onclick = function(e) {
+      //       // 上传数据包 0b 04 
+      //       var requestSyncDatas = "0B 82";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
+// 
+      // var readBleLanguageBtn= document.getElementById('readBleLanguage');
+      //   readBleLanguageBtn.onclick = function(e) {
+      //       // 上传数据包 0b 04 
+      //       var requestSyncDatas = "0B 83";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
 
-            });
-        };
+      //   var bleToMacAddressBtn = document.getElementById('bleToMacAddressId');
+      //   readBleLanguageBtn.onclick = function(e) {
+      //       var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
 
+      //   var isNotBoundBtn = document.getElementById('isNotSupportBoundId');
+      //   isNotBoundBtn.onclick = function(e) {
+      //       var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });    
+      //   };
+// 
+        // var isBoundBtn = document.getElementById('isNotSupportBoundId');
+        // isBoundBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
 
-        var RestoreFactorySettingsBtn= document.getElementById('RestoreFactorySettingsId');
-        RestoreFactorySettingsBtn.onclick = function(e) {
-            // 上传数据包 0b 04 
-            var requestSyncDatas = {0B 07};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };
 
-            });
-        };
+        // var appreadBleDeviceBtn = document.getElementById('appreadBleDeviceID');
+        // appreadBleDeviceBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };
 
-        var readPersonInfoBtn= document.getElementById('readPersonInfoId');
-        readPersonInfoBtn.onclick = function(e) {
-            // 上传数据包 0b 04 
-            var requestSyncDatas = {0B 81};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        // var bleUploadVersionInfoBtn = document.getElementById('bleUploadVersionInfoId');
+        // bleUploadVersionInfoBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };
 
-            });
-        };
+        // var bleUploadProductInfoBtn = document.getElementById('bleUploadProductInfoId');
+        // bleUploadProductInfoBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };
 
-       var readBlePersonBTn= document.getElementById('readBlePersonName');
-        readBlePersonBTn.onclick = function(e) {
-            // 上传数据包 0b 04 
-            var requestSyncDatas = {0B 82};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        // var blueUploadSerialNumberBtn = document.getElementById('blueUploadSerialNumber');
+        // blueUploadSerialNumberBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };
 
-            });
-        };
-
-      var readBleLanguageBtn= document.getElementById('readBleLanguage');
-        readBleLanguageBtn.onclick = function(e) {
-            // 上传数据包 0b 04 
-            var requestSyncDatas = {0B 83};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });
-        };
-
-        var bleToMacAddressBtn = document.getElementById('bleToMacAddressId');
-        readBleLanguageBtn.onclick = function(e) {
-            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });
-        };
-
-        var isNotBoundBtn = document.getElementById('isNotSupportBoundId');
-        isNotBoundBtn.onclick = function(e) {
-            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });    
-        };
-
-        var isBoundBtn = document.getElementById('isNotSupportBoundId');
-        isBoundBtn.onclick = function(e) {
-            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });    
-        };
-
-        var appreadBleDeviceBtn = document.getElementById('appreadBleDeviceID');
-        appreadBleDeviceBtn.onclick = function(e) {
-            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });    
-        };
-
-        var bleUploadVersionInfoBtn = document.getElementById('bleUploadVersionInfoId');
-        bleUploadVersionInfoBtn.onclick = function(e) {
-            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });    
-        };
-
-        var bleUploadProductInfoBtn = document.getElementById('bleUploadProductInfoId');
-        bleUploadProductInfoBtn.onclick = function(e) {
-            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });    
-        };
-
-        var blueUploadSerialNumberBtn = document.getElementById('blueUploadSerialNumber');
-        blueUploadSerialNumberBtn.onclick = function(e) {
-            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });    
-        };
-
-        var setBatteryBtn = document.getElementById('setBatteryId');
-        setBatteryBtn.onclick = function(e) {
-            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });    
-        };
+        // var setBatteryBtn = document.getElementById('setBatteryId');
+        // setBatteryBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };
         
-        var bleUploadBatteryBtn = document.getElementById('bleUploadBatteryId');
-        bleUploadBatteryBtn.onclick = function(e) {
-            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });    
-        };         
-
-        var firmwareUpdateBtn = document.getElementById('firmwareUpdateId');
-        firmwareUpdateBtn.onclick = function(e) {
-            var requestSyncDatas = {01 a1 a2 a3 a4 a5 a6};
-            bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-
-            });    
-        };   
+        // var bleUploadBatteryBtn = document.getElementById('bleUploadBatteryId');
+        // bleUploadBatteryBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };         
+// 
+        // var firmwareUpdateBtn = document.getElementById('firmwareUpdateId');
+        // firmwareUpdateBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };   
 
      });
 
@@ -367,13 +381,20 @@
        <br/><br/>
        <button id="alarmId">寻找我的手环</button>
        <br/>
+       下面的来电提示应该是需要设备绑定
        <button id="iphoneId">设置来电提示</button>
+       <button id="cancelShockNoAId">来电未接取消震动</button>
+       <button id="cancelShockHasAId">来电已接取消震动</button>
+       <br/>
+       <button id="testphoneId"> 测试手机来电按钮</button>
+
        <br/>
        <button id="iphoneContentId">设置来电提醒具体内容</button>
        <br/>
        <button id="alarmClockId">设置闹钟</button>
 
        <hr/>
+
        设置历史数据同步计步、睡眠
        <hr/>
        <button id="requestSyncId">发起同步请求</button>
@@ -424,7 +445,6 @@
            固件升级
        <hr/>
        <button id="firmwareUpdateId">固件升级</button>
-
        <hr/>
 
     </body>

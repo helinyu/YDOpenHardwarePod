@@ -74,6 +74,12 @@
                 var datas = {'uuid':data.uuid};
                 bridge.callHandler('writeCharacteristicWithUUIDString', datas, function(response) {
                     log('设置读取的charcteristic' + response);
+                    connectAlert();
+                    setSystemTime();
+                    startRealtimeStep();
+                    readMacAddress();
+                    writeStepTarget();
+                    bandSync();                    
                 });
             }
 
@@ -83,6 +89,61 @@
                     log('设置阅读的characteristic' + response);
                 });
             }
+
+         function connectAlert() {
+            log('connectAlert');
+            var bytes = "36 01 00 00 00 00 00 00 00 00 00 00 00 00 00";
+            var resquests = {'value':bytes,'log':'js->oc链接警告'};
+            bridge.callHandler('onWriteDatasClickByDictionay', resquests, function(response){
+                log('response '+ response);
+            });
+        };
+
+       function setSystemTime() {
+            log('setSystemTime');
+            var datas = {'log':'js->oc设置了系统时间'};
+            bridge.callHandler('setSystemTime', datas, function(response){
+            });            
+        };
+
+        function startRealtimeStep() {
+            log('startRealtimeStep');
+            var bytes = "09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 09";
+            var resquests = {'value':bytes,'log':'js->oc 开始真实的时间步数'};
+            bridge.callHandler('onWriteDatasClickByDictionay', resquests, function(response){
+                
+            });
+        };
+
+        function readMacAddress() {
+            log('readMacAddress');
+                // Byte data[] = {0x22, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x22};
+            var datas = "22 00 00 00 00 00 00 00 00 00 00 00 00 00 00 22";
+            var requests = {'value':datas,'log':'js->oc ios mac Address'};
+            bridge.callHandler('onWriteDatasClickByDictionay', requests, function(response){
+                
+            });
+        };
+
+        function writeStepTarget() {
+            log('writeStepTarget');
+            var requests = {'log':'写如步数目标'};
+            bridge.callHandler('writeStepTarget', requests, function(response){
+                
+            });        
+        };
+
+        function bandSync() {
+            log('bandSync');
+                // Byte data[] = { 0x46, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x46};
+            var datas = "46 00 00 00 00 00 00 00 00 00 00 00 00 00 00 46";
+            var requests = {'log':'绑定同步','value':datas};
+            log('request');
+            bridge.callHandler('onWriteDatasClickByDictionay', requests, function(response){
+                log(' js from oc response : %@',response);
+                
+            });            
+        };                
 
         });
 

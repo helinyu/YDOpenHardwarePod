@@ -14,14 +14,14 @@
 
 typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
     YDBlueToothFilterTypeNone = 0,
-    YDBlueToothFilterTypeMatch,  // match to filter and find the specify device
-    YDBlueToothFilterTypeContain,    // contain the keyword to filter and find the specify device
-    YDBlueToothFilterTypePrefix,     // key word by the prefix
-    YDBlueToothFilterTypeSuffix,     // key word by the suffix
-    YDBlueToothFilterTypePrefixAndSuffix, // key word by the prefix & suffix
-    YDBlueToothFilterTypePrefixAndContain, // key word by the prefix & contain
-    YDBlueToothFilterTypeSuffixAndContrain, // key word by the suffix & contain
-    YDBlueToothFilterTypePrefixAndContrainAndSuffix, //key word by the prefix & contrain * suffix
+    YDBlueToothFilterTypeMatch =1,  // match to filter and find the specify device
+    YDBlueToothFilterTypeContain =2,    // contain the keyword to filter and find the specify device
+    YDBlueToothFilterTypePrefix =3,     // key word by the prefix
+    YDBlueToothFilterTypeSuffix =4,     // key word by the suffix
+    YDBlueToothFilterTypePrefixAndSuffix =5, // key word by the prefix & suffix
+    YDBlueToothFilterTypePrefixAndContain =6, // key word by the prefix & contain
+    YDBlueToothFilterTypeSuffixAndContrain =7, // key word by the suffix & contain
+    YDBlueToothFilterTypePrefixAndContrainAndSuffix =8, //key word by the prefix & contrain * suffix
 };
 
 @interface YDBlueToothMgr : NSObject

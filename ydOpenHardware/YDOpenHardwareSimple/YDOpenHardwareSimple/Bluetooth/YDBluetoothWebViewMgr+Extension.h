@@ -11,4 +11,9 @@
 @interface YDBluetoothWebViewMgr (Extension)
 
 - (void)onAlarmClicked;
+
+- (void)registerExtension;
+
+-(void)writeByteWithHeader:(Byte)header andData:(NSData *)datas;
+
 @end

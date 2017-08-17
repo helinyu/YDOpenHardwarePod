@@ -73,12 +73,33 @@
             responseCallback(responseData);
         });      
 
-         bridge.registerHandler('onServicesResultBack',function(data,responseCallback) {
+
+        bridge.registerHandler('onConnectPeripheralResultBack', function(data,responseCallback) {
+            // log('connect peripheral result ' + data);
+            // json 对象要转化 可以转化为json字符串 
+            var stringDatas = JSON.stringify(data);
+            // 获取一个数据，直接 . 来获取
+            log('string datas ' + stringDatas);
+            var result = data.result;
+            log('result is : ' + result);                
+            if (result == true) {
+                alert("数据返回正确");
+            }
+            if (result == false) {
+            }
+        });
+
+// 上面这两个方法使用一个的方法就好，一个是有services 一个是service 只是返回链接是否成功onConnectPeripheralResultBack
+        bridge.registerHandler('onServicesResultBack',function(data,responseCallback) {
             log('services count : '+data.length);
-            responseCallback({'toLink':'YDPeripheralDetail.html'});
-         });
-
-
+                // connectAlert();
+                // setSystemTime();
+                // startRealtimeStep();
+                // readMacAddress();
+                // writeStepTarget();
+                // bandSync();
+                responseCallback({'toLink':'YDPeripheralDetail.html'});            
+         });        
                                  
         // 点击html的按钮时间
         document.onclick=mouseClick;
@@ -88,7 +109,7 @@
                 var eId = e.target.id;
                 if (eId == "scanBtnId") {
                 	log('开始扫描');
-	             	var scanParams = {'YDBlueToothFilterType':0};
+	             	var scanParams = {'YDBlueToothFilterType':3,'prefixField':'RUN'};
                 	bridge.callHandler('onScanClick', scanParams, function(response) {
                 		log('js got oc response' + reponse);
                 	});
@@ -103,11 +124,13 @@
                  var idValue = window.event.srcElement.id;
                  log(idValue + 'idValue');
             }
-        }
+        };
+ 
      });
 
     </script>
     <button id="scanBtnId">开始扫描蓝牙</button>
+    <br/>
     <hr/>
         蓝牙列表
     <hr/>
