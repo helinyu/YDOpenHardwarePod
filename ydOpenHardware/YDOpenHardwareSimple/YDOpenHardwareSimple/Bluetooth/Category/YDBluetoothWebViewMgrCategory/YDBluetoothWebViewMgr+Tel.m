@@ -36,6 +36,7 @@
 - (void)registerTelHandle {
     __weak typeof (self) wSelf = self;
     
+#warning -- tel register handler
 //    this is for testing register handle
     [self.webViewBridge registerHandler:@"onTelRemind" handler:^(id data, WVJBResponseCallback responseCallback) {
         [wSelf telRemind];
