@@ -240,9 +240,8 @@
         _writeCharacteristic = [self __patternCharacteristicWithUUIDString:uuidString];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (_writeCharacteristic) {
-#warning for test
+#warning for test & can delete
                 [self writeBaseDatas];
-                
                 responseCallback(@{@"flag":@(YES)});
             }else{
                 responseCallback(@{@"flag":@(NO)});
@@ -272,7 +271,8 @@
         });
         
         [wSelf setNotifyWithCharacteristic:_readCharacteristic block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
-#warning  change
+            !wSelf.updateValueCharacteristicCallBack?:wSelf.updateValueCharacteristicCallBack(characteristics);
+#warning  change & can be delete for release
             [wSelf readByteWithData:characteristics.value];
         }];
 
@@ -610,9 +610,9 @@
 }
 
 - (void)onDidUpdateNotificaitonStateForCharacteristicNotify:(NSNotification *)notification {
+    NSLog(@"onDidUpdateNotificaitonStateForCharacteristicNotify c: %@:",c);
     CBCharacteristic *c = notification.object;
     NSDictionary *jsonObj = [c convertToDictionary];
-    NSLog(@"onDidUpdateNotificaitonStateForCharacteristicNotify c: %@:",c);
     [_choicePeripheal readValueForCharacteristic:c];
     [_webViewBridge callHandler:@"onNotificaitonStateForCharacteristicNotify" data:jsonObj responseCallback:^(id responseData) {
         NSLog(@"notificaiton response characteristic :%@",responseData);
