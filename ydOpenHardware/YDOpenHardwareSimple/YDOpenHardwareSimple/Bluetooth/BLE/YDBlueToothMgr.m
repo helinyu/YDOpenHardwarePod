@@ -196,19 +196,15 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
     [_bluetooth setBlockOnDiscoverCharacteristics:^(CBPeripheral *peripheral, CBService *service, NSError *error) {
         NSLog(@"setBlockOnDiscoverCharacteristics");
         for (CBCharacteristic *c in service.characteristics) {
-           [wSelf.bluetooth notify:peripheral characteristic:c block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
-//               !wSelf.characteristicCallBack?:wSelf.characteristicCallBack(c);
-               !wSelf.discoverCharacteristicCallback?:wSelf.discoverCharacteristicCallback(c);
-               NSLog(@" discoverCharacteristicCallback c : %@",c.UUID.UUIDString);
-           }];
+            !wSelf.discoverCharacteristicCallback?:wSelf.discoverCharacteristicCallback(c);
         }
     }];
-    
+
     [_bluetooth setBlockOnReadValueForCharacteristic:^(CBPeripheral *peripheral, CBCharacteristic *characteristic, NSError *error) {
         NSLog(@"setBlockOnReadValueForCharacteristic");
-        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfMangerDidUpdataValueForCharacteristic object:characteristic];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfMangerDidUpdataValueForCharacteristic object:characteristic];
         !wSelf.updateValueCharacteristicCallBack?:wSelf.updateValueCharacteristicCallBack(characteristic);
-        NSLog(@"update value for read c :%@ ",characteristic.UUID.UUIDString);
+        NSLog(@"updateValueCharacteristicCallBack characteristic ; %@",characteristic.UUID.UUIDString);
 
     }];
     
@@ -236,6 +232,18 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
 - (void)writeDatas:(NSData *)datas forCharacteristic:(CBCharacteristic *)characteristic  {
     [self.currentPeripheral writeValue:datas forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];
 }
+
+- (void)setNotifyWithPeripheral:(CBPeripheral *)peripheral characteristic:(CBCharacteristic *)characteristic block:(void(^)(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error))block {
+    [_bluetooth notify:peripheral characteristic:characteristic block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
+        if (error) {
+            NSLog(@"设置通知失败 : %@",characteristics);
+        }else{
+            NSLog(@"设置通知成功 : %@",characteristics);
+        }
+        !block?:block(peripheral,characteristic,error);
+    }];
+}
+
 
 #pragma mark -- custom methods
 

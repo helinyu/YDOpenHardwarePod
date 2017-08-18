@@ -9,20 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "YDDefine.h"
 
 @class YDPeripheralInfo;
 
-typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
-    YDBlueToothFilterTypeNone = 0,
-    YDBlueToothFilterTypeMatch =1,  // match to filter and find the specify device
-    YDBlueToothFilterTypeContain =2,    // contain the keyword to filter and find the specify device
-    YDBlueToothFilterTypePrefix =3,     // key word by the prefix
-    YDBlueToothFilterTypeSuffix =4,     // key word by the suffix
-    YDBlueToothFilterTypePrefixAndSuffix =5, // key word by the prefix & suffix
-    YDBlueToothFilterTypePrefixAndContain =6, // key word by the prefix & contain
-    YDBlueToothFilterTypeSuffixAndContrain =7, // key word by the suffix & contain
-    YDBlueToothFilterTypePrefixAndContrainAndSuffix =8, //key word by the prefix & contrain * suffix
-};
 
 @interface YDBlueToothMgr : NSObject
 
@@ -126,6 +116,7 @@ typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
 @property (nonatomic, copy) void(^heartRateCallBack)(NSString *heartString);
 @property (nonatomic, copy) void(^tripCallBack)(CGFloat calories, CGFloat distance);
 
+//@property (nonatomic, copy) void(^characteristicCallBack)(CBCharacteristic *c);
 typedef void (^CharacteristicCallback)(CBCharacteristic *c);
 @property (nonatomic, copy) CharacteristicCallback discoverCharacteristicCallback;
 @property (nonatomic, copy) CharacteristicCallback updateValueCharacteristicCallBack;
@@ -135,6 +126,8 @@ typedef void (^CharacteristicCallback)(CBCharacteristic *c);
 //obtain the cbperipheal by the uuid which is specified
 //@property (nonnull, copy) void(^ObtainPeirpheal)(NSString *uuid);
 - (CBPeripheral *)obtainPeripheralWithUUIDString:(NSString *)uuidString;
+
+- (void)setNotifyWithPeripheral:(CBPeripheral *)peripheral characteristic:(CBCharacteristic *)characteristic block:(void(^)(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error))block;
 
 @end
 

@@ -11,6 +11,18 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
+    YDBlueToothFilterTypeNone = 0,
+    YDBlueToothFilterTypeMatch =1,  // match to filter and find the specify device
+    YDBlueToothFilterTypeContain =2,    // contain the keyword to filter and find the specify device
+    YDBlueToothFilterTypePrefix =3,     // key word by the prefix
+    YDBlueToothFilterTypeSuffix =4,     // key word by the suffix
+    YDBlueToothFilterTypePrefixAndSuffix =5, // key word by the prefix & suffix
+    YDBlueToothFilterTypePrefixAndContain =6, // key word by the prefix & contain
+    YDBlueToothFilterTypeSuffixAndContrain =7, // key word by the suffix & contain
+    YDBlueToothFilterTypePrefixAndContrainAndSuffix =8, //key word by the prefix & contrain * suffix
+};
+
 typedef NS_ENUM(NSInteger, YDWebViewType) {
     YDWebViewTypeInner,
     YDWebViewTypeOuter,
