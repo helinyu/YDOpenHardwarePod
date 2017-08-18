@@ -21,13 +21,14 @@
 		412B184E1F467E3A00028F3B /* YDBlueToothMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B184D1F467E3A00028F3B /* YDBlueToothMgr.m */; };
 		412B187F1F467F5400028F3B /* UIViewController+YDNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B186E1F467F5400028F3B /* UIViewController+YDNavigation.m */; };
 		412B18801F467F5400028F3B /* UIViewController+YDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B18701F467F5400028F3B /* UIViewController+YDViewController.m */; };
-		412B18811F467F5400028F3B /* YDBluetoothWebViewMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B18721F467F5400028F3B /* YDBluetoothWebViewMgr.m */; };
 		412B18821F467F5400028F3B /* YDBridgeWebMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B18741F467F5400028F3B /* YDBridgeWebMgr.m */; };
 		412B18831F467F5400028F3B /* YDBridgeWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B18761F467F5400028F3B /* YDBridgeWebView.m */; };
 		412B18841F467F5400028F3B /* YDBridgeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B18781F467F5400028F3B /* YDBridgeWebViewController.m */; };
 		412B18851F467F5400028F3B /* YDMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B187B1F467F5400028F3B /* YDMBaseViewController.m */; };
 		412B18861F467F5400028F3B /* YDRegisterInteractiveHtmlMethods.plist in Resources */ = {isa = PBXBuildFile; fileRef = 412B187C1F467F5400028F3B /* YDRegisterInteractiveHtmlMethods.plist */; };
 		412B18871F467F5400028F3B /* YDWebNoNetworkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B187E1F467F5400028F3B /* YDWebNoNetworkView.m */; };
+		412B188D1F46819100028F3B /* YDBluetoothWebViewMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B188C1F46819100028F3B /* YDBluetoothWebViewMgr.m */; };
+		412B18901F4681A700028F3B /* YDBluetoothWebViewMgr+WriteDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B188F1F4681A700028F3B /* YDBluetoothWebViewMgr+WriteDatas.m */; };
 		415A54DF1F344B3A00BD61EA /* YDOpenHardwareCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415A54DD1F344AD700BD61EA /* YDOpenHardwareCore.framework */; };
 		415A54E01F344B3A00BD61EA /* YDOpenHardwareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415A54DE1F344AD700BD61EA /* YDOpenHardwareSDK.framework */; };
 		4182B02D1F45E1B7001A86EC /* CBService+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4182B01A1F45E1B7001A86EC /* CBService+YYModel.m */; };
@@ -103,8 +104,6 @@
 		412B186E1F467F5400028F3B /* UIViewController+YDNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YDNavigation.m"; sourceTree = "<group>"; };
 		412B186F1F467F5400028F3B /* UIViewController+YDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YDViewController.h"; sourceTree = "<group>"; };
 		412B18701F467F5400028F3B /* UIViewController+YDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YDViewController.m"; sourceTree = "<group>"; };
-		412B18711F467F5400028F3B /* YDBluetoothWebViewMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBluetoothWebViewMgr.h; sourceTree = "<group>"; };
-		412B18721F467F5400028F3B /* YDBluetoothWebViewMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBluetoothWebViewMgr.m; sourceTree = "<group>"; };
 		412B18731F467F5400028F3B /* YDBridgeWebMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBridgeWebMgr.h; sourceTree = "<group>"; };
 		412B18741F467F5400028F3B /* YDBridgeWebMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBridgeWebMgr.m; sourceTree = "<group>"; };
 		412B18751F467F5400028F3B /* YDBridgeWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBridgeWebView.h; sourceTree = "<group>"; };
@@ -117,6 +116,10 @@
 		412B187D1F467F5400028F3B /* YDWebNoNetworkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDWebNoNetworkView.h; sourceTree = "<group>"; };
 		412B187E1F467F5400028F3B /* YDWebNoNetworkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDWebNoNetworkView.m; sourceTree = "<group>"; };
 		412B188A1F46808B00028F3B /* YDBluetoohWebDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDBluetoohWebDefine.h; sourceTree = "<group>"; };
+		412B188B1F46819100028F3B /* YDBluetoothWebViewMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBluetoothWebViewMgr.h; sourceTree = "<group>"; };
+		412B188C1F46819100028F3B /* YDBluetoothWebViewMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBluetoothWebViewMgr.m; sourceTree = "<group>"; };
+		412B188E1F4681A700028F3B /* YDBluetoothWebViewMgr+WriteDatas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDBluetoothWebViewMgr+WriteDatas.h"; sourceTree = "<group>"; };
+		412B188F1F4681A700028F3B /* YDBluetoothWebViewMgr+WriteDatas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDBluetoothWebViewMgr+WriteDatas.m"; sourceTree = "<group>"; };
 		415A54DD1F344AD700BD61EA /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
 		415A54DE1F344AD700BD61EA /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
 		4182B0191F45E1B7001A86EC /* CBService+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBService+YYModel.h"; sourceTree = "<group>"; };
@@ -235,8 +238,6 @@
 				412B186E1F467F5400028F3B /* UIViewController+YDNavigation.m */,
 				412B186F1F467F5400028F3B /* UIViewController+YDViewController.h */,
 				412B18701F467F5400028F3B /* UIViewController+YDViewController.m */,
-				412B18711F467F5400028F3B /* YDBluetoothWebViewMgr.h */,
-				412B18721F467F5400028F3B /* YDBluetoothWebViewMgr.m */,
 				412B18731F467F5400028F3B /* YDBridgeWebMgr.h */,
 				412B18741F467F5400028F3B /* YDBridgeWebMgr.m */,
 				412B18751F467F5400028F3B /* YDBridgeWebView.h */,
@@ -276,6 +277,8 @@
 		4182B0141F45E14B001A86EC /* BLE */ = {
 			isa = PBXGroup;
 			children = (
+				412B188B1F46819100028F3B /* YDBluetoothWebViewMgr.h */,
+				412B188C1F46819100028F3B /* YDBluetoothWebViewMgr.m */,
 				412B184C1F467E3A00028F3B /* YDBlueToothMgr.h */,
 				412B184D1F467E3A00028F3B /* YDBlueToothMgr.m */,
 			);
@@ -301,6 +304,8 @@
 				4182B0261F45E1B7001A86EC /* YDBluetoothWebViewMgr+ReadDatas.m */,
 				4182B0271F45E1B7001A86EC /* YDBluetoothWebViewMgr+Time.h */,
 				4182B0281F45E1B7001A86EC /* YDBluetoothWebViewMgr+Time.m */,
+				412B188E1F4681A700028F3B /* YDBluetoothWebViewMgr+WriteDatas.h */,
+				412B188F1F4681A700028F3B /* YDBluetoothWebViewMgr+WriteDatas.m */,
 				4182B0291F45E1B7001A86EC /* YDConstants.h */,
 				4182B02A1F45E1B7001A86EC /* YDConstants.m */,
 				4182B02B1F45E1B7001A86EC /* YDPeripheralInfo.h */,
@@ -680,6 +685,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				412B188D1F46819100028F3B /* YDBluetoothWebViewMgr.m in Sources */,
 				412B18871F467F5400028F3B /* YDWebNoNetworkView.m in Sources */,
 				412B184E1F467E3A00028F3B /* YDBlueToothMgr.m in Sources */,
 				4182B02E1F45E1B7001A86EC /* CWStatusBarNotification.m in Sources */,
@@ -689,6 +695,7 @@
 				412B18821F467F5400028F3B /* YDBridgeWebMgr.m in Sources */,
 				412B18851F467F5400028F3B /* YDMBaseViewController.m in Sources */,
 				4182B02D1F45E1B7001A86EC /* CBService+YYModel.m in Sources */,
+				412B18901F4681A700028F3B /* YDBluetoothWebViewMgr+WriteDatas.m in Sources */,
 				4D6D8FD21C60E35800003AA0 /* ViewController.m in Sources */,
 				4D6D8FCF1C60E35800003AA0 /* AppDelegate.m in Sources */,
 				4182B0331F45E1B7001A86EC /* YDBluetoothWebViewMgr+ReadDatas.m in Sources */,
@@ -701,7 +708,6 @@
 				4182B0321F45E1B7001A86EC /* YDBluetoothWebViewMgr+HtmlReigsterMothods.m in Sources */,
 				412B18841F467F5400028F3B /* YDBridgeWebViewController.m in Sources */,
 				4D6D8FCC1C60E35800003AA0 /* main.m in Sources */,
-				412B18811F467F5400028F3B /* YDBluetoothWebViewMgr.m in Sources */,
 				412B187F1F467F5400028F3B /* UIViewController+YDNavigation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

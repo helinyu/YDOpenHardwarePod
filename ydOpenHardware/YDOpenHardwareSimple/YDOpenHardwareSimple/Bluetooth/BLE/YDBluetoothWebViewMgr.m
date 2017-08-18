@@ -8,7 +8,7 @@
 
 #import "YDBluetoothWebViewMgr.h"
 #import "YDBlueToothMgr.h"
-#import "YDBridgeWebMgr.h"
+//#import "YDBridgeWebMgr.h"
 #import "WebViewJavascriptBridge.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "YYModel.h"
@@ -21,12 +21,15 @@
 #import "CBService+YYModel.h"
 #import "NSData+YDConversion.h"
 #import "YDConstants.h"
-#import "SVProgressHUD.h"
 #import "YDBluetoothWebViewMgr+Time.h"
+#import "SVProgressHUD.h"
+#import "YDBluetoothWebViewMgr+WriteDatas.h"
+#import "YDBluetoothWebViewMgr+ReadDatas.h"
+
 
 //test
-#import "YDBluetoothWebViewMgr+Extension.h"
-#import "YDBluetoothWebViewMgr+ReadDatas.h"
+//#import "YDBluetoothWebViewMgr+Extension.h"
+//#import "YDBluetoothWebViewMgr+ReadDatas.h"
 
 @interface YDBluetoothWebViewMgr ()
 
@@ -54,8 +57,6 @@
 @property (nonatomic, strong) CBPeripheral *choicePeripheal;
 @property (nonatomic, assign) NSInteger choiceIndex;
 
-@property (nonatomic, strong) CBCharacteristic *writeCharacteristic;
-@property (nonatomic, strong) CBCharacteristic *readCharacteristic;
 @property (nonatomic, strong) NSMutableArray *mCharacteristics;
 
 //need write datas
@@ -110,9 +111,6 @@
     for (NSInteger index = 0; index < _mCharacteristics.count; index++) {
         CBCharacteristic *innerC = _mCharacteristics[index];
         if ([innerC.UUID.UUIDString isEqualToString:c.UUID.UUIDString]) {
-//            for warning
-//            [_mCharacteristics removeObject:innerC];
-//            [_mCharacteristics insertObject:c atIndex:index];
             [_mCharacteristics replaceObjectAtIndex:index withObject:c];
             break;
         }else{
@@ -219,6 +217,13 @@
     _btMgr.startScan();
 }
 
+- (void)startScanThenNewPeripheralCallback:(void(^)(CBPeripheral *peripheral))peripheralCallback {
+    _btMgr.scanPeripheralCallback = ^(CBPeripheral *peripheral) {
+        !peripheralCallback?:peripheralCallback(peripheral);
+    };
+    _btMgr.startScan();
+}
+
 - (void)reConnectLastPeripherl {
     
 }
@@ -226,7 +231,7 @@
 - (void)registerHandlersWithType:(NSUInteger)type {
     
 //    for extension business extension
-    [self registerExtension];
+//    [self registerExtension];
     
     __weak typeof (self) wSelf = self;
     
@@ -310,6 +315,7 @@
             [wSelf.btMgr onConnectCurrentPeripheralOfBluetooth];
             wSelf.btMgr.connectionCallBack = ^(BOOL success) {
                 __strong typeof (wSelf) strongSelf = wSelf;
+                wSelf.connectionCallBack(success);
                 [strongSelf deliverConnectResultToHTmlWithResult:success];
                 if (success) {
                     [strongSelf registerOpenHardWareWithPeripheral:_choicePeripheal];
@@ -491,16 +497,19 @@
 - (void)backDatasFromBluetooth {
     __weak typeof (self) wSelf = self;
     _btMgr.servicesCallBack = ^(NSArray<CBService *> *services) {
+        wSelf.servicesCallBack(services);
         [wSelf onDeliverToHtmlWithServices:services];
     };
-
+    
     _btMgr.updateValueCharacteristicCallBack = ^(CBCharacteristic *c) {
+        wSelf.updateValueCharacteristicCallBack(c);
         if (c.value && c.UUID) {
             [wSelf onDeliverToHtmlWithCharateristic:c];
         }
     };
     
     _btMgr.discoverCharacteristicCallback = ^(CBCharacteristic *c) {
+        wSelf.discoverCharacteristicCallback(c);
         [wSelf __cacheCharacteristic:c];
         if (c.value && c.UUID) {
             [wSelf onDeliverToHtmlWithCharateristic:c];
@@ -508,7 +517,7 @@
             //                [wSelf.choicePeripheal readValueForCharacteristic:c];
             //            }
         }
-
+        
     };
 }
 
@@ -660,7 +669,7 @@
     CBCharacteristic *c = notificaiton.object;
     NSLog(@"onDidUpdateCharacteristicValueNotify c: %@",c);
 #warning  for test
-    [self readByteWithData:c.value];
+//    [self readByteWithData:c.value];
 //    for test
     NSDictionary *jsonObj = [c convertToDictionary];
     [_webViewBridge callHandler:@"onDidUpdateCharacteristicValueNotify" data:jsonObj responseCallback:^(id responseData) {
@@ -671,7 +680,7 @@
 - (void)onDidUpdateNotificaitonStateForCharacteristicNotify:(NSNotification *)notification {
     CBCharacteristic *c = notification.object;
     NSDictionary *jsonObj = [c convertToDictionary];
-    NSLog(@"onDidUpdateNotificaitonStateForCharacteristicNotify :");
+    NSLog(@"onDidUpdateNotificaitonStateForCharacteristicNotify c: %@:",c);
     [_webViewBridge callHandler:@"onNotificaitonStateForCharacteristicNotify" data:jsonObj responseCallback:^(id responseData) {
         NSLog(@"notificaiton response characteristic :%@",responseData);
     }];
@@ -978,5 +987,48 @@
         }];
     }];
 }
+
+- (CBPeripheral *)obtainPeripheralWithUUIDString:(NSString *)uuidString {
+    return [_btMgr obtainPeripheralWithUUIDString:uuidString];
+}
+
+- (void)onConnectPeripheral:(CBPeripheral *)peripheral then:(ServicesCallback)servicesCallback {
+    _choicePeripheal = peripheral;
+    [_btMgr onConnectBluetoothWithPeripheral:peripheral];
+    __weak typeof (self) wSelf = self;
+    _btMgr.connectionCallBack = ^(BOOL success) {
+        __strong typeof (wSelf) strongSelf = wSelf;
+        wSelf.connectionCallBack(success);
+        if (success) {
+            [strongSelf registerOpenHardWareWithPeripheral:strongSelf.choicePeripheal];
+            [strongSelf backDatasFromBluetooth];
+        }
+    };
+    _choicePeripheal = _btMgr.currentPeripheral;
+    [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal.identifier.UUIDString forKey:@"peripheralUUID"];
+}
+
+
+
+- (void)writeDataWithByte:(NSData*)data {
+    if (_choicePeripheal != nil && _writeCharacteristic != nil) {
+        [_choicePeripheal writeValue:data forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
+    }
+    else
+    {
+        NSLog(@"配置不正确");
+    }
+}
+
+- (void)setNotifyWithCharacteristic:(CBCharacteristic *)characteristic block:(void(^)(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error))block {
+    [_btMgr setNotifyWithPeripheral:_choicePeripheal characteristic:characteristic block:block];
+}
+
+- (void)setNotifyWithPeripheral:(CBPeripheral *)peripheral characteristic:(CBCharacteristic *)characteristic block:(void(^)(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error))block {
+    _choicePeripheal = peripheral;
+    [_btMgr setNotifyWithPeripheral:peripheral characteristic:characteristic block:block];
+}
+
+
 
 @end
