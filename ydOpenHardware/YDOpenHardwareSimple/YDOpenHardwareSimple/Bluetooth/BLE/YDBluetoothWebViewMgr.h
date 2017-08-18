@@ -18,8 +18,18 @@
 
 + (instancetype)shared;
 
+//scan peripheral
+/*@method onScanPeripheral: onScanPeripheral which may scan with the default constraint condition ,when invoke this method ,you may invoke the scanPeripheralWithMatchInfo method (recommeded)
+ *@method scanPeripheralWithDic: scanPeripheralWithDic which mainly for configure the constraint condition
+ *@see YDBlueToothFilterType enum type which is & filter field
+ *@see also scanPeripheralWithMatchInfo: which is configure the constraint condition
+ @see also matchField,containField , prefixField, suffixField
+ */
+- (void)onScanPeripheral;
+- (void)scanPeripheralWithDic:(NSDictionary *)dic;
+
+
 - (void)scanPeripheralWithMatchInfo:(NSDictionary *)filterInfo;
-- (void)connectPeripheral:(CBPeripheral *)peripheal;
 
 - (void)connectDefaultPeirpheal; // 连接上一个已经设置为连接目标的蓝牙
 - (void)cancelConnectPeripheal;
@@ -45,10 +55,6 @@ typedef ResponseIdObject ResponseJsonObject;
 typedef void(^ServicesCallback)(NSArray<CBService *> *services);
 @property (nonatomic, copy) ServicesCallback servicesCallBack;
 
-- (void)onConnectPeripheral:(CBPeripheral *)peripheral then:(ServicesCallback)servicesCallback;
-
-@property (nonatomic, copy) void (^connectionCallBack)(BOOL success);
-
 //@property (nonatomic, copy) void(^characteristicCallBack)(CBCharacteristic *c);
 typedef void (^CharacteristicCallback)(CBCharacteristic *c);
 @property (nonatomic, copy) CharacteristicCallback discoverCharacteristicCallback;
@@ -62,6 +68,9 @@ typedef void (^CharacteristicCallback)(CBCharacteristic *c);
 - (void)setNotifyWithCharacteristic:(CBCharacteristic *)characteristic block:(void(^)(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error))block;
 - (void)setNotifyWithPeripheral:(CBPeripheral *)peripheral characteristic:(CBCharacteristic *)characteristic block:(void(^)(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error))block;
 
+// void (^)(bool flag)
+typedef void(^BoolCallBack)(BOOL flag);
+@property (nonatomic, copy) BoolCallBack connectStateCallback;
 
 
 @end

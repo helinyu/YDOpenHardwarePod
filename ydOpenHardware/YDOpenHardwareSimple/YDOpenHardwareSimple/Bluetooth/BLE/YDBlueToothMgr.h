@@ -18,6 +18,9 @@
 
 + (instancetype)shared;
 
+//tel phone call
+@property (nonatomic, strong) void(^callHandle)(BOOL handerFlag);
+
 //- (void)startScan;
 - (YDBlueToothMgr *(^)(void))startScan;
 - (YDBlueToothMgr *(^)(void))stopScan;
@@ -57,7 +60,9 @@
  * discussion : 传入参数有两种方式，一种方式是同步block的方式，实现链式调用传入，另外一个种是直接传入
  */
 - (YDBlueToothMgr * (^)(CBPeripheral *peripheral))connectingPeripheral;
-- (YDBlueToothMgr *(^)(NSString *uuidString))connectingPeripheralUuid;
+- (YDBlueToothMgr *(^)(NSString *uuidString))willBeConnetPeiripheralByUUID;
+- (YDBlueToothMgr *(^)(CBPeripheral *peripheral))willBeConnetPeiripheral;
+
 /*
  * @param  currentIndex depend on the outside logic ,which help to choose the current peripheral
  * @block connectingPeripheralIndex which help to Chain programming by deliver the currentIndex
@@ -94,7 +99,8 @@
  */
 - (void)onConnectBluetoothWithIndex:(NSInteger)index;
 - (void)onConnectBluetoothWithPeripheral:(CBPeripheral *)peripheral;// (recommended)
-- (void)onConnectCurrentPeripheralOfBluetooth;
+- (YDBlueToothMgr *(^)())connectingCurrentPeripheral;
+
 
 /*
  *@param : which callback by the success to diagnosis is connecting success or not

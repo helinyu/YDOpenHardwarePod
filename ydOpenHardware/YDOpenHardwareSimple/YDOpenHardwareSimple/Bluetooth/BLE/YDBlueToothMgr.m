@@ -11,6 +11,7 @@
 #import "SVProgressHUD.h"
 #import "NSString+YDContainsString.h"
 #import "YDPeripheralInfo.h"
+#import <CoreTelephony/CTCallCenter.h>
 
 @interface YDBlueToothMgr ()
 
@@ -31,6 +32,9 @@
 @property (nonatomic, assign, readwrite) NSInteger currentIndex;
 @property (nonatomic, strong, readwrite) CBPeripheral *currentPeripheral;
 
+//tel phone
+@property (nonatomic, strong) CTCallCenter *callCenter;
+
 @end
 
 NSString *const YDNtfMangerDidUpdataValueForCharacteristic = @"yd.ntf.bluetooth.did.update.value.for.characteristic";
@@ -39,6 +43,30 @@ NSString *const YDNtfMangerDiscoverDescriptorsForCharacteristic = @"yd.ntf.manag
 NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.descriptors";
 
 @implementation YDBlueToothMgr
+
+#pragma mark -- telphone
+- (void)registerTelCaller {
+    _callCenter = [CTCallCenter new];
+    __weak typeof (self) wSelf = self;
+    _callCenter.callEventHandler = ^(CTCall *call) {
+        NSString *callDescription = [NSString stringWithFormat:@"%@",call];
+        NSLog(@"callDescription == %@",callDescription);
+        NSArray *strarray0 = [callDescription componentsSeparatedByString:@"]"];
+        NSString *sub0 = strarray0[0];
+        NSArray *strarray1 = [sub0 componentsSeparatedByString:@"["];
+        NSString *callState = strarray1[1];
+        NSLog(@"callState == %@",callState);
+        if ([callState isEqualToString:@"CTCallStateIncoming"] || [callState isEqualToString:@"CTCallStateConnected"]) {
+//            weakSelf.isCall = YES;
+//            [weakSelf.webViewMgr telRemind];
+            wSelf.callHandle(YES);
+        }else {
+//            weakSelf.isCall = NO;
+            wSelf.callHandle(NO);
+        }
+    };
+}
+
 
 #pragma mark -- system function
 - (void)dealloc {
@@ -49,6 +77,7 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
 
 - (void)babyDelegate {
     
+    [self registerTelCaller];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ontest:) name:BabyNotificationAtDidWriteValueForCharacteristic object:nil];
     
     __weak typeof  (self) wSelf = self;
@@ -202,7 +231,6 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
 
     [_bluetooth setBlockOnReadValueForCharacteristic:^(CBPeripheral *peripheral, CBCharacteristic *characteristic, NSError *error) {
         NSLog(@"setBlockOnReadValueForCharacteristic");
-//        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfMangerDidUpdataValueForCharacteristic object:characteristic];
         !wSelf.updateValueCharacteristicCallBack?:wSelf.updateValueCharacteristicCallBack(characteristic);
         NSLog(@"updateValueCharacteristicCallBack characteristic ; %@",characteristic.UUID.UUIDString);
 
@@ -336,8 +364,11 @@ _bluetooth.having(peripheral).connectToPeripherals().discoverServices().discover
     _connectedPeripheralServices = [NSMutableArray<CBService *> new];
 }
 
-- (void)onConnectCurrentPeripheralOfBluetooth {
+- (YDBlueToothMgr * (^)(void))connectingCurrentPeripheral {
     [self onConnectBluetoothWithPeripheral:_currentPeripheral];
+    return ^(void){
+        return self;
+    };
 }
 
 
@@ -352,7 +383,7 @@ _bluetooth.having(peripheral).connectToPeripherals().discoverServices().discover
     };
 }
 
-- (YDBlueToothMgr *(^)(NSString *uuidString))connectingPeripheralUuid {
+- (YDBlueToothMgr *(^)(NSString *uuidString))willBeConnetPeiripheralByUUID {
     __weak typeof (self) wSelf = self;
     return ^(NSString *uuidString) {
         for (CBPeripheral *item in wSelf.peripherals) {
@@ -360,6 +391,14 @@ _bluetooth.having(peripheral).connectToPeripherals().discoverServices().discover
                 wSelf.currentPeripheral = item;
             };
         }
+        return self;
+    };
+}
+
+- (YDBlueToothMgr *(^)(CBPeripheral *peripheral))willBeConnetPeiripheral {
+    __weak typeof (self) wSelf = self;
+    return ^(CBPeripheral *peripheral) {
+            wSelf.currentPeripheral = peripheral;
         return self;
     };
 }

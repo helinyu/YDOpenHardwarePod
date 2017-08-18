@@ -1,12 +1,14 @@
 //
 //  YDBluetoothWebViewMgr+ReadDatas.m
-//  YDOpenHardwareSimple
+//  test_yuedong_band
 //
 //  Created by Aka on 2017/8/17.
-//  Copyright © 2017年 YD. All rights reserved.
+//  Copyright © 2017年 forest. All rights reserved.
 //
 
 #import "YDBluetoothWebViewMgr+ReadDatas.h"
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @implementation YDBluetoothWebViewMgr (ReadDatas)
 
@@ -53,13 +55,13 @@
             break;
         }
         case (Byte) 0x09: {
-            
-            int todayStep = (int)((dataB[1] & 0XFF) << 16) + (int)((dataB[2] & 0XFF) << 8) + (int)(dataB[3] & 0XFF);
-            int todayRunStep = (int)((dataB[4] & 0XFF) << 16) + (int)((dataB[5] & 0XFF) << 8) + (int)(dataB[6] & 0XFF);
+            int _todayStep = (int)((dataB[1] & 0XFF) << 16) + (int)((dataB[2] & 0XFF) << 8) + (int)(dataB[3] & 0XFF);
+            int _todayRunStep = (int)((dataB[4] & 0XFF) << 16) + (int)((dataB[5] & 0XFF) << 8) + (int)(dataB[6] & 0XFF);
             NSInteger calorie = (int)((dataB[7] & 0XFF) << 16) + (int)((dataB[8] & 0XFF) << 8) + (int)(dataB[9] & 0XFF);
-            CGFloat todayCalorie  = (CGFloat)calorie/100.0f;
-            int todayDistance = (int)((dataB[10] & 0XFF) << 16) + (int)((dataB[11] & 0XFF) << 8) + (int)(dataB[12] & 0XFF);
-            int todaySportsTime = (int)((dataB[13] & 0XFF) << 8) + (int)(dataB[14] & 0XFF);
+            CGFloat _todayCalorie  = (CGFloat)calorie/100.0f;
+            CGFloat _todayDistance = (int)((dataB[10] & 0XFF) << 16) + (int)((dataB[11] & 0XFF) << 8) + (int)(dataB[12] & 0XFF);
+            CGFloat _todaySportsTime = (int)((dataB[13] & 0XFF) << 8) + (int)(dataB[14] & 0XFF);
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"stepAndDsitance" object:@{@"step":@(_todayStep),@"calorie":@(_todayCalorie),@"distance":@(_todayDistance)} userInfo:nil];
             break;
         }
         case (Byte) 0x02: {
@@ -71,14 +73,8 @@
             break;
         }
         case (Byte) 0x42: {
-//            YDBandUserInfoModel *model = [YDBandUserInfoModel shareModel];
-            int sex = (int)dataB[1];
-            int age = (int)dataB[2];
-            int height = (int)dataB[3];
-            int weight = (int)dataB[4];
-            int stepLength = (int)dataB[5];
-            NSString *deviceId = [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x",dataB[6],dataB[7],dataB[8],dataB[9],dataB[10],dataB[11]];
-            NSLog(@"获取个人信息成功 : age : %d, deviceId : %@",age, deviceId);
+                        NSString *deviceId = [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x",dataB[6],dataB[7],dataB[8],dataB[9],dataB[10],dataB[11]];
+            NSLog(@"获取个人信息成功 : %@",deviceId);
             break;
         }
         case (Byte) 0x43: {
@@ -90,13 +86,59 @@
                 NSString *dayStr = [NSString stringWithFormat:@"20%02x%02x%02x",dataB[2],dataB[3],dataB[4]];
                 Byte seq = dataB[5];
                 Byte type = dataB[6];
-           if (seq == 0x01){
-                
-                NSInteger distance = (NSInteger)((dataB[6] & 0XFF) << 16) + (int)((dataB[7] & 0XFF) << 8) + (int)(dataB[8] & 0XFF);//单位0.01km
-                NSInteger minute = (int)((dataB[9] & 0XFF) << 8) + (int)(dataB[10] & 0XFF);
-                NSLog(@"distance : %d , minute : %d",distance, minute);
+                    Byte *dataBB = (Byte *)[DataD bytes];
+                    NSLog(@"detail_info_b:%@",[NSString stringWithFormat:@"%02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x",dataBB[0],dataBB[1],dataBB[2],dataBB[3],dataBB[4],dataBB[5],dataBB[6],dataBB[7],dataBB[8],dataBB[9],dataBB[10],dataBB[11],dataBB[12],dataBB[13],dataBB[14],dataBB[15]]);
+                    NSLog(@"headerId_b == %2x",headerId);
+                    if (type == 0x00) {
+                        NSInteger step = (NSInteger)((dataBB[10] & 0XFF) << 8) + (int)(dataBB[9] & 0XFF);
+                        NSLog(@"step : %ld",(long)step);
+                        
+                    }else if (type == 0xFF){
+                        for (int i = 7; i <= 14; i++) {
+                            NSInteger sleepSeq = seq*8 + (i - 7);
+                            NSInteger sleep = (NSInteger)dataBB[i];
+                        }
+                    }
             }
+            else if (b1 == 0xFF){
+                NSLog(@"获取详细运动信息--无数据");
+            }
+            break;
+        }
+        case (Byte) 0xC3: {
+            NSLog(@"获取详细运动信息失败");
+            break;
+        }
+        case (Byte) 0x04: {
+            NSLog(@"删除手环详细运动信息成功");
+            break;
+        }
+        case (Byte) 0x84: {
+            NSLog(@"删除手环详细运动信息失败");
+            break;
+        }
+        case (Byte) 0x46: {
+            NSLog(@"数据分布:%@",[NSString stringWithFormat:@"%02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x",dataB[0],dataB[1],dataB[2],dataB[3],dataB[4],dataB[5],dataB[6],dataB[7],dataB[8],dataB[9],dataB[10],dataB[11],dataB[12],dataB[13],dataB[14],dataB[15]]);
+            NSLog(@"查询数据存储分布成功");
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ydDataistribution" object:nil];
+            break;
+        }
+        case (Byte) 0xC6: {
+            NSLog(@"查询数据存储分布失败");
+            break;
+        }
+        case (Byte) 0x07: {
+            NSString *dayStr = [NSString stringWithFormat:@"20%02x%02x%02x",dataB[3],dataB[4],dataB[5]];
+            NSNumber *dayNum = [NSNumber numberWithInteger:dayStr.integerValue];
+            Byte seq = dataB[1];
             
+            if (seq == 0x00){
+                    NSInteger step = (NSInteger)((dataB[6] & 0XFF) << 16) + (int)((dataB[7] & 0XFF) << 8) + (int)(dataB[8] & 0XFF);
+                    CGFloat calorie = (CGFloat)((dataB[12] & 0XFF) << 16) + (int)((dataB[13] & 0XFF) << 8) + (int)(dataB[14] & 0XFF);
+            }else if (seq == 0x01){
+                    NSInteger distance = (NSInteger)((dataB[6] & 0XFF) << 16) + (int)((dataB[7] & 0XFF) << 8) + (int)(dataB[8] & 0XFF);//单位0.01km
+                    NSInteger minute = (int)((dataB[9] & 0XFF) << 8) + (int)(dataB[10] & 0XFF);
+            }
             break;
         }
         case (Byte) 0x87: {
@@ -156,9 +198,7 @@
         case (Byte) 0x13: {
             NSLog(@"读取设备电量:%@",[NSString stringWithFormat:@"%02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x",dataB[0],dataB[1],dataB[2],dataB[3],dataB[4],dataB[5],dataB[6],dataB[7],dataB[8],dataB[9],dataB[10],dataB[11],dataB[12],dataB[13],dataB[14],dataB[15]]);
             NSInteger energy = dataB[1];
-//            if (_electricityDelegate && [_electricityDelegate respondsToSelector:@selector(refreshEnergyWithEnergy:)]) {
-//                [_electricityDelegate refreshEnergyWithEnergy:energy];
-            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"energyData" object:@{@"energy":@(energy)}];
             NSLog(@"读取设备电量成功");
             break;
         }
@@ -186,6 +226,8 @@
             NSLog(@"读取MAC地址:%@",[NSString stringWithFormat:@"%02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x",dataB[0],dataB[1],dataB[2],dataB[3],dataB[4],dataB[5],dataB[6],dataB[7],dataB[8],dataB[9],dataB[10],dataB[11],dataB[12],dataB[13],dataB[14],dataB[15]]);
             NSLog(@"读取MAC地址成功");
             NSString *macStr = [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x",dataB[1],dataB[2],dataB[3],dataB[4],dataB[5],dataB[6]];
+            NSString *_deviceSeq = [macStr uppercaseString];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ydMacAddress" object:@{@"deviceSeq":_deviceSeq}];;
             break;
         }
         case (Byte) 0xA2: {
@@ -230,9 +272,6 @@
             if (dataB[11]) {
                 status += 0x40;
             }
-//            if (_normalClockDelegate && [_normalClockDelegate respondsToSelector:@selector(loadClockWithNumber:andStatus:andHour:andMin:andEnable:)]) {
-//                [_normalClockDelegate loadClockWithNumber:number andStatus:status andHour:hour andMin:min andEnable:enabel];
-//            }
             NSLog(@"读取闹钟:%@",[NSString stringWithFormat:@"%02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x",dataB[0],dataB[1],dataB[2],dataB[3],dataB[4],dataB[5],dataB[6],dataB[7],dataB[8],dataB[9],dataB[10],dataB[11],dataB[12],dataB[13],dataB[14],dataB[15]]);
             NSLog(@"读取闹钟成功");
             break;
@@ -354,13 +393,11 @@
         case (Byte) 0x69: {
             NSLog(@"成功获取实时心率:%@",[NSString stringWithFormat:@"%02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x",dataB[0],dataB[1],dataB[2],dataB[3],dataB[4],dataB[5],dataB[6],dataB[7],dataB[8],dataB[9],dataB[10],dataB[11],dataB[12],dataB[13],dataB[14],dataB[15]]);
             NSInteger heartRate = dataB[1] & 0xFF;
-            NSLog(@"实时心率： %@", @(heartRate));
             break;
         }
             
         case (Byte) 0xE9: {
             NSLog(@"获取实时心率失败");
-            //            [[NSNotificationCenter defaultCenter] postNotificationName:kNtfMgrBandHeartOperate object:[MSBaseResult instanceWith:NO error:error data:nil mid:-1]];
             break;
         }
             
@@ -379,9 +416,7 @@
             if (dataB[1] == 0xF0) {
                 NSString *dayStr = [NSString stringWithFormat:@"20%02x%02x%02x",dataB[2],dataB[3],dataB[4]];
                 NSInteger count = dataB[5] & 0XFF;
-
                 NSLog(@"%@记录条数:%@", dayStr, @(count));
-
             } else if (dataB[1] == 0xAA) {
                 NSString *timeStr = [NSString stringWithFormat:@"%02x%02x%02x",dataB[3],dataB[4],dataB[5]];
             } else if (dataB[1] == 0xA0) {
@@ -398,7 +433,6 @@
                 }
                 NSInteger heartRateAvg = heartRateSum / heartRateCount;
             }
-            
             break;
         }
             
@@ -411,5 +445,6 @@
         }
     }
 }
+
 
 @end

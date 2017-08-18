@@ -9,6 +9,9 @@
 #import "YDBluetoothWebViewMgr+Extension.h"
 #import "WebViewJavascriptBridge.h"
 #import "NSData+YDConversion.h"
+#import "YDBluetoothWebViewMgr+WriteDatas.h"
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @implementation YDBluetoothWebViewMgr (Extension)
 
@@ -34,19 +37,94 @@
         [self writeByteWithHeader:headerV andData:contentDatas];
     }];
     
-    [self.webViewBridge registerHandler:@"setSystemTime" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"set system time : %@",data);
-        [wSelf setSystemTime];
-    }];
-    
-    [self.webViewBridge registerHandler:@"writeStepTarget" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"write step traget : %@",data);
-        [wSelf writeStepTarget];
-    }];
-    
     [self.webViewBridge registerHandler:@"testAlarmPhone" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"test alarm phoen %@",data);
         [wSelf testAlarmPhone];
+    }];
+    
+    [self.webViewBridge registerHandler:@"connectAlert" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self connectAlert];
+    }];
+    
+    [self.webViewBridge registerHandler:@"setSystemTime" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self setSystemTime];
+    }];
+    
+    [self.webViewBridge registerHandler:@"startRealtimeStep" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self startRealtimeStep];
+    }];
+    
+    [self.webViewBridge registerHandler:@"readMacAddress" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self readMacAddress];
+    }];
+    
+    [self.webViewBridge registerHandler:@"writeStepTarget" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self writeStepTarget];
+    }];
+    
+    [self.webViewBridge registerHandler:@"bandSync" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self bandSync];
+    }];
+    
+    [self.webViewBridge registerHandler:@"onPower" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self readDeviceEnergy];
+    }];
+    
+    [self.webViewBridge registerHandler:@"onWriteBase" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self writeDataForReadBase];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onStepDatasNotify:) name:@"stepAndDsitance" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onEnergeNotify:) name:@"energyData" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDistibutionNotify:) name:@"ydDataistribution" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMacAddressNotify:) name:@"ydMacAddress" object:nil];
+
+}
+
+- (void)writeBaseDatas {
+    [self connectAlert];
+    [self setSystemTime];
+    [self startRealtimeStep];
+    [self readMacAddress];
+    [self writeStepTarget];
+    [self bandSync];
+}
+
+- (void)writeDataForReadBase {
+    [self setSystemTime];
+    [self startRealtimeStep];
+    [self readMacAddress];
+    [self writeStepTarget];
+    [self bandSync];
+}
+
+- (void)onMacAddressNotify:(NSNotification*)noti {
+    NSString *deviceSting = [noti.object objectForKey:@"deviceSeq"];
+    [self.webViewBridge callHandler:@"onMacAddress" data:@{@"deviceSeq":deviceSting} responseCallback:^(id responseData) {
+    }];
+}
+
+- (void)onStepDatasNotify:(NSNotification *)noti {
+    NSLog(@"notif : %@",noti.object);
+    [self.webViewBridge callHandler:@"onStepDatas" data:noti.object responseCallback:^(id responseData) {
+        
+    }];
+}
+
+- (void)onDistibutionNotify:(NSNotification *)noti {
+    [self.webViewBridge callHandler:@"onDistibute" data:noti.object responseCallback:^(id responseData) {
+        
+    }];
+}
+
+- (void)onEnergeNotify:(NSNotification *)noti {
+    NSLog(@"energe : %@",noti.object);
+    NSInteger num = [[noti.object objectForKey:@"energy"] integerValue];
+    CGFloat percent = 12.5 * num;
+    NSString *percentString = [NSString stringWithFormat:@"%%%.1f",percent];
+    
+    [self.webViewBridge callHandler:@"onEnergeDatas" data:@{@"energy":percentString} responseCallback:^(id responseData) {
+        
     }];
 }
 

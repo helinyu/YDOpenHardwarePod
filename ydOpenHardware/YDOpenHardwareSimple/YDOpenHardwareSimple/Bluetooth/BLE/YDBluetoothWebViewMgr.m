@@ -8,7 +8,7 @@
 
 #import "YDBluetoothWebViewMgr.h"
 #import "YDBlueToothMgr.h"
-//#import "YDBridgeWebMgr.h"
+#import "YDBridgeWebMgr.h"
 #import "WebViewJavascriptBridge.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "YYModel.h"
@@ -25,11 +25,8 @@
 #import "SVProgressHUD.h"
 #import "YDBluetoothWebViewMgr+WriteDatas.h"
 #import "YDBluetoothWebViewMgr+ReadDatas.h"
-
-
-//test
-//#import "YDBluetoothWebViewMgr+Extension.h"
-//#import "YDBluetoothWebViewMgr+ReadDatas.h"
+#import "YDBluetoothWebViewMgr+Extension.h"
+#import "YDBluetoothWebViewMgr+ReadDatas.h"
 
 @interface YDBluetoothWebViewMgr ()
 
@@ -181,10 +178,6 @@
     
 }
 
-- (void)connectPeripheral:(CBPeripheral *)peripheal {
-    [_btMgr onConnectBluetoothWithPeripheral:peripheal];
-}
-
 - (void)connectDefaultPeirpheal {
     [_btMgr connectingPeripheral];
 }
@@ -224,33 +217,17 @@
     _btMgr.startScan();
 }
 
-- (void)reConnectLastPeripherl {
-    
-}
+#pragma mark -- register method for interactive in html with person
 
 - (void)registerHandlersWithType:(NSUInteger)type {
     
-//    for extension business extension
-//    [self registerExtension];
-    
+    [self registerExtension];
+    [self registerTelCallHandle];
+    [self loadPlistRegisterMethods];
     __weak typeof (self) wSelf = self;
-    
-//    load the YDRegisterInteractiveHtmlMethods.plist register methods
-     NSString *path =[[NSBundle mainBundle] pathForResource:@"YDRegisterInteractiveHtmlMethods" ofType:@"plist"];
-    NSArray *methods = [NSArray arrayWithContentsOfFile:path];
-    for (NSDictionary *typeObj in methods) {
-        if ([typeObj objectForKey:@"type"]) {
-            for (NSString *methodString in [typeObj objectForKey:@"methods"]) {
-                #pragma clang diagnostic push
-                #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-                [self performSelector:NSSelectorFromString(methodString)];
-                #pragma clang diagnostic pop
-            }
-        }
-    }
-    
-//    set the read & write characteristic
-    [_webViewBridge registerHandler:@"writeCharacteristicWithUUIDString" handler:^(id data, WVJBResponseCallback responseCallback) {
+
+    //write data
+    [_webViewBridge registerHandler:@"onFindWriteCharacteristicWithUUIDString" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (!data && ![data isKindOfClass:[NSDictionary class]]) {
             [SVProgressHUD showInfoWithStatus:@"传入数据不可以为空"];
             return ;
@@ -261,14 +238,20 @@
             return;
         }
         _writeCharacteristic = [self __patternCharacteristicWithUUIDString:uuidString];
-        if (_writeCharacteristic) {
-            !responseCallback?:responseCallback(@"设置成功");
-        }else{
-            !responseCallback?:responseCallback(@"设置失败");
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (_writeCharacteristic) {
+#warning for test
+                [self writeBaseDatas];
+                responseCallback(@{@"flag":@(YES)});
+            }else{
+                responseCallback(@{@"flag":@(NO)});
+            }
+        });
+
     }];
     
-    [_webViewBridge registerHandler:@"readCharacteristicWithUUIDString" handler:^(id data, WVJBResponseCallback responseCallback) {
+//     read datas from characteristic
+    [_webViewBridge registerHandler:@"onFindReadCharacteristicWithUUIDString" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (!data && ![data isKindOfClass:[NSDictionary class]]) {
             [SVProgressHUD showInfoWithStatus:@"传入数据不可以为空"];
             return ;
@@ -279,11 +262,19 @@
             return;
         }
         _readCharacteristic = [self __patternCharacteristicWithUUIDString:uuidString];
-        if (_readCharacteristic) {
-            !responseCallback?:responseCallback(@"设置成功");
-        }else{
-            !responseCallback?:responseCallback(@"设置失败");
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (_readCharacteristic) {
+                responseCallback(@{@"flag":@(YES)});
+            }else{
+                responseCallback(@{@"flag":@(NO)});
+            }
+        });
+        
+        [wSelf setNotifyWithCharacteristic:_readCharacteristic block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
+#warning  change
+            [wSelf readByteWithData:characteristics.value];
+        }];
+
     }];
     
 //    for test bundle html
@@ -291,15 +282,25 @@
         [self loadAnotherHTMLWithDatas:data];
     }];
     
-    [_webViewBridge registerHandler:@"onScanClick" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [_webViewBridge registerHandler:@"onScan" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (!data) {
             return ;
         }
-        [wSelf scanPeripheralWithMatchInfo:data];
         [self loadAnotherHTMLWithDatas:data];
-        wSelf.btMgr.startScan().scanPeripheralCallback = ^(CBPeripheral *peripheral) {
-            [wSelf onAddToListWithPeripheral:peripheral];
-        };
+        [self scanPeripheralWithDic:data];
+    }];
+    
+    [_webViewBridge registerHandler:@"onConnectPeripheral" handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (!data) {
+            NSLog(@"please data must not be null");
+            return ;
+        }
+        [self stopScan];
+        __weak typeof (self) wSelf = self;
+        [self connectPeripheralWithDic:data callback:^(BOOL flag) {
+            [wSelf deliverConnectResultToHTmlWithResult:flag];
+        }];
+        responseCallback(@{});
     }];
     
     [_webViewBridge registerHandler:@"quitConnectClick" handler:^(id data, WVJBResponseCallback responseCallback) {
@@ -307,27 +308,7 @@
         responseCallback(nil);
     }];
     
-//    这个方法名也是需要加载的  （这里是触发链接&注册数据库）
-    [_webViewBridge registerHandler:@"onConnectPeripheralClick" handler:^(id data, WVJBResponseCallback responseCallback) {
-        if (data) {
-//            [self loadAnotherHTMLWithDatas:data];
-            _btMgr.stopScan().connectingPeripheralUuid(data);
-            [wSelf.btMgr onConnectCurrentPeripheralOfBluetooth];
-            wSelf.btMgr.connectionCallBack = ^(BOOL success) {
-                __strong typeof (wSelf) strongSelf = wSelf;
-                wSelf.connectionCallBack(success);
-                [strongSelf deliverConnectResultToHTmlWithResult:success];
-                if (success) {
-                    [strongSelf registerOpenHardWareWithPeripheral:_choicePeripheal];
-                    [strongSelf backDatasFromBluetooth];
-                }
-            };
-            _choicePeripheal = _btMgr.currentPeripheral;
-            [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal.identifier.UUIDString forKey:@"peripheralUUID"];
-        }
-    }];
-    
-#pragma mark -- 数据存储操作method name  & data (key/value )
+  #pragma mark -- 数据存储操作method name  & data (key/value )
 //    智能体称
     [_webViewBridge registerHandler:@"insertIntelligentScale" handler:^(id data, WVJBResponseCallback responseCallback) {
         [wSelf insertIntelligentScale:data];
@@ -445,7 +426,6 @@
         }];
     }];
     
-//    write dats
     [_webViewBridge registerHandler:@"writeDatas" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSString *hexString = data[@"hexString"];
         NSData *writeDatas = [NSData dataWithHexString:hexString];
@@ -456,7 +436,6 @@
     }];
     
     [_webViewBridge registerHandler:@"onWriteDatasClickByDictionay" handler:^(id data, WVJBResponseCallback responseCallback) {
-//        [self onAlarmClicked];
         NSLog(@"data : %@",data);
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             [self writeDatasWithDictionay:data];
@@ -468,6 +447,101 @@
     }];
     
 }
+
+#pragma mark -- bluetooth
+
+//scan
+- (void)scanPeripheralWithDic:(NSDictionary *)dic {
+    if (![dic isKindOfClass:[NSDictionary class]]) {
+        return;
+    }
+    [self scanPeripheralWithMatchInfo:dic];
+    [self onScanPeripheral];
+}
+
+- (void)onScanPeripheral {
+    __weak typeof (self) wSelf = self;
+    self.btMgr.startScan().scanPeripheralCallback = ^(CBPeripheral *peripheral) {
+        [wSelf onDeliverToHtmlWithScanPeripheral:peripheral];
+    };
+}
+
+- (void)stopScan {
+    _btMgr.stopScan();
+}
+
+//connect
+- (void)connectPeripheralWithDic:(NSDictionary *)dic callback:(BoolCallBack)connectCallback {
+    if (![dic isKindOfClass:[NSDictionary class]]) {
+        NSLog(@"dic format must be key/value");
+        return;
+    }
+    
+    NSString *uuidString = [dic objectForKey:@"uuid"];
+    if (uuidString.length <= 0) {
+        NSLog(@"uuid value lenght must larger the 0");
+        return;
+    }
+    
+    CBPeripheral *currentPeripheral = [_btMgr obtainPeripheralWithUUIDString:uuidString];
+    if (!currentPeripheral) {
+        NSLog(@"this peripheral is not in the peripherals which we has found");
+        return;
+    }
+    [self connectPeripheralWithPeripheral:currentPeripheral callback:connectCallback];
+}
+
+- (void)connectPeripheralWithPeripheral:(CBPeripheral *)peripheral callback:(BoolCallBack)connectCallback{
+    _choicePeripheal = peripheral;
+    [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal.identifier.UUIDString forKey:@"peripheralUUID"];
+    [self connectPeripheralThenConnectStateCallback:connectCallback];
+}
+
+//新的
+- (void)connectPeripheralThenConnectStateCallback:(BoolCallBack)connectFlagCallback {
+    if (!_choicePeripheal) {
+        NSLog(@"must choice a peripheral or this peripheral is not found");
+        return;
+    }
+    
+    CBPeripheral *peripheral = _choicePeripheal;
+    __weak typeof (self) wSelf = self;
+    _btMgr.connectionCallBack = ^(BOOL success) {
+        !connectFlagCallback?:connectFlagCallback(success);
+        
+        __strong typeof (wSelf) strongSelf = wSelf;
+        !strongSelf.connectStateCallback?:strongSelf.connectStateCallback(success);
+        if (success) {
+            [strongSelf registerOpenHardWareWithPeripheral:peripheral];
+            [strongSelf registerDatasFromBluetoothCallback];
+        }
+    };
+    _btMgr.willBeConnetPeiripheral(peripheral).connectingCurrentPeripheral();
+}
+
+
+#pragma mark -- tel phone
+- (void)registerTelCallHandle {
+    __weak typeof (self) wSelf = self;
+    _btMgr.callHandle = ^(BOOL handerFlag) {
+        if (handerFlag) {
+            //            [self telRemind];
+            [wSelf handlerTelComming];
+        }else{
+            NSLog(@"不是来电状态");
+        }
+    };
+}
+
+- (void)handlerTelComming{
+    //    [self telRemind];
+    __weak typeof (self) wSelf = self;
+    [_webViewBridge registerHandler:@"telComming" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [wSelf writeDatasWithDictionay:data];
+    }];
+}
+
+#pragma mark -- other mathods
 
 - (void)writeDatasWithDictionay:(NSDictionary *)dic{
     if (![dic isKindOfClass:[NSDictionary class]]) {
@@ -485,6 +559,26 @@
     [self writeDatas:data];
 }
 
+#pragma mark -- load the plist methods which we can write in the mgr extesion file
+- (void)loadPlistRegisterMethods {
+    //    load the YDRegisterInteractiveHtmlMethods.plist register methods
+    NSString *path =[[NSBundle mainBundle] pathForResource:@"YDRegisterInteractiveHtmlMethods" ofType:@"plist"];
+    NSArray *methods = [NSArray arrayWithContentsOfFile:path];
+    for (NSDictionary *typeObj in methods) {
+        if ([typeObj objectForKey:@"type"]) {
+            for (NSString *methodString in [typeObj objectForKey:@"methods"]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                [self performSelector:NSSelectorFromString(methodString)];
+#pragma clang diagnostic pop
+            }
+        }
+    }
+}
+
+
+#pragma mark -- deal with datas
+
 - (void)writeDatas:(NSData *)datas {
     if (_writeCharacteristic) {
         [self.choicePeripheal writeValue:datas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
@@ -494,28 +588,27 @@
     }
 }
 
-- (void)backDatasFromBluetooth {
+//datas from ble
+- (void)registerDatasFromBluetoothCallback {
     __weak typeof (self) wSelf = self;
+    
     _btMgr.servicesCallBack = ^(NSArray<CBService *> *services) {
-        wSelf.servicesCallBack(services);
+        !wSelf.servicesCallBack?:wSelf.servicesCallBack(services);
         [wSelf onDeliverToHtmlWithServices:services];
     };
     
     _btMgr.updateValueCharacteristicCallBack = ^(CBCharacteristic *c) {
-        wSelf.updateValueCharacteristicCallBack(c);
+        !wSelf.updateValueCharacteristicCallBack?:wSelf.updateValueCharacteristicCallBack(c);
         if (c.value && c.UUID) {
             [wSelf onDeliverToHtmlWithCharateristic:c];
         }
     };
     
     _btMgr.discoverCharacteristicCallback = ^(CBCharacteristic *c) {
-        wSelf.discoverCharacteristicCallback(c);
+        !wSelf.discoverCharacteristicCallback?:wSelf.discoverCharacteristicCallback(c);
         [wSelf __cacheCharacteristic:c];
         if (c.value && c.UUID) {
             [wSelf onDeliverToHtmlWithCharateristic:c];
-            //            if ([c.UUID.UUIDString isEqualToString:@"FFF7"]) {
-            //                [wSelf.choicePeripheal readValueForCharacteristic:c];
-            //            }
         }
         
     };
@@ -543,19 +636,10 @@
 
 - (void)deliverConnectResultToHTmlWithResult:(BOOL)result {
     __weak typeof (self) wSelf = self;
-    [_webViewBridge callHandler:@"onConnectPeripheralResultBack" data:@{@"result":@(result)} responseCallback:^(id responseData) {
+    [_webViewBridge callHandler:@"onConnectPeripheralResult" data:@{@"result":@(result)} responseCallback:^(id responseData) {
         [wSelf loadAnotherHTMLWithDatas:responseData];
     }];
 }
-
-- (void)onDeliverToHtmlWithServices:(NSArray<CBService *> *)services {
-    id jsonObj = [services yy_modelToJSONObject];
-    __weak typeof (self) wSelf = self;
-    [_webViewBridge callHandler:@"onServicesResultBack" data:jsonObj responseCallback:^(id responseData) {
-        [wSelf loadAnotherHTMLWithDatas:responseData];
-    }];
-}
-
 
 - (void)loadAnotherHTMLWithDatas:(id)datas {
     if (![datas isKindOfClass:[NSDictionary class]]) {
@@ -571,7 +655,16 @@
     }
 }
 
-// plist 文件加载数据格式
+#pragma mark -- deliver to html
+
+- (void)onDeliverToHtmlWithServices:(NSArray<CBService *> *)services {
+    id jsonObj = [services yy_modelToJSONObject];
+    __weak typeof (self) wSelf = self;
+    [_webViewBridge callHandler:@"onServicesResultBack" data:jsonObj responseCallback:^(id responseData) {
+        [wSelf loadAnotherHTMLWithDatas:responseData];
+    }];
+}
+
 - (void)onDeliverToHtmlWithCharateristic:(CBCharacteristic *)c {
     Byte *resultP = (Byte *)[c.value bytes];
     //    数据格式需要进行加载，解析数据格式 （变化），这里应该是怎么读取的，有关的格式
@@ -586,24 +679,22 @@
         }
     }
     [characteristicInfo setObject:valueInfo forKey:@"value"];
-    [_webViewBridge callHandler:@"onCharacteristicResultBack" data:characteristicInfo responseCallback:^(id responseData) {
+    [_webViewBridge callHandler:@"onCharacteristicResult" data:characteristicInfo responseCallback:^(id responseData) {
         NSLog(@"oc got response data from js : %@",responseData);
     }];
 }
 
-#pragma mark --xx handler with html
-
-- (void)onAddToListWithPeripheral:(CBPeripheral *)peripheral {
+- (void)onDeliverToHtmlWithScanPeripheral:(CBPeripheral *)peripheral {
     if (peripheral.name && peripheral.identifier) {
-//        NSDictionary *peripheralInfo = @{@"name":peripheral.name,@"uuid":peripheral.identifier.UUIDString};
         NSMutableDictionary *peripherlInfo = @{}.mutableCopy;
         peripherlInfo = [peripheral yy_modelToJSONObject];
         [peripherlInfo setObject:peripheral.identifier.UUIDString forKey:@"uuid"];
-        [_webViewBridge callHandler:@"scanResultSingleBack" data:peripherlInfo responseCallback:^(id responseData) {
+        [_webViewBridge callHandler:@"onScanPeripheralResult" data:peripherlInfo responseCallback:^(id responseData) {
             NSLog(@"response datas from html : %@",responseData);
         }];
     }
 }
+
 
 #pragma mark -- on action by vc
 
@@ -681,6 +772,7 @@
     CBCharacteristic *c = notification.object;
     NSDictionary *jsonObj = [c convertToDictionary];
     NSLog(@"onDidUpdateNotificaitonStateForCharacteristicNotify c: %@:",c);
+    [_choicePeripheal readValueForCharacteristic:c];
     [_webViewBridge callHandler:@"onNotificaitonStateForCharacteristicNotify" data:jsonObj responseCallback:^(id responseData) {
         NSLog(@"notificaiton response characteristic :%@",responseData);
     }];
@@ -992,24 +1084,6 @@
     return [_btMgr obtainPeripheralWithUUIDString:uuidString];
 }
 
-- (void)onConnectPeripheral:(CBPeripheral *)peripheral then:(ServicesCallback)servicesCallback {
-    _choicePeripheal = peripheral;
-    [_btMgr onConnectBluetoothWithPeripheral:peripheral];
-    __weak typeof (self) wSelf = self;
-    _btMgr.connectionCallBack = ^(BOOL success) {
-        __strong typeof (wSelf) strongSelf = wSelf;
-        wSelf.connectionCallBack(success);
-        if (success) {
-            [strongSelf registerOpenHardWareWithPeripheral:strongSelf.choicePeripheal];
-            [strongSelf backDatasFromBluetooth];
-        }
-    };
-    _choicePeripheal = _btMgr.currentPeripheral;
-    [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal.identifier.UUIDString forKey:@"peripheralUUID"];
-}
-
-
-
 - (void)writeDataWithByte:(NSData*)data {
     if (_choicePeripheal != nil && _writeCharacteristic != nil) {
         [_choicePeripheal writeValue:data forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
@@ -1028,7 +1102,5 @@
     _choicePeripheal = peripheral;
     [_btMgr setNotifyWithPeripheral:peripheral characteristic:characteristic block:block];
 }
-
-
 
 @end

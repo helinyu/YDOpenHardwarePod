@@ -66,24 +66,21 @@
         }
 
         // 注册插入数据 ,传入对象为字符串对象
-        bridge.registerHandler('scanResultSingleBack', function(data, responseCallback) {
+        bridge.registerHandler('onScanPeripheralResult', function(data, responseCallback) {
             var responseData = { 'name':'response from html to oc'+ data }
             peripherals.push('data');
             logEl(data.uuid,data.name + ';' + data.uuid);
             responseCallback(responseData);
         });      
 
-
-        bridge.registerHandler('onConnectPeripheralResultBack', function(data,responseCallback) {
-            // log('connect peripheral result ' + data);
-            // json 对象要转化 可以转化为json字符串 
+        bridge.registerHandler('onConnectPeripheralResult', function(data,responseCallback) {
             var stringDatas = JSON.stringify(data);
             // 获取一个数据，直接 . 来获取
             log('string datas ' + stringDatas);
             var result = data.result;
             log('result is : ' + result);                
             if (result == true) {
-                alert("数据返回正确");
+                log("返回数据正确");
             }
             if (result == false) {
             }
@@ -91,10 +88,112 @@
 
 // 上面这两个方法使用一个的方法就好，一个是有services 一个是service 只是返回链接是否成功onConnectPeripheralResultBack
         bridge.registerHandler('onServicesResultBack',function(data,responseCallback) {
-            log('services count : '+data.length);
-                var toLink = "YDPeripheralDetail.html";
-                responseCallback({'toLink':toLink});            
-         });        
+            // log('services count : '+data.length);
+            var uuidString = data.uuid;
+            log('servies :' + JSON.stringify(data) + ' ; ' + 'uuidString :' +uuidString);
+                // var toLink = "YDPeripheralDetail.html";
+                // responseCallback({'toLink':toLink});            
+         }); 
+
+        bridge.registerHandler('settingWriteCharacteristic',function(data, responseCallback) {
+            log('write datas '+ data);
+        });
+
+        bridge.registerHandler('settingReadCharacteristic', function(data, responesCallback) {
+            log(' read datas '+ data);
+        });
+
+         bridge.registerHandler('onCharacteristicResult',function(data, responseCallback) {
+            // log('characteristci : '+ data);
+            var uuid = data.uuid;
+            log('characteristic uuid : ' + uuid);
+
+            if (uuid == 'FFF6') {
+                // write delive 
+                log('delive FFF6');
+                var datas = {'uuid':uuid};
+                bridge.callHandler('onFindWriteCharacteristicWithUUIDString',datas,function(responseData) {
+                    var flag = reponseData.flag;
+                    log("response write : " +responseData + ';' + 'flag ：'+flag);
+                        // if (flag == true) {
+                            // connectAlert();
+                            // setSystemTime();
+                            // startRealtimeStep();
+                            // readMacAddress();
+                            // writeStepTarget();
+                            // bandSync();                                     
+                        // }
+                });
+
+                var links = {'toLink':'YDPeripheralDetail.html'};
+                 bridge.callHandler('onLoadHtmlByLink',links,function(responseData) {
+                  
+                });                
+            }
+
+            if (uuid == 'FFF7') {
+                log('delive FFF7');
+                // read value
+                var datas = {'uuid':uuid};
+                bridge.callHandler('onFindReadCharacteristicWithUUIDString', datas, function(responseData) {
+                    log('flag ' + responseData +';' + 'flag : ' +responseData.flag);
+                    if (flag == true) {
+
+                    }
+                });
+            }       
+
+            function connectAlert() {
+                log('connectAlert');
+                var bytes = "36 01 00 00 00 00 00 00 00 00 00 00 00 00 00 37";
+                var resquests = {'value':bytes,'log':'js->oc链接警告'};
+                bridge.callHandler('connectAlert', resquests, function(response){
+                    log('response '+ response);
+                });
+            };
+
+            function setSystemTime() {
+                log('setSystemTime');
+                var datas = {'log':'js->oc设置了系统时间'};
+                bridge.callHandler('setSystemTime', datas, function(response){
+                });            
+            };
+
+            function startRealtimeStep() {
+                log('startRealtimeStep');
+                var bytes = "09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 09";
+                var resquests = {'value':bytes,'log':'js->oc 开始真实的时间步数'};
+                bridge.callHandler('startRealtimeStep', resquests, function(response){
+                    
+                });
+            };
+
+            function readMacAddress() {
+                bridge.callHandler('readMacAddress', {}, function(responseData) {
+
+                });
+            };
+
+            function writeStepTarget() {
+                log('writeStepTarget');
+                var requests = {'log':'写如步数目标'};
+                bridge.callHandler('writeStepTarget', requests, function(response){
+                    
+                });        
+            };
+
+            function bandSync() {
+                log('bandSync');
+                    // Byte data[] = { 0x46, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x46};
+                var datas = "46 00 00 00 00 00 00 00 00 00 00 00 00 00 00 46";
+                var requests = {'log':'绑定同步','value':datas};
+                log('request');
+                bridge.callHandler('bandSync', requests, function(response){
+                    log(' js from oc response : %@',response);
+                    
+                });            
+            };               
+         });       
                                  
         // 点击html的按钮时间
         document.onclick=mouseClick;
@@ -102,16 +201,18 @@
             if(e){//不是ie
 		        e.preventDefault();
                 var eId = e.target.id;
+
                 if (eId == "scanBtnId") {
                 	log('开始扫描');
 	             	var scanParams = {'YDBlueToothFilterType':3,'prefixField':'RUN'};
-                	bridge.callHandler('onScanClick', scanParams, function(response) {
+                	bridge.callHandler('onScan', scanParams, function(response) {
                 		log('js got oc response' + reponse);
                 	});
                 	return;
                 }	
-
-                bridge.callHandler('onConnectPeripheralClick',eId,function(response) {
+                // uuid
+                var connectParam = {'uuid':eId};
+                bridge.callHandler('onConnectPeripheral', connectParam, function(response) {
                     log('js got resposne ',response);
                 });
                                  

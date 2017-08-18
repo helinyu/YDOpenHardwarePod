@@ -18,4 +18,5 @@
 
 - (void)setTelEnable:(BOOL)telEnable andMessageEnable:(BOOL)messageEnable;
 
+- (void)writeBaseDatas;
 @end

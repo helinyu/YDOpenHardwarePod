@@ -63,88 +63,29 @@
 
         function isNull(data){ 
             return (data == "" || data == undefined || data == null) ? "暂无" : data; 
-        }
-        
-        bridge.registerHandler('onCharacteristicResultBack',function(data,responseCallback) {
-            log('data' + JSON.stringify(data));
-            var dataString = JSON.stringify(data);
-            var uuidString = data.uuid;
-
-            if ((data.uuid == 'FFF6') || (data.uuid == '0000fff6-0100-1000-8000-00805f9b34fb')) {
-                var datas = {'uuid':data.uuid};
-                bridge.callHandler('writeCharacteristicWithUUIDString', datas, function(response) {
-                    log('设置读取的charcteristic' + response);
-                    connectAlert();
-                    setSystemTime();
-                    startRealtimeStep();
-                    readMacAddress();
-                    writeStepTarget();
-                    bandSync();                    
-                });
-            }
-
-            if ( (data.uuid == 'FFF7') || (data.uuid == '0000fff7-0100-1000-8000-00805f9b34fb')) {
-                var datas = {'uuid':data.uuid};
-                bridge.callHandler('readCharacteristicWithUUIDString', datas,function(response) {
-                    log('设置阅读的characteristic' + response);
-                });
-            }
-
-         function connectAlert() {
-            log('connectAlert');
-            var bytes = "36 01 00 00 00 00 00 00 00 00 00 00 00 00 00 37";
-            var resquests = {'value':bytes,'log':'js->oc链接警告'};
-            bridge.callHandler('onWriteDatasClickByDictionay', resquests, function(response){
-                log('response '+ response);
-            });
         };
 
-       function setSystemTime() {
-            log('setSystemTime');
-            var datas = {'log':'js->oc设置了系统时间'};
-            bridge.callHandler('setSystemTime', datas, function(response){
-            });            
-        };
+        bridge.registerHandler('onStepDatas',function(data,responseCallback) {
+            log('datas :'+ JSON.stringify(data));
+        });
 
-        function startRealtimeStep() {
-            log('startRealtimeStep');
-            var bytes = "09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 09";
-            var resquests = {'value':bytes,'log':'js->oc 开始真实的时间步数'};
-            bridge.callHandler('onWriteDatasClickByDictionay', resquests, function(response){
-                
-            });
-        };
+        bridge.registerHandler('onEnergeDatas', function(data, responseCallback) {
+            log('energy : ' + JSON.stringify(data));
+        });   
 
-        function readMacAddress() {
-         };
+        bridge.registerHandler('onDistibute', function(data, responseCallback) {
+            log('nomal :'+JSON.stringify(data));
+        }); 
 
-        function writeStepTarget() {
-            log('writeStepTarget');
-            var requests = {'log':'写如步数目标'};
-            bridge.callHandler('writeStepTarget', requests, function(response){
-                
-            });        
-        };
-
-        function bandSync() {
-            log('bandSync');
-                // Byte data[] = { 0x46, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x46};
-            var datas = "46 00 00 00 00 00 00 00 00 00 00 00 00 00 00 46";
-            var requests = {'log':'绑定同步','value':datas};
-            log('request');
-            bridge.callHandler('onWriteDatasClickByDictionay', requests, function(response){
-                log(' js from oc response : %@',response);
-                
-            });            
-        };                
-
+        bridge.registerHandler('onMacAddress', function(data, responseCallback) {
+            log('mac address : ' + JSON.stringify(data));
         });
 
         // 点击html的按钮时间
         document.onclick=mouseClick;
         function mouseClick(e){
             // e.preventDefault();
-            alert(" 点击了");
+            // alert(" 点击了");
             var eId = e.target.id;
             if (eId) {
                 if (eId == "sleepBtnId") {
@@ -165,9 +106,20 @@
                     return;
                 }
 
+                if (eId == 'readDatasID') {
+                    var datas = {'uuid':'FFF7'};
+                    bridge.callHandler('onFindReadCharacteristicWithUUIDString', datas, function(responseCallback) {
+                        var baseDatas = {};
+                        bridge.callHandler('onWriteBase', baseDatas, function(responseCallback) {
+
+                        });
+                    });
+                    return;
+                }
+
                 if (eId == "synBtnID") {
                     var datas = {};
-                    bridge.callHandler('onSycn', datas, function(response) {
+                    bridge.callHandler('bandSync', datas, function(response) {
                     });  
                     return;  
                 }
@@ -214,10 +166,15 @@
         <button id="opDataBaseId"> 数据库的操作 </button>
     <hr/>
 
+    <button id="readDatasID">读取数据</button>
     <button id="synBtnID">立即同步</button>
     <button id="powerBtnID">电量 :  <label id="powerID"></label></button>
     <button id="settingBtnID">设置</button>
- 
+    <br/>
+    <label id="stepId">步数</label>
+    <label id="calorieId">卡路里</label>
+    <label id="distanceId">距离</label>
+
     <hr/>
         蓝牙列表
     <hr/>
