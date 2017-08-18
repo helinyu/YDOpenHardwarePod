@@ -610,8 +610,8 @@
 }
 
 - (void)onDidUpdateNotificaitonStateForCharacteristicNotify:(NSNotification *)notification {
-    NSLog(@"onDidUpdateNotificaitonStateForCharacteristicNotify c: %@:",c);
     CBCharacteristic *c = notification.object;
+    NSLog(@"onDidUpdateNotificaitonStateForCharacteristicNotify c: %@:",c);
     NSDictionary *jsonObj = [c convertToDictionary];
     [_choicePeripheal readValueForCharacteristic:c];
     [_webViewBridge callHandler:@"onNotificaitonStateForCharacteristicNotify" data:jsonObj responseCallback:^(id responseData) {
