@@ -351,7 +351,7 @@ _bluetooth.having(peripheral).connectToPeripherals().discoverServices().discover
     _connectedPeripheralServices = [NSMutableArray<CBService *> new];
 }
 
-- (YDBlueToothMgr * (^)(void))connectingCurrentPeripheral {
+- (YDBlueToothMgr *(^)(void))connectingCurrentPeripheral {
     [self onConnectBluetoothWithPeripheral:_currentPeripheral];
     return ^(void){
         return self;

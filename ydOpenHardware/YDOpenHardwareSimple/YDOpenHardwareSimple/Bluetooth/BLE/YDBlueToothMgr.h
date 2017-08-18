@@ -99,7 +99,7 @@
  */
 - (void)onConnectBluetoothWithIndex:(NSInteger)index;
 - (void)onConnectBluetoothWithPeripheral:(CBPeripheral *)peripheral;// (recommended)
-- (YDBlueToothMgr *(^)())connectingCurrentPeripheral;
+- (YDBlueToothMgr *(^)(void))connectingCurrentPeripheral;
 
 
 /*
