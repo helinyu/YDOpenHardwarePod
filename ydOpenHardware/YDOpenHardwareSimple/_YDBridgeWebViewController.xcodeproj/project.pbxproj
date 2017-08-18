@@ -237,20 +237,11 @@
 		412B186C1F467F5400028F3B /* BridgeWeb */ = {
 			isa = PBXGroup;
 			children = (
-				412B186D1F467F5400028F3B /* UIViewController+YDNavigation.h */,
-				412B186E1F467F5400028F3B /* UIViewController+YDNavigation.m */,
-				412B186F1F467F5400028F3B /* UIViewController+YDViewController.h */,
-				412B18701F467F5400028F3B /* UIViewController+YDViewController.m */,
-				412B18731F467F5400028F3B /* YDBridgeWebMgr.h */,
-				412B18741F467F5400028F3B /* YDBridgeWebMgr.m */,
-				412B18751F467F5400028F3B /* YDBridgeWebView.h */,
-				412B18761F467F5400028F3B /* YDBridgeWebView.m */,
 				412B18771F467F5400028F3B /* YDBridgeWebViewController.h */,
 				412B18781F467F5400028F3B /* YDBridgeWebViewController.m */,
 				412B188A1F46808B00028F3B /* YDBluetoohWebDefine.h */,
 				412B187A1F467F5400028F3B /* YDMBaseViewController.h */,
 				412B187B1F467F5400028F3B /* YDMBaseViewController.m */,
-				412B187C1F467F5400028F3B /* YDRegisterInteractiveHtmlMethods.plist */,
 				412B187D1F467F5400028F3B /* YDWebNoNetworkView.h */,
 				412B187E1F467F5400028F3B /* YDWebNoNetworkView.m */,
 			);
@@ -284,6 +275,10 @@
 		413313D31F46EAC100027D2B /* NomalCategory */ = {
 			isa = PBXGroup;
 			children = (
+				412B186D1F467F5400028F3B /* UIViewController+YDNavigation.h */,
+				412B186E1F467F5400028F3B /* UIViewController+YDNavigation.m */,
+				412B186F1F467F5400028F3B /* UIViewController+YDViewController.h */,
+				412B18701F467F5400028F3B /* UIViewController+YDViewController.m */,
 				4182B0191F45E1B7001A86EC /* CBService+YYModel.h */,
 				4182B01A1F45E1B7001A86EC /* CBService+YYModel.m */,
 				4182B01D1F45E1B7001A86EC /* NSData+YDConversion.h */,
@@ -314,8 +309,20 @@
 				4182B02A1F45E1B7001A86EC /* YDConstants.m */,
 				4182B02B1F45E1B7001A86EC /* YDPeripheralInfo.h */,
 				4182B02C1F45E1B7001A86EC /* YDPeripheralInfo.m */,
+				412B18731F467F5400028F3B /* YDBridgeWebMgr.h */,
+				412B18741F467F5400028F3B /* YDBridgeWebMgr.m */,
+				412B18751F467F5400028F3B /* YDBridgeWebView.h */,
+				412B18761F467F5400028F3B /* YDBridgeWebView.m */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		413313D71F46F03100027D2B /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				412B187C1F467F5400028F3B /* YDRegisterInteractiveHtmlMethods.plist */,
+			);
+			path = Bundle;
 			sourceTree = "<group>";
 		};
 		415A54DC1F344AD700BD61EA /* Framework */ = {
@@ -330,11 +337,11 @@
 		415C6AAF1F305D7E007BE9DA /* Bluetooth */ = {
 			isa = PBXGroup;
 			children = (
+				413313D71F46F03100027D2B /* Bundle */,
 				413313D61F46EB5200027D2B /* Helper */,
 				413313D21F46EA6C00027D2B /* HelpTestEnvironment */,
 				413313D11F46E43D00027D2B /* Category */,
 				412B186C1F467F5400028F3B /* BridgeWeb */,
-				4182B0181F45E1B7001A86EC /* Other */,
 				4182B0141F45E14B001A86EC /* BLE */,
 				411BD2F71F42881C00D8CB9A /* html */,
 			);
@@ -350,13 +357,6 @@
 				412B184D1F467E3A00028F3B /* YDBlueToothMgr.m */,
 			);
 			path = BLE;
-			sourceTree = "<group>";
-		};
-		4182B0181F45E1B7001A86EC /* Other */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Other;
 			sourceTree = "<group>";
 		};
 		4D6D8FBE1C60E35800003AA0 = {

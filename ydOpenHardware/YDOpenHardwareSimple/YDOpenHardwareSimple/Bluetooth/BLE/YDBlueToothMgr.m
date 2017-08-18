@@ -198,7 +198,7 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
         return NO;
     }];
     
-#pragma mark - connect & services
+#pragma mark - connect ===> services
     [_bluetooth setBlockOnConnected:^(CBCentralManager *central, CBPeripheral *peripheral) {
         NSLog(@"setBlockOnConnected");
         !wSelf.connectionCallBack?:wSelf.connectionCallBack(YES);
@@ -220,7 +220,7 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
         !wSelf.servicesCallBack?:wSelf.servicesCallBack(wSelf.connectedPeripheralServices);
     }];
     
-#pragma mark - services & characteristic
+#pragma mark - services ===> characteristic
     
     [_bluetooth setBlockOnDiscoverCharacteristics:^(CBPeripheral *peripheral, CBService *service, NSError *error) {
         NSLog(@"setBlockOnDiscoverCharacteristics");
@@ -272,7 +272,6 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
     }];
 }
 
-
 #pragma mark -- custom methods
 
 + (instancetype)shared {
@@ -284,17 +283,6 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
     return singleton;
 }
 
-- (void)initWithFilterField:(NSString *)filterField withFilterType:(YDBlueToothFilterType) type {
-    switch (type) {
-        case YDBlueToothFilterTypeMatch:
-            break;
-        case YDBlueToothFilterTypeContain:
-            break;
-        default:
-            break;
-    }
-}
-
 - (YDBlueToothMgr *(^)(void))startScan {
     _peripherals = [NSMutableArray<CBPeripheral *> new];
     _peripheralInfos = [NSMutableArray<YDPeripheralInfo *> new];
@@ -302,7 +290,6 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
     _bluetooth = [BabyBluetooth shareBabyBluetooth];
     [self babyDelegate];
     _bluetooth.scanForPeripherals().begin();
-    
     return ^(void){
         return self;
     };
