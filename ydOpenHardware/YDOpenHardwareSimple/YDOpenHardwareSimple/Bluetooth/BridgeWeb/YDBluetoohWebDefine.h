@@ -1,13 +1,14 @@
 //
-//  YDDefine.h
-//  
+//  YDBluetoohWebDefine.h
+//  _YDBridgeWebViewController
 //
-//  Created by Aka on 2017/8/1.
-//
+//  Created by Aka on 2017/8/18.
+//  Copyright © 2017年 YD. All rights reserved.
 //
 
-#ifndef YDDefine_h
-#define YDDefine_h
+#ifndef YDBluetoohWebDefine_h
+#define YDBluetoohWebDefine_h
+
 
 #import <UIKit/UIKit.h>
 
@@ -352,4 +353,7 @@ static const CGFloat YDCtrlH40    = 40.0;
 #define SCREEN_BOUNDS CGRectMake(0,0,SCREEN_WIDTH_V1, SCREEN_HEIGHT_V1)
 #define SCREEN_SIZE CGSizeMake(SCREEN_WIDTH_V1, SCREEN_HEIGHT_V1)
 
-#endif /* YDDefine_h */
+
+
+
+#endif /* YDBluetoohWebDefine_h */

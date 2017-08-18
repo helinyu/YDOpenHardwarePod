@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YDDefine.h"
+#import "YDBluetoohWebDefine.h"
 
 @class WKProcessPool;
 @class WebViewJavascriptBridge;

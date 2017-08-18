@@ -7,7 +7,7 @@
 //
 
 #import "YDWebNoNetworkView.h"
-#import "YDDefine.h"
+#import "YDBluetoohWebDefine.h"
 #import "Masonry.h"
 
 @interface YDWebNoNetworkView ()

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
-#import "YDDefine.h"
+#import "YDBluetoohWebDefine.h"
 
 @class YDPeripheralInfo;
 

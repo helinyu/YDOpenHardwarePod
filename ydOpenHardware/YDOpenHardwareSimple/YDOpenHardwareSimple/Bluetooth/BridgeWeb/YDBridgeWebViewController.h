@@ -7,7 +7,7 @@
 //
 
 #import "YDMBaseViewController.h"
-#import "YDDefine.h"
+#import "YDBluetoohWebDefine.h"
 #import <UIKit/UIKit.h>
 
 @class YDBridgeWebView;

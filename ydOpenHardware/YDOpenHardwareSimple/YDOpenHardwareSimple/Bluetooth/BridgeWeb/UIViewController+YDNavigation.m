@@ -10,7 +10,7 @@
 #import <objc/runtime.h>
 #import "YDMBaseViewController.h"
 #import "Masonry.h"
-#import "YDDefine.h"
+#import "YDBluetoohWebDefine.h"
 
 @interface UIViewController ()
 
