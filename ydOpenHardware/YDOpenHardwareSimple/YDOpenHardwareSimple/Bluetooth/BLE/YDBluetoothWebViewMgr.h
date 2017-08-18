@@ -14,6 +14,17 @@
 
 @interface YDBluetoothWebViewMgr :NSObject
 
+//蓝牙设备ID
+@property (nonatomic, copy, readonly) NSString *deviceId;
+//第三方标识名称
+@property (nonatomic, copy, readonly) NSString *plugName;
+//悦动圈用户id
+@property (nonatomic, strong, readonly) NSNumber *userId;
+//悦动圈提供的设备id
+@property (nonatomic, copy, readonly) NSString *deviceIdentify;
+
+
+
 @property (nonatomic, strong) WebViewJavascriptBridge *webViewBridge;
 
 + (instancetype)shared;
@@ -52,19 +63,21 @@ typedef ResponseIdObject ResponseJsonObject;
 
 - (CBPeripheral *)obtainPeripheralWithUUIDString:(NSString *)uuidString;
 
+//service callback
 typedef void(^ServicesCallback)(NSArray<CBService *> *services);
 @property (nonatomic, copy) ServicesCallback servicesCallBack;
 
-//@property (nonatomic, copy) void(^characteristicCallBack)(CBCharacteristic *c);
+// chacteristic callback
 typedef void (^CharacteristicCallback)(CBCharacteristic *c);
 @property (nonatomic, copy) CharacteristicCallback discoverCharacteristicCallback;
 @property (nonatomic, copy) CharacteristicCallback updateValueCharacteristicCallBack;
 
-@property (nonatomic, strong) CBCharacteristic *writeCharacteristic;
-@property (nonatomic, strong) CBCharacteristic *readCharacteristic;
+@property (nonatomic, strong, readonly) CBCharacteristic *writeCharacteristic;
+@property (nonatomic, strong, readonly) CBCharacteristic *readCharacteristic;
 
 - (void)writeDataWithByte:(NSData*)data;
 
+//set notify for the chacateristic which is need ,peripheral is the one which is chose
 - (void)setNotifyWithCharacteristic:(CBCharacteristic *)characteristic block:(void(^)(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error))block;
 - (void)setNotifyWithPeripheral:(CBPeripheral *)peripheral characteristic:(CBCharacteristic *)characteristic block:(void(^)(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error))block;
 
@@ -72,5 +85,6 @@ typedef void (^CharacteristicCallback)(CBCharacteristic *c);
 typedef void(^BoolCallBack)(BOOL flag);
 @property (nonatomic, copy) BoolCallBack connectStateCallback;
 
+- (void)loadAnotherHTMLWithDatas:(id)datas;
 
 @end

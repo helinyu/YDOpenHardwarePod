@@ -79,6 +79,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDistibutionNotify:) name:@"ydDataistribution" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMacAddressNotify:) name:@"ydMacAddress" object:nil];
 
+    //    for test bundle html
+    [self.webViewBridge registerHandler:@"onLoadHtmlByLink" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
+    }];
 }
 
 - (void)writeBaseDatas {
