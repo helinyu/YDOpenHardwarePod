@@ -32,8 +32,6 @@
 @property (nonatomic, assign, readwrite) NSInteger currentIndex;
 @property (nonatomic, strong, readwrite) CBPeripheral *currentPeripheral;
 
-//tel phone
-@property (nonatomic, strong) CTCallCenter *callCenter;
 
 @end
 
@@ -57,11 +55,8 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
         NSString *callState = strarray1[1];
         NSLog(@"callState == %@",callState);
         if ([callState isEqualToString:@"CTCallStateIncoming"] || [callState isEqualToString:@"CTCallStateConnected"]) {
-//            weakSelf.isCall = YES;
-//            [weakSelf.webViewMgr telRemind];
             wSelf.callHandle(YES);
         }else {
-//            weakSelf.isCall = NO;
             wSelf.callHandle(NO);
         }
     };
@@ -78,7 +73,6 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
 - (void)babyDelegate {
     
     [self registerTelCaller];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ontest:) name:BabyNotificationAtDidWriteValueForCharacteristic object:nil];
     
     __weak typeof  (self) wSelf = self;
     
@@ -334,7 +328,6 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
 
 // custom action method
 
-
 - (void)onConnectBluetoothWithIndex:(NSInteger)index {
     [self onConnectBluetoothWithPeripheral:_peripherals[index]];
 }
@@ -357,7 +350,6 @@ _bluetooth.having(peripheral).connectToPeripherals().discoverServices().discover
         return self;
     };
 }
-
 
 #pragma mark -- some block methods
 

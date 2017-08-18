@@ -11,6 +11,7 @@
 @class CBService;
 @class CBCharacteristic;
 @class WebViewJavascriptBridge;
+@class YDBlueToothMgr;
 
 @interface YDBluetoothWebViewMgr :NSObject
 
@@ -23,7 +24,7 @@
 //悦动圈提供的设备id
 @property (nonatomic, copy, readonly) NSString *deviceIdentify;
 
-
+@property (nonatomic, strong) YDBlueToothMgr *btMgr;
 
 @property (nonatomic, strong) WebViewJavascriptBridge *webViewBridge;
 

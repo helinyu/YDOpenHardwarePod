@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "YDBluetoohWebDefine.h"
+@class CTCallCenter;
 
 @class YDPeripheralInfo;
 
@@ -18,8 +19,11 @@
 
 + (instancetype)shared;
 
-//tel phone call
-@property (nonatomic, strong) void(^callHandle)(BOOL handerFlag);
+//tel phone call (tel catefory)
+@property (nonatomic, copy) void(^callHandle)(BOOL handerFlag);
+
+//tel phone
+@property (nonatomic, strong) CTCallCenter *callCenter;
 
 //- (void)startScan;
 - (YDBlueToothMgr *(^)(void))startScan;

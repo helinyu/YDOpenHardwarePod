@@ -62,9 +62,27 @@
             }
         }
 
-        function isNull(data){ 
+        function isNull(data) { 
             return (data == "" || data == undefined || data == null) ? "暂无" : data; 
         }
+
+        bridge.registerHandler('onTelComming', function(data, responseCallback) {
+            // var responseData = { 'name':'response from html to oc'+ data }
+            // peripherals.push('data');
+            // logEl(data.uuid,data.name + ';' + data.uuid);
+            // responseCallback(responseData);
+            var flag = data.flag;
+            if (flag == true) {
+              // for test /正式的应该是直接调用二进制写入
+              bridge.callHandler('onTelRemind',{},function(responseData) {
+
+              });
+            }
+            else{
+              log('处理不是来电的情况');
+            }
+
+        }); 
 
         var quitConnectBtn = document.getElementById("quitConnectedId");
         quitConnectBtn.onclick = function(e) {
@@ -84,8 +102,6 @@
     	var lookforAlarmBtn = document.getElementById("alarmId");
         lookforAlarmBtn.onclick = function (e){
             alert('点击了寻找手环按钮');
-            // Byte data[] = { 0x36, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x40};
-            // var dataBytes = '0x360x0A0x000x000x000x000x000x000x000x000x000x000x000x000x000x40';
             var dataBytes = '36 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 40';
             var datas = {'value':dataBytes};
             bridge.callHandler('onWriteDatasClickByDictionay', datas, function(response) {
@@ -395,6 +411,10 @@
        <br/><br/>
        <button id="alarmId">寻找我的手环</button>
        <br/>
+
+      <hr/>
+        <label>进入这个页面之后才可以进行监听到手机来电<label>
+      <hr/>
 
        下面的来电提示应该是需要设备绑定 <这个在里面已经设置>，取消这个我们的app似乎没有实现
        <button id="iphoneId">设置来电提示</button>

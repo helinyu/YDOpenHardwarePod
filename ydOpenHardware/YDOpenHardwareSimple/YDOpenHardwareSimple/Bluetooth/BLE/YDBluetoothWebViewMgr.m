@@ -23,6 +23,7 @@
 #import "YDBluetoothWebViewMgr+ReadDatas.h"
 #import <YDOpenHardwareSDK/YDOpenHardwareSDK.h>
 #import "YDBluetoothWebViewMgr+DB.h"
+#import "YDBluetoothWebViewMgr+Tel.h"
 
 @interface YDBluetoothWebViewMgr ()
 
@@ -43,8 +44,6 @@
 @property (nonatomic, assign) NSInteger calorie;
 @property (nonatomic, assign) CGFloat disM;
 @property (nonatomic, assign) BOOL isFirstReload;
-
-@property (nonatomic, strong) YDBlueToothMgr *btMgr;
 
 //mark
 @property (nonatomic, strong) CBPeripheral *choicePeripheal;
@@ -223,7 +222,7 @@
     
     [self registerDBHandles];
     [self registerExtension];
-    [self registerTelCallHandle];
+    [self initTelCallHandle];
     [self loadPlistRegisterMethods];
     __weak typeof (self) wSelf = self;
 
@@ -399,29 +398,6 @@
     _btMgr.willBeConnetPeiripheral(peripheral).connectingCurrentPeripheral();
 }
 
-
-#pragma mark -- tel phone
-- (void)registerTelCallHandle {
-    __weak typeof (self) wSelf = self;
-    _btMgr.callHandle = ^(BOOL handerFlag) {
-        if (handerFlag) {
-            //            [self telRemind];
-            [wSelf handlerTelComming];
-        }else{
-            NSLog(@"不是来电状态");
-        }
-    };
-}
-
-- (void)handlerTelComming{
-        //test
-        [self telRemind];
-//    __weak typeof (self) wSelf = self;
-//    [_webViewBridge registerHandler:@"telComming" handler:^(id data, WVJBResponseCallback responseCallback) {
-//        [wSelf writeDatasWithDictionay:data];
-//    }];
-}
-
 #pragma mark -- other mathods
 
 - (void)writeDatasWithDictionay:(NSDictionary *)dic{
@@ -491,7 +467,6 @@
         if (c.value && c.UUID) {
             [wSelf onDeliverToHtmlWithCharateristic:c];
         }
-        
     };
 }
 
@@ -576,11 +551,9 @@
     }
 }
 
-
 #pragma mark -- on action by vc
 
 - (void)onActionByViewDidDisappear {
-
     if (_btMgr) {
         _btMgr.quitConnected().stopScan();
     }
@@ -593,7 +566,6 @@
         }
         [_btMgr onConnectBluetoothWithPeripheral:_choicePeripheal];
     }
-
 }
 
 #pragma mark -- link to openHardware to datas caches
