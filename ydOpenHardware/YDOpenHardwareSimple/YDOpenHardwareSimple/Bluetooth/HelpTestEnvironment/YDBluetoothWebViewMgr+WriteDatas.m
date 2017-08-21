@@ -10,7 +10,6 @@
 
 @implementation YDBluetoothWebViewMgr (WriteDatas)
 
-
 /**
  43. 传送马达振动信号
  */
@@ -24,7 +23,6 @@
 - (void)connectAlert{
         [self transferMotorSignalWithTimeLength:1];
 }
-
 
 - (void)setSystemTime
 {
@@ -87,7 +85,6 @@
     [self writeDataWithByte:data0];
 }
 
-
 /**
  *11. 启动实时计步模式
  */
@@ -97,7 +94,6 @@
     NSData *data0 = [[NSData alloc] initWithBytes:data length:16];
     [self writeDataWithByte:data0];
 }
-
 
 /**
  25. 读取MAC地址
@@ -118,7 +114,6 @@
     }
     [self setStepTargetWithStep:_stepTarget.integerValue andRewardStep:_rewardAimStep.integerValue];
 }
-
 
 - (void)setStepTargetWithStep:(NSInteger)step andRewardStep:(NSInteger)rewardStep{
     Byte AA = (step & 0xFF0000) >> 16;
@@ -204,10 +199,19 @@
     [self writeDataWithByte:data0];
 }
 
-
 - (void)messageRemind{
     Byte data[] = {0x4D, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x4E};
     NSData *data0 = [[NSData alloc] initWithBytes:data length:16];
     [self writeDataWithByte:data0];
 }
+
+/**
+ 21. 恢复出厂设置
+ */
+- (void)RestoreFactorySettings{
+    Byte data[] = {0x12, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x12};
+    NSData *data0 = [[NSData alloc] initWithBytes:data length:16];
+    [self writeDataWithByte:data0];
+}
+
 @end

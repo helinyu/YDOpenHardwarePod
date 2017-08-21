@@ -190,9 +190,12 @@
                 [self cancelConnectedPeripheralWithPeripheal:peripehral];
                 return;
             }
+        }else{
+            [self cancelConnectPeripheal];
         }
+    }else{
+        [self cancelConnectPeripheal];
     }
-    [self cancelConnectPeripheal];
 }
 
 - (void)cancelConnectPeripheal {

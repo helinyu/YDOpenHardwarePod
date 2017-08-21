@@ -45,6 +45,7 @@
 		4182B0361F45E1B7001A86EC /* YDPeripheralInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4182B02C1F45E1B7001A86EC /* YDPeripheralInfo.m */; };
 		41E8C47C1F415E6700C91C8D /* YDHtmlInteractiveTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E8C47B1F415E6700C91C8D /* YDHtmlInteractiveTest.m */; };
 		41E8C47F1F41728400C91C8D /* YDDatabaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E8C47E1F41728400C91C8D /* YDDatabaseTest.m */; };
+		41FE1E101F4A7D6500567FB8 /* YDBluetoothWebViewMgr+YDAudioVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FE1E0F1F4A7D6500567FB8 /* YDBluetoothWebViewMgr+YDAudioVideo.m */; };
 		4D6D8FCC1C60E35800003AA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCB1C60E35800003AA0 /* main.m */; };
 		4D6D8FCF1C60E35800003AA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCE1C60E35800003AA0 /* AppDelegate.m */; };
 		4D6D8FD21C60E35800003AA0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FD11C60E35800003AA0 /* ViewController.m */; };
@@ -152,6 +153,8 @@
 		4195F1251F3C0FE2006CA7B6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		41E8C47B1F415E6700C91C8D /* YDHtmlInteractiveTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDHtmlInteractiveTest.m; sourceTree = "<group>"; };
 		41E8C47E1F41728400C91C8D /* YDDatabaseTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDDatabaseTest.m; sourceTree = "<group>"; };
+		41FE1E0E1F4A7D6500567FB8 /* YDBluetoothWebViewMgr+YDAudioVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YDBluetoothWebViewMgr+YDAudioVideo.h"; sourceTree = "<group>"; };
+		41FE1E0F1F4A7D6500567FB8 /* YDBluetoothWebViewMgr+YDAudioVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YDBluetoothWebViewMgr+YDAudioVideo.m"; sourceTree = "<group>"; };
 		4D6D8FC71C60E35800003AA0 /* YDOpenHardwareSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YDOpenHardwareSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6D8FCB1C60E35800003AA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D6D8FCD1C60E35800003AA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -301,6 +304,8 @@
 				413313CF1F46E40400027D2B /* YDBluetoothWebViewMgr+DB.m */,
 				413313DB1F46F6E700027D2B /* YDBluetoothWebViewMgr+Tel.h */,
 				413313DC1F46F6E700027D2B /* YDBluetoothWebViewMgr+Tel.m */,
+				41FE1E0E1F4A7D6500567FB8 /* YDBluetoothWebViewMgr+YDAudioVideo.h */,
+				41FE1E0F1F4A7D6500567FB8 /* YDBluetoothWebViewMgr+YDAudioVideo.m */,
 			);
 			path = YDBluetoothWebViewMgrCategory;
 			sourceTree = "<group>";
@@ -735,6 +740,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41FE1E101F4A7D6500567FB8 /* YDBluetoothWebViewMgr+YDAudioVideo.m in Sources */,
 				413313D01F46E40400027D2B /* YDBluetoothWebViewMgr+DB.m in Sources */,
 				412B188D1F46819100028F3B /* YDBluetoothWebViewMgr.m in Sources */,
 				413313DD1F46F6E700027D2B /* YDBluetoothWebViewMgr+Tel.m in Sources */,

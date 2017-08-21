@@ -298,12 +298,11 @@ NSString *const YDNtfMangerReadValueForDescriptors = @"yd.ntf.read.value.for.des
 }
 
 - (YDBlueToothMgr *(^)(void))quitConnected {
-    __weak typeof (self) wSelf = self;
+    if (_currentPeripheral) {
+        [_bluetooth cancelPeripheralConnection:_currentPeripheral];
+        _currentPeripheral = nil;
+    }
     return ^(void) {
-        if (wSelf.currentPeripheral) {
-            [wSelf.bluetooth cancelPeripheralConnection:wSelf.currentPeripheral];
-            wSelf.currentPeripheral = nil;
-        }
         return self;
     };
 }

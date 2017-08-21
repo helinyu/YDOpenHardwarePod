@@ -32,4 +32,6 @@
 
 - (void)telRemind;
 
+- (void)RestoreFactorySettings;
+
 @end

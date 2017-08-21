@@ -83,6 +83,11 @@
     [self.webViewBridge registerHandler:@"onLoadHtmlByLink" handler:^(id data, WVJBResponseCallback responseCallback) {
         [self loadAnotherHTMLWithDatas:data];
     }];
+    
+    [self.webViewBridge registerHandler:@"onRestoreFactorySettings" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"restore datas : %@",data);
+        [wSelf RestoreFactorySettings];
+    }];
 }
 
 - (void)writeBaseDatas {

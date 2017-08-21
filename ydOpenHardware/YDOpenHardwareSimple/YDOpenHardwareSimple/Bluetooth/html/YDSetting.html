@@ -108,6 +108,18 @@
                 log('JS got response', response)
             });                     
         }
+
+      var RestoreFactorySettingsBtn = document.getElementById('RestoreFactorySettingsId');
+        RestoreFactorySettingsBtn.onclick = function(e) {
+            // 上传数据包 0b 04 
+            alert('恢复厂家设置');
+            // var requestSyncDatas = "0B 04";
+            // Byte data[] = {0x12, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x12};
+            var requestSyncDatas = "12 00 00 00 00 00 00 00 00 00 00 00 00 00 00 12";
+            bridge.callHander('onRestoreFactorySettings', requestSyncDatas, function(response){
+
+            });
+      }
 // 下面的有待测试
 
 // 设置消息通知
@@ -276,14 +288,7 @@
       //       });
       //   };
 
-      //   var RestoreFactorySettingsBtn = document.getElementById('RestoreFactorySettingsId');
-      //   RestoreFactorySettingsBtn.onclick = function(e) {
-      //       // 上传数据包 0b 04 
-      //       var requestSyncDatas = "0B 04";
-      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-      //       });
-      //   };
-
+       
       //   var personInfoBtn = document.getElementById('personInfoId');
       //   personInfoBtn.onclick = function(e) {
       //       var requestSyncDatas = "0B 05";
@@ -294,14 +299,6 @@
       //   var setNameBtn = document.getElementById('setNameId');
       //   setNameBtn.onclick = function(e) {
       //       var requestSyncDatas = "0B 06";
-      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
-      //       });
-      //   };
-
-      //   var RestoreFactorySettingsBtn= document.getElementById('RestoreFactorySettingsId');
-      //   RestoreFactorySettingsBtn.onclick = function(e) {
-      //       // 上传数据包 0b 04 
-      //       var requestSyncDatas = "0B 07";
       //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
       //       });
       //   };
@@ -412,6 +409,10 @@
        <button id="alarmId">寻找我的手环</button>
        <br/>
 
+       <br/>
+       <button id="RestoreFactorySettingsId"> 恢复厂家设置</button>
+       <br/>
+
       <hr/>
         <label>进入这个页面之后才可以进行监听到手机来电<label>
       <hr/>
@@ -450,7 +451,6 @@
        <button id="personInfoId">个人信息</button>
        <button id="setNameId">设置用户姓名</button>
        <button id="languageId">设置语言</button>
-       <button id="RestoreFactorySettingsId"> 恢复厂家设置</button>
        <button id="readPersonInfoId"> 读取ble个人信息</button>
        <button id="readBlePersonName"> 读取ble设备用户姓名</button>
        <button id="readBleLanguage"> 读取ble设备语言</button>
@@ -474,12 +474,12 @@
        <button id="bleUploadProductInfoId">设备上传厂家消息</button>
        <button id="blueUploadSerialNumber">设备上传序列号</button>
 
-       <hr/>
+     <!--   <hr/>
        电池电量
        <hr/>
        <button id="setBatteryId">app 向ble设置电池电量</button>
        <button id="bleUploadBatteryId"> ble设备-上传电池状态，电池电量</button>
-
+ -->
        <hr/>
            固件升级
        <hr/>
