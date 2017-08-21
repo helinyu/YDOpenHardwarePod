@@ -107,19 +107,18 @@
             bridge.callHandler('onWriteDatasClickByDictionay', datas, function(response) {
                 log('JS got response', response)
             });                     
-        }
+      };
 
       var RestoreFactorySettingsBtn = document.getElementById('RestoreFactorySettingsId');
         RestoreFactorySettingsBtn.onclick = function(e) {
             // 上传数据包 0b 04 
             alert('恢复厂家设置');
-            // var requestSyncDatas = "0B 04";
-            // Byte data[] = {0x12, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x12};
             var requestSyncDatas = "12 00 00 00 00 00 00 00 00 00 00 00 00 00 00 12";
-            bridge.callHander('onRestoreFactorySettings', requestSyncDatas, function(response){
-
-            });
-      }
+            var datas = {'value':requestSyncDatas};
+            bridge.callHandler('onWriteDatasClickByDictionay', datas, function(response) {
+                log('JS got response', response)
+            });       
+      };
 // 下面的有待测试
 
 // 设置消息通知
