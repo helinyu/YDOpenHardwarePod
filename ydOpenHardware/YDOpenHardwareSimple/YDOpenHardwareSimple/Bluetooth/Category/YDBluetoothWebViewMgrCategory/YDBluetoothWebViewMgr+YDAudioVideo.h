@@ -11,5 +11,6 @@
 @interface YDBluetoothWebViewMgr (YDAudioVideo)
 
 // 音视频处理
+- (void)registerAudioAndViedoHandlers;
 
 @end

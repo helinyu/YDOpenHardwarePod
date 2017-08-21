@@ -603,9 +603,6 @@
 - (void)onDidUpdateCharacteristicValueNotify:(NSNotification *)notificaiton {
     CBCharacteristic *c = notificaiton.object;
     NSLog(@"onDidUpdateCharacteristicValueNotify c: %@",c);
-#warning  for test
-//    [self readByteWithData:c.value];
-//    for test
     NSDictionary *jsonObj = [c convertToDictionary];
     [_webViewBridge callHandler:@"onDidUpdateCharacteristicValueNotify" data:jsonObj responseCallback:^(id responseData) {
         NSLog(@"notificaiton response characteristic value : %@",responseData);

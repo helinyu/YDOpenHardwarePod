@@ -88,6 +88,11 @@
         NSLog(@"restore datas : %@",data);
         [wSelf RestoreFactorySettings];
     }];
+    
+    [self.webViewBridge registerHandler:@"deviceBinding" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [wSelf deviceBinding];
+    }];
+    
 }
 
 - (void)writeBaseDatas {
@@ -330,6 +335,25 @@ Boolean isCheckSumValid(Byte *rcvBuff, NSInteger rcvBuffLength) {
 //    }
 //默认是10000步数 时间：86400s 一天
     [self setStepTargetWithStep:5000 andRewardStep:86400];
+}
+
+
+/**
+ 23. 设备绑定
+ */
+- (void)deviceBinding{
+    Byte data[] = {0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x20};
+    NSData *data0 = [[NSData alloc] initWithBytes:data length:16];
+    [self writeDataWithByte:data0];
+}
+
+/**
+ 24. 绑定应答
+ */
+- (void)bindingResponse{
+    Byte data[] = {0x21, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x21};
+    NSData *data0 = [[NSData alloc] initWithBytes:data length:16];
+    [self writeDataWithByte:data0];
 }
 
 /**

@@ -147,6 +147,13 @@
                     });                
                 }
 
+                // bindDeviceId
+                if (eId == "bindDeviceId") {
+                    var datas = {};
+                    bridge.callHandler('deviceBinding', datas, function(response) {
+                        log('JS got response from oc', response)
+                    });                
+                }
                 if (eId == -1) {
                     var datas = {'toLink':'YDPeripheralList.html'};
                     bridge.callHandler('onLoadHtmlByLink', datas, function(response) {
@@ -193,7 +200,9 @@
 		<label>大卡 : </label>	
 		<label id="catorieID"></label>
     </div>
+    <button id="bindDeviceId"> 设备绑定 </button>
 
+    <hr/>
     <div>
     	<button id="sleepBtnId">睡眠详情</button>
     </div>
