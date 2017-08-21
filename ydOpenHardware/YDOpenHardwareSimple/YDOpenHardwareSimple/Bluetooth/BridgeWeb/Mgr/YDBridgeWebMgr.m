@@ -16,6 +16,10 @@
 #import <YDOpenHardwareSDK/YDOpenHardwareSDK.h>
 #import "YDBluetoothWebViewMgr.h"
 #import "YDConstants.h"
+#import "NSObject+YDClass.h"
+#import "YDClass.h"
+
+#import "YDBridgeWebMgr+YDAudio.h"
 
 @interface YDBridgeWebMgr () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -102,11 +106,7 @@
     [self.bridge registerHandler:@"yd.log" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"%@", data);
     }];
-    
-//    [_bridge registerHandler:@"onGoBackClick" handler:^(id data, WVJBResponseCallback responseCallback) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfGoBack object:nil];
-//    }];
-    
+
 //    specify js invoke oc methods
     switch (self.viewType) {
         case YDWebViewTypeInner:
@@ -122,6 +122,15 @@
             break;
         default:
             break;
+    }
+    
+//    register method in common extension
+    NSArray *methods = MethodsOfClassFilter(self.class, @"registerWebBridgeNomalExtension");
+    for (NSInteger index =0; index <methods.count; index++) {
+        YDClass *item = methods[index];
+        if ([self respondsToSelector:item.sel]) {
+            SuppressPerformSelectorLeakWarning([self performSelector:item.sel]);
+        }
     }
 }
 
