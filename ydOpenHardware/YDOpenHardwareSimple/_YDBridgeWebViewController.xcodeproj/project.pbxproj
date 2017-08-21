@@ -49,9 +49,12 @@
 		41BCCE181F4AC77C00425DAD /* YDBridgeWebMgr+YDAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BCCE171F4AC77C00425DAD /* YDBridgeWebMgr+YDAudio.m */; };
 		41BCCE1B1F4AE37A00425DAD /* NSObject+YDClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BCCE1A1F4AE37A00425DAD /* NSObject+YDClass.m */; };
 		41BCCE1E1F4AE39300425DAD /* YDClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BCCE1D1F4AE39300425DAD /* YDClass.m */; };
+		41BCCE201F4AE86000425DAD /* YDAudioWeb.html in Resources */ = {isa = PBXBuildFile; fileRef = 41BCCE1F1F4AE86000425DAD /* YDAudioWeb.html */; };
 		41E8C47C1F415E6700C91C8D /* YDHtmlInteractiveTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E8C47B1F415E6700C91C8D /* YDHtmlInteractiveTest.m */; };
 		41E8C47F1F41728400C91C8D /* YDDatabaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E8C47E1F41728400C91C8D /* YDDatabaseTest.m */; };
 		41FE1E5F1F4A8DCE00567FB8 /* YDBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FE1E5E1F4A8DCE00567FB8 /* YDBundle.m */; };
+		41FE1E6D1F4B0D0A00567FB8 /* pushu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41FE1E6C1F4B0ACC00567FB8 /* pushu.jpg */; };
+		41FE1E6F1F4B0DC100567FB8 /* 那些花儿.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41FE1E6E1F4B0D3C00567FB8 /* 那些花儿.mp3 */; };
 		4D6D8FCC1C60E35800003AA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCB1C60E35800003AA0 /* main.m */; };
 		4D6D8FCF1C60E35800003AA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FCE1C60E35800003AA0 /* AppDelegate.m */; };
 		4D6D8FD21C60E35800003AA0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FD11C60E35800003AA0 /* ViewController.m */; };
@@ -165,12 +168,15 @@
 		41BCCE1A1F4AE37A00425DAD /* NSObject+YDClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YDClass.m"; sourceTree = "<group>"; };
 		41BCCE1C1F4AE39300425DAD /* YDClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDClass.h; sourceTree = "<group>"; };
 		41BCCE1D1F4AE39300425DAD /* YDClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDClass.m; sourceTree = "<group>"; };
+		41BCCE1F1F4AE86000425DAD /* YDAudioWeb.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDAudioWeb.html; sourceTree = "<group>"; };
 		41E8C47B1F415E6700C91C8D /* YDHtmlInteractiveTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDHtmlInteractiveTest.m; sourceTree = "<group>"; };
 		41E8C47E1F41728400C91C8D /* YDDatabaseTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDDatabaseTest.m; sourceTree = "<group>"; };
 		41FE1E571F4A8C5900567FB8 /* YDAudioVideoMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDAudioVideoMgr.h; sourceTree = "<group>"; };
 		41FE1E581F4A8C5900567FB8 /* YDAudioVideoMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDAudioVideoMgr.m; sourceTree = "<group>"; };
 		41FE1E5D1F4A8DCE00567FB8 /* YDBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDBundle.h; sourceTree = "<group>"; };
 		41FE1E5E1F4A8DCE00567FB8 /* YDBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDBundle.m; sourceTree = "<group>"; };
+		41FE1E6C1F4B0ACC00567FB8 /* pushu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pushu.jpg; sourceTree = "<group>"; };
+		41FE1E6E1F4B0D3C00567FB8 /* 那些花儿.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "那些花儿.mp3"; sourceTree = "<group>"; };
 		4D6D8FC71C60E35800003AA0 /* YDOpenHardwareSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YDOpenHardwareSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6D8FCB1C60E35800003AA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D6D8FCD1C60E35800003AA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -244,6 +250,7 @@
 		411BD2F71F42881C00D8CB9A /* html */ = {
 			isa = PBXGroup;
 			children = (
+				41BCCE1F1F4AE86000425DAD /* YDAudioWeb.html */,
 				411BD30F1F42C47800D8CB9A /* YDSetting.html */,
 				411BD2F81F42881C00D8CB9A /* peripheralList.html */,
 				411BD2F91F42881C00D8CB9A /* S3.html */,
@@ -367,7 +374,6 @@
 				41FE1E561F4A8C5900567FB8 /* AudioVideo */,
 				413313D71F46F03100027D2B /* Bundle */,
 				413313D61F46EB5200027D2B /* Helper */,
-				413313D21F46EA6C00027D2B /* HelpTestEnvironment */,
 				413313D11F46E43D00027D2B /* Category */,
 				412B186C1F467F5400028F3B /* BridgeWeb */,
 				4182B0141F45E14B001A86EC /* BLE */,
@@ -415,6 +421,9 @@
 				41FE1E5E1F4A8DCE00567FB8 /* YDBundle.m */,
 				41BCCE081F4AC2E400425DAD /* YDAudioVideo.h */,
 				41BCCE091F4AC2E400425DAD /* YDAudioVideo.m */,
+				41FE1E6E1F4B0D3C00567FB8 /* 那些花儿.mp3 */,
+				41FE1E6C1F4B0ACC00567FB8 /* pushu.jpg */,
+				413313D21F46EA6C00027D2B /* HelpTestEnvironment */,
 			);
 			name = AudioVideo;
 			path = Category/AudioVideo;
@@ -622,6 +631,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41FE1E6F1F4B0DC100567FB8 /* 那些花儿.mp3 in Resources */,
+				41FE1E6D1F4B0D0A00567FB8 /* pushu.jpg in Resources */,
+				41BCCE201F4AE86000425DAD /* YDAudioWeb.html in Resources */,
 				411BD3101F42C47E00D8CB9A /* YDSetting.html in Resources */,
 				412B18861F467F5400028F3B /* YDRegisterInteractiveHtmlMethods.plist in Resources */,
 				411BD2FF1F42883300D8CB9A /* peripheralList.html in Resources */,

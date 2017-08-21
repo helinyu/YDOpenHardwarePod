@@ -1,0 +1,86 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" charset="utf-8">
+        <style type='text/css'>
+            html { font-family:Helvetica; color:#222; }
+            button { margin:0 3px 10px; font-size:12px; }
+            .logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
+        </style>
+</head>
+
+<body>
+    <script>
+    window.onerror = function(err) {
+        log('window.onerror: ' + err)
+    }
+    
+// 固定的模块
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'https://__bridge_loaded__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+
+// 这里调用
+    setupWebViewJavascriptBridge(function(bridge) {
+        var uniqueId = 0
+        var peripherals = new Array();
+
+        function log(message, data) {
+            var log = document.getElementById('log')
+            var el = document.createElement('button')
+            el.className = 'logLine'
+            el.id = uniqueId;
+            el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+            if (log.children.length) { 
+                log.insertBefore(el, log.children[0]) 
+            }
+            else { 
+                log.appendChild(el)
+            }
+        }
+
+        function logEl(id,message, data) {
+            var log = document.getElementById('log')
+            var el = document.createElement('button')
+            el.className = 'logLine'
+            el.id = id;
+            el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+            if (log.children.length) { 
+                log.insertBefore(el, log.children[0]) 
+            }
+            else { 
+                log.appendChild(el)
+            }
+        }
+
+        function isNull(data){ 
+            return (data == "" || data == undefined || data == null) ? "暂无" : data; 
+        }
+
+        var audioPlayBtn = document.getElementById('audioId');
+        audioPlayBtn.onclick = function(e) {
+        	var requests = {'title':'蒙娜丽莎的眼泪','urlString':'http://192.168.22.128:8000/movie/mengnalisha.mp3','imageUrlString':'http://192.168.22.128:8000/movie/linzhixuan.jpg','artist':'林志炫','nextEnty':''};
+			bridge.callHandler('onAudioOrVideoBackgroundWithInfo', requests, function(resposneData) {
+				log('响应的内容 ： ' +resposneData);
+			});                      
+        }
+      
+     });
+
+    </script>
+    <button id="audioId">播放音频</button>
+    <button id="audioBackgroundId">模拟进入后台</button>
+
+    <div id='log'></div>
+
+    </body>
+</html>
+

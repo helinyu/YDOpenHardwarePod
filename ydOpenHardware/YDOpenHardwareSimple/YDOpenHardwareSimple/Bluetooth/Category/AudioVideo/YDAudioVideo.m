@@ -14,9 +14,8 @@
 {
     self = [super init];
     if (self) {
+        _title = @"";
         _urlString = @"";
-        _name = @"";
-        _nextEnty = [YDAudioVideo new];
         _artist = @"";
         _imageUrlString = @"";
     }

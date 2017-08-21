@@ -19,20 +19,18 @@
 
 - (void)registerWebBridgeNomalExtensionAudioAndViedoHandlers {
     __weak typeof (self) wSelf = self;
-    //    单首
-    [self.bridge registerHandler:@"onAudioAndVideoInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
-        [wSelf onAudioAndVideoInfo:data];
-    }];
-    
     //    多首
     [self.bridge registerHandler:@"onAudioAndVideoInfos" handler:^(id data, WVJBResponseCallback responseCallback) {
         [wSelf onAudioAndVideoInfos:data];
     }];
     
+    //    单首
+    [self.bridge registerHandler:@"onAudioOrVideoBackgroundWithInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [wSelf _onAudioOrVideoBackGroundWithInfo:data];
+    }];
 }
 
-//info
-- (void)onAudioAndVideoInfo:(id)info {
+- (void)_onAudioOrVideoBackGroundWithInfo:(id)info {
     if (![info isKindOfClass:[NSDictionary class]]) {
         NSLog(@"输入的数据格式不正确");
         return ;

@@ -11,8 +11,7 @@
 // 先实现音乐
 @interface YDAudioVideo : NSObject
 
-@property (nonatomic, copy) NSString *tilte;
-@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *urlString;
 @property (nonatomic, copy) NSString *imageUrlString; // 也可能是设置imageName
 @property (nonatomic, copy) NSString *artist; // 作者

@@ -210,6 +210,16 @@
                 	});
                 	return;
                 }	
+
+                if (eId == "audioId") {
+                    log('进入音频播放');
+                    var toLink = "YDAudioWeb.html";
+                    var requests = {'toLink':toLink};  
+                    bridge.callHandler('onLoadHtmlByLink', requests, function(response) {
+                        log('js got oc response' + reponse);
+                    });                     
+                    return;         
+                }
                 // uuid
                 var connectParam = {'uuid':eId};
                 bridge.callHandler('onConnectPeripheral', connectParam, function(response) {
@@ -226,10 +236,12 @@
 
     </script>
     <button id="scanBtnId">开始扫描蓝牙</button>
+    <button id="audioId">音视频播放</button>
     <br/>
     <hr/>
         蓝牙列表
     <hr/>
+
     <div id='log'></div>
 
     </body>
