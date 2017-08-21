@@ -19,15 +19,15 @@
 
 - (void)registerWebBridgeNomalExtensionAudioAndViedoHandlers {
     __weak typeof (self) wSelf = self;
-    //    多首
-    [self.bridge registerHandler:@"onAudioAndVideoInfos" handler:^(id data, WVJBResponseCallback responseCallback) {
-        [wSelf onAudioAndVideoInfos:data];
-    }];
-    
-    //    单首
-    [self.bridge registerHandler:@"onAudioOrVideoBackgroundWithInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
-        [wSelf _onAudioOrVideoBackGroundWithInfo:data];
-    }];
+        //    多首
+        [self.bridge registerHandler:@"onAudioAndVideoInfos" handler:^(id data, WVJBResponseCallback responseCallback) {
+                [wSelf onAudioAndVideoInfos:data];
+        }];
+
+        //    单首
+        [self.bridge registerHandler:@"onAudioOrVideoBackgroundWithInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+            [wSelf _onAudioOrVideoBackGroundWithInfo:data];
+        }];
 }
 
 - (void)_onAudioOrVideoBackGroundWithInfo:(id)info {

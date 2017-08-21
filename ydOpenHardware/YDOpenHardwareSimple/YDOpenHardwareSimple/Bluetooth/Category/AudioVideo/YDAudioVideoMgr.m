@@ -70,14 +70,15 @@
 }
 
 - (void)playWithUrl:(NSURL *)url {
-    AVPlayerItem *Item = [AVPlayerItem playerItemWithURL:url];
-    if (!_player) {
-        _player = [[AVQueuePlayer alloc] initWithPlayerItem:Item];
-    }
-    [_player play];
-    _isPlay = YES;
+        AVPlayerItem *Item = [AVPlayerItem playerItemWithURL:url];
+        if (!_player) {
+            _player = [[AVQueuePlayer alloc] initWithPlayerItem:Item];
+        }
+        [_player play];
+        _isPlay = YES;
     
-    [self setBackgroundModeNowPlayingInfo];
+        [self setBackgroundModeNowPlayingInfo];
+
 }
 
 - (void)playEnableBgModelWithAudio:(YDAudioVideo *)audio {
@@ -117,52 +118,52 @@
     }
 }
 
-//#pragma mark - 接收方法的设置
-//- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
-//    if (event.type == UIEventTypeRemoteControl) {  //判断是否为远程控制
-//        switch (event.subtype) {
-//            case UIEventSubtypeNone:
-//                break;
-//            case  UIEventSubtypeRemoteControlPlay:
-//            {
-//                if (!_isPlay) {
-//                    [_player play];
-//                    _isPlay = YES;
-//                }
-//            }
-//                break;
-//            case UIEventSubtypeRemoteControlPause:
-//            case UIEventSubtypeRemoteControlStop:
-//            {
-//                [_player pause];
-//                _isPlay = NO;
-//            }
-//                break;
-//            case UIEventSubtypeMotionShake:
-//                break;
-//            case UIEventSubtypeRemoteControlTogglePlayPause:
-//                break;
-//            case UIEventSubtypeRemoteControlPreviousTrack:
-//                break;
-//            case UIEventSubtypeRemoteControlNextTrack:
-//            {
-////                [_player advanceToNextItem];
-//                if (!_isPlay) {
-//                    _isPlay = YES;
-//                }
-//            }
-//                break;
-//            case UIEventSubtypeRemoteControlBeginSeekingBackward:
-//                break;
-//            case UIEventSubtypeRemoteControlEndSeekingBackward:
-//                break;
-//            case UIEventSubtypeRemoteControlBeginSeekingForward:
-//                break;
-//            default:
-//                break;
-//        }
-//    }
-//}
+#pragma mark - 接收方法的设置
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
+    if (event.type == UIEventTypeRemoteControl) {  //判断是否为远程控制
+        switch (event.subtype) {
+            case UIEventSubtypeNone:
+                break;
+            case  UIEventSubtypeRemoteControlPlay:
+            {
+                if (!_isPlay) {
+                    [_player play];
+                    _isPlay = YES;
+                }
+            }
+                break;
+            case UIEventSubtypeRemoteControlPause:
+            case UIEventSubtypeRemoteControlStop:
+            {
+                [_player pause];
+                _isPlay = NO;
+            }
+                break;
+            case UIEventSubtypeMotionShake:
+                break;
+            case UIEventSubtypeRemoteControlTogglePlayPause:
+                break;
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                break;
+            case UIEventSubtypeRemoteControlNextTrack:
+            {
+//                [_player advanceToNextItem];
+                if (!_isPlay) {
+                    _isPlay = YES;
+                }
+            }
+                break;
+            case UIEventSubtypeRemoteControlBeginSeekingBackward:
+                break;
+            case UIEventSubtypeRemoteControlEndSeekingBackward:
+                break;
+            case UIEventSubtypeRemoteControlBeginSeekingForward:
+                break;
+            default:
+                break;
+        }
+    }
+}
 
 - (void)setBackgroundModeNowPlayingInfo {
     MPMediaItemArtwork *artWork = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:@"pushu.jpg"]];
