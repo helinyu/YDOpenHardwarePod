@@ -77,7 +77,7 @@
         [_player play];
         _isPlay = YES;
     
-        [self setBackgroundModeNowPlayingInfo];
+        [self _configureBackgroundModeNowPlayingInfo];
 
 }
 
@@ -165,8 +165,8 @@
     }
 }
 
-- (void)setBackgroundModeNowPlayingInfo {
-    MPMediaItemArtwork *artWork = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:@"pushu.jpg"]];
+- (void)_configureBackgroundModeNowPlayingInfo {
+    MPMediaItemArtwork *artWork = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:_audioVideo.imageUrlString]];
     NSDictionary *dic = @{MPMediaItemPropertyTitle:_audioVideo.title,MPMediaItemPropertyArtist:_audioVideo.artist,MPMediaItemPropertyArtwork:artWork};
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dic];
 }
