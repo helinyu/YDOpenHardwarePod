@@ -166,7 +166,8 @@
 }
 
 - (void)setBackgroundModeNowPlayingInfo {
-    MPMediaItemArtwork *artWork = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:@"pushu.jpg"]];
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_audioVideo.imageUrlString]];
+    MPMediaItemArtwork *artWork = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageWithData:imageData]];
     NSDictionary *dic = @{MPMediaItemPropertyTitle:_audioVideo.title,MPMediaItemPropertyArtist:_audioVideo.artist,MPMediaItemPropertyArtwork:artWork};
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dic];
 }
