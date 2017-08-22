@@ -20,6 +20,8 @@
         _imageUrlString = @"";
         _lyric = @"";
         _albumTitle = @"";
+        _currentTime = 0;
+        _totalTime = 0;
     }
     return self;
 }

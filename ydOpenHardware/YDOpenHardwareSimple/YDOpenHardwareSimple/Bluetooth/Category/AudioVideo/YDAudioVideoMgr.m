@@ -166,10 +166,16 @@
 
 - (void)_configureBackgroundModeNowPlayingInfo {
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_audioVideo.imageUrlString]];
-    MPMediaItemArtwork *artWork = [[MPMediaItemArtwork alloc] initWithBoundsSize:CGSizeZero requestHandler:^UIImage * _Nonnull(CGSize size) {
-        NSLog(@"HAH");
-        return [UIImage imageWithData:imageData];
-    }];
+    MPMediaItemArtwork *artWork;
+    if ([UIDevice currentDevice].systemVersion.floatValue >=10.0f) {
+        artWork = [[MPMediaItemArtwork alloc] initWithBoundsSize:CGSizeZero requestHandler:^UIImage * _Nonnull(CGSize size) {
+            NSLog(@"HAH");
+            return [UIImage imageWithData:imageData];
+        }];
+    }
+    else{
+        artWork = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageWithData:imageData]];
+    }
     
     NSDictionary *dic = @{
 //                          MPMediaItemPropertyPersistentID:@234234,
@@ -207,7 +213,7 @@
                           MPMediaItemPropertyUserGrouping:@"我喜欢的",
                           MPMediaItemPropertyBookmarkTime:@1503285559,
                           MPMediaItemPropertyDateAdded:[NSDate dateWithTimeIntervalSince1970:1503280000],
-                          MPMediaItemPropertyPlaybackStoreID:@"567888",
+//                          MPMediaItemPropertyPlaybackStoreID:@"567888",
                           };
     MPNowPlayingInfoCenter *infoCenter =  [MPNowPlayingInfoCenter defaultCenter];
     [infoCenter setNowPlayingInfo:dic];

@@ -17,6 +17,8 @@
 @property (nonatomic, copy) NSString *artist; // 作者
 @property (nonatomic, copy) NSString *lyric;
 @property (nonatomic, copy) NSString *albumTitle;
+@property (nonatomic, assign) NSTimeInterval currentTime; // 已经播放的时长
+@property (nonatomic, assign) NSTimeInterval totalTime; // 总的时间长度（可能不需要）
 @property (nonatomic, strong) YDAudioVideo *nextEnty;
 
 @end
