@@ -15,10 +15,10 @@
 @property (nonatomic, copy) NSString *urlString;
 @property (nonatomic, copy) NSString *imageUrlString; // 也可能是设置imageName
 @property (nonatomic, copy) NSString *artist; // 作者
+@property (nonatomic, copy) NSString *lyric;
 @property (nonatomic, strong) YDAudioVideo *nextEnty;
 
 @end
-
 
 @interface YDAudioVideoList : NSObject
 

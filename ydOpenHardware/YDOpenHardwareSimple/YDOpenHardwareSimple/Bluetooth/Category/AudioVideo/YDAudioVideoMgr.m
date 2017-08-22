@@ -70,15 +70,14 @@
 }
 
 - (void)playWithUrl:(NSURL *)url {
-        AVPlayerItem *Item = [AVPlayerItem playerItemWithURL:url];
-        if (!_player) {
-            _player = [[AVQueuePlayer alloc] initWithPlayerItem:Item];
-        }
-        [_player play];
-        _isPlay = YES;
-    
-        [self _configureBackgroundModeNowPlayingInfo];
-
+    AVPlayerItem *item = [AVPlayerItem playerItemWithURL:url];
+    if (!_player) {
+//        _player = [[AVQueuePlayer alloc] initWithPlayerItem:Item];
+        _player = [[AVPlayer alloc] initWithPlayerItem:item];
+    }
+    [_player play];
+    _isPlay = YES;
+    [self _configureBackgroundModeNowPlayingInfo];
 }
 
 - (void)playEnableBgModelWithAudio:(YDAudioVideo *)audio {

@@ -18,12 +18,12 @@
         _urlString = @"";
         _artist = @"";
         _imageUrlString = @"";
+        _lyric = @"";
     }
     return self;
 }
 
 @end
-
 
 @implementation YDAudioVideoList
 
