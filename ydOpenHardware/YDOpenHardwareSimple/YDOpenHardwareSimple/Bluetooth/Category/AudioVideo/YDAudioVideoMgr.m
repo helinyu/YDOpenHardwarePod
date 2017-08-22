@@ -70,15 +70,14 @@
 }
 
 - (void)playWithUrl:(NSURL *)url {
-        AVPlayerItem *Item = [AVPlayerItem playerItemWithURL:url];
-        if (!_player) {
-            _player = [[AVQueuePlayer alloc] initWithPlayerItem:Item];
-        }
-        [_player play];
-        _isPlay = YES;
-    
-        [self setBackgroundModeNowPlayingInfo];
-
+    AVPlayerItem *item = [AVPlayerItem playerItemWithURL:url];
+    if (!_player) {
+//        _player = [[AVQueuePlayer alloc] initWithPlayerItem:Item];
+        _player = [[AVPlayer alloc] initWithPlayerItem:item];
+    }
+    [_player play];
+    _isPlay = YES;
+    [self _configureBackgroundModeNowPlayingInfo];
 }
 
 - (void)playEnableBgModelWithAudio:(YDAudioVideo *)audio {
@@ -165,11 +164,54 @@
     }
 }
 
-- (void)setBackgroundModeNowPlayingInfo {
+- (void)_configureBackgroundModeNowPlayingInfo {
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_audioVideo.imageUrlString]];
-    MPMediaItemArtwork *artWork = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageWithData:imageData]];
-    NSDictionary *dic = @{MPMediaItemPropertyTitle:_audioVideo.title,MPMediaItemPropertyArtist:_audioVideo.artist,MPMediaItemPropertyArtwork:artWork};
-    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dic];
+    MPMediaItemArtwork *artWork = [[MPMediaItemArtwork alloc] initWithBoundsSize:CGSizeZero requestHandler:^UIImage * _Nonnull(CGSize size) {
+        NSLog(@"HAH");
+        return [UIImage imageWithData:imageData];
+    }];
+    
+    NSDictionary *dic = @{
+//                          MPMediaItemPropertyPersistentID:@234234,
+//                          MPMediaItemPropertyMediaType:@(MPMediaTypeMusic),
+                          MPMediaItemPropertyTitle:_audioVideo.title,
+                          MPMediaItemPropertyAlbumTitle:_audioVideo.albumTitle,
+//                          MPMediaItemPropertyAlbumPersistentID:@(3234),
+                          MPMediaItemPropertyArtist:_audioVideo.artist,
+                          MPMediaItemPropertyArtistPersistentID:@567,
+                          MPMediaItemPropertyAlbumArtist:@"aka",
+                          MPMediaItemPropertyAlbumArtistPersistentID:@45678,
+                          MPMediaItemPropertyGenre:@"类型大片",
+                          MPMediaItemPropertyGenrePersistentID:@6789,
+                          MPMediaItemPropertyComposer:@"何林郁",
+                          MPMediaItemPropertyComposerPersistentID:@6780,
+//                          MPMediaItemPropertyPlaybackDuration:@567890, 时间戳
+                          MPMediaItemPropertyAlbumTrackNumber:@10,
+                          MPMediaItemPropertyAlbumTrackCount:@3,
+                          MPMediaItemPropertyArtwork:artWork,
+                          MPMediaItemPropertyIsExplicit:@(YES),
+                          MPMediaItemPropertyLyrics:@"她是否也在为爱争论错与对",
+                          MPMediaItemPropertyIsCompilation:@(YES),
+                          MPMediaItemPropertyReleaseDate:[NSDate date],
+                          MPMediaItemPropertyBeatsPerMinute:@1,
+                          MPMediaItemPropertyComments:@"帅锅评论",
+                          MPMediaItemPropertyAssetURL:[NSURL URLWithString:_audioVideo.urlString],
+                          MPMediaItemPropertyIsCloudItem:@(NO),
+                          MPMediaItemPropertyHasProtectedAsset:@(NO),
+                          MPMediaItemPropertyPodcastTitle:@"广播标题",
+                          MPMediaItemPropertyPodcastPersistentID:@654,
+                          MPMediaItemPropertyPlayCount:@34,
+                          MPMediaItemPropertySkipCount:@87,
+                          MPMediaItemPropertyRating:@1,
+                          MPMediaItemPropertyLastPlayedDate:[NSDate dateWithTimeIntervalSince1970:1503285559],
+                          MPMediaItemPropertyUserGrouping:@"我喜欢的",
+                          MPMediaItemPropertyBookmarkTime:@1503285559,
+                          MPMediaItemPropertyDateAdded:[NSDate dateWithTimeIntervalSince1970:1503280000],
+                          MPMediaItemPropertyPlaybackStoreID:@"567888",
+                          };
+    MPNowPlayingInfoCenter *infoCenter =  [MPNowPlayingInfoCenter defaultCenter];
+    [infoCenter setNowPlayingInfo:dic];
+    
 }
 
 

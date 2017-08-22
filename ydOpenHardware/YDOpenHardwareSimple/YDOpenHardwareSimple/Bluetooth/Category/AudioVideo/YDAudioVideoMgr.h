@@ -22,7 +22,6 @@
 - (void)playEnableBackgroundModeWithFilePath:(NSString*)wholeFilePath;
 
 //custom business
-
 - (void)playWithAudio:(YDAudioVideo *)audio;
 - (void)playEnableBgModelWithAudio:(YDAudioVideo *)audio;
 

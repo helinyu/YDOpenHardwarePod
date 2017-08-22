@@ -67,7 +67,7 @@
 
         var audioPlayBtn = document.getElementById('audioId');
         audioPlayBtn.onclick = function(e) {
-        	var requests = {'title':'蒙娜丽莎的眼泪','urlString':'http://192.168.22.128:8000/movie/mengnalisha.mp3','imageUrlString':'http://192.168.22.128:8000/movie/linzhixuan.jpg','artist':'林志炫','nextEnty':''};
+        	var requests = {'title':'蒙娜丽莎的眼泪','urlString':'http://192.168.22.128:8000/movie/mengnalisha.mp3','imageUrlString':'http://192.168.22.128:8000/movie/linzhixuan.jpg','artist':'林志炫','albumTitle':'相册标题','nextEnty':''};
 			bridge.callHandler('onAudioOrVideoBackgroundWithInfo', requests, function(resposneData) {
 				log('响应的内容 ： ' +resposneData);
 			});                      
