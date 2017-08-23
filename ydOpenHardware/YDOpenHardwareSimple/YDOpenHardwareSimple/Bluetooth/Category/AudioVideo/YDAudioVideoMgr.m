@@ -87,7 +87,7 @@
 
 - (void)playWithAudio:(YDAudioVideo *)audio {
     _audioVideo = audio;
-    [self playWithUrl:[NSURL URLWithString:audio.urlString]];
+    [self playWithUrl:[NSURL URLWithString:audio.mediaUrlString]];
 }
 
 - (void)playEnableBackgroundMode {
@@ -201,7 +201,7 @@
                           MPMediaItemPropertyReleaseDate:[NSDate date],
                           MPMediaItemPropertyBeatsPerMinute:@1,
                           MPMediaItemPropertyComments:@"帅锅评论",
-                          MPMediaItemPropertyAssetURL:[NSURL URLWithString:_audioVideo.urlString],
+                          MPMediaItemPropertyAssetURL:[NSURL URLWithString:_audioVideo.mediaUrlString],
                           MPMediaItemPropertyIsCloudItem:@(NO),
                           MPMediaItemPropertyHasProtectedAsset:@(NO),
                           MPMediaItemPropertyPodcastTitle:@"广播标题",

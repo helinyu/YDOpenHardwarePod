@@ -53,8 +53,8 @@
     
 - (AVPlayer *)player {
     if (_player == nil) {
-        if (_audioVideo.urlString.length > 0) {
-            _player = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:_audioVideo.urlString]];
+        if (_audioVideo.mediaUrlString.length > 0) {
+            _player = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:_audioVideo.mediaUrlString]];
         }
     }
     return _player;
@@ -63,7 +63,11 @@
 //获得歌词数组
 - (NSArray *)_getLrcsWithParams:(YDAudioVideo *)media{
     YDLyricAnalyzer *analyzer = [YDLyricAnalyzer new];
-    self.lrcs =  [analyzer analyzerLrcBylrcString:media.lyric];
+    if (media.lyric.length > 0) {
+        self.lrcs =  [analyzer analyzerLrcBylrcString:media.lyric];
+    }else if (media.lyricUrlString.length > 0) {
+        self.lrcs = [analyzer analyzerByUrlString:media.lyricUrlString];
+    }
     NSLog(@"self.lrcs count; %lu",(unsigned long)self.lrcs.count);
     _times = analyzer.times;
     _pureLyrics = analyzer.pureLyrics;
@@ -117,7 +121,7 @@
     
     __weak typeof (self) wSelf = self;
     
-    _playerTimeObserver = [wSelf.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 10) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+    _playerTimeObserver = [wSelf.player addPeriodicTimeObserverForInterval:CMTimeMake(6000, 60000) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
 
         //监听锁屏状态 lock=1则为锁屏状态
         NSLog(@"time value : %lld, timescale : %d, time flag :%d, second :%lld",time.value,time.timescale,time.flags,time.value/time.timescale);
@@ -143,7 +147,6 @@
         }else if(screenLight){
             return;
         }
-        
         CGFloat currentTime = CMTimeGetSeconds(time);
         CMTime total = self.player.currentItem.duration;
         CGFloat totalTime = CMTimeGetSeconds(total);

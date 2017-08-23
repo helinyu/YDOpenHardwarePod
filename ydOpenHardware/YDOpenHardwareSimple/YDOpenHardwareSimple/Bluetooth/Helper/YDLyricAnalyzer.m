@@ -42,7 +42,8 @@
     _times = @[].mutableCopy;
     _lyrics = @[].mutableCopy;
     NSError *erro = nil;
-    NSURL *url = [NSURL URLWithString:urlString];
+    NSString *lyricUTF8UrlSting = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:lyricUTF8UrlSting];
     NSString *lyrics = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&erro];
     [self analyzerLrc:lyrics];
     return self.lrcArray;

@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {
         _title = @"";
-        _urlString = @"";
+        _mediaUrlString = @"";
         _artist = @"";
         _composer = @"";
         _imageUrlString = @"";
@@ -25,7 +25,6 @@
         _currentTime = 0;
         _totalTime = 0;
         _composer = @"";
-//        _mediaUrlString = @"";
     }
     return self;
 }
