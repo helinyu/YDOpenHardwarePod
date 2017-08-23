@@ -15,11 +15,16 @@
 @property (nonatomic, copy) NSString *urlString;
 @property (nonatomic, copy) NSString *imageUrlString; // 也可能是设置imageName
 @property (nonatomic, copy) NSString *artist; // 作者
+@property (nonatomic, copy) NSString *composer;
 @property (nonatomic, copy) NSString *lyric;
+@property (nonatomic, copy) NSString *lyricUrlString;
 @property (nonatomic, copy) NSString *albumTitle;
 @property (nonatomic, assign) NSTimeInterval currentTime; // 已经播放的时长
 @property (nonatomic, assign) NSTimeInterval totalTime; // 总的时间长度（可能不需要）
+//@property (nonatomic, copy) NSString *mediaUrlString;
+
 @property (nonatomic, strong) YDAudioVideo *nextEnty;
+
 
 @end
 

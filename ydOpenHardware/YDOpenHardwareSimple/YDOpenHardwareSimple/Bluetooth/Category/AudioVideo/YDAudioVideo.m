@@ -17,11 +17,15 @@
         _title = @"";
         _urlString = @"";
         _artist = @"";
+        _composer = @"";
         _imageUrlString = @"";
         _lyric = @"";
+        _lyricUrlString = @"";
         _albumTitle = @"";
         _currentTime = 0;
         _totalTime = 0;
+        _composer = @"";
+//        _mediaUrlString = @"";
     }
     return self;
 }

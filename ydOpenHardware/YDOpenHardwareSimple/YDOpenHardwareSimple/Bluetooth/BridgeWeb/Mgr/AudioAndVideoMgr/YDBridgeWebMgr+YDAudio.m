@@ -11,6 +11,7 @@
 #import "YYModel.h"
 #import "YDAudioVideo.h"
 #import "YDAudioVideoMgr.h"
+#import "YDBackgroundMediaMgr.h"
 #import <AVFoundation/AVFoundation.h>
 
 @implementation YDBridgeWebMgr (YDAudio)
@@ -19,15 +20,16 @@
 
 - (void)registerWebBridgeNomalExtensionAudioAndViedoHandlers {
     __weak typeof (self) wSelf = self;
-        //    多首
-        [self.bridge registerHandler:@"onAudioAndVideoInfos" handler:^(id data, WVJBResponseCallback responseCallback) {
-                [wSelf onAudioAndVideoInfos:data];
-        }];
+    //    多首
+    [self.bridge registerHandler:@"onAudioAndVideoInfos" handler:^(id data, WVJBResponseCallback responseCallback) {
+            [wSelf onAudioAndVideoInfos:data];
+    }];
 
-        //    单首
-        [self.bridge registerHandler:@"onAudioOrVideoBackgroundWithInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
-            [wSelf _onAudioOrVideoBackGroundWithInfo:data];
-        }];
+    //    单首
+    [self.bridge registerHandler:@"onAudioOrVideoBackgroundWithInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [wSelf _onAudioOrVideoBackGroundWithInfo:data];
+    }];
+
 }
 
 - (void)_onAudioOrVideoBackGroundWithInfo:(id)info {
@@ -40,7 +42,13 @@
 
 - (void)_playOnBackgroundModeWithInfo:(NSDictionary *)info {
     YDAudioVideo *audio = [YDAudioVideo yy_modelWithDictionary:info];
-    [[YDAudioVideoMgr shared] playEnableBgModelWithAudio:audio];
+    NSString * path = [[NSBundle mainBundle] pathForResource:@"多幸运" ofType:@"txt"];
+    audio.lyric =[NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    YDBackgroundMediaMgr *mgr = [YDBackgroundMediaMgr shared];
+    [mgr loadBaseWithAudioVideo:audio];
+    [mgr.player play];
+    [mgr playControl];
+    [mgr createRemoteCommandCenter];
 }
 
 - (void)onAudioAndVideoInfos:(id)infos {
