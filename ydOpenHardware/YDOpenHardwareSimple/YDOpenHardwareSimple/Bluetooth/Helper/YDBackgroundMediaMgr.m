@@ -104,10 +104,10 @@
     
     //在控制台拖动进度条调节进度（仿QQ音乐的效果）
     [cmdCenter.changePlaybackPositionCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
-        CMTime totlaTime = self.player.currentItem.duration;
-        MPChangePlaybackPositionCommandEvent * playbackPositionEvent = (MPChangePlaybackPositionCommandEvent *)event;
-        [self.player seekToTime:CMTimeMake(totlaTime.value*playbackPositionEvent.positionTime/CMTimeGetSeconds(totlaTime), totlaTime.timescale) completionHandler:^(BOOL finished) {
-        }];
+//        CMTime totlaTime = self.player.currentItem.duration;
+//        MPChangePlaybackPositionCommandEvent * playbackPositionEvent = (MPChangePlaybackPositionCommandEvent *)event;
+//        [self.player seekToTime:CMTimeMake(totlaTime.value*playbackPositionEvent.positionTime/CMTimeGetSeconds(totlaTime), totlaTime.timescale) completionHandler:^(BOOL finished) {
+//        }];
         return MPRemoteCommandHandlerStatusSuccess;
     }];
 }
@@ -228,7 +228,6 @@
 - (void)setLockPlayerWithInfo:(YDAudioVideo *)info {
     _audioVideo = info;
     _nowSecondTime = [NSDate date].timeIntervalSince1970;
-    
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:YES error:nil];
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
@@ -268,7 +267,7 @@
         return;
     }
     
-    NSLog(@"player status : %d",self.player.status);
+    NSLog(@"player status : %ld",(long)self.player.status);
     _playerTimeObserver = [self.player addBoundaryTimeObserverForTimes:self.times queue:dispatch_get_main_queue() usingBlock:^{
         [YDLockScreenMgr addObserverLockAndLightScreenBlock:^(BOOL lockAndLightScreen) {
             if (lockAndLightScreen) {
