@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+#import <UIKit/UIKit.h>
 @class YDAudioVideo;
 
-@interface YDBackgroundMediaMgr : NSObject
+@interface YDBackgroundMediaMgr : UIResponder
     
 + (instancetype)shared;
 
@@ -26,5 +27,8 @@
 ////background info which is need
 - (void)loadBaseWithAudioVideo:(YDAudioVideo *)audioVideo;
 
+- (void)enableBackground;
+- (void)setLockPlayerInfo;
+- (void)setLockPlayerWithInfo:(YDAudioVideo *)info;
 
 @end

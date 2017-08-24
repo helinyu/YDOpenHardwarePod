@@ -31,7 +31,8 @@
 @property (nonatomic, strong) NSArray *pureLyrics;
 
 @property (nonatomic, strong) YDAudioVideo *audioVideo;
-
+@property (nonatomic, assign) NSTimeInterval wholeTime;
+@property (nonatomic, assign) NSTimeInterval nowSecondTime;
 
 @end
 
@@ -59,6 +60,11 @@
     }
     return _player;
 }
+
+- (NSTimeInterval)getAudioTotalTime {
+    CMTime total = self.player.currentItem.duration;
+    return CMTimeGetSeconds(total);
+}
     
 //获得歌词数组
 - (NSArray *)_getLrcsWithParams:(YDAudioVideo *)media{
@@ -76,10 +82,26 @@
     
 - (void)createRemoteCommandCenter {
     MPRemoteCommandCenter *cmdCenter = [MPRemoteCommandCenter sharedCommandCenter];
-    [cmdCenter.nextTrackCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
-        NSLog(@"下一首");
+    
+    __weak typeof (self) wSelf = self;
+    [cmdCenter.playCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+        NSLog(@"播放");
+        NSTimeInterval nowSecondTime = [[NSDate date] timeIntervalSince1970];
+        NSTimeInterval lastTime = _audioVideo.currentTime;
+        _audioVideo.currentTime = (nowSecondTime - _nowSecondTime) + lastTime;
+        [wSelf setLockPlayerWithInfo:_audioVideo];
         return MPRemoteCommandHandlerStatusSuccess;
     }];
+    
+    [cmdCenter.pauseCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+        NSLog(@"暂停播放");
+        NSTimeInterval nowSecondTime = [[NSDate date] timeIntervalSince1970];
+        NSTimeInterval lastTime = _audioVideo.currentTime;
+        _audioVideo.currentTime = (nowSecondTime - nowSecondTime) + lastTime;
+        [wSelf setLockPlayerWithInfo:_audioVideo];
+        return MPRemoteCommandHandlerStatusSuccess;
+    }];
+    
     //在控制台拖动进度条调节进度（仿QQ音乐的效果）
     [cmdCenter.changePlaybackPositionCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
         CMTime totlaTime = self.player.currentItem.duration;
@@ -110,6 +132,7 @@
     
 //在具体的控制器或其它类中捕获处理远程控制事件,当远程控制事件发生时触发该方法, 该方法属于UIResponder类，iOS 7.1 之前经常用
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event{
+    
     NSLog(@"%ld",(long)event.type);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"songRemoteControlNotification" object:self userInfo:@{@"eventSubtype":@(event.subtype)}];
 }
@@ -163,7 +186,7 @@
                 break;
             }
         }
-  
+
         //展示锁屏歌曲信息，上面监听屏幕锁屏和点亮状态的目的是为了提高效率
         [self showLockScreenTotaltime:totalTime andCurrentTime:currentTime isShow:isShowLyricsPoster];
     }];
@@ -174,6 +197,66 @@
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:YES error:nil];
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+}
+
+- (void)setLockPlayerInfo {
+    NSMutableDictionary * songDict = [[NSMutableDictionary alloc] init];
+    //设置歌曲题目
+    [songDict setObject:_audioVideo.title forKey:MPMediaItemPropertyTitle];
+    //设置歌手名
+    [songDict setObject:_audioVideo.artist forKey:MPMediaItemPropertyArtist];
+    //设置专辑名
+    [songDict setObject:_audioVideo.albumTitle forKey:MPMediaItemPropertyAlbumTitle];
+    UIImage *ircImage ;
+    if (_audioVideo.imageUrlString.length <= 0) {
+        NSLog(@"must deliver the image url string");
+        return;
+    }
+    if ([_audioVideo.imageUrlString hasPrefix:@"http"]) {
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:_audioVideo.imageUrlString] options:NSDataReadingUncached error:nil];
+        ircImage = [UIImage imageWithData:data scale:2.f];
+    }else{
+        ircImage = [UIImage imageNamed:_audioVideo.imageUrlString];
+    }
+    //设置显示的海报图片
+    [songDict setObject:[[MPMediaItemArtwork alloc] initWithImage:ircImage]
+                 forKey:MPMediaItemPropertyArtwork];
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songDict];
+
+}
+
+- (void)setLockPlayerWithInfo:(YDAudioVideo *)info {
+    _audioVideo = info;
+    _nowSecondTime = [NSDate date].timeIntervalSince1970;
+    
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setActive:YES error:nil];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    NSMutableDictionary * songDict = @{}.mutableCopy;
+    [songDict setObject:@(info.currentTime) forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime]; //音乐当前已经播放时间
+    [songDict setObject:@(info.totalTime) forKey:MPMediaItemPropertyPlaybackDuration];//歌曲总时间设置
+    [songDict setObject:info.title forKey:MPMediaItemPropertyTitle];
+    [songDict setObject:info.artist forKey:MPMediaItemPropertyArtist];
+    UIImage *ircImage ;
+    if (info.imageUrlString.length <= 0) {
+        NSLog(@"must deliver the image url string");
+        return;
+    }
+    if ([info.imageUrlString hasPrefix:@"http"]) {
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:info.imageUrlString] options:NSDataReadingUncached error:nil];
+        ircImage = [UIImage imageWithData:data scale:2.f];
+    }else{
+        ircImage = [UIImage imageNamed:_audioVideo.imageUrlString];
+    }
+    if (!ircImage) {
+        NSLog(@"请传入背景图片");
+        return;
+    }
+    //设置显示的海报图片
+    [songDict setObject:[[MPMediaItemArtwork alloc] initWithImage:ircImage]
+                 forKey:MPMediaItemPropertyArtwork];
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songDict];
 }
 
 - (void)playByTheLyricsTimes {

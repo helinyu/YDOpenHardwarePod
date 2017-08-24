@@ -42,13 +42,17 @@
 
 - (void)_playOnBackgroundModeWithInfo:(NSDictionary *)info {
     YDAudioVideo *audio = [YDAudioVideo yy_modelWithDictionary:info];
-    NSString * path = [[NSBundle mainBundle] pathForResource:@"多幸运" ofType:@"txt"];
-    audio.lyric =[NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    YDBackgroundMediaMgr *mgr = [YDBackgroundMediaMgr shared];
-    [mgr loadBaseWithAudioVideo:audio];
-    [mgr.player play];
-    [mgr playControl];
-    [mgr createRemoteCommandCenter];
+//    NSString * path = [[NSBundle mainBundle] pathForResource:@"多幸运" ofType:@"txt"];
+//    audio.lyric =[NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+//    YDBackgroundMediaMgr *mgr = [YDBackgroundMediaMgr shared];
+//    [mgr setLockPlayerInfo];
+//    [mgr loadBaseWithAudioVideo:audio];
+//    [mgr setLockPlayerInfo];
+//    [mgr.player play];
+//    [mgr playControl];
+//    [mgr createRemoteCommandCenter];
+    [[YDBackgroundMediaMgr shared] setLockPlayerWithInfo:audio];
+    [[YDBackgroundMediaMgr shared] createRemoteCommandCenter];
 }
 
 - (void)onAudioAndVideoInfos:(id)infos {
