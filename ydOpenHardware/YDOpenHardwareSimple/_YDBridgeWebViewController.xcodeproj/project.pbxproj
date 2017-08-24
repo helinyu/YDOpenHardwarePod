@@ -106,7 +106,7 @@
 /* Begin PBXFileReference section */
 		203E60A830441E97B860412C /* Pods-YDOpenHardwareSimple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDOpenHardwareSimple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YDOpenHardwareSimple/Pods-YDOpenHardwareSimple.debug.xcconfig"; sourceTree = "<group>"; };
 		2F1AFCFF58DC1882D940A5DC /* Pods-YDOpenHardwareSimpleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDOpenHardwareSimpleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YDOpenHardwareSimpleTests/Pods-YDOpenHardwareSimpleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		410190B41F4D9213000FA6EA /* 多幸运.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "多幸运.txt"; sourceTree = "<group>"; };
+		410190B41F4D9213000FA6EA /* 多幸运.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "多幸运.txt"; path = "../Bluetooth/Category/AudioVideo/多幸运.txt"; sourceTree = "<group>"; };
 		4107CB961F4C279E00E2DA98 /* YDBluetoothWebViewMgr+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDBluetoothWebViewMgr+Extension.h"; sourceTree = "<group>"; };
 		4107CB971F4C279E00E2DA98 /* YDBluetoothWebViewMgr+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDBluetoothWebViewMgr+Extension.m"; sourceTree = "<group>"; };
 		4107CB981F4C279E00E2DA98 /* YDBluetoothWebViewMgr+HtmlReigsterMothods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDBluetoothWebViewMgr+HtmlReigsterMothods.h"; sourceTree = "<group>"; };
@@ -192,8 +192,8 @@
 		41FE1E581F4A8C5900567FB8 /* YDAudioVideoMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDAudioVideoMgr.m; sourceTree = "<group>"; };
 		41FE1E5D1F4A8DCE00567FB8 /* YDBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDBundle.h; sourceTree = "<group>"; };
 		41FE1E5E1F4A8DCE00567FB8 /* YDBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YDBundle.m; sourceTree = "<group>"; };
-		41FE1E6C1F4B0ACC00567FB8 /* pushu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pushu.jpg; sourceTree = "<group>"; };
-		41FE1E6E1F4B0D3C00567FB8 /* 那些花儿.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "那些花儿.mp3"; sourceTree = "<group>"; };
+		41FE1E6C1F4B0ACC00567FB8 /* pushu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pushu.jpg; path = ../Bluetooth/Category/AudioVideo/pushu.jpg; sourceTree = "<group>"; };
+		41FE1E6E1F4B0D3C00567FB8 /* 那些花儿.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "那些花儿.mp3"; path = "../Bluetooth/Category/AudioVideo/那些花儿.mp3"; sourceTree = "<group>"; };
 		4D6D8FC71C60E35800003AA0 /* YDOpenHardwareSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YDOpenHardwareSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6D8FCB1C60E35800003AA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D6D8FCD1C60E35800003AA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -278,6 +278,16 @@
 			);
 			name = HelpTestEnvironment;
 			path = Category/HelpTestEnvironment;
+			sourceTree = "<group>";
+		};
+		4110B9A71F4EBA2B00CE0347 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				41FE1E6E1F4B0D3C00567FB8 /* 那些花儿.mp3 */,
+				41FE1E6C1F4B0ACC00567FB8 /* pushu.jpg */,
+				410190B41F4D9213000FA6EA /* 多幸运.txt */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		411BD2F71F42881C00D8CB9A /* html */ = {
@@ -456,9 +466,6 @@
 				41FE1E581F4A8C5900567FB8 /* YDAudioVideoMgr.m */,
 				419C17301F4D7EE500629579 /* YDBackgroundMediaMgr.h */,
 				419C17311F4D7EE500629579 /* YDBackgroundMediaMgr.m */,
-				41FE1E6E1F4B0D3C00567FB8 /* 那些花儿.mp3 */,
-				41FE1E6C1F4B0ACC00567FB8 /* pushu.jpg */,
-				410190B41F4D9213000FA6EA /* 多幸运.txt */,
 				4107CBA21F4C2C1C00E2DA98 /* YDLyricUnit.h */,
 				4107CBA31F4C2C1C00E2DA98 /* YDLyricUnit.m */,
 			);
@@ -497,6 +504,7 @@
 				4D6D8FD01C60E35800003AA0 /* ViewController.h */,
 				4D6D8FD11C60E35800003AA0 /* ViewController.m */,
 				4D6D8FD31C60E35800003AA0 /* Main.storyboard */,
+				4110B9A71F4EBA2B00CE0347 /* Resources */,
 				415A54DC1F344AD700BD61EA /* Framework */,
 				415C6AAF1F305D7E007BE9DA /* Bluetooth */,
 				4D6D8FD61C60E35900003AA0 /* Assets.xcassets */,
