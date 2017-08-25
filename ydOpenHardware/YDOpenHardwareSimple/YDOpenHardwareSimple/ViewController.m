@@ -24,6 +24,17 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLoadHtmlNotify:) name:YDNtfLoadOutsideBundleHtml object:nil];
+
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [btn setTitle:@"显示" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(onPlayClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    btn.frame = CGRectMake(100, 300, 100, 40);
+}
+
+- (void)onPlayClick {
+    YDBridgeWebViewController *vc = [[YDBridgeWebViewController alloc] initWithUrl:@"http://circle.51yund.com/html/YDAudioWeb.html" andType:YDWebViewTypeInner];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

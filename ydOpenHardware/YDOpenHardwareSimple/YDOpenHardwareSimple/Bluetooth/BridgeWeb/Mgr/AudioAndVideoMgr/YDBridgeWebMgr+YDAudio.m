@@ -14,6 +14,7 @@
 #import "YDBackgroundMediaMgr.h"
 #import <AVFoundation/AVFoundation.h>
 #import "YDBgMediaMgr.h"
+#import "YDMedia.h"
 
 @implementation YDBridgeWebMgr (YDAudio)
 
@@ -42,7 +43,7 @@
 }
 
 - (void)_playOnBackgroundModeWithInfo:(NSDictionary *)info {
-    YDAudioVideo *audio = [YDAudioVideo yy_modelWithDictionary:info];
+     YDMedia *audio = [YDMedia yy_modelWithDictionary:info];
 //    NSString * path = [[NSBundle mainBundle] pathForResource:@"多幸运" ofType:@"txt"];
 //    audio.lyric =[NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 //    YDBackgroundMediaMgr *mgr = [YDBackgroundMediaMgr shared];
