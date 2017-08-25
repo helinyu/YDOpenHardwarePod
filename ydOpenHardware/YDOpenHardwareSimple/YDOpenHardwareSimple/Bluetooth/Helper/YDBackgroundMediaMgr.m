@@ -79,26 +79,27 @@
     _pureLyrics = analyzer.pureLyrics;
     return self.lrcs;
 }
-    
+
+- (void)updateAudioInfo {
+    NSTimeInterval nowSecondTime = [[NSDate date] timeIntervalSince1970];
+    NSTimeInterval lastTime = _audioVideo.currentTime;
+    _audioVideo.currentTime = (nowSecondTime - _nowSecondTime) + lastTime;
+    [self setLockPlayerWithInfo:_audioVideo];
+}
+
 - (void)createRemoteCommandCenter {
     MPRemoteCommandCenter *cmdCenter = [MPRemoteCommandCenter sharedCommandCenter];
     
     __weak typeof (self) wSelf = self;
     [cmdCenter.playCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
         NSLog(@"播放");
-        NSTimeInterval nowSecondTime = [[NSDate date] timeIntervalSince1970];
-        NSTimeInterval lastTime = _audioVideo.currentTime;
-        _audioVideo.currentTime = (nowSecondTime - _nowSecondTime) + lastTime;
-        [wSelf setLockPlayerWithInfo:_audioVideo];
-        return MPRemoteCommandHandlerStatusSuccess;
+        [wSelf updateAudioInfo];
+             return MPRemoteCommandHandlerStatusSuccess;
     }];
     
     [cmdCenter.pauseCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
         NSLog(@"暂停播放");
-        NSTimeInterval nowSecondTime = [[NSDate date] timeIntervalSince1970];
-        NSTimeInterval lastTime = _audioVideo.currentTime;
-        _audioVideo.currentTime = (nowSecondTime - nowSecondTime) + lastTime;
-        [wSelf setLockPlayerWithInfo:_audioVideo];
+        [self updateAudioInfo];
         return MPRemoteCommandHandlerStatusSuccess;
     }];
     
@@ -237,21 +238,9 @@
     [songDict setObject:@(info.totalTime) forKey:MPMediaItemPropertyPlaybackDuration];//歌曲总时间设置
     [songDict setObject:info.title forKey:MPMediaItemPropertyTitle];
     [songDict setObject:info.artist forKey:MPMediaItemPropertyArtist];
-    UIImage *ircImage ;
-    if (info.imageUrlString.length <= 0) {
-        NSLog(@"must deliver the image url string");
-        return;
-    }
-    if ([info.imageUrlString hasPrefix:@"http"]) {
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:info.imageUrlString] options:NSDataReadingUncached error:nil];
-        ircImage = [UIImage imageWithData:data scale:2.f];
-    }else{
-        ircImage = [UIImage imageNamed:_audioVideo.imageUrlString];
-    }
-    if (!ircImage) {
-        NSLog(@"请传入背景图片");
-        return;
-    }
+
+#warning test
+    UIImage *ircImage = [UIImage imageNamed:@"backgroundImage5.jpg"];
     //设置显示的海报图片
     [songDict setObject:[[MPMediaItemArtwork alloc] initWithImage:ircImage]
                  forKey:MPMediaItemPropertyArtwork];

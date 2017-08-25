@@ -37,6 +37,7 @@
 		413313DD1F46F6E700027D2B /* YDBluetoothWebViewMgr+Tel.m in Sources */ = {isa = PBXBuildFile; fileRef = 413313DC1F46F6E700027D2B /* YDBluetoothWebViewMgr+Tel.m */; };
 		415A54DF1F344B3A00BD61EA /* YDOpenHardwareCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415A54DD1F344AD700BD61EA /* YDOpenHardwareCore.framework */; };
 		415A54E01F344B3A00BD61EA /* YDOpenHardwareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415A54DE1F344AD700BD61EA /* YDOpenHardwareSDK.framework */; };
+		416D39121F5009C500083EAD /* backgroundImage5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 416D39111F5009C500083EAD /* backgroundImage5.jpg */; };
 		4182B02D1F45E1B7001A86EC /* CBService+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4182B01A1F45E1B7001A86EC /* CBService+YYModel.m */; };
 		4182B02E1F45E1B7001A86EC /* CWStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4182B01C1F45E1B7001A86EC /* CWStatusBarNotification.m */; };
 		4182B02F1F45E1B7001A86EC /* NSData+YDConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4182B01E1F45E1B7001A86EC /* NSData+YDConversion.m */; };
@@ -151,6 +152,7 @@
 		413313DC1F46F6E700027D2B /* YDBluetoothWebViewMgr+Tel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YDBluetoothWebViewMgr+Tel.m"; sourceTree = "<group>"; };
 		415A54DD1F344AD700BD61EA /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
 		415A54DE1F344AD700BD61EA /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
+		416D39111F5009C500083EAD /* backgroundImage5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backgroundImage5.jpg; sourceTree = "<group>"; };
 		4182B0191F45E1B7001A86EC /* CBService+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBService+YYModel.h"; sourceTree = "<group>"; };
 		4182B01A1F45E1B7001A86EC /* CBService+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBService+YYModel.m"; sourceTree = "<group>"; };
 		4182B01B1F45E1B7001A86EC /* CWStatusBarNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStatusBarNotification.h; sourceTree = "<group>"; };
@@ -417,6 +419,13 @@
 			path = Bluetooth;
 			sourceTree = "<group>";
 		};
+		416D39131F500AF000083EAD /* BgMedia */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BgMedia;
+			sourceTree = "<group>";
+		};
 		4182B0141F45E14B001A86EC /* BLE */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +470,7 @@
 		41FE1E561F4A8C5900567FB8 /* AudioVideo */ = {
 			isa = PBXGroup;
 			children = (
+				416D39131F500AF000083EAD /* BgMedia */,
 				419C17261F4D7E6300629579 /* Model */,
 				41FE1E571F4A8C5900567FB8 /* YDAudioVideoMgr.h */,
 				41FE1E581F4A8C5900567FB8 /* YDAudioVideoMgr.m */,
@@ -468,6 +478,7 @@
 				419C17311F4D7EE500629579 /* YDBackgroundMediaMgr.m */,
 				4107CBA21F4C2C1C00E2DA98 /* YDLyricUnit.h */,
 				4107CBA31F4C2C1C00E2DA98 /* YDLyricUnit.m */,
+				416D39111F5009C500083EAD /* backgroundImage5.jpg */,
 			);
 			name = AudioVideo;
 			path = Category/AudioVideo;
@@ -682,6 +693,7 @@
 				411BD3101F42C47E00D8CB9A /* YDSetting.html in Resources */,
 				412B18861F467F5400028F3B /* YDRegisterInteractiveHtmlMethods.plist in Resources */,
 				411BD2FF1F42883300D8CB9A /* peripheralList.html in Resources */,
+				416D39121F5009C500083EAD /* backgroundImage5.jpg in Resources */,
 				411BD3001F42883300D8CB9A /* S3.html in Resources */,
 				410190B51F4D9213000FA6EA /* 多幸运.txt in Resources */,
 				411BD3011F42883300D8CB9A /* YDDatabaseOperation.html in Resources */,

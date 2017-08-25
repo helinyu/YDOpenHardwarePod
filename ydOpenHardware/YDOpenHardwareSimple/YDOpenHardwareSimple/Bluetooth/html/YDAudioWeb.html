@@ -67,7 +67,7 @@
 
         var audioPlayBtn = document.getElementById('audioId');
         audioPlayBtn.onclick = function(e) {
-        	var requests = {'title':'蒙娜丽莎','mediaUrlString':'http://192.168.22.128:8000/movie/mengnalisha.mp3','imageUrlString':'http://192.168.22.128:8000/movie/backgroundImage5.jpg','artist':'林志炫','composer':'aka','albumTitle':'相册标题','nextEnty':'','lyric':'','lyricUrlString':'http://192.168.22.128:8000/movie/多幸运.txt','currentTime':3,'totalTime':249};
+        	var requests = {'title':'蒙娜丽莎','mediaUrlString':'http://7xkx7d.com1.z0.glb.clouddn.com/sigaofangzhi.mp3','imageUrlString':'https://ssl-pubpic.51yund.com/445316124.jpg','artist':'林志炫','composer':'aka','albumTitle':'相册标题','nextEnty':'','lyric':'','lyricUrlString':'http://192.168.22.128:8000/movie/多幸运.txt','currentTime':3,'totalTime':249};
 			bridge.callHandler('onAudioOrVideoBackgroundWithInfo', requests, function(resposneData) {
 				log('响应的内容 ： ' +resposneData);
 			});                      
@@ -78,7 +78,7 @@
     <button id="audioId">播放音频</button>
     <button id="audioBackgroundId">模拟进入后台</button>
     <hr/>
-    <audio src="http://192.168.22.128:8000/movie/mengnalisha.mp3" controls="controls"> 音频播放</audio>
+    <audio src="http://7xkx7d.com1.z0.glb.clouddn.com/sigaofangzhi.mp3" controls="controls"> 音频播放</audio>
     <br/>
     <video src="http://192.168.22.128:8000/movie/test0.mp4" controls="controls"></video>
 	<br/>
