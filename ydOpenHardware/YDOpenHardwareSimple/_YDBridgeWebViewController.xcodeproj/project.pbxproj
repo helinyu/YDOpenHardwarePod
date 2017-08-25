@@ -38,6 +38,8 @@
 		415A54DF1F344B3A00BD61EA /* YDOpenHardwareCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415A54DD1F344AD700BD61EA /* YDOpenHardwareCore.framework */; };
 		415A54E01F344B3A00BD61EA /* YDOpenHardwareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415A54DE1F344AD700BD61EA /* YDOpenHardwareSDK.framework */; };
 		416D39121F5009C500083EAD /* backgroundImage5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 416D39111F5009C500083EAD /* backgroundImage5.jpg */; };
+		416D39161F500B8A00083EAD /* YDMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 416D39151F500B8A00083EAD /* YDMedia.m */; };
+		416D391B1F500B9E00083EAD /* YDBgMediaMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 416D391A1F500B9E00083EAD /* YDBgMediaMgr.m */; };
 		4182B02D1F45E1B7001A86EC /* CBService+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4182B01A1F45E1B7001A86EC /* CBService+YYModel.m */; };
 		4182B02E1F45E1B7001A86EC /* CWStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4182B01C1F45E1B7001A86EC /* CWStatusBarNotification.m */; };
 		4182B02F1F45E1B7001A86EC /* NSData+YDConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4182B01E1F45E1B7001A86EC /* NSData+YDConversion.m */; };
@@ -153,6 +155,10 @@
 		415A54DD1F344AD700BD61EA /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
 		415A54DE1F344AD700BD61EA /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
 		416D39111F5009C500083EAD /* backgroundImage5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backgroundImage5.jpg; sourceTree = "<group>"; };
+		416D39141F500B8500083EAD /* YDMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMedia.h; sourceTree = "<group>"; };
+		416D39151F500B8A00083EAD /* YDMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMedia.m; sourceTree = "<group>"; };
+		416D39171F500B9100083EAD /* YDBgMediaMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDBgMediaMgr.h; sourceTree = "<group>"; };
+		416D391A1F500B9E00083EAD /* YDBgMediaMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBgMediaMgr.m; sourceTree = "<group>"; };
 		4182B0191F45E1B7001A86EC /* CBService+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBService+YYModel.h"; sourceTree = "<group>"; };
 		4182B01A1F45E1B7001A86EC /* CBService+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBService+YYModel.m"; sourceTree = "<group>"; };
 		4182B01B1F45E1B7001A86EC /* CWStatusBarNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStatusBarNotification.h; sourceTree = "<group>"; };
@@ -422,6 +428,10 @@
 		416D39131F500AF000083EAD /* BgMedia */ = {
 			isa = PBXGroup;
 			children = (
+				416D39141F500B8500083EAD /* YDMedia.h */,
+				416D39151F500B8A00083EAD /* YDMedia.m */,
+				416D39171F500B9100083EAD /* YDBgMediaMgr.h */,
+				416D391A1F500B9E00083EAD /* YDBgMediaMgr.m */,
 			);
 			name = BgMedia;
 			sourceTree = "<group>";
@@ -886,6 +896,7 @@
 				411ED0D51F308B7C0041909A /* ViewController.h in Sources */,
 				4182B0341F45E1B7001A86EC /* YDBluetoothWebViewMgr+Time.m in Sources */,
 				4182B0361F45E1B7001A86EC /* YDPeripheralInfo.m in Sources */,
+				416D39161F500B8A00083EAD /* YDMedia.m in Sources */,
 				412B18851F467F5400028F3B /* YDMBaseViewController.m in Sources */,
 				4107CBA11F4C279E00E2DA98 /* YDBluetoothWebViewMgr+WriteDatas.m in Sources */,
 				419C172C1F4D7ECF00629579 /* YDLockScreenMgr.m in Sources */,
@@ -903,6 +914,7 @@
 				41FE1E5F1F4A8DCE00567FB8 /* YDBundle.m in Sources */,
 				412B18841F467F5400028F3B /* YDBridgeWebViewController.m in Sources */,
 				4D6D8FCC1C60E35800003AA0 /* main.m in Sources */,
+				416D391B1F500B9E00083EAD /* YDBgMediaMgr.m in Sources */,
 				412B187F1F467F5400028F3B /* UIViewController+YDNavigation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

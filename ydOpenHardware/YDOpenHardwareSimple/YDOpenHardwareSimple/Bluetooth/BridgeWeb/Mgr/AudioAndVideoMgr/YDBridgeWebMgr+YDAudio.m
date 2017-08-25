@@ -13,6 +13,7 @@
 #import "YDAudioVideoMgr.h"
 #import "YDBackgroundMediaMgr.h"
 #import <AVFoundation/AVFoundation.h>
+#import "YDBgMediaMgr.h"
 
 @implementation YDBridgeWebMgr (YDAudio)
 
@@ -51,8 +52,11 @@
 //    [mgr.player play];
 //    [mgr playControl];
 //    [mgr createRemoteCommandCenter];
-    [[YDBackgroundMediaMgr shared] setLockPlayerWithInfo:audio];
-    [[YDBackgroundMediaMgr shared] createRemoteCommandCenter];
+//    [[YDBackgroundMediaMgr shared] setLockPlayerWithInfo:audio];
+//    [[YDBackgroundMediaMgr shared] createRemoteCommandCenter];
+    [[YDBgMediaMgr shared] setLockPlayerWithInfo:audio];
+    [[YDBgMediaMgr shared] createRemoteCommandCenter];
+    
 }
 
 - (void)onAudioAndVideoInfos:(id)infos {
