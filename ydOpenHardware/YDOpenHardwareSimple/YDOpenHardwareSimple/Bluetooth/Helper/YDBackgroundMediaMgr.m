@@ -198,6 +198,15 @@
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:YES error:nil];
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    UInt32 allowMixWithOthers = YES;
+    OSStatus result = AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryMixWithOthers,sizeof(allowMixWithOthers), &allowMixWithOthers);
+    if (result) {
+        char x[4];
+        memcpy(x, &result, sizeof(OSStatus));
+        NSLog(@"AudioSessionSetProperty error %c %c %c %c", x[0],x[1],x[2],x[3]);
+    }
+//    AVAudioSessionCategoryOptionDuckOthers
+//    [session setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:nil];
 }
 
 - (void)setLockPlayerInfo {
@@ -299,7 +308,6 @@
     }
     
     if (isShow) {
-        
         //制作带歌词的海报
         if (!_lrcImageView) {
             _lrcImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 480,800)];
@@ -317,7 +325,6 @@
         ircImage = UIGraphicsGetImageFromCurrentImageContext();
         _lastImage = ircImage;
         UIGraphicsEndImageContext();
-        
     }else{
         if (_lastImage) {
             ircImage = _lastImage;
