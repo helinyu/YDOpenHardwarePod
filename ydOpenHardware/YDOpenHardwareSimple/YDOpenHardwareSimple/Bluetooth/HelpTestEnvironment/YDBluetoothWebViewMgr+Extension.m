@@ -17,7 +17,7 @@
 
 - (void)registerExtension {
     NSLog(@"注册额外的内容");
-    
+
     //    for test yuedong own band
     __weak typeof (self) wSelf = self;
     

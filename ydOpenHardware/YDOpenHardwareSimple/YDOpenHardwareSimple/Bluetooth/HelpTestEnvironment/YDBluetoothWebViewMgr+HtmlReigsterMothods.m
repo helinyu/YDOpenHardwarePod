@@ -10,7 +10,6 @@
 
 @implementation YDBluetoothWebViewMgr (HtmlReigsterMothods)
 
-
 - (void)registerYuedongCycle {
     NSLog(@"register yuedong cycle");
 }
@@ -18,6 +17,5 @@
 - (void)registerYuedongHand {
     NSLog(@"resiger yuedong cycle");
 }
-
 
 @end

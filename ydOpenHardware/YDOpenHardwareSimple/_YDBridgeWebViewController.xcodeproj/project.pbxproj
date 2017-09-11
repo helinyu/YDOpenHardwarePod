@@ -9,14 +9,6 @@
 /* Begin PBXBuildFile section */
 		11B82CCA432A7146826C13A1 /* libPods-YDOpenHardwareSimpleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C8C5E839CF20EF2B5AE7FF /* libPods-YDOpenHardwareSimpleTests.a */; };
 		2D2143ECDF59385822D67DEA /* libPods-YDOpenHardwareSimpleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A01A50428189855CC78A48 /* libPods-YDOpenHardwareSimpleUITests.a */; };
-		411BD2FF1F42883300D8CB9A /* peripheralList.html in Resources */ = {isa = PBXBuildFile; fileRef = 411BD2F81F42881C00D8CB9A /* peripheralList.html */; };
-		411BD3001F42883300D8CB9A /* S3.html in Resources */ = {isa = PBXBuildFile; fileRef = 411BD2F91F42881C00D8CB9A /* S3.html */; };
-		411BD3011F42883300D8CB9A /* YDDatabaseOperation.html in Resources */ = {isa = PBXBuildFile; fileRef = 411BD2FA1F42881C00D8CB9A /* YDDatabaseOperation.html */; };
-		411BD3021F42883300D8CB9A /* YDHeartRateDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 411BD2FB1F42881C00D8CB9A /* YDHeartRateDetail.html */; };
-		411BD3031F42883300D8CB9A /* YDPeripheralDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 411BD2FC1F42881C00D8CB9A /* YDPeripheralDetail.html */; };
-		411BD3041F42883300D8CB9A /* YDPeripheralList.html in Resources */ = {isa = PBXBuildFile; fileRef = 411BD2FD1F42881C00D8CB9A /* YDPeripheralList.html */; };
-		411BD3051F42883300D8CB9A /* YDSleepDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 411BD2FE1F42881C00D8CB9A /* YDSleepDetail.html */; };
-		411BD3101F42C47E00D8CB9A /* YDSetting.html in Resources */ = {isa = PBXBuildFile; fileRef = 411BD30F1F42C47800D8CB9A /* YDSetting.html */; };
 		411ED0D51F308B7C0041909A /* ViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D8FD01C60E35800003AA0 /* ViewController.h */; };
 		412B184E1F467E3A00028F3B /* YDBlueToothMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B184D1F467E3A00028F3B /* YDBlueToothMgr.m */; };
 		412B187F1F467F5400028F3B /* UIViewController+YDNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B186E1F467F5400028F3B /* UIViewController+YDNavigation.m */; };
@@ -32,6 +24,14 @@
 		413313CD1F46BA7900027D2B /* YDBluetoothWebViewMgr+ReadDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = 413313CC1F46BA7900027D2B /* YDBluetoothWebViewMgr+ReadDatas.m */; };
 		413313D01F46E40400027D2B /* YDBluetoothWebViewMgr+DB.m in Sources */ = {isa = PBXBuildFile; fileRef = 413313CF1F46E40400027D2B /* YDBluetoothWebViewMgr+DB.m */; };
 		413313DD1F46F6E700027D2B /* YDBluetoothWebViewMgr+Tel.m in Sources */ = {isa = PBXBuildFile; fileRef = 413313DC1F46F6E700027D2B /* YDBluetoothWebViewMgr+Tel.m */; };
+		414B72A11F667461001FEEE0 /* peripheralList.html in Resources */ = {isa = PBXBuildFile; fileRef = 414B72991F667461001FEEE0 /* peripheralList.html */; };
+		414B72A21F667461001FEEE0 /* S3.html in Resources */ = {isa = PBXBuildFile; fileRef = 414B729A1F667461001FEEE0 /* S3.html */; };
+		414B72A31F667461001FEEE0 /* YDDatabaseOperation.html in Resources */ = {isa = PBXBuildFile; fileRef = 414B729B1F667461001FEEE0 /* YDDatabaseOperation.html */; };
+		414B72A41F667461001FEEE0 /* YDHeartRateDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 414B729C1F667461001FEEE0 /* YDHeartRateDetail.html */; };
+		414B72A51F667461001FEEE0 /* YDPeripheralDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 414B729D1F667461001FEEE0 /* YDPeripheralDetail.html */; };
+		414B72A61F667461001FEEE0 /* YDPeripheralList.html in Resources */ = {isa = PBXBuildFile; fileRef = 414B729E1F667461001FEEE0 /* YDPeripheralList.html */; };
+		414B72A71F667461001FEEE0 /* YDSetting.html in Resources */ = {isa = PBXBuildFile; fileRef = 414B729F1F667461001FEEE0 /* YDSetting.html */; };
+		414B72A81F667461001FEEE0 /* YDSleepDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 414B72A01F667461001FEEE0 /* YDSleepDetail.html */; };
 		415A54DF1F344B3A00BD61EA /* YDOpenHardwareCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415A54DD1F344AD700BD61EA /* YDOpenHardwareCore.framework */; };
 		415A54E01F344B3A00BD61EA /* YDOpenHardwareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415A54DE1F344AD700BD61EA /* YDOpenHardwareSDK.framework */; };
 		4182B02D1F45E1B7001A86EC /* CBService+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4182B01A1F45E1B7001A86EC /* CBService+YYModel.m */; };
@@ -91,14 +91,6 @@
 /* Begin PBXFileReference section */
 		203E60A830441E97B860412C /* Pods-YDOpenHardwareSimple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDOpenHardwareSimple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YDOpenHardwareSimple/Pods-YDOpenHardwareSimple.debug.xcconfig"; sourceTree = "<group>"; };
 		2F1AFCFF58DC1882D940A5DC /* Pods-YDOpenHardwareSimpleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDOpenHardwareSimpleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YDOpenHardwareSimpleTests/Pods-YDOpenHardwareSimpleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		411BD2F81F42881C00D8CB9A /* peripheralList.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = peripheralList.html; sourceTree = "<group>"; };
-		411BD2F91F42881C00D8CB9A /* S3.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = S3.html; sourceTree = "<group>"; };
-		411BD2FA1F42881C00D8CB9A /* YDDatabaseOperation.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDDatabaseOperation.html; sourceTree = "<group>"; };
-		411BD2FB1F42881C00D8CB9A /* YDHeartRateDetail.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDHeartRateDetail.html; sourceTree = "<group>"; };
-		411BD2FC1F42881C00D8CB9A /* YDPeripheralDetail.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDPeripheralDetail.html; sourceTree = "<group>"; };
-		411BD2FD1F42881C00D8CB9A /* YDPeripheralList.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDPeripheralList.html; sourceTree = "<group>"; };
-		411BD2FE1F42881C00D8CB9A /* YDSleepDetail.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDSleepDetail.html; sourceTree = "<group>"; };
-		411BD30F1F42C47800D8CB9A /* YDSetting.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDSetting.html; sourceTree = "<group>"; };
 		411ED0B01F3080DB0041909A /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YDOpenHardwareSDK.framework; path = ../../../../Desktop/thirdpath/YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
 		411ED0B11F3080DB0041909A /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
 		412B184C1F467E3A00028F3B /* YDBlueToothMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBlueToothMgr.h; sourceTree = "<group>"; };
@@ -129,6 +121,14 @@
 		413313CF1F46E40400027D2B /* YDBluetoothWebViewMgr+DB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YDBluetoothWebViewMgr+DB.m"; sourceTree = "<group>"; };
 		413313DB1F46F6E700027D2B /* YDBluetoothWebViewMgr+Tel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YDBluetoothWebViewMgr+Tel.h"; sourceTree = "<group>"; };
 		413313DC1F46F6E700027D2B /* YDBluetoothWebViewMgr+Tel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YDBluetoothWebViewMgr+Tel.m"; sourceTree = "<group>"; };
+		414B72991F667461001FEEE0 /* peripheralList.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = peripheralList.html; sourceTree = "<group>"; };
+		414B729A1F667461001FEEE0 /* S3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = S3.html; sourceTree = "<group>"; };
+		414B729B1F667461001FEEE0 /* YDDatabaseOperation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YDDatabaseOperation.html; sourceTree = "<group>"; };
+		414B729C1F667461001FEEE0 /* YDHeartRateDetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YDHeartRateDetail.html; sourceTree = "<group>"; };
+		414B729D1F667461001FEEE0 /* YDPeripheralDetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YDPeripheralDetail.html; sourceTree = "<group>"; };
+		414B729E1F667461001FEEE0 /* YDPeripheralList.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YDPeripheralList.html; sourceTree = "<group>"; };
+		414B729F1F667461001FEEE0 /* YDSetting.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YDSetting.html; sourceTree = "<group>"; };
+		414B72A01F667461001FEEE0 /* YDSleepDetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YDSleepDetail.html; sourceTree = "<group>"; };
 		415A54DD1F344AD700BD61EA /* YDOpenHardwareCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareCore.framework; sourceTree = "<group>"; };
 		415A54DE1F344AD700BD61EA /* YDOpenHardwareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDOpenHardwareSDK.framework; sourceTree = "<group>"; };
 		4182B0191F45E1B7001A86EC /* CBService+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBService+YYModel.h"; sourceTree = "<group>"; };
@@ -223,21 +223,6 @@
 				80DC7CEA71F6A7E0D11A7DC2 /* Pods-YDOpenHardwareSimpleUITests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		411BD2F71F42881C00D8CB9A /* html */ = {
-			isa = PBXGroup;
-			children = (
-				411BD30F1F42C47800D8CB9A /* YDSetting.html */,
-				411BD2F81F42881C00D8CB9A /* peripheralList.html */,
-				411BD2F91F42881C00D8CB9A /* S3.html */,
-				411BD2FA1F42881C00D8CB9A /* YDDatabaseOperation.html */,
-				411BD2FB1F42881C00D8CB9A /* YDHeartRateDetail.html */,
-				411BD2FC1F42881C00D8CB9A /* YDPeripheralDetail.html */,
-				411BD2FD1F42881C00D8CB9A /* YDPeripheralList.html */,
-				411BD2FE1F42881C00D8CB9A /* YDSleepDetail.html */,
-			);
-			path = html;
 			sourceTree = "<group>";
 		};
 		412B186C1F467F5400028F3B /* BridgeWeb */ = {
@@ -335,6 +320,21 @@
 			path = Bundle;
 			sourceTree = "<group>";
 		};
+		414B72981F667461001FEEE0 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				414B72991F667461001FEEE0 /* peripheralList.html */,
+				414B729A1F667461001FEEE0 /* S3.html */,
+				414B729B1F667461001FEEE0 /* YDDatabaseOperation.html */,
+				414B729C1F667461001FEEE0 /* YDHeartRateDetail.html */,
+				414B729D1F667461001FEEE0 /* YDPeripheralDetail.html */,
+				414B729E1F667461001FEEE0 /* YDPeripheralList.html */,
+				414B729F1F667461001FEEE0 /* YDSetting.html */,
+				414B72A01F667461001FEEE0 /* YDSleepDetail.html */,
+			);
+			path = html;
+			sourceTree = "<group>";
+		};
 		415A54DC1F344AD700BD61EA /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,7 +353,6 @@
 				413313D11F46E43D00027D2B /* Category */,
 				412B186C1F467F5400028F3B /* BridgeWeb */,
 				4182B0141F45E14B001A86EC /* BLE */,
-				411BD2F71F42881C00D8CB9A /* html */,
 			);
 			path = Bluetooth;
 			sourceTree = "<group>";
@@ -400,6 +399,7 @@
 				4D6D8FD01C60E35800003AA0 /* ViewController.h */,
 				4D6D8FD11C60E35800003AA0 /* ViewController.m */,
 				4D6D8FD31C60E35800003AA0 /* Main.storyboard */,
+				414B72981F667461001FEEE0 /* html */,
 				415A54DC1F344AD700BD61EA /* Framework */,
 				415C6AAF1F305D7E007BE9DA /* Bluetooth */,
 				4D6D8FD61C60E35900003AA0 /* Assets.xcassets */,
@@ -566,18 +566,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				411BD3101F42C47E00D8CB9A /* YDSetting.html in Resources */,
+				414B72A21F667461001FEEE0 /* S3.html in Resources */,
+				414B72A41F667461001FEEE0 /* YDHeartRateDetail.html in Resources */,
 				412B18861F467F5400028F3B /* YDRegisterInteractiveHtmlMethods.plist in Resources */,
-				411BD2FF1F42883300D8CB9A /* peripheralList.html in Resources */,
-				411BD3001F42883300D8CB9A /* S3.html in Resources */,
-				411BD3011F42883300D8CB9A /* YDDatabaseOperation.html in Resources */,
-				411BD3021F42883300D8CB9A /* YDHeartRateDetail.html in Resources */,
-				411BD3031F42883300D8CB9A /* YDPeripheralDetail.html in Resources */,
-				411BD3041F42883300D8CB9A /* YDPeripheralList.html in Resources */,
-				411BD3051F42883300D8CB9A /* YDSleepDetail.html in Resources */,
 				4D6D8FDA1C60E35900003AA0 /* LaunchScreen.storyboard in Resources */,
 				4D6D8FD71C60E35900003AA0 /* Assets.xcassets in Resources */,
+				414B72A31F667461001FEEE0 /* YDDatabaseOperation.html in Resources */,
+				414B72A81F667461001FEEE0 /* YDSleepDetail.html in Resources */,
+				414B72A11F667461001FEEE0 /* peripheralList.html in Resources */,
+				414B72A71F667461001FEEE0 /* YDSetting.html in Resources */,
+				414B72A51F667461001FEEE0 /* YDPeripheralDetail.html in Resources */,
 				4D6D8FD51C60E35800003AA0 /* Main.storyboard in Resources */,
+				414B72A61F667461001FEEE0 /* YDPeripheralList.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

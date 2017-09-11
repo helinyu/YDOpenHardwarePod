@@ -226,7 +226,7 @@
     [self registerDBHandles];
     [self registerExtension];
     [self initTelCallHandle];
-    [self loadPlistRegisterMethods];
+//    [self loadPlistRegisterMethods];
     __weak typeof (self) wSelf = self;
 
     //write data
