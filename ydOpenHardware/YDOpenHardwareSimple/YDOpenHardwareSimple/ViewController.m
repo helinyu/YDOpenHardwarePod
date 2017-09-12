@@ -31,11 +31,12 @@
 }
 
 - (IBAction)toThirdPartVC:(id)sender {
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"YDPeripheralList.html" ofType:nil];
-//    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"YDPeripheralList.html" ofType:nil];
+    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     
     YDBridgeWebViewController *vc = [YDBridgeWebViewController new];
-    vc.urlString = @"http://192.168.11.127:8000/bluetoothhtml/YDPeripheralList.html";
+//    vc.urlString = @"http://192.168.11.127:8000/bluetoothhtml/YDPeripheralList.html";
+    vc.urlString = htmlString;
     vc.type = YDWebViewTypeBluetooth;
     vc.bluetoothBusinessType = 0;
     [self.navigationController pushViewController:vc animated:YES];
